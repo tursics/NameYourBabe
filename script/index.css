@@ -1,0 +1,335 @@
+﻿/* blue                yellow              red (Triadic Color)
+   rgb(69, 111, 154)   rgb(247, 201, 66)   rgb(154,69,111)
+   rgb(111, 172, 213)  rgb(252, 237, 167)  rgb(213,111,172)
+   rgb(73, 123, 174)   rgb(251, 239, 126)  rgb(174,73,123)
+   rgb(94, 135, 176)   rgb(250, 219, 78)   rgb(176,94,135)
+   rgb(255, 255, 255)  rgb(51, 51, 51)     rgb(255, 255, 255)
+   rgb(62, 103, 144)   rgb(255, 255, 255)  rgb(144,62,103)
+*/
+
+.ui-bar-b {
+    border: 1px solid rgb(69, 111, 154);
+    background: -webkit-linear-gradient(rgb(111, 172, 213), rgb(73, 123, 174)) repeat scroll 0% 0% rgb(94, 135, 176);
+    background: -moz-linear-gradient(rgb(111, 172, 213), rgb(73, 123, 174)) repeat scroll 0% 0% rgb(94, 135, 176);
+    background: -ms-linear-gradient(rgb(111, 172, 213), rgb(73, 123, 174)) repeat scroll 0% 0% rgb(94, 135, 176);
+    background: -o-linear-gradient(rgb(111, 172, 213), rgb(73, 123, 174)) repeat scroll 0% 0% rgb(94, 135, 176);
+    background: linear-gradient(rgb(111, 172, 213), rgb(73, 123, 174)) repeat scroll 0% 0% rgb(94, 135, 176);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 1px 1px rgb(62, 103, 144);
+}
+.ui-bar-e {
+    border: 1px solid rgb(154,69,111);
+    background: -webkit-linear-gradient(rgb(213,111,172), rgb(174,73,123)) repeat scroll 0% 0% rgb(176,94,135);
+    background: -moz-linear-gradient(rgb(213,111,172), rgb(174,73,123)) repeat scroll 0% 0% rgb(176,94,135);
+    background: -ms-linear-gradient(rgb(213,111,172), rgb(174,73,123)) repeat scroll 0% 0% rgb(176,94,135);
+    background: -o-linear-gradient(rgb(213,111,172), rgb(174,73,123)) repeat scroll 0% 0% rgb(176,94,135);
+    background: linear-gradient(rgb(213,111,172), rgb(174,73,123)) repeat scroll 0% 0% rgb(176,94,135);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 1px 0px rgb(144,62,103);
+}
+
+/* blue                yellow              red (Triadic Color)
+   rgb(4, 64, 98)      rgb(244, 198, 63)   rgb(98,4,64)
+   rgb(95, 156, 197)   rgb(255, 239, 170)  rgb(197,95,156)
+   rgb(57, 107, 158)   rgb(255, 225, 85)   rgb(158,57,107)
+   rgb(57, 107, 158)   rgb(250, 219, 78)   rgb(158,57,107)
+   rgb(255, 255, 255)  rgb(34, 34, 34)     rgb(255, 255, 255)
+   rgb(25, 75, 126)    rgb(255, 255, 255)  rgb(25,75,126)
+   rgb(0, 65, 94)      rgb(242,196,61)     rgb(94,0,65)
+   rgb(75,136,182)     rgb(251,226,111)    rgb(182,75,136)
+*/
+
+.ui-btn-up-b {
+    border: 1px solid rgb(4, 64, 98);
+    background: -webkit-linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+    background: -moz-linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+    background: -ms-linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+    background: -o-linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+    background: linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 1px 1px rgb(25, 75, 126);
+}
+.ui-btn-up-b:visited,.ui-btn-up-b a.ui-link-inherit{
+	color: rgb(255, 255, 255);
+}
+.ui-btn-up-e {
+    border: 1px solid rgb(98,4,64);
+    background: -webkit-linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    background: -moz-linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    background: -ms-linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    background: -o-linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    background: linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 1px 0px rgb(25,75,126);
+}
+.ui-btn-up-e:visited,.ui-btn-up-e a.ui-link-inherit{
+	color: rgb(255, 255, 255);
+}
+
+
+.ui-btn-hover-b{
+	border: 1px solid rgb(0, 65, 94);
+	background: rgb(75,136,182);
+	color: rgb(255,255,255);
+	text-shadow: 0 1px 1px rgb(25,75,126);
+}
+.ui-btn-hover-b:visited,.ui-btn-hover-b:hover,.ui-btn-hover-b a.ui-link-inherit{
+	color: rgb(255,255,255);
+}
+.ui-btn-hover-e{
+	border: 1px solid rgb(94,0,65);
+	background: rgb(182,75,136);
+	color: rgb(255,255,255);
+	text-shadow: 0 1px 0 rgb(126,25,75);
+}
+.ui-btn-hover-e:visited,.ui-btn-hover-e:hover,.ui-btn-hover-e a.ui-link-inherit{
+	color: rgb(255,255,255);
+}
+
+
+.ui-btn-down-b{
+	border:1px solid rgb(34,83,119);
+	background:rgb(78,137,197);
+	color:rgb(255,255,255);
+	text-shadow:0 1px 1px rgb(25,75,126);
+}
+.ui-btn-down-b:visited,.ui-btn-down-b:hover,.ui-btn-down-b a.ui-link-inherit{
+	color:rgb(255,255,255)
+}
+.ui-btn-down-e{
+	border:1px solid rgb(119,34,83);
+	background:rgb(197,78,137);
+	color:rgb(255,255,255);
+	text-shadow:0 1px 0 rgb(126,25,75);
+}
+.ui-btn-down-e:visited,.ui-btn-down-e:hover,.ui-btn-down-e a.ui-link-inherit{
+	color:rgb(255,255,255)
+}
+
+/* blue                yellow              red (Triadic Color)
+*/
+
+.ui-body-b, .ui-overlay-b {
+    border: 1px solid rgb(153, 153, 153);
+    background: -webkit-linear-gradient(rgb(221, 221, 221), rgb(111, 172, 213)) repeat scroll 0% 0% rgb(243, 243, 243);
+    background: -moz-linear-gradient(rgb(221, 221, 221), rgb(111, 172, 213)) repeat scroll 0% 0% rgb(243, 243, 243);
+    background: -ms-linear-gradient(rgb(221, 221, 221), rgb(111, 172, 213)) repeat scroll 0% 0% rgb(243, 243, 243);
+    background: -o-linear-gradient(rgb(221, 221, 221), rgb(111, 172, 213)) repeat scroll 0% 0% rgb(243, 243, 243);
+    background: linear-gradient(rgb(221, 221, 221), rgb(111, 172, 213)) repeat scroll 0% 0% rgb(243, 243, 243);
+    color: rgb(34, 34, 34);
+    text-shadow: 0px 1px 0px rgb(255, 255, 255);
+}
+.ui-body-e, .ui-overlay-e {
+    border: 1px solid rgb(153, 153, 153);
+    background: -webkit-linear-gradient(rgb(221, 221, 221), rgb(213,111,172)) repeat scroll 0% 0% rgb(243, 243, 243);
+    background: -moz-linear-gradient(rgb(221, 221, 221), rgb(213,111,172)) repeat scroll 0% 0% rgb(243, 243, 243);
+    background: -ms-linear-gradient(rgb(221, 221, 221), rgb(213,111,172)) repeat scroll 0% 0% rgb(243, 243, 243);
+    background: -o-linear-gradient(rgb(221, 221, 221), rgb(213,111,172)) repeat scroll 0% 0% rgb(243, 243, 243);
+    background: linear-gradient(rgb(221, 221, 221), rgb(213,111,172)) repeat scroll 0% 0% rgb(243, 243, 243);
+    color: rgb(34, 34, 34);
+    text-shadow: 0px 1px 0px rgb(255, 255, 255);
+}
+
+
+.ui-li-poiicon {
+    max-height:32px;
+    max-width:32px;
+    left:8px;
+    top:8px;
+}
+
+.ui-li-poilink {
+	padding-top:8px !important;
+	padding-bottom:8px !important;
+	padding-left:53px !important;
+	min-height:32px !important;
+}
+
+.ui-li-favlink {
+	margin:16px 38px 16px 10px;
+	max-height:20px;
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+
+.ui-li-searchalt {
+	margin-bottom:0;
+	white-space:normal;
+}
+.ui-li-searchfav {
+	margin-top:6px;
+}
+.ui-li-searchhead {
+	margin-top:0;
+}
+.ui-li-iconbabyb {
+	background:url('../art/list-babyb.png');
+}
+.ui-li-iconbabye {
+	background:url('../art/list-babye.png');
+}
+.ui-li-iconbabyb, .ui-li-iconbabye {
+	background-repeat:no-repeat;
+	background-position:8px 8px;
+	background-size:32px 32px;
+}
+.ui-li-iconfav0 {
+	background:url('../art/list-fav0.png');
+}
+.ui-li-iconfav1 {
+	background:url('../art/list-fav1.png');
+}
+.ui-li-iconfav2 {
+	background:url('../art/list-fav2.png');
+}
+.ui-li-iconfav3 {
+	background:url('../art/list-fav3.png');
+}
+.ui-li-iconfav4 {
+	background:url('../art/list-fav4.png');
+}
+.ui-li-iconfav5 {
+	background:url('../art/list-fav5.png');
+}
+.ui-li-iconfav0, .ui-li-iconfav1, .ui-li-iconfav2, .ui-li-iconfav3, .ui-li-iconfav4, .ui-li-iconfav5 {
+	background-repeat:no-repeat;
+	background-position:right 22px;
+	background-size:32px 20px;
+}
+
+/* iOS button background and borders color
+*/
+a.myBackButton {
+	border: none;
+}
+
+a.myBackButton .ui-btn-corner-all {
+	border: 1px solid rgba(0,0,0,0.4);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#9fb3cc), to(#5b80ab), color-stop(0.5, #6b8bb2), color-stop(0.51, #597eaa));
+	background: -webkit-linear-gradient(top, #9fb3cc 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	background: -moz-linear-gradient(top, #9fb3cc 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	background: -ms-linear-gradient(top, #9fb3cc 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	background: -o-linear-gradient(top, #9fb3cc 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	background: linear-gradient(top, #9fb3cc 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.25), inset 0 1px 1px rgba(0,0,0, 0.2);
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255, 0.25), inset 0 1px 1px rgba(0,0,0, 0.2);
+	-ms-box-shadow: 0 1px 0 rgba(255,255,255, 0.25), inset 0 1px 1px rgba(0,0,0, 0.2);
+	-o-box-shadow: 0 1px 0 rgba(255,255,255, 0.25), inset 0 1px 1px rgba(0,0,0, 0.2);
+	box-shadow: 0 1px 0 rgba(255,255,255, 0.25), inset 0 1px 1px rgba(0,0,0, 0.2);
+	overflow: visible;
+	padding-left: 8px !important;
+	padding-right: 8px !important;
+}
+
+a.myBackButton.ui-shadow, a.myBackButton {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+	-webkit-background-clip: none;
+	-moz-background-clip: none;
+	-ms-background-clip: none;
+	-o-background-clip: none;
+	background-clip: none;
+	color: white;
+	font-weight: bold;
+	top: 5px;
+	text-decoration: none;
+	text-shadow: 0 -1px 0 rgba(0,0,0, 0.4);
+}
+
+a.myBackButton.ui-btn-left {
+	left: 14px;
+}
+
+a.myBackButton.ui-btn-left .ui-btn-corner-all {
+	padding-left: 5px !important;
+}
+
+a.myBackButton .ios-tip {
+	float: left;
+	left: -9px;
+	top: 4px;
+	position: absolute;
+	-webkit-transform: scale(.7, 1.0);
+	-moz-transform: scale(.7, 1.0);
+	-ms-transform: scale(.7, 1.0);
+	-o-transform: scale(.7, 1.0);
+	transform: scale(.7, 1.0);
+}
+
+a.myBackButton .ios-tip span {
+	display: block;
+	width: 18px;
+	height: 18px;
+	border: 2px solid rgba(0,0,0, 0.4);
+	border-right: 0;
+	border-top: 0;
+	background: -webkit-gradient(linear, left top, right bottom, from(#94a8c2), to(#5b80ab), color-stop(0.5, #6b8bb2), color-stop(0.51, #597eaa));
+	background: -webkit-linear-gradient(top, #94a8c2 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	background: -moz-linear-gradient(top, #94a8c2 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	background: -ms-linear-gradient(top, #94a8c2 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	background: -o-linear-gradient(top, #94a8c2 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	background: linear-gradient(top, #94a8c2 0%, #6b8bb2 50%, #597eaa 51%, #5b80ab 100%);
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	-ms-border-radius: 1px;
+	-o-border-radius: 1px;
+	border-radius: 1px;
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.25);
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255, 0.25);
+	-ms-box-shadow: 0 1px 0 rgba(255,255,255, 0.25);
+	-o-box-shadow: 0 1px 0 rgba(255,255,255, 0.25);
+	box-shadow: 0 1px 0 rgba(255,255,255, 0.25);
+	-webkit-transform: rotate(45deg) scale(.9, .9);
+	-moz-transform: rotate(45deg) scale(.9, .9);
+	-ms-transform: rotate(45deg) scale(.9, .9);
+	-o-transform: rotate(45deg) scale(.9, .9);
+	transform: rotate(45deg) scale(.9, .9);
+}
+
+.ui-header .ui-title, .ui-footer .ui-title {
+    margin-left:20%;
+    margin-right:20%;
+}
+
+a.myBackButton.ui-btn-up-b .ui-btn-corner-all, a.myBackButton.ui-btn-up-b .ios-tip span {
+	background: -webkit-gradient(linear, left top, left bottom, from(rgb(111, 172, 213)), to(rgb(73, 123, 174)), color-stop(0.5, rgb(73, 123, 174)), color-stop(0.51, rgb(57, 107, 158)));
+	background: -webkit-linear-gradient(top, rgb(111, 172, 213) 0%, rgb(73, 123, 174) 50%, rgb(57, 107, 158) 51%, rgb(73, 123, 174) 100%);
+	background: -moz-linear-gradient(top, rgb(111, 172, 213) 0%, rgb(73, 123, 174) 50%, rgb(57, 107, 158) 51%, rgb(73, 123, 174) 100%);
+	background: -ms-linear-gradient(top, rgb(111, 172, 213) 0%, rgb(73, 123, 174) 50%, rgb(57, 107, 158) 51%, rgb(73, 123, 174) 100%);
+	background: -o-linear-gradient(top, rgb(111, 172, 213) 0%, rgb(73, 123, 174) 50%, rgb(57, 107, 158) 51%, rgb(73, 123, 174) 100%);
+	background: linear-gradient(top, rgb(111, 172, 213) 0%, rgb(73, 123, 174) 50%, rgb(57, 107, 158) 51%, rgb(73, 123, 174) 100%);
+}
+
+a.myBackButton.ui-btn-up-e .ui-btn-corner-all, a.myBackButton.ui-btn-up-e .ios-tip span {
+	background: -webkit-gradient(linear, left top, left bottom, from(rgb(213,111,172)), to(rgb(174,73,123)), color-stop(0.5, rgb(174,73,123)), color-stop(0.51, rgb(158,57,107)));
+	background: -webkit-linear-gradient(top, rgb(213,111,172) 0%, rgb(174,73,123) 50%, rgb(158,57,107) 51%, rgb(174,73,123) 100%);
+	background: -moz-linear-gradient(top, rgb(213,111,172) 0%, rgb(174,73,123) 50%, rgb(158,57,107) 51%, rgb(174,73,123) 100%);
+	background: -ms-linear-gradient(top, rgb(213,111,172) 0%, rgb(174,73,123) 50%, rgb(158,57,107) 51%, rgb(174,73,123) 100%);
+	background: -o-linear-gradient(top, rgb(213,111,172) 0%, rgb(174,73,123) 50%, rgb(158,57,107) 51%, rgb(174,73,123) 100%);
+	background: linear-gradient(top, rgb(213,111,172) 0%, rgb(174,73,123) 50%, rgb(158,57,107) 51%, rgb(174,73,123) 100%);
+}
+
+#pageWebView {
+	padding:0 !important;
+}
+
+#pageWebView .ui-dialog-contain {
+	margin:0;
+	max-width:99.5%;
+	padding:0;
+	top:0;
+	width:99.5%;
+}
+
+#pageWebView iframe {
+	border:0;
+}

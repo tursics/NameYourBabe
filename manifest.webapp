@@ -1,0 +1,34 @@
+{
+	"version": "1.11",
+
+	"name": "Name your babe",
+	"description": "Name your babe - The encyclopedia of names, to find THE name for your baby.",
+	"developer": {
+		"name": "Thomas Tursics",
+		"url": "http://www.tursics.de"
+	},
+	"locales": {
+		"de": {
+			"name": "Baby benamsen",
+			"description": "Baby benamsen - Das Namenslexikon, um DEN Namen fuer dein Baby zu finden."
+		}
+	},
+	"default_locale": "en",
+
+	"launch_path": "/index.html",
+	"icons": {
+		"16": "/art/iconMozilla16.png",
+		"30": "/art/iconMozilla30.png",
+		"32": "/art/iconMozilla32.png",
+		"48": "/art/iconMozilla48.png",
+		"60": "/art/iconMozilla60.png",
+		"64": "/art/iconMozilla64.png",
+		"90": "/art/iconMozilla90.png",
+		"128": "/art/iconMozilla128.png",
+		"120": "/art/iconMozilla120.png",
+		"256": "/art/iconMozilla256.png"
+	},
+	"installs_allowed_from": [
+		"*"
+	]
+}
