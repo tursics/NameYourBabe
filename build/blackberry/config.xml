@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="2.0.0" id="NameYourBabe">
+
+	<author href="http://www.tursics.de/" rim:copyright="Copyright 2012-2013 Thomas Tursics">Thomas Tursics</author>
+	<name>Name your babe</name>
+	<description>Name your babe - The encyclopedia of names, to find THE name for your baby.</description>
+
+	<rim:permissions>
+		<rim:permit>access_shared</rim:permit>
+	</rim:permissions>
+
+	<icon src="art/icon-bb-150.png"/>
+
+	<content src="index.html" rim:allowInvokeParams="true"/>
+
+	<feature id="blackberry.ui.dialog"/>
+	<feature id="blackberry.system.event" />
+	<feature id="blackberry.app">
+		<param name="backgroundColor" value="0xFFFF0000" />
+	</feature>
+	<feature id="blackberry.app.event"/>
+
+	<feature id="blackberry.app">
+    	<param name="orientation" value="auto" />
+	</feature>
+	<feature id="blackberry.app.orientation">
+		<param name="mode" value="auto"/>
+	</feature>
+	<rim:orientation mode="auto"/>
+
+	<rim:navigation mode="focus" />
+
+	<access uri="*" subdomains="true"/>
+</widget>
