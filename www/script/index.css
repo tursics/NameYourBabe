@@ -1,0 +1,419 @@
+﻿/* blue                yellow              red (Triadic Color)
+   rgb(69, 111, 154)   rgb(247, 201, 66)   rgb(154,69,111)
+   rgb(111, 172, 213)  rgb(252, 237, 167)  rgb(213,111,172)
+   rgb(73, 123, 174)   rgb(251, 239, 126)  rgb(174,73,123)
+   rgb(94, 135, 176)   rgb(250, 219, 78)   rgb(176,94,135)
+   rgb(255, 255, 255)  rgb(51, 51, 51)     rgb(255, 255, 255)
+   rgb(62, 103, 144)   rgb(255, 255, 255)  rgb(144,62,103)
+*/
+
+body, input, select, textarea, button, .ui-btn {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+/* iOS 7 */
+.ui-bar-c {
+	border-color: rgb(69, 111, 154);
+	background: rgb(111, 172, 213);
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 1px 0 rgb(62, 103, 144);
+}
+
+/* iOS 7 */
+.ui-bar-d {
+	border-color: rgb(154,69,111);
+	background: rgb(213,111,172);
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 1px 0px rgb(144,62,103);
+}
+
+/* blue                yellow              red (Triadic Color)
+   rgb(4, 64, 98)      rgb(244, 198, 63)   rgb(98,4,64)
+   rgb(95, 156, 197)   rgb(255, 239, 170)  rgb(197,95,156)
+   rgb(57, 107, 158)   rgb(255, 225, 85)   rgb(158,57,107)
+   rgb(57, 107, 158)   rgb(250, 219, 78)   rgb(158,57,107)
+   rgb(255, 255, 255)  rgb(34, 34, 34)     rgb(255, 255, 255)
+   rgb(25, 75, 126)    rgb(255, 255, 255)  rgb(25,75,126)
+   rgb(0, 65, 94)      rgb(242,196,61)     rgb(94,0,65)
+   rgb(75,136,182)     rgb(251,226,111)    rgb(182,75,136)
+*/
+
+.ui-btn-up-c {
+	border: 1px solid rgb(4, 64, 98);
+	background: -webkit-linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+	background: -moz-linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+	background: -ms-linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+	background: -o-linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+	background: linear-gradient(rgb(95, 156, 197), rgb(57, 107, 158)) repeat scroll 0% 0% rgb(57, 107, 158);
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 1px 1px rgb(25, 75, 126);
+}
+.ui-btn-up-c:visited,.ui-btn-up-c a.ui-link-inherit{
+	color: rgb(255, 255, 255);
+}
+.ui-btn-up-e {
+    border: 1px solid rgb(98,4,64);
+    background: -webkit-linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    background: -moz-linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    background: -ms-linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    background: -o-linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    background: linear-gradient(rgb(197,95,156), rgb(158,57,107)) repeat scroll 0% 0% rgb(158,57,107);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 1px 0px rgb(25,75,126);
+}
+.ui-btn-up-e:visited,.ui-btn-up-e a.ui-link-inherit{
+	color: rgb(255, 255, 255);
+}
+
+
+.ui-btn-hover-c{
+	border: 1px solid rgb(0, 65, 94);
+	background: rgb(75,136,182);
+	color: rgb(255,255,255);
+	text-shadow: 0 1px 1px rgb(25,75,126);
+}
+.ui-btn-hover-c:visited,.ui-btn-hover-c:hover,.ui-btn-hover-c a.ui-link-inherit{
+	color: rgb(255,255,255);
+}
+.ui-btn-hover-e{
+	border: 1px solid rgb(94,0,65);
+	background: rgb(182,75,136);
+	color: rgb(255,255,255);
+	text-shadow: 0 1px 0 rgb(126,25,75);
+}
+.ui-btn-hover-e:visited,.ui-btn-hover-e:hover,.ui-btn-hover-e a.ui-link-inherit{
+	color: rgb(255,255,255);
+}
+
+
+.ui-btn-down-c{
+	border:1px solid rgb(34,83,119);
+	background:rgb(78,137,197);
+	color:rgb(255,255,255);
+	text-shadow:0 1px 1px rgb(25,75,126);
+}
+.ui-btn-down-c:visited,.ui-btn-down-c:hover,.ui-btn-down-c a.ui-link-inherit{
+	color:rgb(255,255,255)
+}
+.ui-btn-down-e{
+	border:1px solid rgb(119,34,83);
+	background:rgb(197,78,137);
+	color:rgb(255,255,255);
+	text-shadow:0 1px 0 rgb(126,25,75);
+}
+.ui-btn-down-e:visited,.ui-btn-down-e:hover,.ui-btn-down-e a.ui-link-inherit{
+	color:rgb(255,255,255)
+}
+
+/* blue                yellow              red (Triadic Color)
+*/
+
+/* iOS 7 */
+.ui-body-c, .ui-overlay-c {
+    color: rgb(34, 34, 34);
+    text-shadow: 0px 1px 0px rgb(255, 255, 255);
+}
+
+/* iOS 7 */
+.ui-body-d, .ui-overlay-d {
+    color: rgb(34, 34, 34);
+    text-shadow: 0px 1px 0px rgb(255, 255, 255);
+}
+
+/* iOS 7 */
+.ui-li-poiicon {
+    max-height:1.8em !important;
+    max-width:1.8em !important;
+    left:1em !important;
+    top:0.4em !important;
+}
+
+.ui-li-poilink {
+	padding-top:8px !important;
+	padding-bottom:8px !important;
+	padding-left:58px !important;
+	min-height:24px !important;
+}
+/* iOS 7 */
+.ui-listview > li.ui-li-has-thumb:after {
+	width:58px !important;
+}
+
+/* iOS 7 */
+.ui-content .ui-listview, .ui-panel-inner > .ui-listview {
+	margin-top:0;
+	margin-bottom:0;
+}
+
+.ui-li-favlink {
+	margin:16px 38px 16px 10px;
+	max-height:20px;
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+
+/* iOS 7*/
+.ui-li-searchalt {
+	margin-bottom:0 !important;
+	white-space:normal !important;
+}
+
+.ui-li-searchfav {
+	margin-top:6px;
+}
+
+/* iOS 7*/
+.ui-li-searchhead {
+	line-height:1em;
+	margin-top:0 !important;
+}
+
+/* iOS 7*/
+.ui-li-iconbabyb {
+	background-image:url('../art/list-babyb.png') !important;
+}
+
+/* iOS 7*/
+.ui-li-iconbabye {
+	background:url('../art/list-babye.png') !important;
+}
+
+/* iOS 7*/
+.ui-li-iconbabyb, .ui-li-iconbabye {
+	background-repeat:no-repeat !important;
+	background-position:8px 8px !important;
+	background-size:32px 32px !important;
+}
+
+.ui-li-iconfav0 {
+	background:url('../art/list-fav0.png');
+}
+.ui-li-iconfav1 {
+	background:url('../art/list-fav1.png');
+}
+.ui-li-iconfav2 {
+	background:url('../art/list-fav2.png');
+}
+.ui-li-iconfav3 {
+	background:url('../art/list-fav3.png');
+}
+.ui-li-iconfav4 {
+	background:url('../art/list-fav4.png');
+}
+.ui-li-iconfav5 {
+	background:url('../art/list-fav5.png');
+}
+.ui-li-iconfav0, .ui-li-iconfav1, .ui-li-iconfav2, .ui-li-iconfav3, .ui-li-iconfav4, .ui-li-iconfav5 {
+	background-repeat:no-repeat;
+	background-position:right 22px;
+	background-size:32px 20px;
+}
+
+/* iOS 7 */
+.ui-group-theme-c li {
+	border-left:1px solid rgb(69, 111, 154) !important;
+	border-right:1px solid rgb(69, 111, 154) !important;
+}
+/* iOS 7 */
+.ui-group-theme-c .ui-last-child {
+	border-bottom:1px solid rgb(69, 111, 154) !important;
+}
+/* iOS 7 */
+.ui-group-theme-d li {
+	border-left:1px solid rgb(154,69,111) !important;
+	border-right:1px solid rgb(154,69,111) !important;
+}
+/* iOS 7 */
+.ui-group-theme-d .ui-last-child {
+	border-bottom:1px solid rgb(154,69,111) !important;
+}
+
+/* iOS 7 */
+.ui-page-theme-a .ui-btn {
+	background:none !important;
+	border:none;
+	color:#38c !important;
+    font-weight: 500;
+	text-shadow:none !important;
+}
+
+/* iOS 7 */
+.ui-group-theme-a .ui-btn, .ui-group-theme-a .ui-btn:visited, .ui-page-theme-a .ui-btn:visited {
+	background:white !important;
+	color:black !important;
+}
+
+/* iOS 7 */
+.ui-listview > .ui-li-static, .ui-listview > li > a.ui-btn {
+	border-top:3px #F9F9F9 solid !important;
+}
+/* iOS 7 */
+.ui-listview > li:after {
+	left:0;
+	top:0;
+	background:white;
+	content:" ";
+	height:3px;
+	width:1em;
+	position:absolute;
+	pointer-events:none;
+}
+/* iOS 7 */
+.ui-listview-inset > .ui-li-static, .ui-listview-inset > .ui-li-divider, .ui-listview-inset > li > a.ui-btn {
+	border-left:none;
+	border-right:none;
+}
+/* iOS 7 */
+.ui-listview > li.afterDivider, .ui-listview > li.afterDivider > a.ui-btn, .ui-listview > li.ui-first-child, .ui-listview > li.ui-first-child > a.ui-btn, .ui-listview-inset > li.ui-first-child, .ui-listview-inset > li.ui-first-child > a.ui-btn {
+	border-top:none !important;
+}
+/* iOS 7 */
+.ui-listview-inset > li.ui-last-child, .ui-listview-inset > li.ui-last-child > a.ui-btn {
+	border-bottom:none;
+}
+/* iOS 7 */
+.ui-listview > li.ui-first-child:after, .ui-listview > .ui-li-divider:after {
+	background:none;
+}
+/* iOS 7 */
+.ui-listview > .ui-li-divider {
+	background:#F9F9F9 !important;
+	border-top:1px #dddddd solid !important;
+	border-bottom:1px #dddddd solid !important;
+	color:#808080;
+	font-weight:500;
+	text-transform:uppercase;
+}
+/* iOS 7 */
+.small {
+	font-size:85%;
+}
+
+/* iOS 7 */
+a.myBackButton {
+	max-width:140px;
+	text-overflow:ellipsis;
+}
+
+/* iOS 7 */
+a.myBackButton span {
+	position:relative;
+	padding-left:8px;
+}
+
+/* iOS 7 */
+a.myBackButton span:after, a.myBackButton span:before {
+	right:100%;
+	top:50%;
+	border:solid transparent;
+	content:" ";
+	height:0;
+	width:0;
+	position:absolute;
+	pointer-events:none;
+}
+
+/* iOS 7 */
+a.myBackButton span:after {
+	border-right-color:#e9e9e9;
+	border-width:7px;
+	margin-top:-7px;
+}
+
+/* iOS 7 */
+a.myBackButton span:before {
+	border-right-color:#38c;
+	border-width:11px;
+	margin-top:-11px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* iOS 7 */
+.ui-shadow {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+}
+
+/* iOS 7 */
+a.myBackButton.ui-shadow, a.myBackButton {
+	-webkit-background-clip: none;
+	-moz-background-clip: none;
+	-ms-background-clip: none;
+	-o-background-clip: none;
+	background-clip: none;
+}
+
+.ui-li-icongenderf {
+	background-image:url('../art/list-logof.png') !important;
+}
+.ui-li-icongenderm {
+	background:url('../art/list-logom.png') !important;
+}
+.ui-li-icongenderb {
+	background:url('../art/list-logob.png') !important;
+}
+.ui-li-icongenderm, .ui-li-icongenderf, .ui-li-icongenderb {
+	background-repeat:no-repeat !important;
+	background-position:8px 8px !important;
+	background-size:32px 32px !important;
+}
+
+
+.ui-header .ui-title, .ui-footer .ui-title {
+    margin-left:20%;
+    margin-right:20%;
+}
+
+#pageWebView {
+	padding:0 !important;
+}
+
+#pageWebView .ui-dialog-contain, #pageWebView .ui-content {
+	margin:0;
+	max-width:99.5%;
+	padding:0;
+	top:0;
+	width:99.5%;
+}
+
+#pageWebView iframe {
+	border:0;
+}
+
+/* iOS 7 */
+.canvasPanel {
+	background-color:#F9F9F9 !important;
+}
+/* iOS 7 */
+.canvasPanel.ui-panel-display-reveal {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+}
+/* iOS 7 */
+.ui-panel-page-content-position-left {
+	-webkit-box-shadow: -2px 0px 0px rgba(0,0,0,.25);
+	-moz-box-shadow: -2px 0px 0px rgba(0,0,0,.25);
+	-ms-box-shadow: -2px 0px 0px rgba(0,0,0,.25);
+	-o-box-shadow: -2px 0px 0px rgba(0,0,0,.25);
+	box-shadow: -2px 0px 0px rgba(0,0,0,.25);
+}
+
+#pageHome * {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}

@@ -15,11 +15,6 @@ CInternationalization = new function()
 		user = user.toLowerCase();
 
 		var langCode = 'en';
-//user = 'en-us';
-//user = 'de-de';
-//user = 'es-es';
-//user = 'zh-cn';
-//user = 'zh-tw';
 
 		if( 'zh-hant' == user) {
 			user = 'zh-tw';
