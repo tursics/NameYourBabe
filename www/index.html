@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <title>Name your babe</title>
+	<link rel="stylesheet" href="script/jquery.mobile-1.4.1/jquery.mobile-1.4.1.min.css" />
+	<link rel="stylesheet" href="script/index.css" />
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/jquery.mobile-1.4.1/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/jquery.mobile-1.4.1/jquery.mobile-1.4.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/shake.js-master-2012-08/shake.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/CInternationalization.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/index.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/dataName.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/dataSource.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/pageCanvas.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/pageCopyright.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/pageFavorites.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/pageFilter.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/pageHome.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/pageImprint.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/pageName.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/pageSearch.js"></script>
+	<script type="text/javascript" charset="utf-8" src="script/pageSettings.js"></script>
+	<script type="text/javascript" charset="utf-8" src="strings/de-DE/i18n.js"></script>
+	<script type="text/javascript" charset="utf-8" src="strings/en-US/i18n.js"></script>
+</head>
+<body>
+	<div data-role="page" id="pageHome" data-theme="a" style="padding:0;">
+		<div data-role="header" data-position="fixed" id="pageBoxHeader">
+			<h1 id="h1Home"></h1>
+			<a href="#canvasHome" id='buttonCanvasHome' class="ui-btn-left ui-btn ui-btn-inline"><img src="art/tabbar-ios-7-menu.png" style="height:1.6em;margin-left:-1em;padding-right:2em;"></a>
+		</div>
+		<div data-role="content" id="pageBoxContent" style="padding:0;">
+			<div id="boxspacer" style="padding:0;margin:0;"></div>
+			<div id="pageHomeContainer">
+				<ul id="ulBox" data-role="listview" data-theme="a" data-dividertheme="a"></ul>
+				<a href="#" data-role="button" id="aBoxShake" style="margin:0;"><span id="boxShake"></span></a>
+			</div>
+			<div id="pageHomeControl" style="padding:0;margin:0;text-align:center;"><span>•</span><span>•</span><span>•</span><span>•</span><span>•</span></div>
+		</div>
+		<div data-role="panel" class="canvasPanel" id="canvasHome"></div>
+	</div>
+	<div data-role="page" id="pageName1" data-theme="a">
+		<div data-role="header" data-position="fixed" data-theme="a">
+			<h1></h1>
+			<a href="#" data-rel="back" data-role="button"><span class="nameBack"></span></a>
+			<a href="#pageHome" data-role="button"></a>
+		</div>
+		<div data-role="content"></div>
+	</div>
+	<div data-role="page" id="pageName2" data-theme="a">
+		<div data-role="header" data-position="fixed" data-theme="a">
+			<h1></h1>
+			<a href="#" data-rel="back" data-role="button"><span class="nameBack"></span></a>
+			<a href="#pageHome" data-role="button"></a>
+		</div>
+		<div data-role="content"></div>
+	</div>
+	<div data-role="page" id="pageSearch" data-theme="a">
+		<div data-role="header" data-position="fixed"><h1 id="h1Search"></h1><a href="#" data-rel="back" data-role="button" id="searchBack_"><span id="searchBack"></span></a></div>
+		<div data-role="content" id="searchContent">
+			<div id="searchContent">
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="pageWebView" data-theme="a">
+		<div data-role="header" data-position="fixed" id="pageWebViewHeader">
+			<h1>&nbsp;</h1>
+		</div>
+		<div data-role="content">
+			<iframe src="about:blank" width="100%" height="100%" seamless="true"></iframe>
+		</div>
+	</div>
+	<div data-role="page" id="pageImprint" data-theme="a">
+		<div data-role="header" data-position="fixed"><h1 id="h1Imprint"></h1><a href="#" data-rel="back" data-role="button" id="imprintBack_"><span id="imprintBack"></span></a></div>
+		<div data-role="content" id="divImprint"></div>
+	</div>
+	<div data-role="page" id="pageCopyright" data-theme="a">
+		<div data-role="header" data-position="fixed"><h1 id="h1Copyright"></h1><a href="#" data-rel="back" data-role="button" id="copyrightBack_"><span id="copyrightBack"></span></a></div>
+		<div data-role="content" id="divCopyright"></div>
+	</div>
+	<div data-role="page" id="pageFilter" data-theme="a">
+		<div data-role="header" data-position="fixed"><h1 id="h1Filter"></h1><a href="#" data-rel="back" data-role="button" id="filterBack_" class="ui-btn-right"><span id="filterBack"></span></a></div>
+		<div data-role="content" id="divFilter"></div>
+	</div>
+	<div data-role="page" id="pageFavorites" data-theme="a">
+		<div data-role="header" data-position="fixed"><h1 id="h1Fav"></h1><a href="#" data-rel="back" data-role="button" id="favBack_"><span id="favBack"></span></a></div>
+		<div data-role="content" id="favContent"></div>
+	</div>
+	<div data-role="page" id="pageSettings" data-theme="a">
+		<div data-role="header" data-position="fixed"><h1 id="h1Settings"></h1><a href="#" data-rel="back" data-role="button" id="settingsBack_" class="ui-btn-right"><span id="settingsBack"></span></a></div>
+		<div data-role="content" id="divSettings"></div>
+	</div>
+</body>
+</html>
