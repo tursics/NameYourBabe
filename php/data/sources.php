@@ -1306,7 +1306,7 @@ $gSource=array (
     'group' => '[2012-2013] Liste der häufigen Vornamen, Berlin',
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/liste-der-haeufigen-vornamen-2013',
     'id' => 46,
-    'autoUpdate' => 115,
+    'autoUpdate' => 116,
     'autoUrl' => 
     array (
       0 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/charlottenburg-wilmersdorf.csv',
@@ -1395,6 +1395,7 @@ $gSource=array (
   array (
     'nuts' => 'FR',
     'name' => 'Liste des prénoms',
+    'id' => 47,
     'de-DE' => 
     array (
     ),
@@ -1408,6 +1409,7 @@ $gSource=array (
   array (
     'nuts' => 'DED11',
     'name' => '[2009-2013] Chemnitz (Privat)',
+    'id' => 48,
     'meta' => '/private/chemnitz/metadata.json',
     'autoUpdate' => 63,
     'autoUrl' => 
@@ -1439,6 +1441,7 @@ $gSource=array (
   array (
     'nuts' => 'CA',
     'name' => 'Top baby names (female)',
+    'id' => 49,
     'group' => '[1917-2010] Ontario',
     'url' => 'http://www.ontario.ca/government/ontario-top-baby-names-female',
     'modified' => '2012-12-12',
@@ -1447,6 +1450,7 @@ $gSource=array (
   array (
     'nuts' => 'CA',
     'name' => 'Top baby names (male)',
+    'id' => 50,
     'group' => '[1917-2010] Ontario',
     'url' => 'http://www.ontario.ca/government/ontario-top-baby-names-male',
     'modified' => '2012-12-12',
