@@ -480,7 +480,7 @@ function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 				}
 			}
 			if( !$refFound) {
-				$ret .= '<span style="background-color:#d0d0d0;padding:2px;">Added reference data</span><br>';
+				$ret .= '<span style="background-color:#444444;padding:2px;">Added reference data</span><br>';
 				$gBoys[$nameUFT8]['ref'][] = $strRef;
 			}
 		} else {
@@ -508,7 +508,7 @@ function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 				}
 			}
 			if( !$refFound) {
-				$ret .= '<span style="background-color:#d0d0d0;padding:2px;">Added reference data</span><br>';
+				$ret .= '<span style="background-color:#444444;padding:2px;">Added reference data</span><br>';
 				$gGirls[$nameUFT8]['ref'][] = $strRef;
 			}
 		}
@@ -537,9 +537,9 @@ function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 
 		$ret .= '&nbsp;&nbsp;<span style="background-color:';
 		if( $isBoy) {
-			$ret .= 'LightBlue';
+			$ret .= 'RoyalBlue';
 		} else {
-			$ret .= 'LightCoral';
+			$ret .= 'MediumVioletRed ';
 		}
 		return $ret . ';padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
 	}

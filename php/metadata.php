@@ -343,9 +343,11 @@ function parseWebsiteZuerich( $index, $contents)
 	// can't get infos
 
 	$strName = 'Vornamen von Neugeborenen mit Wohnsitz in der Stadt Zürich';
-	$strModified = '02.07.2013';
-//	$strUrl = 'http://data.stadt-zuerich.ch/ogd.BIqTNQe.link';
-	$strUrl = 'http://www.tursics.de/file/vornamen_1993-2012.csv';
+	$strModified = '04.06.2014';
+
+	// failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+	// $strUrl = 'http://data.stadt-zuerich.ch/ogd.BIqTNQe.link';
+	$strUrl = 'http://www.tursics.de/file/vornamen_1993-2013.csv';
 
 	$metaMod = strtotime( $strModified);
 	$lastMod = strtotime( $gSource[$index]['autoModified']);
@@ -425,8 +427,12 @@ function metadataShowPageUpdate()
 //			continue;
 //		}
 
-		$contents = file_get_contents( $filename);
-//		$contents = utf8_encode( $contents);
+		if( false !== strpos( $gSource[$i]['meta'], 'zuerich.ch')) {
+			$contents = '';
+		} else {
+			$contents = file_get_contents( $filename);
+//			$contents = utf8_encode( $contents);
+		}
 		$json = json_decode( $contents, true);
 
 //		$txt .= var_dump( json_decode( $json));

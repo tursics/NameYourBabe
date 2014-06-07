@@ -816,7 +816,7 @@ $gSource=array (
   33 => 
   array (
     'nuts' => 'CH04',
-    'name' => 'Vornamen von Neugeborenen mit Wohnsitz in der Stadt Zürich',
+    'name' => '[1993-2013] Vornamen von Neugeborenen mit Wohnsitz in der Stadt Zürich',
     'de-DE' => 
     array (
       0 => 'Zürich',
@@ -830,7 +830,7 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => 'http://www.tursics.de/file/vornamen_1993-2012.csv',
+      0 => 'http://www.tursics.de/file/vornamen_1993-2013.csv',
     ),
     'autoName' => 
     array (
@@ -840,7 +840,7 @@ $gSource=array (
     array (
       0 => 'CH04',
     ),
-    'autoModified' => '2014-02-08',
+    'autoModified' => '2014-06-07',
     'manLicense' => 'CC0 1.0',
     'manCitation' => 'Datenquelle: Stadt Zürich – data.stadt-zuerich.ch',
   ),
@@ -1411,7 +1411,7 @@ $gSource=array (
     'name' => '[2009-2013] Chemnitz (Privat)',
     'id' => 48,
     'meta' => '/private/chemnitz/metadata.json',
-    'autoUpdate' => 63,
+    'autoUpdate' => 64,
     'autoUrl' => 
     array (
       0 => '/private/chemnitz/2009.csv',
