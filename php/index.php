@@ -381,23 +381,25 @@ function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 		$found = ($gGirls[$nameUFT8] !== NULL);
 	}
 
-/*	if( $name == 'ohne') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'noch') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'kein') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'keinen') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'Vorname') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'Vornamen') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == '(Eigenname)') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'de') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'del') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'don') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'oğlu') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == '(Vorname') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == '(Vornamen') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'und') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'Vatersname)') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-	if( $name == 'A.') return '&nbsp;&nbsp;<span style="background-color:black;color:white;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
-*/
+	if( false) {
+		if( $name == 'ohne') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'noch') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'kein') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'keinen') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'Vorname') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'Vornamen') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == '(Eigenname)') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'de') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'del') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'don') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'oğlu') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == '(Vorname') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == '(Vornamen') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'und') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'Vatersname)') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+		if( $name == 'A.') return '&nbsp;&nbsp;<span style="background-color:white;color:#333333;padding:2px;">' . $name . '</span> (#' . $item['pos'] . ' in ' . $item['year'] . ')<br>';
+	}
+
 /*	// Kleinbuchstaben am Anfang?
 	if( $name != ucwords( strtolower( $item['name']))) {
 		if( false !== strpos( $name, '-')) {
@@ -474,7 +476,7 @@ function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 					if( $refPos == intval( $item['pos'])) {
 						$good = true;
 					} else {
-						$ret .= '<span style="background-color:#ffd0d0;padding:2px;">Updated pos</span> Old pos: ' . $refPos . ' New pos: ' . intval( $item['pos']) . '<br>';
+						$ret .= '<span style="background-color:Chocolate;padding:2px;">Updated pos</span> Old pos: ' . $refPos . ' New pos: ' . intval( $item['pos']) . '<br>';
 						$gBoys[$nameUFT8]['ref'][$j] = $strRef;
 					}
 				}
@@ -502,7 +504,7 @@ function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 					if( $refPos == intval( $item['pos'])) {
 						$good = true;
 					} else {
-						$ret .= '<span style="background-color:#ffd0d0;padding:2px;">Updated pos</span> Old pos: ' . $refPos . ' New pos: ' . intval( $item['pos']) . '<br>';
+						$ret .= '<span style="background-color:Chocolate;padding:2px;">Updated pos</span> Old pos: ' . $refPos . ' New pos: ' . intval( $item['pos']) . '<br>';
 						$gGirls[$nameUFT8]['ref'][$j] = $strRef;
 					}
 				}
