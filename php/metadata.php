@@ -375,29 +375,52 @@ function metadataShowPageUpdate()
 
 	$txt = '';
 	$txt .= '<h1>Update Metadata</h1>';
+
+	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:RoyalBlue;margin-right:2.15em;text-align:center;">-</div><span>No data available</span></div>';
+	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:RoyalBlue;margin-right:2.15em;text-align:center;">x</div><span>No metadata available</span></div>';
+	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:ForestGreen;margin-right:2.15em;text-align:center;">&nbsp;</div><span>Data is up to date</span></div>';
+	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:DarkOrange;margin-right:2.15em;text-align:center;">&nbsp;</div><span>There is a problem</span></div>';
+
 	$txt .= '<br>';
-	$txt .= 'Start parsing';
+	$txt .= '<hr>';
 	$txt .= '<br>';
+
 	echo( $txt);
 
+	$bg = true;
 	for( $i = 0; $i < count( $gSource); ++$i) {
 //	for( $i = 48; $i < count( $gSource); ++$i) {
+		$bg = !$bg;
+		$bgColor = $bg ? '#3a3a3a' : '#444444';
+
 		$txt = '';
-		$txt .= $gSource[$i]['name'] . ': ';
+		$txt .= '<div style="background:' . $bgColor .';">';
+
+		$updateColor = '#000000';
+		$updateText = '&nbsp;';
+		$name = $gSource[$i]['name'];
 
 		if( !isset( $gSource[$i]['meta'])) {
-			$txt = 'x';
+			$updateText = 'x';
+			$updateColor = 'RoyalBlue';
+			$txt .= '<div style="display:inline;float:left;min-width:1.25em;background-color:'.$updateColor.';margin-right:0.75em;text-align:center;">'.$updateText.'</div>';
+			$txt .= '<span style="width:6em;">'.$name.'</span>';
+			$txt .= '</div>';
 			echo( $txt);
 			continue;
 		}
 
 		$filename = $gSource[$i]['meta'];
 		if( '/' ==  substr( $filename, 0, 1)) {
-			$filename = dirname(__FILE__) . $filename;
+			$filename = dirname(__FILE__) . '/data' . $filename;
 		}
 
 //		if( !file_exists( $filename)) {
-//			$txt = '?';
+//			$updateText = 'x';
+//			$updateColor = 'RoyalBlue';
+//			$txt .= '<div style="display:inline;float:left;min-width:1.25em;background-color:'.$updateColor.';margin-right:0.75em;text-align:center;">'.$updateText.'</div>';
+//			$txt .= '<span style="width:6em;">'.$name.'</span>';
+//			$txt .= '</div>';
 //			echo( $txt);
 //			continue;
 //		}
@@ -410,98 +433,108 @@ function metadataShowPageUpdate()
 		if( $json['extras']['schema_name'] == 'OGD Austria Metadaten 1.1') {
 			parseMetadataOGDAustria11( $i, $json);
 			if( $gSource[$i]['autoUpdate'] > 0) {
-				$txt .= '<span style="background-color:orange;padding:2px;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days!</span>';
-				$txt .= '<br>';
+				$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+				$updateColor = 'DarkOrange';
 			} else {
-				$txt = '.';
+				$updateColor = 'ForestGreen';
 			}
 		} else if( $json['extras']['schema_name'] == 'OGD Austria Metadata 2.1') {
 			parseMetadataOGDAustria11( $i, $json);
 			if( $gSource[$i]['autoUpdate'] > 0) {
-				$txt .= '<span style="background-color:orange;padding:2px;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days!</span>';
-				$txt .= '<br>';
+				$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+				$updateColor = 'DarkOrange';
 			} else {
-				$txt = '.';
+				$updateColor = 'ForestGreen';
 			}
 		} else if( $json['extras']['schema_name'] == 'NOE Metadata 1.0') {
 			parseMetadataOGDAustria11( $i, $json);
 			if( $gSource[$i]['autoUpdate'] > 0) {
-				$txt .= '<span style="background-color:orange;padding:2px;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days!</span>';
-				$txt .= '<br>';
+				$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+				$updateColor = 'DarkOrange';
 			} else {
-				$txt = '.';
+				$updateColor = 'ForestGreen';
 			}
 		} else if( $json['extras']['sector'] == 'oeffentlich') {
 			parseMetadataOGDGermany( $i, $json);
 			if( $gSource[$i]['autoUpdate'] > 0) {
-				$txt .= '<span style="background-color:orange;padding:2px;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days!</span>';
-				$txt .= '<br>';
+				$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+				$updateColor = 'DarkOrange';
 			} else {
-				$txt = '.';
+				$updateColor = 'ForestGreen';
 			}
 		} else if( $json['extras']['ogdd_version'] == 'v1.0') {
 			parseMetadataOGDD10( $i, $json);
 			if( $gSource[$i]['autoUpdate'] > 0) {
-				$txt .= '<span style="background-color:orange;padding:2px;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days!</span>';
-				$txt .= '<br>';
+				$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+				$updateColor = 'DarkOrange';
 			} else {
-				$txt = '.';
+				$updateColor = 'ForestGreen';
 			}
 		} else if( 0 == count( $json)) {
 			if( false !== strpos( $contents, 'moers.de')) {
 				parseWebsiteMoers( $i, $contents);
 				if( $gSource[$i]['autoUpdate'] > 0) {
-					$txt .= '<span style="background-color:orange;padding:2px;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days!</span>';
-					$txt .= '<br>';
+					$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+					$updateColor = 'DarkOrange';
 				} else {
-					$txt = '.';
+					$updateColor = 'ForestGreen';
 				}
 			} else if( false !== strpos( $contents, 'daten.berlin.de/sites')) {
 				parseWebsiteBerlin( $i, $contents);
 				if( $gSource[$i]['autoUpdate'] > 0) {
-					$txt .= '<span style="background-color:orange;padding:2px;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days!</span>';
-					$txt .= '<br>';
+					$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+					$updateColor = 'DarkOrange';
 				} else {
-					$txt = '.';
+					$updateColor = 'ForestGreen';
 				}
 			} else if( false !== strpos( $gSource[$i]['meta'], 'zuerich.ch')) {
 				parseWebsiteZuerich( $i, $contents);
 				if( $gSource[$i]['autoUpdate'] > 0) {
-					$txt .= '<span style="background-color:orange;padding:2px;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days!</span>';
-					$txt .= '<br>';
+					$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+					$updateColor = 'DarkOrange';
 				} else {
-					$txt = '?';
+					$updateText = '?';
+					$updateColor = 'DarkOrange';
 				}
 			} else if( false !== strpos( $contents, 'ISO 19139')) {
 				parseISO19139( $i, $contents);
 				if( $gSource[$i]['autoUpdate'] > 0) {
-					$txt .= '<span style="background-color:orange;padding:2px;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days!</span>';
-					$txt .= '<br>';
+					$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+					$updateColor = 'DarkOrange';
 				} else {
-					$txt = '.';
+					$updateColor = 'ForestGreen';
 				}
 			} else {
-				$txt = '-';
+				$updateText = '-';
+				$updateColor = 'RoyalBlue';
 				$gSource[$i]['autoUpdate'] = -1;
 			}
 		} else if( $json['extras']['schema_name'] == '') {
-			$txt = '-';
+			$updateText = '-';
+			$updateColor = 'RoyalBlue';
 			$gSource[$i]['autoUpdate'] = -1;
 		} else {
-			$txt .= 'Unknown metadata format (' . $json['extras']['schema_name'] . ') found';
-			$txt .= '<br>';
+			$name .= '<span style="color:DarkOrange;padding-left:1em;">Unknown metadata format (' . $json['extras']['schema_name'] . ') found</span>';
+			$updateColor = 'DarkOrange';
 			$gSource[$i]['autoUpdate'] = -1;
 		}
 
+		$txt .= '<div style="display:inline;float:left;min-width:1.25em;background-color:'.$updateColor.';margin-right:0.75em;text-align:center;">'.$updateText.'</div>';
+		$txt .= '<span style="width:6em;">'.$name.'</span>';
+		$txt .= '</div>';
 		echo( $txt);
 	}
 
 	gSourceToFile();
 
-	$txt = '<br><br>' . count( $gSource). ' meta data items collected';
-	$txt .= '<br><br>';
-	$txt .= '<a href="/do=browse&what=sources">Back to list</a> - ';
-	$txt .= '<a href="/do=update&what=sourcedata">Update dirty data</a><br>';
+	$txt = count( $gSource). ' meta data items collected<br>';
+
+	$txt .= '<br>';
+	$txt .= '<hr>';
+	$txt .= '<br>';
+
+	$txt .= '<a href="do=browse&what=sources">Back to list</a><br>';
+	$txt .= '<a href="do=update&what=sourcedata">Update dirty data</a><br>';
 	echo( $txt);
 }
 

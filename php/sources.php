@@ -16,8 +16,8 @@ function gSourceToFile()
 	$contents .= var_export( $gSource, true);
 	$contents .= ';'."\n".'?>'."\n";
 
-	file_put_contents( 'data/sources.php', $contents);
-	file_put_contents( 'backup/sources-' . date( 'Y-W') . '.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/data/sources.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/backup/sources-' . date( 'Y-W') . '.php', $contents);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -112,7 +112,7 @@ function parseSourcedataAll( $file, $sourceIndex, $urlID, $quite)
 		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
 	} else {
 		if( !$quite) {
-			echo( '<span style="background-color:orange;padding:2px;">Unknown format!</span><br>');
+			echo( '<span style="background-color:DarkOrange;padding:2px;">Unknown format!</span><br>');
 		}
 	}
 }
@@ -151,7 +151,7 @@ function parseSourcedataNUTS( $vec, $sourceID, $urlID, $quite)
 
 	if(( -1 == $colName) || (-1 == $colSex) ||(-1 == $colYear)) {
 		if( !$quite) {
-			echo( '<span style="background-color:orange;padding:2px;">Unknown NUTS format!</span><br>');
+			echo( '<span style="background-color:DarkOrange;padding:2px;">Unknown NUTS format!</span><br>');
 		}
 		return;
 	}
@@ -165,7 +165,7 @@ function parseSourcedataNUTS( $vec, $sourceID, $urlID, $quite)
 	} else if( $vec[ $row][ $colSex] == '2') {
 	} else {
 		if( !$quite) {
-			echo( '<span style="background-color:orange;padding:2px;">Unknown sex in NUTS format!</span><br>');
+			echo( '<span style="background-color:DarkOrange;padding:2px;">Unknown sex in NUTS format!</span><br>');
 		}
 		return;
 	}
@@ -477,16 +477,21 @@ function sourcesShowPageBrowseAll()
 
 	$txt = '';
 	$txt .= '<h1>Source list</h1>';
-	$txt .= '<a href="/">Back to main</a><br>';
+
+	$txt .= '<div><div style="display:inline;float:left;min-width:3.5em;">AT11</div><span>NUTS region</span></div>';
+	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:ForestGreen;margin-right:2.15em;">&nbsp;</div><span>Data up to date</span></div>';
+	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:ForestGreen;margin-right:2.15em;">&nbsp;</div><span>NUTS exists in own table and "manNUTS" in source file</span></div>';
+	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:ForestGreen;margin-right:2.15em;text-align:center;">©</div><span>Well known copyright information</span></div>';
+
 	$txt .= '<br>';
-	$txt .= '<a href="/do=update&what=sourcemetadata">Update Metadata</a> - ';
-	$txt .= '<a href="/do=update&what=sourcedata">Update dirty data</a><br>';
+	$txt .= '<hr>';
 	$txt .= '<br>';
 
 	usort( $gSource, "sourcesShowPageBrowseAllCmp");
 
 	$group = '';
 	$skipped = 0;
+	$bg = true;
 	for( $i = 0; $i < count( $gSource); ++$i) {
 		$name = $gSource[$i]['name'];
 		if( isset( $gSource[$i]['group'])) {
@@ -500,65 +505,70 @@ function sourcesShowPageBrowseAll()
 			$group = '';
 		}
 
+		$bg = !$bg;
+		$bgColor = $bg ? '#3a3a3a' : '#444444';
+
 		$updateColor = '#000000';
 		if( $gSource[$i]['autoUpdate'] < 0) {
-			$updateColor = 'lightgray';
+			$updateColor = '$bgColor';
 		} else if( $gSource[$i]['autoUpdate'] > 0) {
-			$updateColor = 'orange';
+			$updateColor = 'DarkOrange';
 		} else {
-			$updateColor = 'lightgreen';
+			$updateColor = 'ForestGreen';
 		}
 
 		$nutsColor = '#000000';
 		if( 0 == count( $gSource[$i]['autoUrl'])) {
-			$nutsColor = 'lightgray';
+			$nutsColor = '$bgColor';
 		} else if(( count( $gSource[$i]['autoUrl']) == count( $gSource[$i]['autoName'])) && (count( $gSource[$i]['autoName']) == count( $gSource[$i]['manNUTS']))) {
-			$nutsColor = 'lightgreen';
+			$nutsColor = 'ForestGreen';
 			for( $j = 0; $j < count( $gSource[$i]['manNUTS']); ++$j) {
 				if( !nutsExists( $gSource[$i]['manNUTS'][$j])) {
-					$nutsColor = 'orange';
+					$nutsColor = 'DarkOrange';
 				}
 			}
 		} else {
-			$nutsColor = 'orange';
+			$nutsColor = 'DarkOrange';
 		}
 
 		$copyColor = '#000000';
 		$copyText = '&nbsp;';
 		if( 0 == count( $gSource[$i]['autoUrl'])) {
-			$copyColor = 'lightgray';
+			$copyColor = '$bgColor';
 		} else if( isset( $gSource[$i]['autoLicense']) && isset( $gSource[$i]['autoCitation'])) {
-			$copyColor = 'lightgreen';
+			$copyColor = 'ForestGreen';
 		} else if( isset( $gSource[$i]['autoCitation']) && isset( $gSource[$i]['manCitation'])) {
-			$copyColor = 'orange';
+			$copyColor = 'DarkOrange';
 		} else if( isset( $gSource[$i]['autoLicense']) && isset( $gSource[$i]['manCitation'])) {
-			$copyColor = 'lightgreen';
+			$copyColor = 'ForestGreen';
 		} else if( isset( $gSource[$i]['manLicense']) && isset( $gSource[$i]['manCitation'])) {
-			$copyColor = 'lightgreen';
+			$copyColor = 'ForestGreen';
 		} else {
-			$copyColor = 'orange';
+			$copyColor = 'DarkOrange';
 		}
 		if( isset( $gSource[$i]['autoLicense']) || isset( $gSource[$i]['manLicense'])) {
 			$copyText = '©';
 		}
 
-		$txt .= '<div style="border-top:#a0a0a0 1px solid;">';
+		$txt .= '<div style="background:' . $bgColor .';">';
 		$txt .= '<div style="display:inline;float:left;min-width:3.5em;">' . $gSource[$i]['nuts'] . '&nbsp;</div>';
 		$txt .= '<div style="display:inline;float:left;min-width:1.25em;background-color:'.$updateColor.';margin-right:0.15em;">&nbsp;</div>';
 		$txt .= '<div style="display:inline;float:left;min-width:1.25em;background-color:'.$nutsColor.';margin-right:0.15em;">&nbsp;</div>';
 		$txt .= '<div style="display:inline;float:left;min-width:1.25em;background-color:'.$copyColor.';margin-right:0.75em;text-align:center;">'.$copyText.'</div>';
-		$txt .= '<span style="width:6em;"><a href="/do=source&what='.$gSource[$i]['id'].'">'.$name.'</a></span>';
+		$txt .= '<span style="width:6em;"><a href="do=source&what='.$gSource[$i]['id'].'">'.$name.'</a></span>';
 		$txt .= '</div>';
 	}
-	$txt .= '<div style="border-top:#a0a0a0 1px solid;"></div>';
-
-	$txt .= '<div><div style="display:inline;float:left;min-width:3.5em;">AT11</div><span>NUTS region</span></div>';
-	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:lightgreen;margin-right:2.15em;">&nbsp;</div><span>Data up to date</span></div>';
-	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:lightgreen;margin-right:2.15em;">&nbsp;</div><span>NUTS exists in own table and "manNUTS" in source file</span></div>';
-	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:lightgreen;margin-right:2.15em;text-align:center;">©</div><span>Well known copyright information</span></div>';
-	$txt .= '<div style="border-top:#a0a0a0 1px solid;padding:0 0 1em 0;"></div>';
 
 	$txt .= (count( $gSource) - $skipped) . ' sources (' . count( $gSource) . ' source links)<br>';
+
+	$txt .= '<br>';
+	$txt .= '<hr>';
+	$txt .= '<br>';
+
+	$txt .= '<a href="do=">Back to main</a><br>';
+	$txt .= '<br>';
+	$txt .= '<a href="do=update&what=sourcemetadata">Update Metadata</a><br>';
+	$txt .= '<a href="do=update&what=sourcedata">Update dirty data</a><br>';
 
 	echo( $txt);
 }
@@ -586,7 +596,7 @@ function sourcesShowPageItem( $id)
 
 	$txt = '';
 	$txt .= '<h1>'.$name.'</h1>';
-	$txt .= '<a href="/do=browse&what=sources">Back to Source list</a>';
+	$txt .= '<a href="do=browse&what=sources">Back to Source list</a>';
 	$txt .= '<br>';
 	$txt .= '<br>';
 	echo( $txt);
@@ -724,7 +734,7 @@ function getNameLink( $value)
 		$style = ' style="text-decoration:none;border-bottom:1px solid red;"';
 	}
 
-	return '<a href="/do=name&what='.$value['name'].'" '.$style.'>'.$value['name'].'</a>';
+	return '<a href="do=name&what='.$value['name'].'" '.$style.'>'.$value['name'].'</a>';
 }
 
 //--------------------------------------------------------------------------

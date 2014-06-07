@@ -29,8 +29,8 @@ function gNutsToFile()
 	$contents .= var_export( $gNuts, true);
 	$contents .= ';'."\n".'?>'."\n";
 
-	file_put_contents( 'data/nuts.php', $contents);
-	file_put_contents( 'backup/nuts-' . date( 'Y-W') . '.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/data/nuts.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/backup/nuts-' . date( 'Y-W') . '.php', $contents);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ function nutsShowPageBrowseSubTree( $data, $depth)
 
 		$color = '';
 		if( $exists) {
-			$color = 'background-color:lightgreen;';
+			$color = 'background-color:ForestGreen;';
 		}
 
 		if(( strlen( $ret) > 0) || $exists) {
@@ -62,7 +62,7 @@ function nutsShowPageBrowseSubTree( $data, $depth)
 			$txt .= $data[$i]['manNuts'];
 			$txt .= ' ';
 			$txt .= $data[$i]['manName']['en-US'];
-			$txt .= '</div>';
+			$txt .= "</div>\n";
 			$txt .= $ret;
 		}
 	}
@@ -76,12 +76,15 @@ function nutsShowPageBrowse()
 
 	$txt = '';
 	$txt .= '<h1>Show the world</h1>';
-	$txt .= '<a href="/">Back to main</a><br>';
-	$txt .= '<br>';
-	$txt .= '<br>';
 	echo( $txt);
 
 	echo( nutsShowPageBrowseSubTree( $gNuts, 0));
+
+	$txt = '<br>';
+	$txt .= '<hr>';
+	$txt .= '<br>';
+	$txt .= '<a href="do=">Back to main</a><br>';
+	echo( $txt);
 }
 
 //--------------------------------------------------------------------------------------------------

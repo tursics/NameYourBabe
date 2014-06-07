@@ -1,12 +1,4 @@
 <?php
-	$gSite = 'nameyourbabe';
-	$gLang = 'de';
-
-	include_once( "func-helper.php");
-	include_once( "func-metadata.php");
-	include_once( "func-dict.php");
-	$dict = new CDict;
-
 	$do = '';
 	$what = '';
 	if( isset( $_GET[ 'do'])) {
@@ -35,8 +27,8 @@ function gMeaningsToFile()
 	$contents .= var_export( $gMeanings, true);
 	$contents .= ';'."\n".'?>'."\n";
 
-	file_put_contents( 'data/meanings.php', $contents);
-	file_put_contents( 'backup/meanings-' . date( 'Y-W') . '.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/data/meanings.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/backup/meanings-' . date( 'Y-W') . '.php', $contents);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -55,8 +47,8 @@ function gBoysToFile()
 	$contents .= var_export( $gBoys, true);
 	$contents .= ';'."\n".'?>'."\n";
 
-	file_put_contents( 'data/boys.php', $contents);
-	file_put_contents( 'backup/boys-' . date( 'Y-W') . '.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/data/boys.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/backup/boys-' . date( 'Y-W') . '.php', $contents);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -75,8 +67,8 @@ function gGirlsToFile()
 	$contents .= var_export( $gGirls, true);
 	$contents .= ';'."\n".'?>'."\n";
 
-	file_put_contents( 'data/girls.php', $contents);
-	file_put_contents( 'backup/girls-' . date( 'Y-W') . '.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/data/girls.php', $contents);
+	file_put_contents( dirname(__FILE__) . '/backup/girls-' . date( 'Y-W') . '.php', $contents);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -100,7 +92,6 @@ function showPageHome()
 
 	$txt = '';
 	$txt .= '<h1>Admin area</h1>';
-	$txt .= '<br>';
 	$txt .= '<div style="display:inline;float:left;min-width:7em;">Memory max:</div> ' . intval( $memory_limit /1024/1024*10)/10 . ' MByte<br>';
 	$txt .= '<div style="display:inline;float:left;min-width:7em;">Memory used:</div> ' . intval( memory_get_peak_usage() /1024/1024*10)/10 . ' MByte<br>';
 	$txt .= '<div style="display:inline;float:left;min-width:7em;">Memory:</div> ' . intval( memory_get_peak_usage() * 100 / $memory_limit) . '%<br>';
@@ -112,11 +103,13 @@ function showPageHome()
 	$txt .= '<div style="display:inline;float:left;min-width:7em;">Boy count:</div> ' . count( $gBoys) . '<br>';
 	$txt .= '<div style="display:inline;float:left;min-width:7em;">Source count:</div> ' . count( $gSource) . '<br>';
 	$txt .= '<br>';
-	$txt .= '<a href="/do=browse&what=sources">Browse sources</a><br>';
-	$txt .= '<a href="/do=browse&what=nuts">Browse the world</a><br>';
-	$txt .= '<a href="/do=browse&what=names">Browse names</a><br>';
+	$txt .= '<hr>';
 	$txt .= '<br>';
-	$txt .= '<a href="/do=export&what=dataSource.js">Export files</a><br>';
+	$txt .= '<a href="do=browse&what=sources">Browse sources</a><br>';
+	$txt .= '<a href="do=browse&what=nuts">Browse the world</a><br>';
+	$txt .= '<a href="do=browse&what=names">Browse names</a><br>';
+	$txt .= '<br>';
+	$txt .= '<a href="do=export&what=dataSource.js">Export files</a><br>';
 	echo( $txt);
 }
 
@@ -153,7 +146,7 @@ function parseSourcedataLinz( $vec, $sourceID, $urlID, $sourceName, $quite)
 	}
 	if( count( $vec) < 2) {
 		if( !$quite) {
-			echo( '<span style="background-color:orange;padding:2px;">Unknown Linz format!</span><br>');
+			echo( '<span style="background-color:DarkOrange;padding:2px;">Unknown Linz format!</span><br>');
 		}
 		return;
 	}
@@ -585,7 +578,7 @@ function showPageUpdateSourcedata()
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at/katalog/' . substr( $gSource[$i]['autoUrl'][$j], 15);
 			} else
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/private/')) {
-				$gSource[$i]['autoUrl'][$j] = dirname(__FILE__) . '/' . $gSource[$i]['autoUrl'][$j];
+				$gSource[$i]['autoUrl'][$j] = dirname(__FILE__) . '/data/' . $gSource[$i]['autoUrl'][$j];
 			}
 
 			$name = $gSource[$i]['autoName'][$j];
@@ -611,11 +604,11 @@ function showPageUpdateSourcedata()
 
 	if( 0 == $dirtyCount) {
 		$txt .= 'All data are clean.<br><br>';
-		$txt .= '<a href="/do=browse&what=sources">OK</a><br>';
+		$txt .= '<a href="do=browse&what=sources">OK</a><br>';
 	} else {
 		$txt .= '<br><br>';
-		$txt .= '<a href="/do=save&what=sourcedata">Save</a> - ';
-		$txt .= '<a href="/do=browse&what=sources">Cancel</a><br>';
+		$txt .= '<a href="do=save&what=sourcedata">Save</a> - ';
+		$txt .= '<a href="do=browse&what=sources">Cancel</a><br>';
 	}
 
 	echo( $txt);
@@ -647,7 +640,7 @@ function showPageSaveSourcedata()
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at/katalog/' . substr( $gSource[$i]['autoUrl'][$j], 15);
 			} else
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/private/')) {
-				$gSource[$i]['autoUrl'][$j] = dirname(__FILE__) . '/' . $gSource[$i]['autoUrl'][$j];
+				$gSource[$i]['autoUrl'][$j] = dirname(__FILE__) . '/data/' . $gSource[$i]['autoUrl'][$j];
 			}
 
 			$name = $gSource[$i]['autoName'][$j];
@@ -672,7 +665,7 @@ function showPageSaveSourcedata()
 
 	$txt = '';
 	$txt .= '<br>';
-	$txt .= '<a href="/do=update&what=sourcemetadata">Done</a><br>';
+	$txt .= '<a href="do=update&what=sourcemetadata">Done</a><br>';
 	echo( $txt);
 }
 
@@ -682,9 +675,9 @@ function showPageBrowseNames()
 {
 	$txt = '';
 	$txt .= '<h1>Names list</h1>';
-	$txt .= '<a href="/">Back to main</a><br>';
+	$txt .= '<a href="do=">Back to main</a><br>';
 	$txt .= '<br>';
-	$txt .= '<a href="/do=update&what=namehitlist">Update hit lists</a><br>';
+	$txt .= '<a href="do=update&what=namehitlist">Update hit lists</a><br>';
 	$txt .= '<br>';
 
 	echo( $txt);
@@ -700,7 +693,7 @@ function getPageUpdateNamehitlist( $value, $top, $yearFrom, $yearTo)
 		$style = ' style="text-decoration:none;border-bottom:1px solid red;"';
 	}
 
-	$txt = '<a href="/do=name&what='.$value['name'].'" '.$style.'>'.$value['name'].'</a>';
+	$txt = '<a href="do=name&what='.$value['name'].'" '.$style.'>'.$value['name'].'</a>';
 	$bestSource = '';
 	$bestNum = 100000;
 	$bestYear = 0;
@@ -750,7 +743,7 @@ function showPageUpdateNamehitlist()
 
 	$txt = '';
 	$txt .= '<h1>Update hit lists</h1>';
-	$txt .= '<a href="/">Back to main</a><br>';
+	$txt .= '<a href="do=">Back to main</a><br>';
 	$txt .= '<br>';
 	$txt .= 'Start parsing top '.$top.' given names in '.$yearFrom.'-'.$yearTo.'<br>';
 	$txt .= '<br>';
@@ -765,7 +758,7 @@ function showPageUpdateNamehitlist()
 
 	$txt = '<br><br>' . count( $gBoys)+count( $gGirls). ' given names analysed';
 	$txt .= '<br><br>';
-	$txt .= '<a href="/do=browse&what=names">Back to list</a><br>';
+	$txt .= '<a href="do=browse&what=names">Back to list</a><br>';
 	echo( $txt);
 }
 
@@ -817,9 +810,9 @@ function getPageNameAlt( $value)
 	if( isset( $value['altM']) && (0 < count( $value['altM']))) {
 		foreach( $value['altM'] as $altvalue) {
 			if( isset( $gMeanings[$altvalue])) {
-				$txt .= ' <a href="/do=name&what='.$altvalue.'">'.$altvalue.'</a>';
+				$txt .= ' <a href="do=name&what='.$altvalue.'">'.$altvalue.'</a>';
 			} else if( isset( $gBoys[$altvalue])) {
-				$txt .= ' <a href="/do=name&what='.$altvalue.'" '.$style.'>'.$altvalue.'</a>';
+				$txt .= ' <a href="do=name&what='.$altvalue.'" '.$style.'>'.$altvalue.'</a>';
 			} else {
 				$txt .= ' '.$altvalue;
 			}
@@ -830,9 +823,9 @@ function getPageNameAlt( $value)
 	if( isset( $value['altF']) && (0 < count( $value['altF']))) {
 		foreach( $value['altF'] as $altvalue) {
 			if( isset( $gMeanings[$altvalue])) {
-				$txt .= ' <a href="/do=name&what='.$altvalue.'">'.$altvalue.'</a>';
+				$txt .= ' <a href="do=name&what='.$altvalue.'">'.$altvalue.'</a>';
 			} else if( isset( $gGirls[$altvalue])) {
-				$txt .= ' <a href="/do=name&what='.$altvalue.'" '.$style.'>'.$altvalue.'</a>';
+				$txt .= ' <a href="do=name&what='.$altvalue.'" '.$style.'>'.$altvalue.'</a>';
 			} else {
 				$txt .= ' '.$altvalue;
 			}
@@ -892,7 +885,7 @@ function getPageNameForm( $name)
 		$oldGirl = substr( $oldGirl, 0, strlen( $oldGirl) - 1);
 	}
 
-	$txt = '<form action="/do=save&what=name" method="post">';
+	$txt = '<form action="do=save&what=name" method="post">';
 	$txt .= '<div class="supportPage">';
 	$txt .= '<input name="name" type="hidden" value="'.$name.'">';
 	$txt .= '<label for="text">Set the explanation text (use „ and “):</label><br>';
@@ -920,7 +913,7 @@ function showPageName( $name)
 
 	$txt = '';
 	$txt .= '<h1>'.$name.'</h1>';
-	$txt .= '<a href="/">Back to main</a><br>';
+	$txt .= '<a href="do=">Back to main</a><br>';
 	$txt .= '<br>';
 	echo( $txt);
 
@@ -986,7 +979,7 @@ function showPageSaveName()
 {
 	$txt = '';
 	$txt .= '<h1>Save name</h1>';
-	$txt .= '<a href="/">Back to main</a><br>';
+	$txt .= '<a href="do=">Back to main</a><br>';
 	$txt .= '<br>';
 	echo( $txt);
 
@@ -1078,29 +1071,23 @@ function main()
 	echo( "<!DOCTYPE html>\n");
 	echo( "<html>\n");
 
-	include_once( "func-writeHead.php");
+	echo( "<head>\n");
+	echo( "<title>Name your babe backend</title>\n");
+	echo( "<meta http-equiv='content-type' content='text/html; charset=UTF-8' />\n");
+	echo( "<style type='text/css'>\n");
+	echo( "a {color:ForestGreen;}\n");
+	echo( "h1 {border-bottom:1px solid ForestGreen;margin:-1em -1em 1em -1em;background:#444444;padding:1em;font-size:1em;}\n");
+	echo( "hr {border-bottom:1px solid ForestGreen;margin:0 -1em 0 -1em;}\n");
+	echo( "</style>\n");
+	echo( "</head>\n");
 
-	echo( "<body>\n");
-	echo( "<div class='outsideFrame'>\n");
-
-	include_once( "func-writeTop.php");
-
-	echo( "<div class='mainContent'>\n");
-
-	include_once( "func-writeNavigation.php");
-
-	echo( "<article id='mainArticle'><div class='divArticle'>\n");
+	echo( "<body style='margin:0;padding:0;font-size:18px;font-family:\"Arial\";font-weight:300;background:#333333;color:#cccccc;'>\n");
+	echo( "<div style='background:ForestGreen;color:white;margin:0;padding:1em;text-align:center;'>Name your babe backend</div>\n");
+	echo( "<div style='margin:1em;'>\n");
 
 	main();
 
-	echo( "</div></article>\n");
-
-	include_once( "func-writeBottom.php");
-
-	echo( "</div>\n");
 	echo( "</div>\n");
 	echo( "</body>\n");
 	echo( "</html>\n");
-
-	include_once( "func-logging.php");
 ?>

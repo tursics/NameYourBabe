@@ -106,7 +106,7 @@ function exportShowPageDataSourceJS()
 
 	$txt = '';
 	$txt .= '<h1>Export files</h1>';
-	$txt .= '<a href="/">Back to main</a><br>';
+	$txt .= '<a href="do=">Back to main</a><br>';
 	$txt .= '<br>';
 	echo( $txt);
 
@@ -146,8 +146,8 @@ function exportShowPageDataSourceJS()
 	$txt .= '</div>';
 	$txt .= '</form>';
 	$txt .= '<br><br>';
-	$txt .= '<a href="/">Back</a> - ';
-	$txt .= '<a href="/do=export&what=dataName.js">Next</a><br>';
+	$txt .= '<a href="do=">Back</a> - ';
+	$txt .= '<a href="do=export&what=dataName.js">Next</a><br>';
 
 	echo( $txt);
 }
@@ -406,7 +406,7 @@ function exportShowPageDataNameJS()
 
 	$txt = '';
 	$txt .= '<h1>Export files</h1>';
-	$txt .= '<a href="/">Back to main</a><br>';
+	$txt .= '<a href="do=">Back to main</a><br>';
 	$txt .= '<br>';
 	$txt .= 'Time period from '.$yearFrom.' to '.$yearTo.' ('.($yearTo-$yearFrom+1).' years)<br>';
 	$txt .= 'Top '.$top.' names<br>';
@@ -451,8 +451,8 @@ function exportShowPageDataNameJS()
 	$txt .= '<br><br>';
 	$txt .= count( $names).' names and additional '.count( $namesSimilar).' similar names<br>';
 	$txt .= '<br>';
-	$txt .= '<a href="/do=export&what=dataSource.js">Back</a> - ';
-	$txt .= '<a href="/do=export&what=dataFoo.js">Next</a><br>';
+	$txt .= '<a href="do=export&what=dataSource.js">Back</a> - ';
+	$txt .= '<a href="do=export&what=dataFoo.js">Next</a><br>';
 
 	echo( $txt);
 }
