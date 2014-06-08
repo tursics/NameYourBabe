@@ -435,6 +435,8 @@ function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $q
 					continue;
 				} else if( $name == "oğlu") {
 					continue;
+				} else if( $name == "Totgeborener") {
+					continue;
 				}
 			}
 
