@@ -46,10 +46,11 @@ function parseSourcedataURL( $sourceIndex, $urlID, $quite)
 			$zip->open( $tmpfile);
 
 			for( $i = 0; $i < $zip->numFiles; ++$i) {
+				$info = $zip->statIndex( $i);
 				if( !$quite) {
-				    echo '&nbsp;&nbsp;zip file ' . ($i+1) . '/' . $zip->numFiles . ' (' . $zip->statIndex( $i).name . ')';
+					echo '&nbsp;&nbsp;zip file ' . ($i+1) . '/' . $zip->numFiles . ' (' . $info['name'] . ')';
 				}
-				$file = 'zip://' . $zip->filename . '#' . $zip->statIndex( $i).name;
+				$file = 'zip://' . $zip->filename . '#' . $info['name'];
 				parseSourcedataAll( $file, $sourceIndex, $urlID, $quite);
 			}
 		}
@@ -397,39 +398,41 @@ function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $q
 			}
 
 			$name = trim( $vec[ $row][ $colName]);
-/*			if( $name == "noch") {
-				continue;
-			} else if( $name == "kein") {
-				continue;
-			} else if( $name == "Vorname") {
-				continue;
-			} else if( $name == "ohne") {
-				continue;
-			} else if( $name == "Vornamen") {
-				continue;
-			} else if( $name == "keinen") {
-				continue;
-			} else if( $name == "(Eigenname)") {
-				continue;
-			} else if( $name == "(Vorname") {
-				continue;
-			} else if( $name == "(Vornamen") {
-				continue;
-			} else if( $name == "und") {
-				continue;
-			} else if( $name == "Vatersname)") {
-				continue;
-			} else if( $name == "A.") {
-				continue;
-			} else if( $name == "de") {
-				continue;
-			} else if( $name == "del") {
-				continue;
-			} else if( $name == "don") {
-				continue;
-			} else if( $name == "oğlu") {
-				continue;
-			}*/
+			if( false) {
+				if( $name == "noch") {
+					continue;
+				} else if( $name == "kein") {
+					continue;
+				} else if( $name == "Vorname") {
+					continue;
+				} else if( $name == "ohne") {
+					continue;
+				} else if( $name == "Vornamen") {
+					continue;
+				} else if( $name == "keinen") {
+					continue;
+				} else if( $name == "(Eigenname)") {
+					continue;
+				} else if( $name == "(Vorname") {
+					continue;
+				} else if( $name == "(Vornamen") {
+					continue;
+				} else if( $name == "und") {
+					continue;
+				} else if( $name == "Vatersname)") {
+					continue;
+				} else if( $name == "A.") {
+					continue;
+				} else if( $name == "de") {
+					continue;
+				} else if( $name == "del") {
+					continue;
+				} else if( $name == "don") {
+					continue;
+				} else if( $name == "oğlu") {
+					continue;
+				}
+			}
 
 			$data[] = Array(
 				name=> $name,
