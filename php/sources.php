@@ -29,6 +29,10 @@ function parseSourcedataURL( $sourceIndex, $urlID, $quite)
 
 	$file = $gSource[$sourceIndex]['autoUrl'][$urlID];
 
+	if( 'http://daten.ulm.de/sites/default/files/Vornamensstatistik_1998-2013_ulm_0.zip' == $file) {
+		$urlID = 1;
+	}
+
 	if( 'http://www.tirol.gv.at/applikationen/e-government/data/datenkatalog/bevoelkerung/top-100-vornamen-in-tirol/' == $file) {
 		$ignore = true;
 	} else if( '.pdf' == substr( $file, -4)) {
@@ -97,7 +101,7 @@ function parseSourcedataAll( $file, $sourceIndex, $urlID, $quite)
 		parseSourcedataVorarlberg( $vec, $sourceID, $urlID, $quite);
 	} else if(( $vecCount > 0) && ($vec[0][1] == '"Vorname"') && (trim( $vec[0][2]) == '"Geschlecht"') && (trim( $vec[0][3]) == '"Anzahl"')) {
 		parseSourcedataZuerich( $vec, $sourceID, $urlID, $quite);
-	} else if(( $vecCount > 0) && ($vec[0][0] == 'vorname') && ($vec[0][1] == 'anzahl') && (trim( $vec[0][2]) == 'geschlecht')) {
+	} else if(( $vecCount > 0) && /*($vec[0][0] == 'vorname') &&*/ ($vec[0][1] == 'anzahl') && (trim( $vec[0][2]) == 'geschlecht')) {
 		$theYear = 2012; // berlin missing year number in 2012
 		preg_match_all('!\d+!', $file, $yearVec);
 		if( 0 < count( $yearVec[0])) {
