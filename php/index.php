@@ -476,6 +476,7 @@ function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 					if( $refPos == intval( $item['pos'])) {
 						$good = true;
 					} else {
+//if( $refPos < intval( $item['pos'])) { $ret.='XXXXXX<br>'; continue; }
 						$ret .= '<span style="background-color:Chocolate;padding:2px;">Updated pos</span> Old pos: ' . $refPos . ' New pos: ' . intval( $item['pos']) . '<br>';
 						$gBoys[$nameUFT8]['ref'][$j] = $strRef;
 					}
@@ -504,6 +505,7 @@ function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 					if( $refPos == intval( $item['pos'])) {
 						$good = true;
 					} else {
+//if( $refPos < intval( $item['pos'])) { $ret.='XXXXXX<br>'; continue; }
 						$ret .= '<span style="background-color:Chocolate;padding:2px;">Updated pos</span> Old pos: ' . $refPos . ' New pos: ' . intval( $item['pos']) . '<br>';
 						$gGirls[$nameUFT8]['ref'][$j] = $strRef;
 					}

@@ -435,8 +435,18 @@ function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $q
 					continue;
 				} else if( $name == "oğlu") {
 					continue;
+				} else if( $name == "ogly") {
+					continue;
+				} else if( $name == "kyzy") {
+					continue;
 				} else if( $name == "Totgeborener") {
 					continue;
+				} else if( $name == "") {
+					continue;
+				} else if( $name == "Nana-akua") {
+					$name = "Nana-Akua";
+				} else if( $name == "Shawn,") {
+					$name = "Shawn";
 				}
 			}
 

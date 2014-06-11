@@ -38,7 +38,7 @@ $gSource=array (
     array (
       0 => 'AT12',
     ),
-    'autoModified' => '2014-06-07',
+    'autoModified' => '2014-06-11',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Niederösterreich - data.noe.gv.at',
   ),
@@ -194,7 +194,7 @@ $gSource=array (
     array (
       0 => 'AT31',
     ),
-    'autoModified' => '2014-06-07',
+    'autoModified' => '2014-06-11',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Oberösterreich - data.ooe.gv.at',
   ),
@@ -1257,7 +1257,7 @@ $gSource=array (
     'url' => 'http://daten.ulm.de/datenkatalog/metadaten/vornamensstatistik',
     'meta' => 'http://daten.ulm.de/datenkatalog/iso19139/175',
     'id' => 45,
-    'autoUpdate' => 82,
+    'autoUpdate' => 0,
     'manNUTS' => 
     array (
       0 => 'DE144',
@@ -1294,7 +1294,7 @@ $gSource=array (
       11 => 'Vornamensstatistik  (1982)',
       12 => 'Vornamensstatistik  (1972)',
     ),
-    'autoModified' => '2014-02-07',
+    'autoModified' => '2014-06-11',
     'manLicense' => 'CC BY 3.0 DE',
     'manCitation' => 'CC BY 3.0 DE: Stadt Ulm',
     'manMergeAll' => true,
@@ -1306,7 +1306,7 @@ $gSource=array (
     'group' => '[2012-2013] Liste der häufigen Vornamen, Berlin',
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/liste-der-haeufigen-vornamen-2013',
     'id' => 46,
-    'autoUpdate' => 116,
+    'autoUpdate' => 120,
     'autoUrl' => 
     array (
       0 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/charlottenburg-wilmersdorf.csv',
@@ -1411,7 +1411,7 @@ $gSource=array (
     'name' => '[2009-2013] Chemnitz (Privat)',
     'id' => 48,
     'meta' => '/private/chemnitz/metadata.json',
-    'autoUpdate' => 64,
+    'autoUpdate' => 68,
     'autoUrl' => 
     array (
       0 => '/private/chemnitz/2009.csv',
