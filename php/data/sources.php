@@ -1244,16 +1244,8 @@ $gSource=array (
   45 => 
   array (
     'nuts' => 'DE144',
-    'name' => '[2013] Vornamensstatistik der Stadt Ulm',
-    'group' => '[2013] Vornamensstatistik der Stadt Ulm',
-    'de-DE' => 
-    array (
-      0 => 'Ulm',
-    ),
-    'en-US' => 
-    array (
-      0 => 'Ulm',
-    ),
+    'name' => '[1998-2013] Vornamensstatistik der Stadt Ulm',
+    'group' => '[1998-2013] Vornamensstatistik der Stadt Ulm',
     'url' => 'http://daten.ulm.de/datenkatalog/metadaten/vornamensstatistik',
     'meta' => 'http://daten.ulm.de/datenkatalog/iso19139/175',
     'id' => 45,
@@ -1261,6 +1253,18 @@ $gSource=array (
     'manNUTS' => 
     array (
       0 => 'DE144',
+      1 => 'DE144',
+      2 => 'DE144',
+      3 => 'DE144',
+      4 => 'DE144',
+      5 => 'DE144',
+      6 => 'DE144',
+      7 => 'DE144',
+      8 => 'DE144',
+      9 => 'DE144',
+      10 => 'DE144',
+      11 => 'DE144',
+      12 => 'DE144',
     ),
     'autoUrl' => 
     array (
@@ -1404,6 +1408,7 @@ $gSource=array (
     ),
     'url' => 'http://www.data.gouv.fr/de/dataset?q=pr%C3%A9nom&ext_territory=&page=1',
     'modified' => '2014-03-26',
+    'autoUpdate' => -1,
   ),
   48 => 
   array (
@@ -1445,6 +1450,7 @@ $gSource=array (
     'group' => '[1917-2010] Ontario',
     'url' => 'http://www.ontario.ca/government/ontario-top-baby-names-female',
     'modified' => '2012-12-12',
+    'autoUpdate' => -1,
   ),
   50 => 
   array (
@@ -1454,6 +1460,7 @@ $gSource=array (
     'group' => '[1917-2010] Ontario',
     'url' => 'http://www.ontario.ca/government/ontario-top-baby-names-male',
     'modified' => '2012-12-12',
+    'autoUpdate' => -1,
   ),
 );
 ?>
