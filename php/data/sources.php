@@ -1310,7 +1310,7 @@ $gSource=array (
     'group' => '[2012-2013] Liste der häufigen Vornamen, Berlin',
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/liste-der-haeufigen-vornamen-2013',
     'id' => 46,
-    'autoUpdate' => 120,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
       0 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/charlottenburg-wilmersdorf.csv',
@@ -1394,6 +1394,7 @@ $gSource=array (
     ),
     'autoLicense' => 'CC BY',
     'manCitation' => 'Datenquelle: Stadt Berlin – daten.berlin.de',
+    'autoModified' => '2014-06-12',
   ),
   47 => 
   array (
@@ -1416,7 +1417,7 @@ $gSource=array (
     'name' => '[2009-2013] Chemnitz (Privat)',
     'id' => 48,
     'meta' => '/private/chemnitz/metadata.json',
-    'autoUpdate' => 68,
+    'autoUpdate' => 69,
     'autoUrl' => 
     array (
       0 => '/private/chemnitz/2009.csv',

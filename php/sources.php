@@ -419,13 +419,25 @@ function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $q
 					continue;
 				} else if( $name == "(Vorname") {
 					continue;
+				} else if( $name == "(Vorname)") {
+					continue;
 				} else if( $name == "(Vornamen") {
 					continue;
 				} else if( $name == "und") {
 					continue;
 				} else if( $name == "Vatersname)") {
 					continue;
+				} else if( $name == "(Vatersname)") {
+					continue;
+				} else if( $name == "(Großvatersname)") {
+					continue;
+				} else if( $name == "Mittelname)") {
+					continue;
+				} else if( $name == "(Mittelname)") {
+					continue;
 				} else if( $name == "A.") {
+					continue;
+				} else if( $name == "C.") {
 					continue;
 				} else if( $name == "de") {
 					continue;
@@ -438,6 +450,10 @@ function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $q
 				} else if( $name == "ogly") {
 					continue;
 				} else if( $name == "kyzy") {
+					continue;
+				} else if( $name == "qizi") {
+					continue;
+				} else if( $name == "qızı") {
 					continue;
 				} else if( $name == "Totgeborener") {
 					continue;
