@@ -562,7 +562,6 @@ function showPageUpdateSourcedata()
 
 	$dirtyCount = 0;
 	for( $i = 0; $i < count( $gSource); ++$i) {
-//	for( $i = 48; $i < count( $gSource); ++$i) {
 		if( $gSource[$i]['autoUpdate'] <= 0) {
 			continue;
 		}

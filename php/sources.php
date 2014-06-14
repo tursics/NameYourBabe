@@ -469,8 +469,8 @@ function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $q
 					$name = "Shawn";
 				} else if( $name == "ClaudiaRicarda") {
 					$name = "Claudia-Ricarda";
-				} else if( $name == "LouAnn") {
-					$name = "Lou-Ann";
+//				} else if( $name == "LouAnn") { // correct name
+//					$name = "Lou-Ann";
 				} else if( $name == "kim") {
 					$name = "Kim"; // ????
 				}

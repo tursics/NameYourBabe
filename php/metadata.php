@@ -14,9 +14,13 @@ function parseMetadataCopyright( $index, $title, $url, $citation)
 		$gSource[$index]['autoLicense'] = 'CC BY 3.0 DE';
 	} else if(( 'Datenlizenz Deutschland - Namensnennung - Version 1.0' == $title) && ('http://www.daten-deutschland.de/bibliothek/Datenlizenz_Deutschland/dl-de-by-1.0' == $url)) {
 		$gSource[$index]['autoLicense'] = 'DL DE BY 1.0';
+	} else if( 'public' == $title) {
+		$gSource[$index]['autoLicense'] = 'public';
 	}
 
 	if( 0 === strpos( $citation, 'Datenquelle:')) {
+		$gSource[$index]['autoCitation'] = $citation;
+	} else if(( 'public' == $gSource[$index]['autoLicense']) && (count( $citation) > 0)) {
 		$gSource[$index]['autoCitation'] = $citation;
 	}
 }

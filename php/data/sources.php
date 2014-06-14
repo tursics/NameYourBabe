@@ -934,7 +934,7 @@ $gSource=array (
     ),
     'manLicense' => 'CC BY 3.0 DE',
     'manCitation' => 'Datenquelle: Stadt Berlin – daten.berlin.de',
-    'autoUpdate' => 0,
+    'autoUpdate' => -1,
     'autoLicense' => 'CC BY',
     'autoModified' => '2014-02-11',
   ),
@@ -985,7 +985,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9559_de',
     'id' => 36,
-    'autoUpdate' => 0,
+    'autoUpdate' => -1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202007.csv',
@@ -1049,7 +1049,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9573_de',
     'id' => 38,
-    'autoUpdate' => 0,
+    'autoUpdate' => -1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202009.csv',
@@ -1081,7 +1081,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9580_de',
     'id' => 39,
-    'autoUpdate' => 0,
+    'autoUpdate' => -1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202010.csv',
@@ -1113,7 +1113,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9587_de',
     'id' => 40,
-    'autoUpdate' => 0,
+    'autoUpdate' => -1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202011.csv',
@@ -1417,7 +1417,7 @@ $gSource=array (
     'name' => '[2009-2013] Chemnitz (Privat)',
     'id' => 48,
     'meta' => '/private/chemnitz/metadata.json',
-    'autoUpdate' => 69,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
       0 => '/private/chemnitz/2009.csv',
@@ -1442,6 +1442,9 @@ $gSource=array (
       3 => 'DED11',
       4 => 'DED11',
     ),
+    'autoModified' => '2014-06-13',
+    'autoLicense' => 'public',
+    'autoCitation' => 'Stadt Chemnitz, Standesamt',
   ),
   49 => 
   array (
