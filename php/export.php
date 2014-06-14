@@ -2,6 +2,14 @@
 
 //--------------------------------------------------------------------------------------------------
 
+function encodeURIComponent( $str)
+{
+	$revert = array( '%21'=>'!', '%2A'=>'*', '%27'=>"'", '%28'=>'(', '%29'=>')');
+	return strtr( rawurlencode( $str), $revert);
+}
+
+//--------------------------------------------------------------------------------------------------
+
 function exportShowPageSourceJSCmp( $a, $b)
 {
 	if( isset( $a['group']) && isset( $b['group']) && ($a['group'] == $b['group'])) {
@@ -106,8 +114,6 @@ function exportShowPageDataSourceJS()
 
 	$txt = '';
 	$txt .= '<h1>Export files</h1>';
-	$txt .= '<a href="do=">Back to main</a><br>';
-	$txt .= '<br>';
 	echo( $txt);
 
 	usort( $gSource, "exportShowPageSourceJSCmp");
@@ -139,14 +145,16 @@ function exportShowPageDataSourceJS()
 	$data = rtrim( $data, ",\n");
 	$data .= "\n];\n";
 
-	$txt = '<form>';
-	$txt .= '<div class="supportPage">';
-	$txt .= '<label for="text">dataSource.js</label><br>';
-	$txt .= '<textarea id="text" name="text" rows="10" autofocus>'.$data.'</textarea><br>';
-	$txt .= '</div>';
-	$txt .= '</form>';
-	$txt .= '<br><br>';
-	$txt .= '<a href="do=">Back</a> - ';
+	$fileName = 'dataSource.js';
+
+	$txt = '';
+	$txt .= 'Download file <a href="data:text/plain;charset=utf-8,' . encodeURIComponent( $data) . '" download="' . $fileName . '" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">' . $fileName . '</a><br>';
+
+	$txt .= '<br>';
+	$txt .= '<hr>';
+	$txt .= '<br>';
+
+	$txt .= '<a href="do=">Back to main</a><br>';
 	$txt .= '<a href="do=export&what=dataName.js">Next</a><br>';
 
 	echo( $txt);
@@ -406,8 +414,6 @@ function exportShowPageDataNameJS()
 
 	$txt = '';
 	$txt .= '<h1>Export files</h1>';
-	$txt .= '<a href="do=">Back to main</a><br>';
-	$txt .= '<br>';
 	$txt .= 'Time period from '.$yearFrom.' to '.$yearTo.' ('.($yearTo-$yearFrom+1).' years)<br>';
 	$txt .= 'Top '.$top.' names<br>';
 	$txt .= '<br>';
@@ -444,14 +450,20 @@ function exportShowPageDataNameJS()
 
 	$txt = '<form>';
 	$txt .= '<div class="supportPage">';
-	$txt .= '<label for="text">dataName.js</label><br>';
-	$txt .= '<textarea id="text" name="text" rows="10" autofocus>'.$data.'</textarea><br>';
+	$txt .= '<label for="text">dataName.js<br></label><br>';
+	$txt .= '<textarea id="text" name="text" rows="10" autofocus style="width:100%;">'.$data.'</textarea><br>';
 	$txt .= '</div>';
 	$txt .= '</form>';
-	$txt .= '<br><br>';
-	$txt .= count( $names).' names and additional '.count( $namesSimilar).' similar names<br>';
 	$txt .= '<br>';
-	$txt .= '<a href="do=export&what=dataSource.js">Back</a> - ';
+	$txt .= count( $names).' names and additional '.count( $namesSimilar).' similar names<br>';
+
+	$txt .= '<br>';
+	$txt .= '<hr>';
+	$txt .= '<br>';
+
+	$txt .= '<a href="do=">Back to main</a><br>';
+	$txt .= '<br>';
+	$txt .= '<a href="do=export&what=dataSource.js">Back</a><br>';
 	$txt .= '<a href="do=export&what=dataFoo.js">Next</a><br>';
 
 	echo( $txt);
