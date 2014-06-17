@@ -38,7 +38,7 @@ $gSource=array (
     array (
       0 => 'AT12',
     ),
-    'autoModified' => '2014-06-11',
+    'autoModified' => '2014-06-17',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Niederösterreich - data.noe.gv.at',
   ),
@@ -194,7 +194,7 @@ $gSource=array (
     array (
       0 => 'AT31',
     ),
-    'autoModified' => '2014-06-11',
+    'autoModified' => '2014-06-17',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Oberösterreich - data.ooe.gv.at',
   ),
@@ -934,7 +934,7 @@ $gSource=array (
     ),
     'manLicense' => 'CC BY 3.0 DE',
     'manCitation' => 'Datenquelle: Stadt Berlin – daten.berlin.de',
-    'autoUpdate' => -1,
+    'autoUpdate' => 0,
     'autoLicense' => 'CC BY',
     'autoModified' => '2014-02-11',
   ),
@@ -985,7 +985,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9559_de',
     'id' => 36,
-    'autoUpdate' => -1,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202007.csv',
@@ -1049,7 +1049,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9573_de',
     'id' => 38,
-    'autoUpdate' => -1,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202009.csv',
@@ -1081,7 +1081,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9580_de',
     'id' => 39,
-    'autoUpdate' => -1,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202010.csv',
@@ -1113,7 +1113,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9587_de',
     'id' => 40,
-    'autoUpdate' => -1,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202011.csv',
@@ -1465,6 +1465,155 @@ $gSource=array (
     'url' => 'http://www.ontario.ca/government/ontario-top-baby-names-male',
     'modified' => '2012-12-12',
     'autoUpdate' => -1,
+  ),
+  51 => 
+  array (
+    'nuts' => 'DE60',
+    'name' => 'Hamburg-Altona (Privat)',
+    'group' => '[2009-2013, teils] Hamburg (Privat)',
+    'id' => 51,
+    'meta' => '/private/hamburg/altona.json',
+    'manNUTS' => 
+    array (
+      0 => 'DE6002',
+    ),
+    'autoUpdate' => 74,
+    'autoUrl' => 
+    array (
+      0 => '/private/hamburg/altona-2013.pdf',
+    ),
+    'autoName' => 
+    array (
+      0 => 'Vornamensstatistik 2013',
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => 'Standesamt Hamburg-Altona',
+  ),
+  52 => 
+  array (
+    'nuts' => 'DE60',
+    'name' => 'Hamburg-Bergedorf (Privat)',
+    'group' => '[2009-2013, teils] Hamburg (Privat)',
+    'id' => 52,
+    'meta' => '/private/hamburg/bergedorf.json',
+    0 => 
+    array (
+      0 => 'DE6006',
+    ),
+    'autoUpdate' => 0,
+  ),
+  53 => 
+  array (
+    'nuts' => 'DE60',
+    'name' => 'Hamburg-Eimsbüttel (Privat)',
+    'group' => '[2009-2013, teils] Hamburg (Privat)',
+    'id' => 53,
+    'meta' => '/private/hamburg/eimsbuettel.json',
+    0 => 
+    array (
+      0 => 'DE6003',
+    ),
+    'autoUpdate' => 40,
+    'autoUrl' => 
+    array (
+      0 => '/private/hamburg/eimsbuettel-2009.csv',
+      1 => '/private/hamburg/eimsbuettel-2010.csv',
+      2 => '/private/hamburg/eimsbuettel-2011.csv',
+      3 => '/private/hamburg/eimsbuettel-2012.csv',
+      4 => '/private/hamburg/eimsbuettel-2013.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => 'Vornamensstatistik 2009',
+      1 => 'Vornamensstatistik 2010',
+      2 => 'Vornamensstatistik 2011',
+      3 => 'Vornamensstatistik 2012',
+      4 => 'Vornamensstatistik 2013',
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => 'Standesamt Hamburg-Eimsbüttel',
+  ),
+  54 => 
+  array (
+    'nuts' => 'DE60',
+    'name' => 'Hamburg-Harburg (Privat)',
+    'group' => '[2009-2013, teils] Hamburg (Privat)',
+    'id' => 54,
+    'meta' => '/private/hamburg/harburg.json',
+    0 => 
+    array (
+      0 => 'DE6007',
+    ),
+    'autoUpdate' => 0,
+  ),
+  55 => 
+  array (
+    'nuts' => 'DE60',
+    'name' => 'Hamburg-Mitte (Privat)',
+    'group' => '[2009-2013, teils] Hamburg (Privat)',
+    'id' => 55,
+    'meta' => '/private/hamburg/mitte.json',
+    0 => 
+    array (
+      0 => 'DE6001',
+    ),
+    'autoUpdate' => 70,
+    'autoUrl' => 
+    array (
+    ),
+    'autoName' => 
+    array (
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => 'Standesamt Hamburg-Mitte',
+  ),
+  56 => 
+  array (
+    'nuts' => 'DE60',
+    'name' => 'Hamburg-Nord (Privat)',
+    'group' => '[2009-2013, teils] Hamburg (Privat)',
+    'id' => 56,
+    'meta' => '/private/hamburg/nord.json',
+    0 => 
+    array (
+      0 => 'DE6004',
+    ),
+    'autoUpdate' => 67,
+    'autoUrl' => 
+    array (
+      0 => '/private/hamburg/nord-2012.csv',
+      1 => '/private/hamburg/nord-2013.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => 'Vornamen 2012',
+      1 => 'Vornamen 2013',
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => 'Standesamt Hamburg-Nord',
+  ),
+  57 => 
+  array (
+    'nuts' => 'DE60',
+    'name' => 'Hamburg-Wandsbek (Privat)',
+    'group' => '[2009-2013, teils] Hamburg (Privat)',
+    'id' => 57,
+    'meta' => '/private/hamburg/wandsbek.json',
+    0 => 
+    array (
+      0 => 'DE6005',
+    ),
+    'autoUpdate' => 67,
+    'autoUrl' => 
+    array (
+      0 => '/private/hamburg/wandsbek-2009-2013.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => 'Vornamen',
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => 'Standesamt Hamburg-Wandsbek',
   ),
 );
 ?>
