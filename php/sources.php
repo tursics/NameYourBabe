@@ -110,7 +110,7 @@ function parseSourcedataAll( $file, $sourceIndex, $urlID, $quite)
 				$theYear = $lastYear;
 			}
 		}
-		parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $quite);
+		parseSourcedataBerlinChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theYear, $quite);
 	} else if(( $vecCount > 1) && ($vec[1][0] == 'Anzahl der  Kinder mit')) {
 		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
 	} else if(( $vecCount > 1) && (trim( $vec[1][0]) == 'Anzahl der Kinder mit')) {
@@ -365,8 +365,8 @@ function parseSourcedataSalzburg( $vec, $sourceID, $urlID, $quite)
 
 //--------------------------------------------------------------------------------------------------
 
-// Berlin + Chemnitz + Ulm
-function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $quite)
+// Berlin + Chemnitz + Hamburg + Ulm
+function parseSourcedataBerlinChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theYear, $quite)
 {
 	$vecCount = count( $vec);
 	if( $vecCount < 2) {
@@ -423,6 +423,8 @@ function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $q
 					continue;
 				} else if( $name == "(Vornamen") {
 					continue;
+				} else if( $name == "(Vor-") {
+					continue;
 				} else if( $name == "und") {
 					continue;
 				} else if( $name == "Vatersname)") {
@@ -437,17 +439,27 @@ function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $q
 					continue;
 				} else if( $name == "(Mittelname)") {
 					continue;
+				} else if( $name == "Namen") {
+					continue;
+				} else if( $name == "Jr.") {
+					continue;
 				} else if( $name == "A.") {
 					continue;
 				} else if( $name == "C.") {
 					continue;
 				} else if( $name == ".") {
 					continue;
+				} else if( $name == "al") {
+					continue;
 				} else if( $name == "de") {
 					continue;
 				} else if( $name == "del") {
 					continue;
+				} else if( $name == "Del") {
+					continue;
 				} else if( $name == "don") {
+					continue;
+				} else if( $name == "oglu") {
 					continue;
 				} else if( $name == "oğlu") {
 					continue;
@@ -473,6 +485,9 @@ function parseSourcedataBerlinChemnitzUlm( $vec, $sourceID, $urlID, $theYear, $q
 //					$name = "Lou-Ann";
 				} else if( $name == "kim") {
 					$name = "Kim"; // ????
+				} else if( $name == "mia") {
+					$name = "Mia"; // ????
+					continue;
 				}
 			}
 

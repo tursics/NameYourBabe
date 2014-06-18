@@ -1477,10 +1477,10 @@ $gSource=array (
     array (
       0 => 'DE6002',
     ),
-    'autoUpdate' => 74,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/private/hamburg/altona-2013.pdf',
+      0 => '/data/private/hamburg/altona-2013.csv',
     ),
     'autoName' => 
     array (
@@ -1488,6 +1488,7 @@ $gSource=array (
     ),
     'autoLicense' => 'public',
     'autoCitation' => 'Standesamt Hamburg-Altona',
+    'autoModified' => '2014-06-18',
   ),
   52 => 
   array (
@@ -1513,14 +1514,14 @@ $gSource=array (
     array (
       0 => 'DE6003',
     ),
-    'autoUpdate' => 40,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/private/hamburg/eimsbuettel-2009.csv',
-      1 => '/private/hamburg/eimsbuettel-2010.csv',
-      2 => '/private/hamburg/eimsbuettel-2011.csv',
-      3 => '/private/hamburg/eimsbuettel-2012.csv',
-      4 => '/private/hamburg/eimsbuettel-2013.csv',
+      0 => '/data/private/hamburg/eimsbuettel-2009.csv',
+      1 => '/data/private/hamburg/eimsbuettel-2010.csv',
+      2 => '/data/private/hamburg/eimsbuettel-2011.csv',
+      3 => '/data/private/hamburg/eimsbuettel-2012.csv',
+      4 => '/data/private/hamburg/eimsbuettel-2013.csv',
     ),
     'autoName' => 
     array (
@@ -1532,6 +1533,7 @@ $gSource=array (
     ),
     'autoLicense' => 'public',
     'autoCitation' => 'Standesamt Hamburg-Eimsbüttel',
+    'autoModified' => '2014-06-18',
   ),
   54 => 
   array (
@@ -1557,7 +1559,7 @@ $gSource=array (
     array (
       0 => 'DE6001',
     ),
-    'autoUpdate' => 70,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
     ),
@@ -1566,6 +1568,7 @@ $gSource=array (
     ),
     'autoLicense' => 'public',
     'autoCitation' => 'Standesamt Hamburg-Mitte',
+    'autoModified' => '2014-06-18',
   ),
   56 => 
   array (
@@ -1578,11 +1581,11 @@ $gSource=array (
     array (
       0 => 'DE6004',
     ),
-    'autoUpdate' => 67,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/private/hamburg/nord-2012.csv',
-      1 => '/private/hamburg/nord-2013.csv',
+      0 => '/data/private/hamburg/nord-2012.csv',
+      1 => '/data/private/hamburg/nord-2013.csv',
     ),
     'autoName' => 
     array (
@@ -1591,6 +1594,7 @@ $gSource=array (
     ),
     'autoLicense' => 'public',
     'autoCitation' => 'Standesamt Hamburg-Nord',
+    'autoModified' => '2014-06-18',
   ),
   57 => 
   array (
@@ -1603,7 +1607,7 @@ $gSource=array (
     array (
       0 => 'DE6005',
     ),
-    'autoUpdate' => 67,
+    'autoUpdate' => 68,
     'autoUrl' => 
     array (
       0 => '/private/hamburg/wandsbek-2009-2013.csv',

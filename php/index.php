@@ -574,6 +574,7 @@ function showPageUpdateSourcedata()
 		echo( $txt);
 
 		for( $j = 0; $j < count( $gSource[$i]['autoUrl']); ++$j) {
+//		for( $j = 0; $j < 1; ++$j) {
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/katalog/storage')) {
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at' . $gSource[$i]['autoUrl'][$j];
 			} else
@@ -581,7 +582,7 @@ function showPageUpdateSourcedata()
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at/katalog/' . substr( $gSource[$i]['autoUrl'][$j], 15);
 			} else
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/private/')) {
-				$gSource[$i]['autoUrl'][$j] = dirname(__FILE__) . '/data/' . $gSource[$i]['autoUrl'][$j];
+				$gSource[$i]['autoUrl'][$j] = dirname(__FILE__) . '/data' . $gSource[$i]['autoUrl'][$j];
 			}
 
 			$name = $gSource[$i]['autoName'][$j];
@@ -636,6 +637,7 @@ function showPageSaveSourcedata()
 		echo( $txt);
 
 		for( $j = 0; $j < count( $gSource[$i]['autoUrl']); ++$j) {
+//		for( $j = 0; $j < 1; ++$j) {
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/katalog/storage')) {
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at' . $gSource[$i]['autoUrl'][$j];
 			} else
@@ -643,7 +645,7 @@ function showPageSaveSourcedata()
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at/katalog/' . substr( $gSource[$i]['autoUrl'][$j], 15);
 			} else
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/private/')) {
-				$gSource[$i]['autoUrl'][$j] = dirname(__FILE__) . '/data/' . $gSource[$i]['autoUrl'][$j];
+				$gSource[$i]['autoUrl'][$j] = dirname(__FILE__) . '/data' . $gSource[$i]['autoUrl'][$j];
 			}
 
 			$name = $gSource[$i]['autoName'][$j];

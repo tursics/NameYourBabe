@@ -17,9 +17,9 @@
 	"resources": [
 	{
 		"name": "Vornamensstatistik 2013",
-		"url": "/private/hamburg/altona-2013.pdf",
+		"url": "/private/hamburg/altona-2013.csv",
 		"created": "2014-01-13T11:57:09.000000",
-		"format": "pdf",
+		"format": "csv",
 		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
 	}
 	],
