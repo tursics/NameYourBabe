@@ -1625,6 +1625,83 @@ $gNuts=array (
     	        		),
         			    'manRegions' => 
 			            array (
+	    		    	  array (
+			    	        'manNuts' => 'DE6001',
+		    		        'manName' => 
+		        	    	array (
+            				  'en-US' => 'Hamburg-Mitte',
+	        			      'de-DE' => 'Hamburg-Mitte',
+    				        ),
+    			    	    'manRegions' => 
+				            array (
+				            ),
+				          ),
+	    		    	  array (
+			    	        'manNuts' => 'DE6002',
+		    		        'manName' => 
+		        	    	array (
+            				  'en-US' => 'Hamburg Altona',
+	        			      'de-DE' => 'Hamburg Altona',
+    				        ),
+    			    	    'manRegions' => 
+				            array (
+				            ),
+				          ),
+	    		    	  array (
+			    	        'manNuts' => 'DE6003',
+		    		        'manName' => 
+		        	    	array (
+            				  'en-US' => 'Hamburg Eimsbüttel',
+	        			      'de-DE' => 'Hamburg Eimsbüttel',
+    				        ),
+    			    	    'manRegions' => 
+				            array (
+				            ),
+				          ),
+	    		    	  array (
+			    	        'manNuts' => 'DE6004',
+		    		        'manName' => 
+		        	    	array (
+            				  'en-US' => 'Hamburg-Nord',
+	        			      'de-DE' => 'Hamburg-Nord',
+    				        ),
+    			    	    'manRegions' => 
+				            array (
+				            ),
+				          ),
+	    		    	  array (
+			    	        'manNuts' => 'DE6005',
+		    		        'manName' => 
+		        	    	array (
+            				  'en-US' => 'Hamburg Wandsbek',
+	        			      'de-DE' => 'Hamburg Wandsbek',
+    				        ),
+    			    	    'manRegions' => 
+				            array (
+				            ),
+				          ),
+	    		    	  array (
+			    	        'manNuts' => 'DE6006',
+		    		        'manName' => 
+		        	    	array (
+            				  'en-US' => 'Hamburg Bergedorf',
+	        			      'de-DE' => 'Hamburg Bergedorf',
+    				        ),
+    			    	    'manRegions' => 
+				            array (
+				            ),
+				          ),
+	    		    	  array (
+			    	        'manNuts' => 'DE6007',
+		    		        'manName' => 
+		        	    	array (
+            				  'en-US' => 'Hamburg Harburg',
+	        			      'de-DE' => 'Hamburg Harburg',
+    				        ),
+    			    	    'manRegions' => 
+				            array (
+				            ),
+				          ),
 						),
         			  ),
 					),

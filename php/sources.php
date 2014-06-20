@@ -451,6 +451,8 @@ function parseSourcedataBerlinChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theY
 					continue;
 				} else if( $name == "al") {
 					continue;
+				} else if( $name == "da") {
+					continue;
 				} else if( $name == "de") {
 					continue;
 				} else if( $name == "del") {
