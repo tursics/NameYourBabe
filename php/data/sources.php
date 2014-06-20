@@ -1497,7 +1497,7 @@ $gSource=array (
     'group' => '[2009-2013, teils] Hamburg (Privat)',
     'id' => 52,
     'meta' => '/private/hamburg/bergedorf.json',
-    0 => 
+    'manNUTS' => 
     array (
       0 => 'DE6006',
     ),
@@ -1510,7 +1510,7 @@ $gSource=array (
     'group' => '[2009-2013, teils] Hamburg (Privat)',
     'id' => 53,
     'meta' => '/private/hamburg/eimsbuettel.json',
-    0 => 
+    'manNUTS' => 
     array (
       0 => 'DE6003',
     ),
@@ -1542,7 +1542,7 @@ $gSource=array (
     'group' => '[2009-2013, teils] Hamburg (Privat)',
     'id' => 54,
     'meta' => '/private/hamburg/harburg.json',
-    0 => 
+    'manNUTS' => 
     array (
       0 => 'DE6007',
     ),
@@ -1555,7 +1555,7 @@ $gSource=array (
     'group' => '[2009-2013, teils] Hamburg (Privat)',
     'id' => 55,
     'meta' => '/private/hamburg/mitte.json',
-    0 => 
+    'manNUTS' => 
     array (
       0 => 'DE6001',
     ),
@@ -1577,7 +1577,7 @@ $gSource=array (
     'group' => '[2009-2013, teils] Hamburg (Privat)',
     'id' => 56,
     'meta' => '/private/hamburg/nord.json',
-    0 => 
+    'manNUTS' => 
     array (
       0 => 'DE6004',
     ),
@@ -1603,14 +1603,14 @@ $gSource=array (
     'group' => '[2009-2013, teils] Hamburg (Privat)',
     'id' => 57,
     'meta' => '/private/hamburg/wandsbek.json',
-    0 => 
+    'manNUTS' => 
     array (
       0 => 'DE6005',
     ),
-    'autoUpdate' => 68,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/private/hamburg/wandsbek-2009-2013.csv',
+      0 => '/data/private/hamburg/wandsbek-2009-2013.csv',
     ),
     'autoName' => 
     array (
@@ -1618,6 +1618,41 @@ $gSource=array (
     ),
     'autoLicense' => 'public',
     'autoCitation' => 'Standesamt Hamburg-Wandsbek',
+    'autoModified' => '2014-06-20',
+  ),
+  58 => 
+  array (
+    'nuts' => 'DEA13',
+    'name' => '[2007-2013] Essens beliebteste Vornamen',
+    'id' => 58,
+    'meta' => '/private/essen/metadata.json',
+    'manNUTS' => 
+    array (
+      0 => 'DEA13',
+    ),
+    'autoUpdate' => 149,
+    'autoUrl' => 
+    array (
+      0 => '/private/essen/2007.csv',
+      1 => '/private/essen/2008.csv',
+      2 => '/private/essen/2009.csv',
+      3 => '/private/essen/2010.csv',
+      4 => '/private/essen/2011.csv',
+      5 => '/private/essen/2012.csv',
+      6 => '/private/essen/2013.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => '2007',
+      1 => '2008',
+      2 => '2009',
+      3 => '2010',
+      4 => '2011',
+      5 => '2012',
+      6 => '2013',
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => 'essen.de',
   ),
 );
 ?>
