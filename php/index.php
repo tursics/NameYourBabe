@@ -269,81 +269,6 @@ function parseSourcedataEngerwitzdorf( $vec, $sourceID, $urlID, $quite)
 	parseSourcedataVec( $data, $sourceID, $urlID, $quite);
 }
 
-function parseSourcedataBremen( $vec, $sourceID, $urlID, $quite)
-{
-	$vecCount = count( $vec);
-	if( $vecCount < 20) {
-		if( !$quite) {
-			echo( 'Unknown Bremen format.<br>');
-		}
-		return;
-	}
-
-	$row = 0;
-	$theYearStr = trim( $vec[ $row][0]);
-	$theYearStr = substr( $theYearStr, strlen( $theYearStr) - 4);
-	$theYear = intval( $theYearStr);
-	if( $theYear < 2000) { echo( 'Unknown Bremen year format... ' . $theYear . ' != ' . $theYearStr); return; }
-
-	for( ; $row < $vecCount; ++$row) {
-		if( '' == $vec[ $row][0]) {
-			break;
-		} else if( false !== strpos( $vec[ $row][0], 'figkeit der vergebenen Vornamen')) {
-			--$row;
-			break;
-		}
-	}
-	$row += 2;
-
-	if( $row >= $vecCount) { echo( 'Unknown Bremen year format (less data)...'); return; }
-	if( 'Anzahl' != trim( $vec[ $row][2])) {
-		--$row;
-		if( 'Anzahl' != trim( $vec[ $row-1][2])) {
-			echo( 'Unknown Bremen format (Anzahl 1)...'); return;
-		}
-	}
-	if( 'Knaben' != trim( $vec[ $row][3])) {
-		if( 'Knaben' != trim( $vec[ $row-1][3])) {
-			echo( 'Unknown Bremen format (Knaben)...'); return;
-		}
-	}
-	if( 'Anzahl' != trim( $vec[ $row][4])) {
-		if( 'Anzahl' != trim( $vec[ $row-1][4])) {
-			echo( 'Unknown Bremen format (Anzahl 2)...'); return;
-		}
-	}
-
-	++$row;
-
-//	$colYear = 0;
-	$colPos = 0;
-	$colNameBoy = 3;
-	$colNameGirl = 1;
-	$data = Array();
-
-	for( ; $row < $vecCount; ++$row) {
-		if( intval( $vec[ $row][ $colPos]) < 1) {
-			break;
-		}
-		if( count( $vec[ $row]) > 1) {
-			$data[] = Array(
-				name=> trim( $vec[ $row][ $colNameBoy]),
-				sex=> 'boy',
-				year=> $theYear,
-				pos=> intval( $vec[ $row][ $colPos]),
-			);
-			$data[] = Array(
-				name=> trim( $vec[ $row][ $colNameGirl]),
-				sex=> 'girl',
-				year=> $theYear,
-				pos=> intval( $vec[ $row][ $colPos]),
-			);
-		}
-	}
-
-	parseSourcedataVec( $data, $sourceID, $urlID, $quite);
-}
-
 function parseSourcedataVec( $data, $sourceID, $urlID, $quite)
 {
 	$txt = '<br>';
@@ -574,7 +499,7 @@ function showPageUpdateSourcedata()
 		echo( $txt);
 
 		for( $j = 0; $j < count( $gSource[$i]['autoUrl']); ++$j) {
-//		for( $j = 0; $j < 1; ++$j) {
+//		for( $j = 0; $j < 6; ++$j) {
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/katalog/storage')) {
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at' . $gSource[$i]['autoUrl'][$j];
 			} else
@@ -607,11 +532,16 @@ function showPageUpdateSourcedata()
 	$txt = '';
 
 	if( 0 == $dirtyCount) {
-		$txt .= 'All data are clean.<br><br>';
+		$txt .= 'All data are clean.<br>';
+		$txt .= '<br>';
+		$txt .= '<hr>';
+		$txt .= '<br>';
 		$txt .= '<a href="do=browse&what=sources">OK</a><br>';
 	} else {
-		$txt .= '<br><br>';
-		$txt .= '<a href="do=save&what=sourcedata">Save</a> - ';
+		$txt .= '<br>';
+		$txt .= '<hr>';
+		$txt .= '<br>';
+		$txt .= '<a href="do=save&what=sourcedata">Save</a><br>';
 		$txt .= '<a href="do=browse&what=sources">Cancel</a><br>';
 	}
 
@@ -637,7 +567,7 @@ function showPageSaveSourcedata()
 		echo( $txt);
 
 		for( $j = 0; $j < count( $gSource[$i]['autoUrl']); ++$j) {
-//		for( $j = 0; $j < 1; ++$j) {
+//		for( $j = 0; $j < 6; ++$j) {
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/katalog/storage')) {
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at' . $gSource[$i]['autoUrl'][$j];
 			} else
@@ -790,9 +720,9 @@ function getPageNameRef( $value)
 
 		foreach( $gSource as $source) {
 			if( $strSource == $source['id']) {
+				$nuts = nutsGetName( $source['manNUTS'][$strUrl]);
 //				$line = '&nbsp;&nbsp;Platz '.$strNum.', beliebteste Vornamen '.$strYear.' in '.$source['de-DE'][$strUrl];
-//				$line = '&nbsp;&nbsp;Platz '.$strNum.', beliebteste Vornamen '.$strYear.' in '.nutsGetName($source['manNUTS'][$strUrl])['de-DE'];
-				$line = '&nbsp;&nbsp;Platz '.$strNum.', beliebteste Vornamen '.$strYear.' in '.nutsGetName($source['manNUTS'][$strUrl]);
+				$line = '&nbsp;&nbsp;Platz '.$strNum.', beliebteste Vornamen '.$strYear.' in '.$nuts['de-DE'];
 			}
 		}
 

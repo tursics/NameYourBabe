@@ -1,0 +1,105 @@
+{
+	"license_title": "public",
+	"maintainer": "Gisela Rayen, Standesamt der Stadt Münster",
+	"maintainer_email": "RayenG@stadt-muenster.de",
+	"id": "???",
+	"metadata_created": "2014-03-31T10:07:00.000000",
+	"relationships": [],
+	"license": "public",
+	"metadata_modified": "2014-03-31T10:07:00.000000",
+	"author": "Gisela Rayen",
+	"author_email": "RayenG@stadt-muenster.de",
+	"download_url": "http://www.stadt-muenster.de/standesamt/geburten/vorname.html",
+	"state": "active",
+	"version": "",
+	"license_id": "???",
+	"type": null,
+	"resources": [
+	{
+		"name": "2007",
+		"url": "/private/muenster/2007.csv",
+		"created": "2014-03-31T10:07:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2008",
+		"url": "/private/muenster/2008.csv",
+		"created": "2014-03-31T10:07:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2009",
+		"url": "/private/muenster/2009.csv",
+		"created": "2014-03-31T10:07:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2010",
+		"url": "/private/muenster/2010.csv",
+		"created": "2014-03-31T10:07:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2011",
+		"url": "/private/muenster/2011.csv",
+		"created": "2014-03-31T10:07:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2012",
+		"url": "/private/muenster/2012.csv",
+		"created": "2014-03-31T10:07:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2013",
+		"url": "/private/muenster/2013.csv",
+		"created": "2014-03-31T10:07:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	}
+	],
+	"tags": ["???"],
+	"tracking_summary": {
+		"total": 0,
+		"recent": 0
+	},
+	"groups": ["???"],
+	"name": "Münster",
+	"isopen": true,
+	"notes_rendered": "Münster",
+	"url": "???",
+	"ckan_url": "???",
+	"notes": "Münster",
+	"title": "Münster",
+	"ratings_average": null,
+	"extras": {
+		"publisher": "Standesamt der Stadt Münster",
+		"categorization": ["bevoelkerung"],
+		"maintainer_link": "",
+		"metadata_modified": "2014-03-31T10:07:00.000000",
+		"lineage_quality": "",
+		"schema_characterset": "utf8",
+		"en_title_and_desc": "",
+		"geographic_bbox": "",
+		"metadata_identifier": "???",
+		"schema_language": "ger",
+		"geographic_toponym": "Münster",
+		"license_citation": "Standesamt der Stadt Münster",
+		"metadata_linkage": "",
+		"update_frequency": "",
+		"end_datetime": "",
+		"schema_name": "OGD Austria Metadata 2.1",
+		"begin_datetime": "???",
+		"publishing_date": "",
+		"attribute_description": "Münster"},
+		"license_url": "???",
+		"ratings_count": 0,
+		"revision_id": "???"
+}

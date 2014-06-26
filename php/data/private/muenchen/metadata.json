@@ -1,0 +1,77 @@
+{
+	"license_title": "public",
+	"maintainer": "Yvonne Röderer, Statistisches Amt München",
+	"maintainer_email": "stat.amt@muenchen.de",
+	"id": "???",
+	"metadata_created": "2014-03-18T11:11:00.000000",
+	"relationships": [],
+	"license": "public",
+	"metadata_modified": "2014-03-18T11:11:00.000000",
+	"author": "Yvonne Röderer",
+	"author_email": "stat.amt@muenchen.de",
+	"download_url": "???",
+	"state": "active",
+	"version": "",
+	"license_id": "???",
+	"type": null,
+	"resources": [
+	{
+		"name": "2011",
+		"url": "/private/muenchen/jt120153.csv",
+		"created": "2014-03-18T11:11:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2012",
+		"url": "/private/muenchen/jt130153.csv",
+		"created": "2014-03-18T11:11:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2013",
+		"url": "/private/muenchen/jt140153.csv",
+		"created": "2014-03-18T11:11:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	}
+	],
+	"tags": ["???"],
+	"tracking_summary": {
+		"total": 0,
+		"recent": 0
+	},
+	"groups": ["???"],
+	"name": "München",
+	"isopen": true,
+	"notes_rendered": "München",
+	"url": "???",
+	"ckan_url": "???",
+	"notes": "München",
+	"title": "München",
+	"ratings_average": null,
+	"extras": {
+		"publisher": "Statistisches Amt München",
+		"categorization": ["bevoelkerung"],
+		"maintainer_link": "",
+		"metadata_modified": "2014-03-18T11:11:00.000000",
+		"lineage_quality": "",
+		"schema_characterset": "utf8",
+		"en_title_and_desc": "",
+		"geographic_bbox": "",
+		"metadata_identifier": "???",
+		"schema_language": "ger",
+		"geographic_toponym": "München",
+		"license_citation": "© Statistisches Amt München, 2014",
+		"metadata_linkage": "",
+		"update_frequency": "",
+		"end_datetime": "",
+		"schema_name": "OGD Austria Metadata 2.1",
+		"begin_datetime": "???",
+		"publishing_date": "",
+		"attribute_description": "München"},
+		"license_url": "???",
+		"ratings_count": 0,
+		"revision_id": "???"
+}

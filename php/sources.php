@@ -115,6 +115,8 @@ function parseSourcedataAll( $file, $sourceIndex, $urlID, $quite)
 		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
 	} else if(( $vecCount > 1) && (trim( $vec[1][0]) == 'Anzahl der Kinder mit')) {
 		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
+	} else if(( $vecCount > 2) && (trim( $vec[2][0]) == 'Anzahl der Kinder mit')) {
+		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
 	} else {
 		if( !$quite) {
 			echo( '<span style="background-color:DarkOrange;padding:2px;">Unknown format!</span><br>');
@@ -500,6 +502,210 @@ function parseSourcedataBerlinChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theY
 				pos=> $yearPos[ $sex],
 			);
 			++$posCounter[ $sex];
+		}
+	}
+
+	parseSourcedataVec( $data, $sourceID, $urlID, $quite);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+function parseSourcedataBremen( $vec, $sourceID, $urlID, $quite)
+{
+	$vecCount = count( $vec);
+	if( $vecCount < 20) {
+		if( !$quite) {
+			echo( 'Unknown Bremen format.<br>');
+		}
+		return;
+	}
+
+	$row = 0;
+	if( 'Vornamenstatistik' != explode( " ", $vec[ $row][0])) {
+		++$row;
+	}
+
+	$theYearStr = trim( $vec[ $row][0]);
+	$theYearStr = substr( $theYearStr, strlen( $theYearStr) - 4);
+	$theYear = intval( $theYearStr);
+	if( $theYear < 2000) { echo( 'Unknown Bremen year format... ' . $theYear . ' != ' . $theYearStr); return; }
+
+	for( ; $row < $vecCount; ++$row) {
+		if( '' == $vec[ $row][0]) {
+			break;
+		} else if( false !== strpos( $vec[ $row][0], 'figkeit der vergebenen Vornamen')) {
+			--$row;
+			break;
+		} else if( 'Rang Mädchen Anzahl Knaben Anzahl' == $vec[ $row][0]) {
+			$row -= 2;
+			break;
+		} else if( 'Rang Mädchen Anzahl Jungen Anzahl' == $vec[ $row][0]) {
+			$row -= 2;
+			break;
+		} else if(( 'Rang' == $vec[ $row][0]) && ( 'Mädchen' == $vec[ $row][1])) {
+			$row -= 2;
+			break;
+		}
+	}
+	$row += 2;
+
+	if( $row >= $vecCount) { echo( 'Unknown Bremen year format (less data)...'); return; }
+
+	if( 1 == count( $vec[ $row])) {
+		parseSourcedataBremenSpaces( $vec, $sourceID, $urlID, $quite, $row, $theYear);
+		return;
+	}
+
+	if( 'Anzahl' != trim( $vec[ $row][2])) {
+		--$row;
+		if( 'Anzahl' != trim( $vec[ $row-1][2])) {
+			echo( 'Unknown Bremen format (Anzahl 1)...'); return;
+		}
+	}
+	if( 'Knaben' != trim( $vec[ $row][3])) {
+		if( 'Knaben' != trim( $vec[ $row-1][3])) {
+			echo( 'Unknown Bremen format (Knaben)...'); return;
+		}
+	}
+	if( 'Anzahl' != trim( $vec[ $row][4])) {
+		if( 'Anzahl' != trim( $vec[ $row-1][4])) {
+			echo( 'Unknown Bremen format (Anzahl 2)...'); return;
+		}
+	}
+
+	++$row;
+
+//	$colYear = 0;
+	$colPos = 0;
+	$colNameBoy = 3;
+	$colNameGirl = 1;
+	$data = Array();
+
+	for( ; $row < $vecCount; ++$row) {
+		if( intval( $vec[ $row][ $colPos]) < 1) {
+			break;
+		}
+		if( count( $vec[ $row]) > 1) {
+			$data[] = Array(
+				name=> trim( $vec[ $row][ $colNameBoy]),
+				sex=> 'boy',
+				year=> $theYear,
+				pos=> intval( $vec[ $row][ $colPos]),
+			);
+			$data[] = Array(
+				name=> trim( $vec[ $row][ $colNameGirl]),
+				sex=> 'girl',
+				year=> $theYear,
+				pos=> intval( $vec[ $row][ $colPos]),
+			);
+		}
+	}
+
+	parseSourcedataVec( $data, $sourceID, $urlID, $quite);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+function parseSourcedataBremenSpaces( $vec, $sourceID, $urlID, $quite, $row, $theYear)
+{
+	$vecCount = count( $vec);
+
+	$current = explode( " ", $vec[ $row][0]);
+	$previous = explode( " ", $vec[ $row-1][0]);
+
+	if( 'Anzahl' != trim( $current[2])) {
+		--$row;
+		if( 'Anzahl' != trim( $previous[2])) {
+			echo( 'Unknown Bremen format (Anzahl 1)...'); return;
+		}
+	}
+	if( 'Knaben' != trim( $current[3])) {
+		if( 'Knaben' != trim( $previous[3])) {
+			if( 'Jungen' != trim( $current[3])) {
+				if( 'Jungen' != trim( $previous[3])) {
+					echo( 'Unknown Bremen format (Knaben)...'); return;
+				}
+			}
+		}
+	}
+	if( 'Anzahl' != trim( $current[4])) {
+		if( 'Anzahl' != trim( $previous[4])) {
+			echo( 'Unknown Bremen format (Anzahl 2)...'); return;
+		}
+	}
+
+	++$row;
+
+//	$colYear = 0;
+	$colPos = 0;
+	$colNameBoy = 3;
+	$colNameGirl = 1;
+	$data = Array();
+
+	for( ; $row < $vecCount; ++$row) {
+		$current = explode( " ", $vec[ $row][0]);
+		if( intval( $current[ $colPos]) < 1) {
+			continue;
+		}
+		if( count( $current) > 3) {
+			$boy = trim( $current[ $colNameBoy]);
+			if( 'Tot' == $boy) {} else
+			if( 'geborener' == $boy) {} else
+			if( '(Vorname' == $boy) {} else
+			if( '(Vor' == $boy) {} else
+			if( 'und' == $boy) {} else
+			if( 'Vatersname)' == $boy) {} else
+			if( '(Vatersname)' == $boy) {} else
+			if( 'oğlu' == $boy) {} else
+			if( 'van' == $boy) {} else
+			if( 'Alessandro-' == $boy) {} else // data corruption
+			if( 'Maximilian-' == $boy) {} else // data corruption
+			if( '1' == $boy) {} else // given name is empty, count is '1'
+			{
+				$data[] = Array(
+					name=> $boy,
+					sex=> 'boy',
+					year=> $theYear,
+					pos=> intval( $current[ $colPos]),
+				);
+			}
+
+			$girl = trim( $current[ $colNameGirl]);
+			if( 'Tot' == $girl) {} else
+			if( 'geborenes' == $girl) {} else
+			if( 'Mädchen' == $girl) {} else
+			if( '(Vorname' == $girl) {} else
+			if( 'und' == $girl) {} else
+			if( 'Vatersname)' == $girl) {} else
+			if( 'Vatersname' == $girl) {} else
+			if( 'Vatersname:' == $girl) {} else
+			if( 'Nameskette' == $girl) {} else
+			if( 'Namenskette' == $girl) {} else
+			if( '(Namenskette)' == $girl) {} else
+			if( '-Alexandra' == $girl) {} else // data corruption
+			if( 'Irini-' == $girl) {} else // data corruption
+			if( 'Jo-Essen' == $girl) {} else // found in database from Essen
+			if( 'nana' == $girl) {} else
+			if( 'kyzy' == $girl) {} else
+			{
+				$data[] = Array(
+					name=> $girl,
+					sex=> 'girl',
+					year=> $theYear,
+					pos=> intval( $current[ $colPos]),
+				);
+			}
+		} else if( count( $current) > 1) {
+			$girl = trim( $current[ 1]);
+			if( 'Zwischennamen:' == $girl) {} else
+			{
+				$data[] = Array(
+					name=> $girl,
+					sex=> 'girl',
+					year=> $theYear,
+					pos=> intval( $current[ $colPos]),
+				);
+			}
 		}
 	}
 

@@ -38,7 +38,7 @@ $gSource=array (
     array (
       0 => 'AT12',
     ),
-    'autoModified' => '2014-06-17',
+    'autoModified' => '2014-06-23',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Niederösterreich - data.noe.gv.at',
   ),
@@ -194,7 +194,7 @@ $gSource=array (
     array (
       0 => 'AT31',
     ),
-    'autoModified' => '2014-06-17',
+    'autoModified' => '2014-06-23',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Oberösterreich - data.ooe.gv.at',
   ),
@@ -358,11 +358,25 @@ $gSource=array (
   12 => 
   array (
     'nuts' => 'AT32',
-    'name' => '[Neues Portal wird kommen] Salzburg',
-    'meta' => 'https://www.google.de/intl/de/about/',
-    'modified' => '2001-01-01',
+    'name' => 'Die 60 häufigsten Vornamen im Land Salzburg - Zeitreihe',
+    'meta' => '/private/salzburg/metadata.json',
     'id' => 31,
-    'autoUpdate' => -1,
+    'manNUTS' => 
+    array (
+      0 => 'AT32',
+    ),
+    'autoUpdate' => 0,
+    'autoUrl' => 
+    array (
+      0 => 'http://www.salzburg.gv.at/ogd/e2f18f75-934f-4f39-9722-60e81d173ef5/names-szg.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => 'Die 60 häufigsten Vornamen im Land Salzburg - Zeitreihe',
+    ),
+    'autoLicense' => 'CC BY 3.0 AT',
+    'autoModified' => '2014-06-25',
+    'manCitation' => 'Datenquelle: Land Salzburg - data.salzburg.gv.at',
   ),
   13 => 
   array (
@@ -1623,23 +1637,29 @@ $gSource=array (
   58 => 
   array (
     'nuts' => 'DEA13',
-    'name' => '[2007-2013] Essens beliebteste Vornamen',
+    'name' => '[2007-2013] Essens beliebteste Vornamen (Privat)',
     'id' => 58,
     'meta' => '/private/essen/metadata.json',
     'manNUTS' => 
     array (
       0 => 'DEA13',
+      1 => 'DEA13',
+      2 => 'DEA13',
+      3 => 'DEA13',
+      4 => 'DEA13',
+      5 => 'DEA13',
+      6 => 'DEA13',
     ),
-    'autoUpdate' => 149,
+    'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/private/essen/2007.csv',
-      1 => '/private/essen/2008.csv',
-      2 => '/private/essen/2009.csv',
-      3 => '/private/essen/2010.csv',
-      4 => '/private/essen/2011.csv',
-      5 => '/private/essen/2012.csv',
-      6 => '/private/essen/2013.csv',
+      0 => '/data/private/essen/2007.csv',
+      1 => '/data/private/essen/2008.csv',
+      2 => '/data/private/essen/2009.csv',
+      3 => '/data/private/essen/2010.csv',
+      4 => '/data/private/essen/2011.csv',
+      5 => '/data/private/essen/2012.csv',
+      6 => '/data/private/essen/2013.csv',
     ),
     'autoName' => 
     array (
@@ -1653,6 +1673,100 @@ $gSource=array (
     ),
     'autoLicense' => 'public',
     'autoCitation' => 'essen.de',
+    'autoModified' => '2014-06-23',
+  ),
+  59 => 
+  array (
+    'nuts' => 'DE212',
+    'name' => '[2011-2013] Die häufigsten Vornamen des Jahrganges, München (Privat)',
+    'id' => 59,
+    'meta' => '/private/muenchen/metadata.json',
+    'manNUTS' => 
+    array (
+      0 => 'DE212',
+      1 => 'DE212',
+      2 => 'DE212',
+    ),
+    'autoUpdate' => 0,
+    'autoUrl' => 
+    array (
+      0 => '/data/private/muenchen/jt120153.csv',
+      1 => '/data/private/muenchen/jt130153.csv',
+      2 => '/data/private/muenchen/jt140153.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => '2011',
+      1 => '2012',
+      2 => '2013',
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => '© Statistisches Amt München, 2014',
+    'autoModified' => '2014-06-26',
+  ),
+  60 => 
+  array (
+    'nuts' => 'DEA33',
+    'name' => '[2007-2013] Vornamen-Hitliste, Münster in Westfalen (Privat)',
+    'id' => 60,
+    'meta' => '/private/muenster/metadata.json',
+    'manNUTS' => 
+    array (
+      0 => 'DEA33',
+      1 => 'DEA33',
+      2 => 'DEA33',
+      3 => 'DEA33',
+      4 => 'DEA33',
+      5 => 'DEA33',
+      6 => 'DEA33',
+    ),
+    'autoUpdate' => 0,
+    'autoUrl' => 
+    array (
+      0 => '/data/private/muenster/2007.csv',
+      1 => '/data/private/muenster/2008.csv',
+      2 => '/data/private/muenster/2009.csv',
+      3 => '/data/private/muenster/2010.csv',
+      4 => '/data/private/muenster/2011.csv',
+      5 => '/data/private/muenster/2012.csv',
+      6 => '/data/private/muenster/2013.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => '2007',
+      1 => '2008',
+      2 => '2009',
+      3 => '2010',
+      4 => '2011',
+      5 => '2012',
+      6 => '2013',
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => 'Standesamt der Stadt Münster',
+    'autoModified' => '2014-06-26',
+  ),
+  61 => 
+  array (
+    'nuts' => 'DE254',
+    'name' => '[2001-2013] Csv-Datei mit Vornamen, Nürnberg (Privat)',
+    'id' => 61,
+    'meta' => '/private/nuernberg/metadata.json',
+    'manNUTS' => 
+    array (
+      0 => 'DE254',
+    ),
+    'autoUpdate' => 0,
+    'autoUrl' => 
+    array (
+      0 => '/data/private/nuernberg/2001bis2013.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => 'Csv-Datei mit Vornamen der Jahrgänge 2001 - 2013',
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => 'Quelle: Amt für Stadtforschung und Statistik für Nürnberg und Fürth',
+    'autoModified' => '2014-06-26',
   ),
 );
 ?>

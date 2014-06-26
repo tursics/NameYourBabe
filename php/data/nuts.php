@@ -54,9 +54,7 @@ $gNuts=array (
 						  'en-US' => 'Mittelburgenland',
 						  'de-DE' => 'Mittelburgenland',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT112',
@@ -65,9 +63,7 @@ $gNuts=array (
 						  'en-US' => 'Nordburgenland',
 						  'de-DE' => 'Nordburgenland',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT113',
@@ -76,9 +72,7 @@ $gNuts=array (
 						  'en-US' => 'Südburgenland',
 						  'de-DE' => 'Südburgenland',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					),
 				  ),
@@ -98,9 +92,7 @@ $gNuts=array (
 						  'en-US' => 'Mostviertel-Eisenwurzen',
 						  'de-DE' => 'Mostviertel-Eisenwurzen',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT122',
@@ -109,9 +101,7 @@ $gNuts=array (
 						  'en-US' => 'Niederösterreich-Süd',
 						  'de-DE' => 'Niederösterreich-Süd',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT123',
@@ -120,9 +110,7 @@ $gNuts=array (
 						  'en-US' => 'Sankt Pölten',
 						  'de-DE' => 'Sankt Pölten',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT124',
@@ -131,9 +119,7 @@ $gNuts=array (
 						  'en-US' => 'Waldviertel',
 						  'de-DE' => 'Waldviertel',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT125',
@@ -142,9 +128,7 @@ $gNuts=array (
 						  'en-US' => 'Weinviertel',
 						  'de-DE' => 'Weinviertel',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT126',
@@ -153,9 +137,7 @@ $gNuts=array (
 						  'en-US' => 'Wiener Umland/Nordteil',
 						  'de-DE' => 'Wiener Umland/Nordteil',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT127',
@@ -164,9 +146,7 @@ $gNuts=array (
 						  'en-US' => 'Wiener Umland/Südteil',
 						  'de-DE' => 'Wiener Umland/Südteil',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					),
 				  ),
@@ -186,9 +166,7 @@ $gNuts=array (
 						  'en-US' => 'Vienna',
 						  'de-DE' => 'Wien',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					),
 				  ),
@@ -219,9 +197,7 @@ $gNuts=array (
 						  'en-US' => 'Klagenfurt-Villach',
 						  'de-DE' => 'Klagenfurt-Villach',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT212',
@@ -230,9 +206,7 @@ $gNuts=array (
 						  'en-US' => 'Oberkärnten',
 						  'de-DE' => 'Oberkärnten',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT213',
@@ -241,9 +215,7 @@ $gNuts=array (
 						  'en-US' => 'Unterkärnten',
 						  'de-DE' => 'Unterkärnten',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					),
 				  ),
@@ -263,9 +235,7 @@ $gNuts=array (
 						  'en-US' => 'Graz',
 						  'de-DE' => 'Graz',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT222',
@@ -274,9 +244,7 @@ $gNuts=array (
 						  'en-US' => 'Liezen',
 						  'de-DE' => 'Liezen',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT223',
@@ -285,9 +253,7 @@ $gNuts=array (
 						  'en-US' => 'Östliche Obersteiermark',
 						  'de-DE' => 'Östliche Obersteiermark',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT224',
@@ -296,9 +262,7 @@ $gNuts=array (
 						  'en-US' => 'Oststeiermark',
 						  'de-DE' => 'Oststeiermark',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT225',
@@ -307,9 +271,7 @@ $gNuts=array (
 						  'en-US' => 'West- und Südsteiermark',
 						  'de-DE' => 'West- und Südsteiermark',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT226',
@@ -318,9 +280,7 @@ $gNuts=array (
 						  'en-US' => 'Westliche Obersteiermark',
 						  'de-DE' => 'Westliche Obersteiermark',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					),
 				  ),
@@ -351,9 +311,7 @@ $gNuts=array (
 						  'en-US' => 'Innviertel',
 						  'de-DE' => 'Innviertel',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT312',
@@ -395,9 +353,7 @@ $gNuts=array (
 						  'en-US' => 'Mühlviertel',
 						  'de-DE' => 'Mühlviertel',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT314',
@@ -406,9 +362,7 @@ $gNuts=array (
 						  'en-US' => 'Steyr-Kirchdorf',
 						  'de-DE' => 'Steyr-Kirchdorf',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT315',
@@ -417,9 +371,7 @@ $gNuts=array (
 						  'en-US' => 'Traunviertel',
 						  'de-DE' => 'Traunviertel',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					),
 				  ),
@@ -427,8 +379,8 @@ $gNuts=array (
 					'manNuts' => 'AT32',
 					'manName' => 
 					array (
-					  'en-US' => 'Salzburg',
-					  'de-DE' => 'Salzburg',
+					  'en-US' => 'State of Salzburg',
+					  'de-DE' => 'Land Salzburg',
 					),
 					'manRegions' => 
 					array (
@@ -439,9 +391,7 @@ $gNuts=array (
 						  'en-US' => 'Lungau',
 						  'de-DE' => 'Lungau',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT322',
@@ -450,9 +400,7 @@ $gNuts=array (
 						  'en-US' => 'Pinzgau-Pongau',
 						  'de-DE' => 'Pinzgau-Pongau',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT323',
@@ -494,9 +442,7 @@ $gNuts=array (
 						  'en-US' => 'Außerfern',
 						  'de-DE' => 'Außerfern',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT332',
@@ -505,9 +451,7 @@ $gNuts=array (
 						  'en-US' => 'Innsbruck',
 						  'de-DE' => 'Innsbruck',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT333',
@@ -516,9 +460,7 @@ $gNuts=array (
 						  'en-US' => 'Osttirol',
 						  'de-DE' => 'Osttirol',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT334',
@@ -527,9 +469,7 @@ $gNuts=array (
 						  'en-US' => 'Tyrolean Oberland',
 						  'de-DE' => 'Tiroler Oberland',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT335',
@@ -538,9 +478,7 @@ $gNuts=array (
 						  'en-US' => 'Tyrolean Unterland',
 						  'de-DE' => 'Tiroler Unterland',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					),
 				  ),
@@ -560,9 +498,7 @@ $gNuts=array (
 						  'en-US' => 'Bludenz-Bregenzer Wald',
 						  'de-DE' => 'Bludenz-Bregenzer Wald',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					  array (
 						'manNuts' => 'AT342',
@@ -571,9 +507,7 @@ $gNuts=array (
 						  'en-US' => 'Rheintal-Bodenseegebiet',
 						  'de-DE' => 'Rheintal-Bodenseegebiet',
 						),
-						'manRegions' => 
-						array (
-						),
+						'manRegions' => array(),
 					  ),
 					),
 				  ),
@@ -615,9 +549,7 @@ $gNuts=array (
         	    		  'en-US' => 'Vaud',
     	    		      'de-DE' => 'Waadt',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH012',
@@ -626,9 +558,7 @@ $gNuts=array (
         	    		  'en-US' => 'Valais',
     	    		      'de-DE' => 'Wallis',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH013',
@@ -637,9 +567,7 @@ $gNuts=array (
         	    		  'en-US' => 'Geneva',
     	    		      'de-DE' => 'Genf',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
 	        	    ),
 	        	  ),
@@ -659,9 +587,7 @@ $gNuts=array (
         	    		  'en-US' => 'Berne',
     	    		      'de-DE' => 'Bern',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH022',
@@ -670,9 +596,7 @@ $gNuts=array (
         	    		  'en-US' => 'Fribourg',
     	    		      'de-DE' => 'Freiburg',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
- 		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH023',
@@ -681,9 +605,7 @@ $gNuts=array (
         	    		  'en-US' => 'Solothurn',
     	    		      'de-DE' => 'Solothurn',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH024',
@@ -692,9 +614,7 @@ $gNuts=array (
         	    		  'en-US' => 'Neuchâtel',
     	    		      'de-DE' => 'Neuenburg',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH025',
@@ -703,9 +623,7 @@ $gNuts=array (
         	    		  'en-US' => 'Jura',
     	    		      'de-DE' => 'Jura',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
 	        	    ),
 	        	  ),
@@ -725,9 +643,7 @@ $gNuts=array (
         	    		  'en-US' => 'Basel-Stadt',
     	    		      'de-DE' => 'Basel-Stadt',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH032',
@@ -736,9 +652,7 @@ $gNuts=array (
         	    		  'en-US' => 'Basel-Landschaft',
     	    		      'de-DE' => 'Basel-Landschaft',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH033',
@@ -747,9 +661,7 @@ $gNuts=array (
         	    		  'en-US' => 'Aargau',
     	    		      'de-DE' => 'Aargau',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
 	        	    ),
 	        	  ),
@@ -769,9 +681,7 @@ $gNuts=array (
         	    		  'en-US' => 'Zürich',
     	    		      'de-DE' => 'Zürich',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
 	        	    ),
 	        	  ),
@@ -791,9 +701,7 @@ $gNuts=array (
         	    		  'en-US' => 'Glarus',
     	    		      'de-DE' => 'Glarus',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH052',
@@ -802,9 +710,7 @@ $gNuts=array (
         	    		  'en-US' => 'Schaffhausen',
     	    		      'de-DE' => 'Schaffhausen',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH053',
@@ -813,9 +719,7 @@ $gNuts=array (
         	    		  'en-US' => 'Appenzell Ausserrhoden',
     	    		      'de-DE' => 'Appenzell Ausserrhoden',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH054',
@@ -824,9 +728,7 @@ $gNuts=array (
         	    		  'en-US' => 'Appenzell Innerrhoden',
     	    		      'de-DE' => 'Appenzell Innerrhoden',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH055',
@@ -835,9 +737,7 @@ $gNuts=array (
         	    		  'en-US' => 'St. Gallen',
     	    		      'de-DE' => 'St. Gallen',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH056',
@@ -846,9 +746,7 @@ $gNuts=array (
         	    		  'en-US' => 'Grisons',
     	    		      'de-DE' => 'Graubünden',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH057',
@@ -857,9 +755,7 @@ $gNuts=array (
         	    		  'en-US' => 'Thurgau',
     	    		      'de-DE' => 'Thurgau',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
 	        	    ),
 	        	  ),
@@ -879,9 +775,7 @@ $gNuts=array (
         	    		  'en-US' => 'Lucerne',
     	    		      'de-DE' => 'Luzern',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH062',
@@ -890,9 +784,7 @@ $gNuts=array (
         	    		  'en-US' => 'Uri',
     	    		      'de-DE' => 'Uri',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH063',
@@ -901,9 +793,7 @@ $gNuts=array (
         	    		  'en-US' => 'Schwyz',
     	    		      'de-DE' => 'Schwyz',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH064',
@@ -912,9 +802,7 @@ $gNuts=array (
         	    		  'en-US' => 'Obwalden',
     	    		      'de-DE' => 'Obwalden',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH065',
@@ -923,9 +811,7 @@ $gNuts=array (
         	    		  'en-US' => 'Nidwalden',
     	    		      'de-DE' => 'Nidwalden',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
         			  array (
     			        'manNuts' => 'CH066',
@@ -934,9 +820,7 @@ $gNuts=array (
         	    		  'en-US' => 'Zug',
     	    		      'de-DE' => 'Zug',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
 	        	    ),
 	        	  ),
@@ -956,9 +840,7 @@ $gNuts=array (
         	    		  'en-US' => 'Ticino',
     	    		      'de-DE' => 'Tessin',
 	    		        ),
-    		        	'manRegions' => 
-		        	    array (
-  		        	    ),
+    		        	'manRegions' => array(),
 		        	  ),
 	        	    ),
 	        	  ),
@@ -1041,9 +923,7 @@ $gNuts=array (
             			  'en-US' => 'Ulm',
 	        		      'de-DE' => 'Ulm',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 /*            DE145 Alb-Donau-Kreis
             DE146 Biberach
@@ -1072,29 +952,213 @@ $gNuts=array (
    			        ),
    		    	    'manRegions' => 
 		            array (
-/*            DE211 Ingolstadt, Kreisfreie Stadt
-            DE212 München, Kreisfreie Stadt
-            DE213 Rosenheim, Kreisfreie Stadt
-            DE214 Altötting
-            DE215 Berchtesgadener Land
-            DE216 Bad Tölz-Wolfratshausen
-            DE217 Dachau
-            DE218 Ebersberg
-            DE219 Eichstätt
-            DE21A Erding
-            DE21B Freising
-            DE21C Fürstenfeldbruck
-            DE21D Garmisch-Partenkirchen
-            DE21E Landsberg a. Lech
-            DE21F Miesbach
-            DE21G Mühldorf a. Inn
-            DE21H München, Landkreis
-            DE21I Neuburg-Schrobenhausen
-            DE21J Pfaffenhofen a. d. Ilm
-            DE21K Rosenheim, Landkreis
-            DE21L Starnberg
-            DE21M Traunstein
-            DE21N Weilheim-Schongau*/
+	    	    	  array (
+		    	        'manNuts' => 'DE211',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Ingolstadt',
+	        		      'de-DE' => 'Ingolstadt',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE212',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Munich',
+	        		      'de-DE' => 'München',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE213',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Rosenheim',
+	        		      'de-DE' => 'Rosenheim',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE214',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Altötting',
+	        		      'de-DE' => 'Altötting',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE215',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Berchtesgadener Land',
+	        		      'de-DE' => 'Berchtesgadener Land',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE216',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Bad Tölz-Wolfratshausen',
+	        		      'de-DE' => 'Bad Tölz-Wolfratshausen',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE217',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Dachau',
+	        		      'de-DE' => 'Dachau',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE218',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Ebersberg',
+	        		      'de-DE' => 'Ebersberg',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE219',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Eichstätt',
+	        		      'de-DE' => 'Eichstätt',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21A',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Erding',
+	        		      'de-DE' => 'Erding',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21B',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Freising',
+	        		      'de-DE' => 'Freising',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21C',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Fürstenfeldbruck',
+	        		      'de-DE' => 'Fürstenfeldbruck',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21D',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Garmisch-Partenkirchen',
+	        		      'de-DE' => 'Garmisch-Partenkirchen',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21E',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Landsberg',
+	        		      'de-DE' => 'Landsberg am Lech',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21F',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Miesbach',
+	        		      'de-DE' => 'Miesbach',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21G',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Mühldorf',
+	        		      'de-DE' => 'Mühldorf am Inn',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21H',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Munich (district)',
+	        		      'de-DE' => 'Landkreis München',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21I',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Neuburg-Schrobenhausen',
+	        		      'de-DE' => 'Neuburg-Schrobenhausen',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => '',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Pfaffenhofen',
+	        		      'de-DE' => 'Pfaffenhofen an der Ilm',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21K',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Rosenheim (district)',
+	        		      'de-DE' => 'Landkreis Rosenheim',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21L',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Starnberg',
+	        		      'de-DE' => 'Starnberg',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21M',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Traunstein',
+	        		      'de-DE' => 'Traunstein',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
+	    	    	  array (
+		    	        'manNuts' => 'DE21N',
+	    		        'manName' => 
+	        	    	array (
+            			  'en-US' => 'Weilheim-Schongau',
+	        		      'de-DE' => 'Weilheim-Schongau',
+    			        ),
+    		    	    'manRegions' => array(),
+			          ),
 		            ),
 		          ),
     	    	  array (
@@ -1181,9 +1245,7 @@ $gNuts=array (
             			  'en-US' => 'Ansbach',
 	        		      'de-DE' => 'Ansbach',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE252',
@@ -1192,9 +1254,7 @@ $gNuts=array (
             			  'en-US' => 'Erlangen',
 	        		      'de-DE' => 'Erlangen',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE253',
@@ -1203,9 +1263,7 @@ $gNuts=array (
             			  'en-US' => 'Fürth',
 	        		      'de-DE' => 'Fürth',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE254',
@@ -1214,9 +1272,7 @@ $gNuts=array (
             			  'en-US' => 'Nuremberg',
 	        		      'de-DE' => 'Nürnberg',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE255',
@@ -1225,9 +1281,7 @@ $gNuts=array (
             			  'en-US' => 'Schwabach',
 	        		      'de-DE' => 'Schwabach',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE256',
@@ -1236,9 +1290,7 @@ $gNuts=array (
             			  'en-US' => 'Ansbach, Landkreis',
 	        		      'de-DE' => 'Ansbach, Landkreis',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE257',
@@ -1247,9 +1299,7 @@ $gNuts=array (
             			  'en-US' => 'Erlangen-Höchstadt',
 	        		      'de-DE' => 'Erlangen-Höchstadt',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE258',
@@ -1258,9 +1308,7 @@ $gNuts=array (
             			  'en-US' => 'Fürth, Landkreis',
 	        		      'de-DE' => 'Fürth, Landkreis',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE259',
@@ -1269,9 +1317,7 @@ $gNuts=array (
             			  'en-US' => 'Nürnberger Land',
 	        		      'de-DE' => 'Nürnberger Land',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE25A',
@@ -1280,9 +1326,7 @@ $gNuts=array (
             			  'en-US' => 'Neustadt a. d. Aisch-Bad Windsheim',
 	        		      'de-DE' => 'Neustadt a. d. Aisch-Bad Windsheim',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE25B',
@@ -1291,9 +1335,7 @@ $gNuts=array (
             			  'en-US' => 'Roth',
 	        		      'de-DE' => 'Roth',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE25C',
@@ -1302,9 +1344,7 @@ $gNuts=array (
             			  'en-US' => 'Weißenburg-Gunzenhausen',
 	        		      'de-DE' => 'Weißenburg-Gunzenhausen',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 		            ),
 		          ),
@@ -1383,9 +1423,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin',
 	        		      'de-DE' => 'Berlin',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE301',
@@ -1394,9 +1432,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Mitte',
 	        		      'de-DE' => 'Berlin Mitte',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE302',
@@ -1405,9 +1441,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Friedrichshain-Kreuzberg',
 	        		      'de-DE' => 'Berlin Friedrichshain-Kreuzberg',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE303',
@@ -1416,9 +1450,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Pankow',
 	        		      'de-DE' => 'Berlin Pankow',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE304',
@@ -1427,9 +1459,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Charlottenburg-Wilmersdorf',
 	        		      'de-DE' => 'Berlin Charlottenburg-Wilmersdorf',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE305',
@@ -1438,9 +1468,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Spandau',
 	        		      'de-DE' => 'Berlin Spandau',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE306',
@@ -1449,9 +1477,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Steglitz-Zehlendorf',
 	        		      'de-DE' => 'Berlin Steglitz-Zehlendorf',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE307',
@@ -1460,9 +1486,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Tempelhof-Schöneberg',
 	        		      'de-DE' => 'Berlin Tempelhof-Schöneberg',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE308',
@@ -1471,9 +1495,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Neukölln',
 	        		      'de-DE' => 'Berlin Neukölln',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE309',
@@ -1482,9 +1504,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Treptow-Köpenick',
 	        		      'de-DE' => 'Berlin Treptow-Köpenick',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE30A',
@@ -1493,9 +1513,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Marzahn-Hellersdorf',
 	        		      'de-DE' => 'Berlin Marzahn-Hellersdorf',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE30B',
@@ -1504,9 +1522,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Lichtenberg',
 	        		      'de-DE' => 'Berlin Lichtenberg',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
 		    	        'manNuts' => 'DE30C',
@@ -1515,9 +1531,7 @@ $gNuts=array (
             			  'en-US' => 'Berlin Reinickendorf',
 	        		      'de-DE' => 'Berlin Reinickendorf',
     			        ),
-    		    	    'manRegions' => 
-			            array (
-			            ),
+    		    	    'manRegions' => array(),
 			          ),
 		            ),
 		          ),
@@ -1632,9 +1646,7 @@ $gNuts=array (
             				  'en-US' => 'Hamburg-Mitte',
 	        			      'de-DE' => 'Hamburg-Mitte',
     				        ),
-    			    	    'manRegions' => 
-				            array (
-				            ),
+							'manRegions' => array(),
 				          ),
 	    		    	  array (
 			    	        'manNuts' => 'DE6002',
@@ -1643,9 +1655,7 @@ $gNuts=array (
             				  'en-US' => 'Hamburg Altona',
 	        			      'de-DE' => 'Hamburg Altona',
     				        ),
-    			    	    'manRegions' => 
-				            array (
-				            ),
+							'manRegions' => array(),
 				          ),
 	    		    	  array (
 			    	        'manNuts' => 'DE6003',
@@ -1654,9 +1664,7 @@ $gNuts=array (
             				  'en-US' => 'Hamburg Eimsbüttel',
 	        			      'de-DE' => 'Hamburg Eimsbüttel',
     				        ),
-    			    	    'manRegions' => 
-				            array (
-				            ),
+							'manRegions' => array(),
 				          ),
 	    		    	  array (
 			    	        'manNuts' => 'DE6004',
@@ -1665,9 +1673,7 @@ $gNuts=array (
             				  'en-US' => 'Hamburg-Nord',
 	        			      'de-DE' => 'Hamburg-Nord',
     				        ),
-    			    	    'manRegions' => 
-				            array (
-				            ),
+							'manRegions' => array(),
 				          ),
 	    		    	  array (
 			    	        'manNuts' => 'DE6005',
@@ -1676,9 +1682,7 @@ $gNuts=array (
             				  'en-US' => 'Hamburg Wandsbek',
 	        			      'de-DE' => 'Hamburg Wandsbek',
     				        ),
-    			    	    'manRegions' => 
-				            array (
-				            ),
+							'manRegions' => array(),
 				          ),
 	    		    	  array (
 			    	        'manNuts' => 'DE6006',
@@ -1687,9 +1691,7 @@ $gNuts=array (
             				  'en-US' => 'Hamburg Bergedorf',
 	        			      'de-DE' => 'Hamburg Bergedorf',
     				        ),
-    			    	    'manRegions' => 
-				            array (
-				            ),
+							'manRegions' => array(),
 				          ),
 	    		    	  array (
 			    	        'manNuts' => 'DE6007',
@@ -1698,9 +1700,7 @@ $gNuts=array (
             				  'en-US' => 'Hamburg Harburg',
 	        			      'de-DE' => 'Hamburg Harburg',
     				        ),
-    			    	    'manRegions' => 
-				            array (
-				            ),
+							'manRegions' => array(),
 				          ),
 						),
         			  ),
@@ -1852,8 +1852,8 @@ $gNuts=array (
             		'manNuts' => 'DEA1',
    			        'manName' => 
 	        	    array (
-       		    	  'en-US' => 'Düsseldorf',
-		              'de-DE' => 'Düsseldorf',
+       		    	  'en-US' => 'Düsseldorf (region)',
+		              'de-DE' => 'Regierungsbezirk Düsseldorf',
    	        		),
        			    'manRegions' => 
 		            array (
@@ -1864,9 +1864,7 @@ $gNuts=array (
 		            	  'en-US' => 'Düsseldorf',
 			              'de-DE' => 'Düsseldorf',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA12',
@@ -1875,9 +1873,7 @@ $gNuts=array (
 		            	  'en-US' => 'Duisburg',
 			              'de-DE' => 'Duisburg',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA13',
@@ -1886,9 +1882,7 @@ $gNuts=array (
 		            	  'en-US' => 'Essen',
 			              'de-DE' => 'Essen',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA14',
@@ -1897,9 +1891,7 @@ $gNuts=array (
 		            	  'en-US' => 'Krefeld',
 			              'de-DE' => 'Krefeld',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA15',
@@ -1908,9 +1900,7 @@ $gNuts=array (
 		            	  'en-US' => 'Mönchengladbach',
 			              'de-DE' => 'Mönchengladbach',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA16',
@@ -1919,9 +1909,7 @@ $gNuts=array (
 		            	  'en-US' => 'Mülheim an der Ruhr',
 			              'de-DE' => 'Mülheim an der Ruhr',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA17',
@@ -1930,9 +1918,7 @@ $gNuts=array (
 		            	  'en-US' => 'Oberhausen',
 			              'de-DE' => 'Oberhausen',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA18',
@@ -1941,9 +1927,7 @@ $gNuts=array (
 		            	  'en-US' => 'Remscheid',
 			              'de-DE' => 'Remscheid',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA19',
@@ -1952,9 +1936,7 @@ $gNuts=array (
 		            	  'en-US' => 'Solingen',
 			              'de-DE' => 'Solingen',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA1A',
@@ -1963,9 +1945,7 @@ $gNuts=array (
 		            	  'en-US' => 'Wuppertal',
 			              'de-DE' => 'Wuppertal',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA1B',
@@ -1974,9 +1954,7 @@ $gNuts=array (
 		            	  'en-US' => 'Kleve',
 			              'de-DE' => 'Kleve',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA1C',
@@ -1985,9 +1963,7 @@ $gNuts=array (
 		            	  'en-US' => 'Mettmann',
 			              'de-DE' => 'Mettmann',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA1D',
@@ -1996,9 +1972,7 @@ $gNuts=array (
 		            	  'en-US' => 'Rhein-Kreis Neuss',
 			              'de-DE' => 'Rhein-Kreis Neuss',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA1E',
@@ -2007,9 +1981,7 @@ $gNuts=array (
 		            	  'en-US' => 'Viersen',
 			              'de-DE' => 'Viersen',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 	            		'manNuts' => 'DEA1F',
@@ -2030,9 +2002,7 @@ $gNuts=array (
         			    	  'en-US' => 'Moers',
 			        	      'de-DE' => 'Moers',
     	        			),
-	        			    'manRegions' => 
-				            array (
-							),
+							'manRegions' => array(),
         				  ),
 /*    DEA1F024028	Neukirchen-Vluyn
     DEA1F024032	Rheinberg
@@ -2051,8 +2021,8 @@ $gNuts=array (
             		'manNuts' => 'DEA2',
    			        'manName' => 
 	        	    array (
-       		    	  'en-US' => 'Cologne',
-		              'de-DE' => 'Köln',
+       		    	  'en-US' => 'Cologne (region)',
+		              'de-DE' => 'Regierungsbezirk Köln',
    	        		),
        			    'manRegions' => 
 		            array (
@@ -2074,8 +2044,8 @@ $gNuts=array (
             		'manNuts' => 'DEA3',
    			        'manName' => 
 	        	    array (
-       		    	  'en-US' => 'Münster',
-		              'de-DE' => 'Münster',
+       		    	  'en-US' => 'Münster (region)',
+		              'de-DE' => 'Regierungsbezirk Münster',
    	        		),
        			    'manRegions' => 
 		            array (
@@ -2086,9 +2056,7 @@ $gNuts=array (
 		            	  'en-US' => 'Bottrop',
 			              'de-DE' => 'Bottrop',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA32',
@@ -2097,20 +2065,16 @@ $gNuts=array (
 		            	  'en-US' => 'Gelsenkirchen',
 			              'de-DE' => 'Gelsenkirchen',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA33',
     			        'manName' => 
         			    array (
-		            	  'en-US' => 'Münster, Kreisfreie Stadt',
-			              'de-DE' => 'Münster, Kreisfreie Stadt',
+		            	  'en-US' => 'Münster',
+			              'de-DE' => 'Münster',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA34',
@@ -2119,9 +2083,7 @@ $gNuts=array (
 		            	  'en-US' => 'Borken',
 			              'de-DE' => 'Borken',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA35',
@@ -2130,9 +2092,7 @@ $gNuts=array (
 		            	  'en-US' => 'Coesfeld',
 			              'de-DE' => 'Coesfeld',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA36',
@@ -2141,9 +2101,7 @@ $gNuts=array (
 		            	  'en-US' => 'Recklinghausen',
 			              'de-DE' => 'Recklinghausen',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA37',
@@ -2152,9 +2110,7 @@ $gNuts=array (
 		            	  'en-US' => 'Steinfurt',
 			              'de-DE' => 'Steinfurt',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DEA38',
@@ -2163,9 +2119,7 @@ $gNuts=array (
 		            	  'en-US' => 'Warendorf',
 			              'de-DE' => 'Warendorf',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 					),
        			  ),
@@ -2173,8 +2127,8 @@ $gNuts=array (
             		'manNuts' => 'DEA4',
    			        'manName' => 
 	        	    array (
-       		    	  'en-US' => 'Detmold',
-		              'de-DE' => 'Detmold',
+       		    	  'en-US' => 'Detmold (region)',
+		              'de-DE' => 'Regierungsbezirk Detmold',
    	        		),
        			    'manRegions' => 
 		            array (
@@ -2191,8 +2145,8 @@ $gNuts=array (
             		'manNuts' => 'DEA5',
    			        'manName' => 
 	        	    array (
-       		    	  'en-US' => 'Arnsberg',
-		              'de-DE' => 'Arnsberg',
+       		    	  'en-US' => 'Arnsberg (region)',
+		              'de-DE' => 'Regierungsbezirk Arnsberg',
    	        		),
        			    'manRegions' => 
 		            array (
@@ -2305,9 +2259,7 @@ $gNuts=array (
 		            	  'en-US' => 'Chemnitz',
 			              'de-DE' => 'Chemnitz',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED12',
@@ -2316,9 +2268,7 @@ $gNuts=array (
 		            	  'en-US' => 'Plauen',
 			              'de-DE' => 'Plauen',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED13',
@@ -2327,9 +2277,7 @@ $gNuts=array (
 		            	  'en-US' => 'Zwickau',
 			              'de-DE' => 'Zwickau',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED14',
@@ -2338,9 +2286,7 @@ $gNuts=array (
 		            	  'en-US' => 'Annaberg',
 			              'de-DE' => 'Annaberg',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED15',
@@ -2349,9 +2295,7 @@ $gNuts=array (
 		            	  'en-US' => 'Chemnitzer Land',
 			              'de-DE' => 'Chemnitzer Land',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED16',
@@ -2360,9 +2304,7 @@ $gNuts=array (
 		            	  'en-US' => 'Freiberg',
 			              'de-DE' => 'Freiberg',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED17',
@@ -2371,9 +2313,7 @@ $gNuts=array (
 		            	  'en-US' => 'Vogtlandkreis',
 			              'de-DE' => 'Vogtlandkreis',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED18',
@@ -2382,9 +2322,7 @@ $gNuts=array (
 		            	  'en-US' => 'Mittlerer Erzgebirgskreis',
 			              'de-DE' => 'Mittlerer Erzgebirgskreis',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED19',
@@ -2393,9 +2331,7 @@ $gNuts=array (
 		            	  'en-US' => 'Mittweida',
 			              'de-DE' => 'Mittweida',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED1A',
@@ -2404,9 +2340,7 @@ $gNuts=array (
 		            	  'en-US' => 'Stollberg',
 			              'de-DE' => 'Stollberg',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED1B',
@@ -2415,9 +2349,7 @@ $gNuts=array (
 		            	  'en-US' => 'Aue-Schwarzenberg',
 			              'de-DE' => 'Aue-Schwarzenberg',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 			          array (
 			            'manNuts' => 'DED1C',
@@ -2426,9 +2358,7 @@ $gNuts=array (
 		            	  'en-US' => 'Zwickauer Land',
 			              'de-DE' => 'Zwickauer Land',
     		    	    ),
-        			    'manRegions' => 
-			            array (
-						),
+						'manRegions' => array(),
 		        	  ),
 					),
 	        	  ),
