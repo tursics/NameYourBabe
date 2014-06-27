@@ -1,4 +1,4 @@
-﻿gDataSource=[
+gDataSource=[
 {	"nuts":"AT",
 	"name":{"en-US":"Austria","de-DE":"Österreich"},
 	"license":"",
@@ -65,9 +65,9 @@
 	"citation":"Datenquelle: CC-BY-3.0: Stadt Linz - data.linz.gv.at"
 },
 {	"nuts":"AT32",
-	"name":{"en-US":"Salzburg","de-DE":"Salzburg"},
-	"license":"",
-	"citation":""
+	"name":{"en-US":"State of Salzburg","de-DE":"Land Salzburg"},
+	"license":"CC BY 3.0 AT",
+	"citation":"Datenquelle: Land Salzburg - data.salzburg.gv.at"
 },
 {	"nuts":"AT323",
 	"name":{"en-US":"Salzburg und Umgebung","de-DE":"Salzburg und Umgebung"},
@@ -123,6 +123,31 @@
 	"name":{"en-US":"Ulm","de-DE":"Ulm"},
 	"license":"CC BY 3.0 DE",
 	"citation":"CC BY 3.0 DE: Stadt Ulm"
+},
+{	"nuts":"DE2",
+	"name":{"en-US":"Bavaria","de-DE":"Bayern"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DE21",
+	"name":{"en-US":"Oberbayern","de-DE":"Oberbayern"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DE212",
+	"name":{"en-US":"Munich","de-DE":"München"},
+	"license":"public",
+	"citation":"© Statistisches Amt München, 2014"
+},
+{	"nuts":"DE25",
+	"name":{"en-US":"Mittelfranken","de-DE":"Mittelfranken"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DE254",
+	"name":{"en-US":"Nuremberg","de-DE":"Nürnberg"},
+	"license":"public",
+	"citation":"Quelle: Amt für Stadtforschung und Statistik für Nürnberg und Fürth"
 },
 {	"nuts":"DE3",
 	"name":{"en-US":"Berlin","de-DE":"Berlin"},
@@ -204,15 +229,70 @@
 	"license":"CC BY 3.0 DE",
 	"citation":"Datenquelle: Freie Hansestadt Bremen – daten.bremen.de"
 },
+{	"nuts":"DE6",
+	"name":{"en-US":"Hamburg","de-DE":"Hamburg"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DE60",
+	"name":{"en-US":"Hamburg","de-DE":"Hamburg"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DE600",
+	"name":{"en-US":"Hamburg","de-DE":"Hamburg"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DE6005",
+	"name":{"en-US":"Hamburg Wandsbek","de-DE":"Hamburg Wandsbek"},
+	"license":"public",
+	"citation":"Standesamt Hamburg-Wandsbek"
+},
+{	"nuts":"DE6004",
+	"name":{"en-US":"Hamburg-Nord","de-DE":"Hamburg-Nord"},
+	"license":"public",
+	"citation":"Standesamt Hamburg-Nord"
+},
+{	"nuts":"DE6001",
+	"name":{"en-US":"Hamburg-Mitte","de-DE":"Hamburg-Mitte"},
+	"license":"public",
+	"citation":"Standesamt Hamburg-Mitte"
+},
+{	"nuts":"DE6007",
+	"name":{"en-US":"Hamburg Harburg","de-DE":"Hamburg Harburg"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DE6003",
+	"name":{"en-US":"Hamburg Eimsbüttel","de-DE":"Hamburg Eimsbüttel"},
+	"license":"public",
+	"citation":"Standesamt Hamburg-Eimsbüttel"
+},
+{	"nuts":"DE6006",
+	"name":{"en-US":"Hamburg Bergedorf","de-DE":"Hamburg Bergedorf"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DE6002",
+	"name":{"en-US":"Hamburg Altona","de-DE":"Hamburg Altona"},
+	"license":"public",
+	"citation":"Standesamt Hamburg-Altona"
+},
 {	"nuts":"DEA",
 	"name":{"en-US":"North Rhine-Westphalia","de-DE":"Nordrhein-Westfalen"},
 	"license":"",
 	"citation":""
 },
 {	"nuts":"DEA1",
-	"name":{"en-US":"Düsseldorf","de-DE":"Düsseldorf"},
+	"name":{"en-US":"Düsseldorf (region)","de-DE":"Regierungsbezirk Düsseldorf"},
 	"license":"",
 	"citation":""
+},
+{	"nuts":"DEA13",
+	"name":{"en-US":"Essen","de-DE":"Essen"},
+	"license":"public",
+	"citation":"essen.de"
 },
 {	"nuts":"DEA1F",
 	"name":{"en-US":"Wesel","de-DE":"Wesel"},
@@ -223,5 +303,40 @@
 	"name":{"en-US":"Moers","de-DE":"Moers"},
 	"license":"DL DE BY 1.0",
 	"citation":"Datenquelle: Stadt Moers – offenedaten.moers.de"
+},
+{	"nuts":"DEA3",
+	"name":{"en-US":"Münster (region)","de-DE":"Regierungsbezirk Münster"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DEA33",
+	"name":{"en-US":"Münster","de-DE":"Münster"},
+	"license":"public",
+	"citation":"Standesamt der Stadt Münster"
+},
+{	"nuts":"DEA4",
+	"name":{"en-US":"Detmold (region)","de-DE":"Regierungsbezirk Detmold"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DEA47",
+	"name":{"en-US":"Paderborn","de-DE":"Paderborn"},
+	"license":"public",
+	"citation":"Stadt Paderborn"
+},
+{	"nuts":"DED",
+	"name":{"en-US":"Saxony","de-DE":"Sachsen"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DED1",
+	"name":{"en-US":"Chemnitz","de-DE":"Chemnitz"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DED11",
+	"name":{"en-US":"Chemnitz","de-DE":"Chemnitz"},
+	"license":"public",
+	"citation":"Stadt Chemnitz, Standesamt"
 }
 ];

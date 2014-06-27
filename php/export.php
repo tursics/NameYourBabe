@@ -357,8 +357,12 @@ function exportShowPageDataNameGetData( $name, $top, $yearFrom, $yearTo)
 	$txt .= "\t\"similar\":\"".exportShowPageDataNameGetAltName( $name)."\",\n";
 
 	$hitnames = Array();
-	exportShowPageDataNameCollectHitCount( $gBoys[ $name], 'M', $hitnames, $top, $yearFrom, $yearTo);
-	exportShowPageDataNameCollectHitCount( $gGirls[ $name], 'F', $hitnames, $top, $yearFrom, $yearTo);
+	if( isset( $gBoys[ $name])) {
+		exportShowPageDataNameCollectHitCount( $gBoys[ $name], 'M', $hitnames, $top, $yearFrom, $yearTo);
+	}
+	if( isset( $gGirls[ $name])) {
+		exportShowPageDataNameCollectHitCount( $gGirls[ $name], 'F', $hitnames, $top, $yearFrom, $yearTo);
+	}
 	$txt .= "\t\"charts\":[".exportShowPageDataNameGetHitCount( $hitnames)."],\n";
 
 	$txt = rtrim( $txt, ",\n");
@@ -448,14 +452,12 @@ function exportShowPageDataNameJS()
 	$data = rtrim( $data, ",\n");
 	$data .= "\n];\n";
 
-	$txt = '<form>';
-	$txt .= '<div class="supportPage">';
-	$txt .= '<label for="text">dataName.js<br></label><br>';
-	$txt .= '<textarea id="text" name="text" rows="10" autofocus style="width:100%;">'.$data.'</textarea><br>';
-	$txt .= '</div>';
-	$txt .= '</form>';
-	$txt .= '<br>';
+	$fileName = 'dataName.js';
+
+	$txt = '';
 	$txt .= count( $names).' names and additional '.count( $namesSimilar).' similar names<br>';
+	$txt .= '<br>';
+	$txt .= 'Download file <a href="data:text/plain;charset=utf-8,' . encodeURIComponent( $data) . '" download="' . $fileName . '" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">' . $fileName . '</a><br>';
 
 	$txt .= '<br>';
 	$txt .= '<hr>';
