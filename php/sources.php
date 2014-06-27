@@ -640,6 +640,7 @@ function parseSourcedataBremenSpaces( $vec, $sourceID, $urlID, $quite, $row, $th
 	$colPos = 0;
 	$colNameBoy = 3;
 	$colNameGirl = 1;
+	$colCountGirl = 2;
 	$data = Array();
 
 	for( ; $row < $vecCount; ++$row) {
@@ -656,6 +657,9 @@ function parseSourcedataBremenSpaces( $vec, $sourceID, $urlID, $quite, $row, $th
 			if( 'und' == $boy) {} else
 			if( 'Vatersname)' == $boy) {} else
 			if( '(Vatersname)' == $boy) {} else
+			if( 'noch' == $boy) {} else
+			if( 'kein' == $boy) {} else
+			if( 'Vorname' == $boy) {} else
 			if( 'oğlu' == $boy) {} else
 			if( 'van' == $boy) {} else
 			if( 'Alessandro-' == $boy) {} else // data corruption
@@ -671,6 +675,10 @@ function parseSourcedataBremenSpaces( $vec, $sourceID, $urlID, $quite, $row, $th
 			}
 
 			$girl = trim( $current[ $colNameGirl]);
+			if(( '' == $girl) && ( '' == $current[ $colCountGirl])) {
+				continue;
+			}
+
 			if( 'Tot' == $girl) {} else
 			if( 'geborenes' == $girl) {} else
 			if( 'Mädchen' == $girl) {} else
@@ -682,11 +690,15 @@ function parseSourcedataBremenSpaces( $vec, $sourceID, $urlID, $quite, $row, $th
 			if( 'Nameskette' == $girl) {} else
 			if( 'Namenskette' == $girl) {} else
 			if( '(Namenskette)' == $girl) {} else
+			if( 'noch' == $girl) {} else
+			if( 'kein' == $girl) {} else
+			if( 'Vorname' == $girl) {} else
 			if( '-Alexandra' == $girl) {} else // data corruption
 			if( 'Irini-' == $girl) {} else // data corruption
 			if( 'Jo-Essen' == $girl) {} else // found in database from Essen
 			if( 'nana' == $girl) {} else
 			if( 'kyzy' == $girl) {} else
+			if( 'de' == $girl) {} else
 			{
 				$data[] = Array(
 					name=> $girl,
@@ -760,6 +772,7 @@ function sourcesShowPageBrowseAll()
 	$group = '';
 	$skipped = 0;
 	$bg = true;
+	$nuts1 = substr( $gSource[0]['nuts'], 0, 2);
 	for( $i = 0; $i < count( $gSource); ++$i) {
 		$name = $gSource[$i]['name'];
 		if( isset( $gSource[$i]['group'])) {
@@ -773,7 +786,13 @@ function sourcesShowPageBrowseAll()
 			$group = '';
 		}
 
-		$bg = !$bg;
+		if( $nuts1 != substr( $gSource[$i]['nuts'], 0, 2)) {
+			$nuts1 = substr( $gSource[$i]['nuts'], 0, 2);
+			$txt .= '<div style="background:' . ($bg ? '#444444' : '#3a3a3a') .';">&nbsp;</div>';
+		} else {
+			$bg = !$bg;
+		}
+
 		$bgColor = $bg ? '#3a3a3a' : '#444444';
 
 		$updateColor = '#000000';

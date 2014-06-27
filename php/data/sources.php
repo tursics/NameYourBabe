@@ -1768,5 +1768,40 @@ $gSource=array (
     'autoCitation' => 'Quelle: Amt für Stadtforschung und Statistik für Nürnberg und Fürth',
     'autoModified' => '2014-06-26',
   ),
+  62 => 
+  array (
+    'nuts' => 'DEA47',
+    'name' => '[2009-2013] Vornamenslisten bei Neugeborenen, Paderborn (Privat)',
+    'id' => 62,
+    'meta' => '/private/paderborn/metadata.json',
+    'manNUTS' => 
+    array (
+      0 => 'DEA47',
+      1 => 'DEA47',
+      2 => 'DEA47',
+      3 => 'DEA47',
+      4 => 'DEA47',
+    ),
+    'autoUpdate' => 0,
+    'autoUrl' => 
+    array (
+      0 => '/data/private/paderborn/Vornamen2009_Gesamtliste.csv',
+      1 => '/data/private/paderborn/Vornamen2010_Gesamtliste.csv',
+      2 => '/data/private/paderborn/Vornamen2011_Gesamtliste.csv',
+      3 => '/data/private/paderborn/Vornamen2012_Gesamtliste.csv',
+      4 => '/data/private/paderborn/Vornamen2013_Gesamtliste.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => '2009',
+      1 => '2010',
+      2 => '2011',
+      3 => '2012',
+      4 => '2013',
+    ),
+    'autoLicense' => 'public',
+    'autoCitation' => 'Stadt Paderborn',
+    'autoModified' => '2014-06-28',
+  ),
 );
 ?>

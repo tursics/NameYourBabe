@@ -2132,13 +2132,69 @@ $gNuts=array (
    	        		),
        			    'manRegions' => 
 		            array (
-/*            DEA41 Bielefeld, Kreisfreie Stadt
-            DEA42 Gütersloh
-            DEA43 Herford
-            DEA44 Höxter
-            DEA45 Lippe
-            DEA46 Minden-Lübbecke
-            DEA47 Paderborn*/
+			          array (
+			            'manNuts' => 'DEA41',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Bielefeld',
+			              'de-DE' => 'Bielefeld',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA42',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Gütersloh',
+			              'de-DE' => 'Gütersloh',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA43',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Herford',
+			              'de-DE' => 'Herford',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA44',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Höxter',
+			              'de-DE' => 'Höxter',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA45',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Lippe',
+			              'de-DE' => 'Lippe',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA46',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Minden-Lübbecke',
+			              'de-DE' => 'Minden-Lübbecke',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA47',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Paderborn',
+			              'de-DE' => 'Paderborn',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
 					),
        			  ),
 		          array (
