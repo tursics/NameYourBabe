@@ -1,0 +1,91 @@
+{
+	"license_title": "public",
+	"maintainer": "Michael Wahl, Stadt Paderborn - Referat 105/Statistik",
+	"maintainer_email": "m.wahl@paderborn.de",
+	"id": "???",
+	"metadata_created": "2014-04-07T14:24:00.000000",
+	"relationships": [],
+	"license": "public",
+	"metadata_modified": "2014-04-07T14:24:00.000000",
+	"author": "Michael Wahl",
+	"author_email": "m.wahl@paderborn.de",
+	"download_url": "http://www.paderborn.de/vv/produkte/einwohneramt/Vornamenslisten.php#tab-links",
+	"state": "active",
+	"version": "",
+	"license_id": "???",
+	"type": null,
+	"resources": [
+	{
+		"name": "2009",
+		"url": "/private/paderborn/Vornamen2009_Gesamtliste.csv",
+		"created": "2014-04-07T14:24:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2010",
+		"url": "/private/paderborn/Vornamen2010_Gesamtliste.csv",
+		"created": "2014-04-07T14:24:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2011",
+		"url": "/private/paderborn/Vornamen2011_Gesamtliste.csv",
+		"created": "2014-04-07T14:24:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2012",
+		"url": "/private/paderborn/Vornamen2012_Gesamtliste.csv",
+		"created": "2014-04-07T14:24:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	},
+	{
+		"name": "2013",
+		"url": "/private/paderborn/Vornamen2013_Gesamtliste.csv",
+		"created": "2014-04-07T14:24:00.000000",
+		"format": "csv",
+		"resource_group_id": "???", "package_id": "???", "id": "???", "webstore_last_updated": null, "cache_last_updated": null, "size": null, "last_modified": null, "hash": "", "description": "", "tracking_summary": { "total": 0, "recent": 0 }, "mimetype_inner": "", "mimetype": "", "cache_url": null, "language": "", "characterset": "", "webstore_url": "enabled", "position": 0, "resource_type": "file"
+	}
+	],
+	"tags": ["???"],
+	"tracking_summary": {
+		"total": 0,
+		"recent": 0
+	},
+	"groups": ["???"],
+	"name": "Paderborn",
+	"isopen": true,
+	"notes_rendered": "Paderborn",
+	"url": "???",
+	"ckan_url": "???",
+	"notes": "Paderborn",
+	"title": "Paderborn",
+	"ratings_average": null,
+	"extras": {
+		"publisher": "Stadt Paderborn - Standesamt",
+		"categorization": ["bevoelkerung"],
+		"maintainer_link": "",
+		"metadata_modified": "2014-04-07T14:24:00.000000",
+		"lineage_quality": "",
+		"schema_characterset": "utf8",
+		"en_title_and_desc": "",
+		"geographic_bbox": "",
+		"metadata_identifier": "???",
+		"schema_language": "ger",
+		"geographic_toponym": "Paderborn",
+		"license_citation": "Stadt Paderborn",
+		"metadata_linkage": "",
+		"update_frequency": "",
+		"end_datetime": "",
+		"schema_name": "OGD Austria Metadata 2.1",
+		"begin_datetime": "???",
+		"publishing_date": "",
+		"attribute_description": "Paderborn"},
+		"license_url": "???",
+		"ratings_count": 0,
+		"revision_id": "???"
+}
