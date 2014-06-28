@@ -45,7 +45,10 @@ gDict['en'] = {
 	"imprintTitleImage": "Used images",
 	"imprintTitleText": "Used texts",
 	"imprintTitleWikipedia": "Wikipedia",
+	"imprintTitleRateMe": "Please rate the app",
 	"imprintBodyWikipedia": "The information on the names was taken from Wikipedia. A link to the related webpage can be found below the description of the name.",
+	"imprintCopyrightOther": "Additional sources",
+	"imprintCopyrightThanks": "Many thanks to",
 
 	"settingsOn": 'On',
 	"settingsOff": 'Off',

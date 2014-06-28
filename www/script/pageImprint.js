@@ -31,7 +31,10 @@ $( document).on( 'pageshow', '#pageImprint',  function()
 
 		txt += '<ul data-role="listview" data-theme="a">';
 		txt += '<li data-role="list-divider">&nbsp;</li>';
-		txt += '<li data-icon="false" class="afterDivider"><a href="#pageWebView" data-rel="dialog" data-role="button" data-theme="b" data-inline="true" onClick="onPageImprintHome();return true;">' + _( 'imprintWebHome') + '</div></a></li>';
+		if( gShowIOS) {
+			txt += '<li data-icon="false" class="afterDivider"><a href="http://itunes.apple.com/app/604279644">' + _( 'imprintTitleRateMe') + '</div></a></li>';
+		}
+		txt += '<li data-icon="false"><a href="#pageWebView" data-rel="dialog" data-role="button" data-theme="b" data-inline="true" onClick="onPageImprintHome();return true;">' + _( 'imprintWebHome') + '</div></a></li>';
 		txt += '<li data-icon="false"><a href="#pageWebView" data-rel="dialog" data-role="button" data-theme="b" data-inline="true" onClick="onPageImprintSupport();return true;">' + _( 'imprintWebSupport') + '</div></a></li>';
 		txt += '<li data-icon="false"><a href="#pageCopyright">' + _( 'imprintTitleData') + '</div></a></li>';
 		txt += '</ul><br>';

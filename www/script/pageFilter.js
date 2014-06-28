@@ -34,7 +34,7 @@ function isFilteredName( nameObj)
 			return false;
 		}
 	}
-//	gSettings.filterNUTS = $('#choiceNUTS').val();
+//	gSettings.filterNUTS = $('#choiceNUTS1').val();
 
 	return true;
 }
@@ -67,26 +67,46 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 		txt += '</li>';
 
 		var max = gDataSource.length;
-		var nuts = [];
+		var nuts1 = [];
 		for( var i = 0; i < max; ++i) {
 			if( 2 == gDataSource[i].nuts.length) {
-				nuts.push({ val: gDataSource[i].nuts, txt: gDataSource[i].name[CInternationalization.lang_] });
+				nuts1.push({ val: gDataSource[i].nuts, txt: gDataSource[i].name[CInternationalization.lang_] });
 			}
 		}
-		nuts.sort( function( left, right) {
+		nuts1.sort( function( left, right) {
+			return left.txt > right.txt;
+		});
+
+		var nuts2 = [];
+		for( var i = 0; i < max; ++i) {
+			if( 3 == gDataSource[i].nuts.length) {
+				nuts2.push({ val: gDataSource[i].nuts, txt: gDataSource[i].name[CInternationalization.lang_] });
+			}
+		}
+		nuts2.sort( function( left, right) {
 			return left.txt > right.txt;
 		});
 
 		txt += '<li data-role="list-divider"><br></li>';
 		txt += '<li class="ui-field-contain afterDivider" style="padding:0;">';
-		txt += '<select name="choiceNUTS" id="choiceNUTS">';
+		txt += '<select name="choiceNUTS1" id="choiceNUTS1">';
 		txt += '<option value="">' + _( 'filterWorld') + '</option>';
-		var maxnuts = nuts.length;
+		var maxnuts = nuts1.length;
 		for( var i = 0; i < maxnuts; ++i) {
-			txt += '<option value="' + nuts[i].val + '">' + nuts[i].txt + '</option>';
+			txt += '<option value="' + nuts1[i].val + '">' + nuts1[i].txt + '</option>';
 		}
 		txt += '</select>';
 		txt += '</li>';
+
+/*		txt += '<li class="ui-field-contain" style="padding:0;">';
+		txt += '<select name="choiceNUTS2" id="choiceNUTS2">';
+		txt += '<option value="">' + _( 'filterWorld') + '</option>';
+		var maxnuts = nuts2.length;
+		for( var i = 0; i < maxnuts; ++i) {
+			txt += '<option value="' + nuts2[i].val + '">' + nuts2[i].txt + '</option>';
+		}
+		txt += '</select>';
+		txt += '</li>';*/
 
 		txt += '</ul>';
 
@@ -117,9 +137,9 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 	}
 
 	for( var i = 0; i < maxnuts; ++i) {
-		if( nuts[i].val == gSettings.filterNUTS) {
-			$('#choiceNUTS')[0].selectedIndex = 1 + i;
-			$('#choiceNUTS').selectmenu('refresh');
+		if( nuts1[i].val == gSettings.filterNUTS) {
+			$('#choiceNUTS1')[0].selectedIndex = 1 + i;
+			$('#choiceNUTS1').selectmenu('refresh');
 			break;
 		}
 	}
@@ -134,7 +154,7 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 $( document).on( 'pagehide', '#pageFilter',  function()
 {
 	gSettings.filterGender = $('#choiceGender').val();
-	gSettings.filterNUTS = $('#choiceNUTS').val();
+	gSettings.filterNUTS = $('#choiceNUTS1').val();
 
 	gRandomNames = [];
 

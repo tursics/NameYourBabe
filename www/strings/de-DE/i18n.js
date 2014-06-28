@@ -45,7 +45,10 @@ gDict['de'] = {
 	"imprintTitleImage": "Verwendete Bilder",
 	"imprintTitleText": "Verwendete Texte",
 	"imprintTitleWikipedia": "Wikipedia",
+	"imprintTitleRateMe": "Bitte bewerte die App",
 	"imprintBodyWikipedia": "Die Erklärungen zu den Namen stammen aus Wikipedia. Ein Link zu der entsprechenden Seite befindet sich unter der Beschreibung des Namen.",
+	"imprintCopyrightOther": "Zusätzliche Quellen",
+	"imprintCopyrightThanks": "Vielen Dank an",
 
 	"settingsOn": 'An',
 	"settingsOff": 'Aus',

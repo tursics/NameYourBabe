@@ -30,6 +30,8 @@ $( document).on( 'pageshow', '#pageCopyright',  function()
 
 		var license = [];
 		var citation = [];
+		var txtOthers = _( "imprintCopyrightOther");
+		var txtThanks = _( "imprintCopyrightThanks");
 
 		license.push( 'CC0 1.0');
 		citation.push( []);
@@ -37,12 +39,24 @@ $( document).on( 'pageshow', '#pageCopyright',  function()
 		citation.push( []);
 		license.push( 'CC BY 3.0 DE');
 		citation.push( []);
+		license.push( 'DL DE BY 1.0');
+		citation.push( []);
+		license.push( txtOthers);
+		citation.push( []);
+		license.push( txtThanks);
+		citation.push( []);
 
 		for( var ds = 0; ds < gDataSource.length; ++ds) {
 			var strLicense = gDataSource[ ds]['license'];
 			if( strLicense != '') {
 				if( strLicense == 'CC BY') {
 					strLicense = 'CC BY 3.0 DE';
+				} else if( 0 == gDataSource[ ds]['citation'].search( 'Quelle:')) {
+					strLicense = txtOthers;
+				} else if( 0 == gDataSource[ ds]['citation'].search( '©')) {
+					strLicense = txtOthers;
+				} else if( strLicense == 'public') {
+					strLicense = txtThanks;
 				}
 
 				var idx = license.indexOf( strLicense);
@@ -60,17 +74,34 @@ $( document).on( 'pageshow', '#pageCopyright',  function()
 
 		txt += '<li data-role="list-divider"><br>'+_( 'imprintTitleData')+'</li>';
 		for( var l = 0; l < license.length; ++l) {
+			var showLink = true;
+			if( txtOthers == license[l]) {
+				showLink = false;
+			} else if( txtThanks == license[l]) {
+				showLink = false;
+			}
+
 			txt += '<li data-icon="false"';
 			if( 0 == l) {
 				txt += 'class="afterDivider"';
 			}
-			txt += '><a href="#pageWebView" data-rel="dialog" data-role="button" data-theme="b" data-inline="true" onClick="onPageCopyright(\''+license[l]+'\');return true;">';
+			txt += '>';
+			if( showLink) {
+				txt += '<a href="#pageWebView" data-rel="dialog" data-role="button" data-theme="b" data-inline="true" onClick="onPageCopyright(\''+license[l]+'\');return true;">';
+			} else {
+				txt += '<div style="font-weight:500;text-shadow:0;">';
+			}
 			txt += license[l] + '<div class="small" style="padding-left:1em;white-space:normal;">';
 			for( var c = 0; c < citation[l].length; ++c) {
 				txt += citation[l][c] + '<br>';
 			}
 			txt += '</div>';
-			txt += '</a></li>';
+			if( showLink) {
+				txt += '</a>';
+			} else {
+				txt += '</div>';
+			}
+			txt += '</li>';
 		}
 
 		txt += '<li data-role="list-divider"><br>' + _( 'imprintTitleText') + '</li>';
