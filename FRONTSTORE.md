@@ -1,4 +1,4 @@
-Front Store
+ï»¿Front Store
 ===========
 
 Use this information in front stores. In different languages. Missing one? Send me a patch!
@@ -29,7 +29,7 @@ All features at a glance:
 
 The most popular given names for girls and boys in:
 - Austria (Engerwitzdorf, Graz, Linz, Lower Austria, City of Salzburg, State of Salzburg, Styria, Tyrol, Upper Austria, Vienna, Vorarlberg)
-- Germany (Berlin, Bremen, Chemnitz, Essen, Hamburg, Moers, Munich, Münster, Nuremberg, Paderborn and Ulm)
+- Germany (Berlin, Bremen, Chemnitz, Essen, Hamburg, Moers, Munich, MÃ¼nster, Nuremberg, Paderborn and Ulm)
 - Switzerland (Zurich)
 - More regions to come
 
@@ -75,38 +75,38 @@ Baby benamsen
 App description
 ---------------
 
-Das Namenslexikon für werdende Eltern, um einen Namen für ihr Baby zu finden.
+Das Namenslexikon fÃ¼r werdende Eltern, um einen Namen fÃ¼r ihr Baby zu finden.
 
-So einfach war es noch nie, den passenden Vornamen für dein Baby zu finden! Einfach das Smartphone schütteln oder über das Display wischen - und ein neuer Name erscheint.
+So einfach war es noch nie, den passenden Vornamen fÃ¼r dein Baby zu finden! Einfach das Smartphone schÃ¼tteln oder Ã¼ber das Display wischen - und ein neuer Name erscheint.
 
 EINFACHER GEHT ES NICHT!
 
 Alle Features auf einem Blick:
-- Zeige neue Namen durch Schütteln oder Wischen
-- Wähle aus über 5.000 Namen
+- Zeige neue Namen durch SchÃ¼tteln oder Wischen
+- WÃ¤hle aus Ã¼ber 5.000 Namen
 - Markiere und merke dir deine Lieblingsnamen
 - Die beliebtesten Vornamen aus den letzten 10 Jahren
 - Wie weit ist der Name in deiner Stadt und in deinem Land verbreitet?
 - Kostenlos und werbefrei
 
-Die beliebtesten Vornamen für Mädchen und Jungen aus:
-- Deutschland (Berlin, Bremen, Chemnitz, Essen, Hamburg, Moers, München, Münster, Nürnberg, Paderborn und Ulm)
-- Österreich (Engerwitzdorf, Graz, Linz, Niederösterreich, Oberösterreich, Land Salzburg, Stadt Salzburg, Steiermark, Tirol, Vorarlberg, Wien)
-- Schweiz (Zürich)
+Die beliebtesten Vornamen fÃ¼r MÃ¤dchen und Jungen aus:
+- Deutschland (Berlin, Bremen, Chemnitz, Essen, Hamburg, Moers, MÃ¼nchen, MÃ¼nster, NÃ¼rnberg, Paderborn und Ulm)
+- Ã–sterreich (Engerwitzdorf, Graz, Linz, NiederÃ¶sterreich, OberÃ¶sterreich, Land Salzburg, Stadt Salzburg, Steiermark, Tirol, Vorarlberg, Wien)
+- Schweiz (ZÃ¼rich)
 - Weitere Regionen in Vorbereitung
 
 
-Gerne möchte ich "Baby benamsen" weiter verbessern. Deine Anregungen und Kritik sind mir daher herzlich willkommen! Und wenn du die App gerne auch in deine Sprache übersetzt hättest, freue ich mich über deine Mithilfe!
+Gerne mÃ¶chte ich "Baby benamsen" weiter verbessern. Deine Anregungen und Kritik sind mir daher herzlich willkommen! Und wenn du die App gerne auch in deine Sprache Ã¼bersetzt hÃ¤ttest, freue ich mich Ã¼ber deine Mithilfe!
 
-Das sagen andere über "Baby benamsen":
-"Für noch Unentschlossene gibt es zudem die witzige Funktion per Zufallsgenerator einen Namen für den Nachwuchs zu finden. [...] Da sehr viele Namen in der Datenbank vorhanden sind, ist sicher für jeden etwas dabei." - Kronen Zeitung
+Das sagen andere Ã¼ber "Baby benamsen":
+"FÃ¼r noch Unentschlossene gibt es zudem die witzige Funktion per Zufallsgenerator einen Namen fÃ¼r den Nachwuchs zu finden. [...] Da sehr viele Namen in der Datenbank vorhanden sind, ist sicher fÃ¼r jeden etwas dabei." - Kronen Zeitung
 "Chancen auf den Sonderpreis der Gemeinde Engerwitzdorf hat unter anderem die mobile App 'Baby benamsen'." - Wiener Zeitung
 
-Bisherige Auszeichnungen für "Baby benamsen":
+Bisherige Auszeichnungen fÃ¼r "Baby benamsen":
 - Sieger bei der CeBIT myApp Factory 2013
 - Finalist beim apps4austria Award 2013
 
-Gefällt dir "Baby benamsen"?
+GefÃ¤llt dir "Baby benamsen"?
 - Werde Fan auf Facebook: https://www.facebook.com/nameyourbabe
 - Besuche mich im Web: http://tursics.de
 - Bewerte "Baby benamsen"
@@ -114,13 +114,13 @@ Gefällt dir "Baby benamsen"?
 App additionals
 ---------------
 
-Samsung: *** Die Nr. 1 unter den Nachschlagewerken in Österreich ***
+Samsung: *** Die Nr. 1 unter den Nachschlagewerken in Ã–sterreich ***
 
-Samsung: *** Top 10 der Nachschlagewerke in 10 Ländern ***
+Samsung: *** Top 10 der Nachschlagewerke in 10 LÃ¤ndern ***
 
 - Folge mir auf Twitter: http://twitter.com/tbd
 
 App keywords
 ------------
 
-Baby,Babyname,Babynamen,beliebt,Vorname,Vornamen,Name,Namen,Mädchen,Junge,Lexikon,kostenlos
+Baby,Babyname,Babynamen,beliebt,Vorname,Vornamen,Name,Namen,MÃ¤dchen,Junge,Lexikon,kostenlos
