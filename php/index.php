@@ -651,7 +651,8 @@ function getPageUpdateNamehitlist( $value, $top, $yearFrom, $yearTo)
 			foreach( $gSource as $source) {
 				if( $strSource == $source['id']) {
 					if(( $bestNum >= $strNum) && ($bestYear < $strYear)) {
-						$bestSource = $source['de-DE'][$strUrl];
+						$nuts = nutsGetName( $source['manNUTS'][$strUrl]);
+						$bestSource = $nuts['de-DE'];
 						$bestNum = $strNum;
 						$bestYear = $strYear;
 					}
@@ -691,7 +692,7 @@ function showPageUpdateNamehitlist()
 		echo( getPageUpdateNamehitlist( $value, $top, $yearFrom, $yearTo));
 	}
 
-	$txt = '<br><br>' . count( $gBoys)+count( $gGirls). ' given names analysed';
+	$txt = '<br><br>' . (count( $gBoys)+count( $gGirls)) . ' given names analysed';
 	$txt .= '<br><br>';
 	$txt .= '<a href="do=browse&what=names">Back to list</a><br>';
 	echo( $txt);
