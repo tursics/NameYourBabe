@@ -114,6 +114,42 @@ function parseMetadataOGDD10( $index, $json)
 
 //--------------------------------------------------------------------------------------------------
 
+function parseMetadataBonn( $index, $json)
+{
+	global $gSource;
+
+//	$metaMod = strtotime( $json['metadata_modified']);
+	if( 'Mittwoch, 9. Juli 2014 - 13:00' == $json['aktualisiert']) {
+		$json['aktualisiert'] = '2014-07-09 13:00:00';
+	} else {
+		$json['aktualisiert'] = '2000-01-01';
+	}
+	$metaMod = strtotime( $json['aktualisiert']);
+	$lastMod = strtotime( $gSource[$index]['autoModified']);
+	$diffMod = intval(( $metaMod - $lastMod) /60 /60 /24);
+
+	if( 0 >= $diffMod) {
+		$gSource[$index]['autoUpdate'] = 0;
+		return;
+	}
+
+	$gSource[$index]['autoUpdate'] = intval(( strtotime( 'now') - $metaMod) /60 /60 /24);
+	if( 0 == $gSource[$index]['autoUpdate']) {
+		$gSource[$index]['autoUpdate'] = 1;
+	}
+
+	$gSource[$index]['autoUrl'] = Array();
+	$gSource[$index]['autoName'] = Array();
+	for( $i = 0; $i < count( $json['resources']); ++$i) {
+		$gSource[$index]['autoUrl'][] = $json['resources'][$i]['file_url'];
+		$gSource[$index]['autoName'][] = $json['resources'][$i]['title'];
+	}
+//	parseMetadataCopyright( $index, $json['license'], $json['license_url'], '');
+	parseMetadataCopyright( $index, $json['license'], '', 'Datenquelle: Bundesstadt Bonn-OpenData.Bonn.de');
+}
+
+//--------------------------------------------------------------------------------------------------
+
 function parseWebsiteMoers( $index, $contents)
 {
 	global $gSource;
@@ -474,6 +510,14 @@ function metadataShowPageUpdate()
 			}
 		} else if( $json['extras']['ogdd_version'] == 'v1.0') {
 			parseMetadataOGDD10( $i, $json);
+			if( $gSource[$i]['autoUpdate'] > 0) {
+				$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+				$updateColor = 'DarkOrange';
+			} else {
+				$updateColor = 'ForestGreen';
+			}
+		} else if( $json['publisher'] == 'Stadt Bonn') {
+			parseMetadataBonn( $i, $json);
 			if( $gSource[$i]['autoUpdate'] > 0) {
 				$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
 				$updateColor = 'DarkOrange';

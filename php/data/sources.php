@@ -38,7 +38,7 @@ $gSource=array (
     array (
       0 => 'AT12',
     ),
-    'autoModified' => '2014-06-23',
+    'autoModified' => '2014-07-09',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Niederösterreich - data.noe.gv.at',
   ),
@@ -194,7 +194,7 @@ $gSource=array (
     array (
       0 => 'AT31',
     ),
-    'autoModified' => '2014-06-23',
+    'autoModified' => '2014-07-09',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Oberösterreich - data.ooe.gv.at',
   ),
@@ -1802,6 +1802,32 @@ $gSource=array (
     'autoLicense' => 'public',
     'autoCitation' => 'Stadt Paderborn',
     'autoModified' => '2014-06-28',
+  ),
+  63 => 
+  array (
+    'nuts' => 'DEA22',
+    'name' => '[2012-2013] Vornamen von Neugeborenen, Bonn',
+    'id' => 63,
+    'meta' => 'http://opendata.bonn.de/node/813/json',
+    'manNUTS' => 
+    array (
+      0 => 'DEA22',
+      1 => 'DEA22',
+    ),
+    'autoUpdate' => 0,
+    'autoUrl' => 
+    array (
+      0 => 'http://opendata.bonn.de/sites/default/files/Vornamen%202013.csv',
+      1 => 'http://opendata.bonn.de/sites/default/files/Vornamen%202012.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => 'Vornamen 2013',
+      1 => 'Vornamen 2012',
+    ),
+    'autoCitation' => 'Datenquelle: Bundesstadt Bonn-OpenData.Bonn.de',
+    'autoModified' => '2014-07-09',
+    'autoLicense' => 'DL DE BY 1.0',
   ),
 );
 ?>

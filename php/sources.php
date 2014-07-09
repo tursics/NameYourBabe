@@ -106,11 +106,12 @@ function parseSourcedataAll( $file, $sourceIndex, $urlID, $quite)
 		preg_match_all('!\d+!', $file, $yearVec);
 		if( 0 < count( $yearVec[0])) {
 			$lastYear = $yearVec[0][count($yearVec[0])-1];
+			$lastYear = substr( $lastYear, strlen( $lastYear) - 4);
 			if(( 1900 < $lastYear) && ($lastYear < 2100)) {
 				$theYear = $lastYear;
 			}
 		}
-		parseSourcedataBerlinChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theYear, $quite);
+		parseSourcedataBerlinBonnChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theYear, $quite);
 	} else if(( $vecCount > 1) && ($vec[1][0] == 'Anzahl der  Kinder mit')) {
 		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
 	} else if(( $vecCount > 1) && (trim( $vec[1][0]) == 'Anzahl der Kinder mit')) {
@@ -367,8 +368,8 @@ function parseSourcedataSalzburg( $vec, $sourceID, $urlID, $quite)
 
 //--------------------------------------------------------------------------------------------------
 
-// Berlin + Chemnitz + Hamburg + Ulm
-function parseSourcedataBerlinChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theYear, $quite)
+// Berlin + Bonn + Chemnitz + Hamburg + Ulm
+function parseSourcedataBerlinBonnChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theYear, $quite)
 {
 	$vecCount = count( $vec);
 	if( $vecCount < 2) {

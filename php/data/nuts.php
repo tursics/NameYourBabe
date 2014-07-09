@@ -1115,7 +1115,7 @@ $gNuts=array (
     		    	    'manRegions' => array(),
 			          ),
 	    	    	  array (
-		    	        'manNuts' => '',
+		    	        'manNuts' => 'DE21J',
 	    		        'manName' => 
 	        	    	array (
             			  'en-US' => 'Pfaffenhofen',
@@ -2026,18 +2026,114 @@ $gNuts=array (
    	        		),
        			    'manRegions' => 
 		            array (
-/*            DEA21 Aachen, Kreisfreie Stadt
-            DEA22 Bonn, Kreisfreie Stadt
-            DEA23 Köln, Kreisfreie Stadt
-            DEA24 Leverkusen, Kreisfreie Stadt
-            DEA25 Aachen, Kreis
-            DEA26 Düren
-            DEA27 Rhein-Erft-Kreis
-            DEA28 Euskirchen
-            DEA29 Heinsberg
-            DEA2A Oberbergischer Kreis
-            DEA2B Rheinisch-Bergischer Kreis
-            DEA2C Rhein-Sieg-Kreis*/
+			          array (
+			            'manNuts' => 'DEA21',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Aachen',
+			              'de-DE' => 'Aachen',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA22',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Bonn',
+			              'de-DE' => 'Bonn',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA23',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Cologne',
+			              'de-DE' => 'Köln',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA24',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Leverkusen',
+			              'de-DE' => 'Leverkusen',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA25',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Aachen (district)',
+			              'de-DE' => 'Städteregion Aachen',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA26',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Düren',
+			              'de-DE' => 'Düren',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA27',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Rhein-Erft-Kreis',
+			              'de-DE' => 'Rhein-Erft-Kreis',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA28',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Euskirchen',
+			              'de-DE' => 'Euskirchen',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA29',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Heinsberg',
+			              'de-DE' => 'Heinsberg',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA2A',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Oberbergischer Kreis',
+			              'de-DE' => 'Oberbergischer Kreis',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA2B',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Rheinisch-Bergischer Kreis',
+			              'de-DE' => 'Rheinisch-Bergischer Kreis',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA2C',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Rhein-Sieg-Kreis',
+			              'de-DE' => 'Rhein-Sieg-Kreis',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
 					),
        			  ),
 		          array (
