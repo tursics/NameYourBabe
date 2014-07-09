@@ -304,6 +304,16 @@ gDataSource=[
 	"license":"DL DE BY 1.0",
 	"citation":"Datenquelle: Stadt Moers – offenedaten.moers.de"
 },
+{	"nuts":"DEA2",
+	"name":{"en-US":"Cologne (region)","de-DE":"Regierungsbezirk Köln"},
+	"license":"",
+	"citation":""
+},
+{	"nuts":"DEA22",
+	"name":{"en-US":"Bonn","de-DE":"Bonn"},
+	"license":"DL DE BY 1.0",
+	"citation":"Datenquelle: Bundesstadt Bonn-OpenData.Bonn.de"
+},
 {	"nuts":"DEA3",
 	"name":{"en-US":"Münster (region)","de-DE":"Regierungsbezirk Münster"},
 	"license":"",
