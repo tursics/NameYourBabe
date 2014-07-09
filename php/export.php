@@ -179,6 +179,9 @@ function exportShowPageDataNameCollectHitCount( $value, $gender, & $ret, $top, $
 		if(( $strNum <= $top) && ($yearFrom <= $strYear) && ($strYear <= $yearTo)) {
 			foreach( $gSource as $source) {
 				if( $strSource == $source['id']) {
+					if( $source['manNUTS'][$strUrl] == '') {
+						echo( 'Missing manNUTS in ' . $refvalue . '<br>');
+					}
 					$ret[] = $strNum.'-'.$strYear.'-'.$gender.'-'.$source['manNUTS'][$strUrl];
 				}
 			}
@@ -445,6 +448,7 @@ function exportShowPageDataNameJS()
 	foreach( $names as $value) {
 		$data .= exportShowPageDataNameGetData( $value, $top, $yearFrom, $yearTo);
 	}
+
 	foreach( $namesSimilar as $value) {
 		$data .= exportShowPageDataNameGetSimilarData( $value);
 	}

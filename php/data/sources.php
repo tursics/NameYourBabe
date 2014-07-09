@@ -1527,6 +1527,10 @@ $gSource=array (
     'manNUTS' => 
     array (
       0 => 'DE6003',
+      1 => 'DE6003',
+      2 => 'DE6003',
+      3 => 'DE6003',
+      4 => 'DE6003',
     ),
     'autoUpdate' => 0,
     'autoUrl' => 
@@ -1594,6 +1598,7 @@ $gSource=array (
     'manNUTS' => 
     array (
       0 => 'DE6004',
+      1 => 'DE6004',
     ),
     'autoUpdate' => 0,
     'autoUrl' => 
