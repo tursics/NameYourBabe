@@ -314,6 +314,11 @@ gDataSource=[
 	"license":"DL DE BY 1.0",
 	"citation":"Datenquelle: Bundesstadt Bonn-OpenData.Bonn.de"
 },
+{	"nuts":"DEA23",
+	"name":{"en-US":"Cologne","de-DE":"Köln"},
+	"license":"CC BY 3.0 DE",
+	"citation":"Datenquelle: Stadt Köln – offenedaten-koeln.de"
+},
 {	"nuts":"DEA3",
 	"name":{"en-US":"Münster (region)","de-DE":"Regierungsbezirk Münster"},
 	"license":"",
