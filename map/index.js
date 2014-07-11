@@ -84,7 +84,9 @@ function addMarker()
 							var license = this.data[ i]['linkOGDLicense'];
 							var good = false;
 
-							if( 'CC BY 3.0' == license) {
+							if( 'CC 0' == license) {
+								good = true;
+							} else if( 'CC BY 3.0' == license) {
 								good = true;
 							}
 
@@ -101,7 +103,10 @@ function addMarker()
 				} else if( typeof this.data[ i]['linkWebNames'] !== 'undefined') {
 					bgColor = cYellow;
 					str += '<i class="fa fa-times"></i> Hat kein Open Data Portal<br>';
-					str += '<i class="fa fa-check"></i> Vornamen auf der <a href="' + this.data[ i]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
+
+					if( this.data[ i]['linkWebNames'] != '') {
+						str += '<i class="fa fa-check"></i> Vornamen auf der <a href="' + this.data[ i]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
+					}
 				} else {
 					bgColor = cDenied;
 					str += '<i class="fa fa-times"></i> Hat kein Open Data Portal<br>';
