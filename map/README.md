@@ -5,4 +5,4 @@ Diese Karte zeigt den aktuellen Stand in Sachen Open Data und Vornamen in Deutsc
 
 http://www.tursics.de/sample/vornamen/
 
-![Preview](https://github.com/tursics/NameYourBabe/blob/master/map/images/facebookimage.png)
+![Preview](https://raw.githubusercontent.com/tursics/NameYourBabe/master/map/images/facebookimage.png)
