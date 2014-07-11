@@ -4,3 +4,5 @@
 Diese Karte zeigt den aktuellen Stand in Sachen Open Data und Vornamen in Deutschland, Österreich und der Schweiz an.
 
 http://www.tursics.de/sample/vornamen/
+
+![Preview](https://github.com/tursics/NameYourBabe/blob/master/map/images/facebookimage.png)
