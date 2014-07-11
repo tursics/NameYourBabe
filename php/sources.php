@@ -87,6 +87,19 @@ function parseSourcedataAll( $file, $sourceIndex, $urlID, $quite)
 	}
 
 	$vecCount = count( $vec);
+	if( $vecCount > 10) {
+		$cells = 0;
+		for( $i = 0; $i < 10; ++$i) {
+			$cells += count($vec[ i]);
+		}
+		if( 0 == $cells) {
+			$vec = Array();
+			for( $i = 0; $i < $rowsCount; ++$i) {
+				$vec[] = explode( ",", $rows[ $i]);
+			}
+		}
+	}
+
 	if(( $vecCount > 2) && ($vec[2][1] == 'NUTS2')) {
 		parseSourcedataNUTS( $vec, $sourceID, $urlID, $quite);
 	} else if(( $vecCount > 0) && ($vec[0][0] == 'NUTS2')) {
@@ -420,6 +433,8 @@ function parseSourcedataBerlinBonnChemnitzHamburgUlm( $vec, $sourceID, $urlID, $
 					continue;
 				} else if( $name == "(Eigenname)") {
 					continue;
+				} else if( $name == "Eigenname:") {
+					continue;
 				} else if( $name == "(Vorname") {
 					continue;
 				} else if( $name == "(Vorname)") {
@@ -476,6 +491,10 @@ function parseSourcedataBerlinBonnChemnitzHamburgUlm( $vec, $sourceID, $urlID, $
 					continue;
 				} else if( $name == "qızı") {
 					continue;
+				} else if( $name == "'evna") {
+					continue;
+				} else if( $name == "Jose'") {
+					continue;
 				} else if( $name == "Totgeborener") {
 					continue;
 				} else if( $name == "") {
@@ -490,6 +509,8 @@ function parseSourcedataBerlinBonnChemnitzHamburgUlm( $vec, $sourceID, $urlID, $
 //					$name = "Lou-Ann";
 				} else if( $name == "kim") {
 					$name = "Kim"; // ????
+				} else if( $name == "gizi") {
+					$name = "Gizi"; // ????
 				} else if( $name == "mia") {
 					$name = "Mia"; // ????
 					continue;

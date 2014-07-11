@@ -1834,5 +1834,37 @@ $gSource=array (
     'autoModified' => '2014-07-09',
     'autoLicense' => 'DL DE BY 1.0',
   ),
+  64 => 
+  array (
+    'nuts' => 'DEA23',
+    'name' => '[2010-2013] Vornamen, Köln',
+    'id' => 64,
+    'meta' => 'http://offenedaten-koeln.de/node/593/json',
+    'manNUTS' => 
+    array (
+      0 => 'DEA23',
+      1 => 'DEA23',
+      2 => 'DEA23',
+      3 => 'DEA23',
+    ),
+    'autoUpdate' => 0,
+    'autoUrl' => 
+    array (
+      0 => 'http://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2010.csv',
+      1 => 'http://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2011.csv',
+      2 => 'http://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2012.csv',
+      3 => 'http://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2013.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => 'Vornamen 2010',
+      1 => 'Vornamen 2011',
+      2 => 'Vornamen 2012',
+      3 => 'Vornamen 2013',
+    ),
+    'autoCitation' => 'Datenquelle: Stadt Köln – offenedaten-koeln.de',
+    'autoModified' => '2014-07-11',
+    'autoLicense' => 'CC BY 3.0 DE',
+  ),
 );
 ?>

@@ -114,13 +114,15 @@ function parseMetadataOGDD10( $index, $json)
 
 //--------------------------------------------------------------------------------------------------
 
-function parseMetadataBonn( $index, $json)
+function parseMetadataBonnKoeln( $index, $json, $citation)
 {
 	global $gSource;
 
 //	$metaMod = strtotime( $json['metadata_modified']);
 	if( 'Mittwoch, 9. Juli 2014 - 13:00' == $json['aktualisiert']) {
 		$json['aktualisiert'] = '2014-07-09 13:00:00';
+	} else if( 'Montag, 3. Februar 2014 - 17:02' == $json['aktualisiert']) {
+		$json['aktualisiert'] = '2014-02-03 17:02:00';
 	} else {
 		$json['aktualisiert'] = '2000-01-01';
 	}
@@ -145,7 +147,7 @@ function parseMetadataBonn( $index, $json)
 		$gSource[$index]['autoName'][] = $json['resources'][$i]['title'];
 	}
 //	parseMetadataCopyright( $index, $json['license'], $json['license_url'], '');
-	parseMetadataCopyright( $index, $json['license'], '', 'Datenquelle: Bundesstadt Bonn-OpenData.Bonn.de');
+	parseMetadataCopyright( $index, $json['license'], '', $citation);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -517,7 +519,15 @@ function metadataShowPageUpdate()
 				$updateColor = 'ForestGreen';
 			}
 		} else if( $json['publisher'] == 'Stadt Bonn') {
-			parseMetadataBonn( $i, $json);
+			parseMetadataBonnKoeln( $i, $json, 'Datenquelle: Bundesstadt Bonn-OpenData.Bonn.de');
+			if( $gSource[$i]['autoUpdate'] > 0) {
+				$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
+				$updateColor = 'DarkOrange';
+			} else {
+				$updateColor = 'ForestGreen';
+			}
+		} else if( $json['publisher'] == 'Stadt Köln') {
+			parseMetadataBonnKoeln( $i, $json, 'Datenquelle: Stadt Köln – offenedaten-koeln.de');
 			if( $gSource[$i]['autoUpdate'] > 0) {
 				$name .= '<span style="color:DarkOrange;padding-left:1em;">Outdated since ' . $gSource[$i]['autoUpdate'] . ' days</span>';
 				$updateColor = 'DarkOrange';

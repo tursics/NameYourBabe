@@ -3,6 +3,11 @@
 
 Current version and update messages in English and German.
 
+Version 3.3 ()
+------------------------
+- Bonn 2012-2013
+- Köln 2010-2013
+
 Version 3.2 (2014-06-29)
 ------------------------
 
