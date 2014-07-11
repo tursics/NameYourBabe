@@ -20,6 +20,8 @@ Repository Structure
 
 The "build" folder contains all needed build scripts and projects. Some platforms (Android and iOS) are build by phone gap build. The other platforms are build with native IDEs.
 
+The "map" folder contains a website displaying a map visualizing the collected data sources.
+
 The "php" folder contains all the admin stuff. Manage, collect, update all the data from open access data portals.
 
 The "www" folder contains the App sources. This HTML, CSS and JS files included all needed files to build the app. It also runs in a normal web browser.
