@@ -142,6 +142,88 @@ function addMarker()
 
 // -----------------------------------------------------------------------------
 
+function generateCharts()
+{
+	try {
+		var arrayOGD = [];
+		arrayOGD['Deutschland'] = 0;
+		arrayOGD['Österreich'] = 0;
+		arrayOGD['Schweiz'] = 0;
+
+		var arrayNames = [];
+		arrayNames['Deutschland'] = 0;
+		arrayNames['Österreich'] = 0;
+		arrayNames['Schweiz'] = 0;
+
+		var max = data.length;
+		for( var i = 0; i < max; ++i) {
+			var population = data[ i]['population'];
+			var country = data[ i]['country'];
+			var hasOGD = (typeof this.data[ i]['linkOGD'] !== 'undefined');
+			var hasOGDNames = (typeof this.data[ i]['linkOGDNames'] !== 'undefined');
+			var hasWebNames = (typeof this.data[ i]['linkWebNames'] !== 'undefined');
+			var countOGD = (typeof this.data[ i]['countOGD'] !== 'undefined') ? this.data[ i]['countOGD'] : true;
+			var countNames = (typeof this.data[ i]['countNames'] !== 'undefined') ? this.data[ i]['countNames'] : true;
+
+			if( countOGD && hasOGD) {
+				arrayOGD[country] += population;
+			}
+			if( countNames && (hasOGDNames || hasWebNames)) {
+				arrayNames[country] += population;
+			}
+		}
+
+		var txt = 'In Österreich liefern ';
+		txt += Math.round( arrayOGD['Österreich'] / 8504850 * 100) + '%';
+		txt += ' der Kommunen Open Data.<br>In Deutschland (';
+		txt += Math.round( arrayOGD['Deutschland'] / 80380000 * 100) + '%';
+		txt += ') und der Schweiz (';
+		txt += Math.round( arrayOGD['Schweiz'] / 8112200 * 100) + '%';
+		txt += ') ergeben sich niedrigere Werte.';
+		$( '#chart1').html( txt);
+		$( '#chart1').trigger( "create");
+		$( '#chart1').trigger( 'updatelayout');
+		var chart1DE = Circles.create({
+			id:'chart1DE',value:arrayOGD['Deutschland'],maxValue:80380000,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+		var chart1AT = Circles.create({
+			id:'chart1AT',value:arrayOGD['Österreich'],maxValue:8504850,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+		var chart1CH = Circles.create({
+			id:'chart1CH',value:arrayOGD['Schweiz'],maxValue:8112200,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+
+		txt = 'Zu ';
+		txt += Math.round( arrayNames['Österreich'] / 8504850 * 100) + '%';
+		txt += ' der neugeborenen Österreich werden Vornamen veröffentlicht.<br>In Deutschland (';
+		txt += Math.round( arrayNames['Deutschland'] / 80380000 * 100) + '%';
+		txt += ') und der Schweiz (';
+		txt += Math.round( arrayNames['Schweiz'] / 8112200 * 100) + '%';
+		txt += ') ergeben sich auch hier niedrigere Werte.';
+		$( '#chart2').html( txt);
+		$( '#chart2').trigger( "create");
+		$( '#chart2').trigger( 'updatelayout');
+		var chart2DE = Circles.create({
+			id:'chart2DE',value:arrayNames['Deutschland'],maxValue:80380000,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+		var chart2AT = Circles.create({
+			id:'chart2AT',value:arrayNames['Österreich'],maxValue:8504850,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+		var chart2CH = Circles.create({
+			id:'chart2CH',value:arrayNames['Schweiz'],maxValue:8112200,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+	} catch( e) {
+	}
+}
+
+// -----------------------------------------------------------------------------
+
 $( document).on( "pagecreate", "#pageMap", function()
 {
 	initNokiaMap( 'mapContainer', 52.516, 13.4795, 6);
@@ -149,8 +231,9 @@ $( document).on( "pagecreate", "#pageMap", function()
 	addMarker();
 
 	map.addListener( "displayready", function () {
+		generateCharts();
+
 		$( '#popupCopyright').popup( 'open');
-//		sample1();
 	});
 });
 

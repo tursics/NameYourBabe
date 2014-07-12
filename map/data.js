@@ -385,13 +385,15 @@ var data = [
 	"lat":51.17,
 	"lon":7.19,
 },
-/*{
+{
+	"countOGD":false,
 	"name":"Deutschland",
 	"country":"Deutschland",
 	"population":80380000,
 	"lat":51.16,
 	"lon":10.45,
-},*/
+	"linkOGD":"https://www.govdata.de/",
+},
 {
 	"name":"Sachsen",
 	"country":"Deutschland",
@@ -657,6 +659,7 @@ var data = [
 	"population":12443000,
 	"lat":48.94,
 	"lon":11.39,
+	"linkOGD":"http://daten.ulm.de/",
 },
 {
 	"name":"Pforzheim",
@@ -721,6 +724,7 @@ var data = [
 	"lon":10.89,
 },
 {
+	"countOGD":false,
 	"name":"Engerwitzdorf",
 	"country":"Österreich",
 	"population":8552,
@@ -734,6 +738,7 @@ var data = [
 	],
 },
 {
+	"countOGD":false,
 	"name":"Linz",
 	"country":"Österreich",
 	"population":191501,
@@ -772,6 +777,7 @@ var data = [
 	],
 },
 {
+	"countOGD":false,
 	"name":"Kremsmünster",
 	"country":"Österreich",
 	"population":6419,
@@ -835,6 +841,7 @@ var data = [
 	],
 },
 {
+	"countOGD":false,
 	"name":"Salzburg (Stadt)",
 	"country":"Österreich",
 	"population":145871,
@@ -850,6 +857,7 @@ var data = [
 	],
 },
 /*{
+	"countOGD":false,
 	"name":"Statistik Österreich",
 	"country":"Österreich",
 	"population":8504850,
@@ -861,6 +869,15 @@ var data = [
 		{"date":"","event":""},
 	],
 },*/
+{
+	"countOGD":false,
+	"name":"Österreich",
+	"country":"Österreich",
+	"population":8504850,
+	"lat":47.60,
+	"lon":13.78,
+	"linkOGD":"http://data.gv.at/",
+},
 {
 	"name":"Basel",
 	"country":"Schweiz",
@@ -921,6 +938,7 @@ var data = [
 	],
 },
 {
+	"countOGD":false,
 	"name":"Innsbruck",
 	"country":"Österreich",
 	"population":122458,
@@ -950,6 +968,7 @@ var data = [
 	],
 },
 {
+	"countOGD":false,
 	"name":"Graz",
 	"country":"Österreich",
 	"population":265778,
@@ -989,6 +1008,7 @@ var data = [
 	"lon":7.43,
 },
 {
+	"countOGD":false,
 	"name":"Schweiz",
 	"country":"Schweiz",
 	"population":8112200,
