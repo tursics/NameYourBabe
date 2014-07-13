@@ -198,7 +198,7 @@ function generateCharts()
 
 		txt = 'Zu ';
 		txt += Math.round( arrayNames['Österreich'] / 8504850 * 100) + '%';
-		txt += ' der neugeborenen Österreich werden Vornamen veröffentlicht.<br>In Deutschland (';
+		txt += ' der neugeborenen Österreicher werden Vornamen veröffentlicht.<br>In Deutschland (';
 		txt += Math.round( arrayNames['Deutschland'] / 80380000 * 100) + '%';
 		txt += ') und der Schweiz (';
 		txt += Math.round( arrayNames['Schweiz'] / 8112200 * 100) + '%';

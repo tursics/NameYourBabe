@@ -27,7 +27,7 @@
 	<meta name="twitter:creator" content="@tursics">
 
 	<link rel="stylesheet" href="jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.css">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
 
 	<script src="http://js.api.here.com/se/2.5.4/jsl.js?with=maps,places,directions,positioning" type="text/javascript" charset="utf-8"></script>
 
@@ -82,12 +82,13 @@
 				<a href="http://codefor.de/berlin/" class="ui-link" target="_blank"><img src="images/cfg_berlin.svg" style="height:3.5em" /></a>
 			</div>
 			<div style="float:left;font-size:2em;font-weight:100 !important;padding:0.3em 0 0 1em;">Wo gibt es Open Data Vornamen?</div>
-			<div data-role="controlgroup" data-type="horizontal" class="ui-btn" style="float:right;margin-right:1em;">
-				<a href="#popupVideo"      data-rel="popup" class="ui-btn"><i class="fa fa-bars" style="font-size:1.5em;"></i></a>
+			<div data-role="controlgroup" data-type="horizontal" style="float:right;margin-right:1em;">
+				<a href="#popupCharts"    data-rel="popup" class="ui-btn"><i class="fa fa-bar-chart-o" style="font-size:1.5em;"></i></a>
+				<a href="#popupSamples"   data-rel="popup" class="ui-btn"><i class="fa fa-flask" style="font-size:1.5em;"></i></a>
 				<a href="#popupShare"     data-rel="popup" class="ui-btn"><i class="fa fa-share-square-o" style="font-size:1.5em;"></i></a>
 				<a href="#popupCopyright" data-rel="popup" class="ui-btn"><i class="fa fa-info-circle" style="font-size:1.5em;"></i></a>
 			</div>
-			<div data-role="popup" id="popupVideo" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
+			<div data-role="popup" id="popupCharts" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Open Government Data</div>
 				<div id="chart1"></div>
 				<center>
@@ -104,6 +105,19 @@
 					Die Statistiken beziehen sich auf die Reichweite nach Einwohnerzahl.<br>
 					Die nationalen Datenportale bleiben unbeachtet.<br>
 				</div>
+			</div>
+			<div data-role="popup" id="popupSamples" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
+				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Beispiele</div>
+				<div>
+					Die offenen Daten über Vornamen werden bereits verwendet. Hier eine Beispiele:<br>
+				</div>
+				<ul data-role="listview" data-inset="true">
+					<li><a href="http://tursics.de/nameyourbabe/" target="blank_"><img src="vornamen/babybenamsen.png"><h2>Baby benamsen</h2><p>von Thomas Tursics</p></a></li>
+					<li><a href="http://codefor.de/projekte/2014-07-04-Vornamen-in-Berlin.html" target="blank_"><img src="vornamen/berlinervornamen.png"><h2>Berliner Vornamen</h2><p>von Knud Möller</p></a></li>
+					<li><a href="http://derstandard.at/1341845196023/Florian-und-Jessica-Muhammed-und-Leonie-Vornamen-in-Wien" target="blank_"><img src="vornamen/vornameninwien.png"><h2>Florian und Jessica, Muhammed und Leonie: Vornamen in Wien</h2><p>von Florian Gossy</p></a></li>
+					<li><a href="http://www.newmediaart.at/" target="blank_"><img src="vornamen/ratemyname.png"><h2>rate my name</h2><p>von Benjamin Grabner</p></a></li>
+					<li><a href="http://data.gv.at/anwendungen/statistik-niederosterreich/" target="blank_"><img src="vornamen/statistikniederoesterreich.png"><h2>Statistik Niederösterreich</h2><p>von Benjamin Grabner</p></a></li>
+				</ul>
 			</div>
 			<div data-role="popup" id="popupShare" data-theme="a" data-position-to="origin" data-transition="slidedown">
 				<div data-role="controlgroup" data-type="horizontal">
