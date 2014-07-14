@@ -64,8 +64,8 @@
 		.chartAT div { background-image:url('images/at.png'); }
 		.chartCH div { background-image:url('images/ch.png'); }
 		.chartDE div { background-image:url('images/de.png'); }
-		#chart1 {padding:0 0 .5em 0; }
-		#chart2 {padding:1.5em 0 .5em 0; }
+		#chart1 {padding:0 0 2.5em 0; }
+		.circles-text span { font-size:0.75em;position:absolute;top:70px;left:0;width:100px; }
 
 		#pageMap { width:100%; height:100%; }
 	</style>
@@ -90,20 +90,24 @@
 			</div>
 			<div data-role="popup" id="popupCharts" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Open Government Data</div>
+				<div>Die aktuelle Statistik über Open Government Data in Deutschland, Österreich und der Schweiz.</div>
+				<div style="border-top:solid 1px gray;margin-top:1.5em;">
+					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="float:left;">
+						<input name="choiceSources" id="choiceSourceOGD"   value="ogd"   checked="checked" type="radio"><label for="choiceSourceOGD"><i class="fa fa-university" style="font-size:1.5em;"></i></label>
+						<input name="choiceSources" id="choiceSourceNames" value="names" type="radio"><label for="choiceSourceNames"><i class="fa fa-child" style="font-size:1.5em;"></i></label>
+					</fieldset>
+					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="float:left;padding-left:1em;">
+						<input name="choiceCalc" id="choiceCalcCitizen"      value="citizen"      checked="checked" type="radio"><label for="choiceCalcCitizen"><i class="fa fa-users" style="font-size:1.5em;"></i></label>
+						<input name="choiceCalc" id="choiceCalcMunicipality" value="municipality" type="radio"><label for="choiceCalcMunicipality"><i class="fa fa-list" style="font-size:1.5em;"></i></label>
+					</fieldset>
+					<div style="clear:both;"></div>
+				</div>
 				<div id="chart1"></div>
 				<center>
 					<div class="chart chartAT" id="chart1AT"></div><div class="chart chartDE" id="chart1DE"></div><div class="chart chartCH" id="chart1CH"></div>
 				</center>
-				<div id="chart2"></div>
-				<center>
-					<div class="chart chartAT" id="chart2AT"></div><div class="chart chartDE" id="chart2DE"></div><div class="chart chartCH" id="chart2CH"></div>
-				</center>
-				<center>
+				<div style="text-align:center;border-top:solid 1px gray;margin-top:4em;padding-top:0.5em;">
 					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
-				</center>
-				<div style="color:gray;text-align:center;border-top:solid 1px gray;margin-top:0.5em;padding-top:0.5em;">
-					Die Statistiken beziehen sich auf die Reichweite nach Einwohnerzahl.<br>
-					Die nationalen Datenportale bleiben unbeachtet.<br>
 				</div>
 			</div>
 			<div data-role="popup" id="popupSamples" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
@@ -118,6 +122,9 @@
 					<li><a href="http://www.newmediaart.at/" target="blank_"><img src="vornamen/ratemyname.png"><h2>rate my name</h2><p>von Benjamin Grabner</p></a></li>
 					<li><a href="http://data.gv.at/anwendungen/statistik-niederosterreich/" target="blank_"><img src="vornamen/statistikniederoesterreich.png"><h2>Statistik Niederösterreich</h2><p>von Benjamin Grabner</p></a></li>
 				</ul>
+				<center>
+					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
+				</center>
 			</div>
 			<div data-role="popup" id="popupShare" data-theme="a" data-position-to="origin" data-transition="slidedown">
 				<div data-role="controlgroup" data-type="horizontal">

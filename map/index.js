@@ -25,7 +25,7 @@ function initNokiaMap( elementName, lat, lon, zoom)
 			],
 			zoomLevel: zoom,
 			center: [lat, lon],
-			baseMapType: nokia.maps.map.Display.SMARTMAP // NORMAL NORMAL_COMMUNITY SATELLITE SATELLITE_COMMUNITY  SMARTMAP SMART_PT TERRAIN TRAFFIC
+			baseMapType: nokia.maps.map.Display.TERRAIN // NORMAL NORMAL_COMMUNITY SATELLITE SATELLITE_COMMUNITY SMARTMAP SMART_PT TERRAIN TRAFFIC
 	});
 //	map.removeComponent( map.getComponentById( "zoom.MouseWheel"));
 
@@ -72,16 +72,16 @@ function addMarker()
 				str += '<i class="fa fa-male"></i> ' + popStr + ' Einwohner<br>';
 				str += '</div>';
 
-				if( typeof this.data[ i]['linkOGD'] !== 'undefined') {
+				if( typeof data[ i]['linkOGD'] !== 'undefined') {
 					bgColor = cPortal;
-					str += '<i class="fa fa-check"></i> Hat ein <a href="' + this.data[ i]['linkOGD'] + '" target="_blank">Open Data Portal</a><br>';
+					str += '<i class="fa fa-check"></i> Hat ein <a href="' + data[ i]['linkOGD'] + '" target="_blank">Open Data Portal</a><br>';
 
-					if( typeof this.data[ i]['linkOGDNames'] !== 'undefined') {
+					if( typeof data[ i]['linkOGDNames'] !== 'undefined') {
 						bgColor = cGood;
-						str += '<i class="fa fa-heart"></i> Enthält einen <a href="' + this.data[ i]['linkOGDNames'] + '" target="_blank">Vornamen-Datensatz</a><br>';
+						str += '<i class="fa fa-heart"></i> Enthält einen <a href="' + data[ i]['linkOGDNames'] + '" target="_blank">Vornamen-Datensatz</a><br>';
 
-						if( typeof this.data[ i]['linkOGDLicense'] !== 'undefined') {
-							var license = this.data[ i]['linkOGDLicense'];
+						if( typeof data[ i]['linkOGDLicense'] !== 'undefined') {
+							var license = data[ i]['linkOGDLicense'];
 							var good = false;
 
 							if( 'CC 0' == license) {
@@ -100,30 +100,30 @@ function addMarker()
 					} else {
 						str += '<i class="fa fa-times"></i> Kein Vornamen-Datensatz vorhanden<br>';
 					}
-				} else if( typeof this.data[ i]['linkWebNames'] !== 'undefined') {
+				} else if( typeof data[ i]['linkWebNames'] !== 'undefined') {
 					bgColor = cYellow;
 					str += '<i class="fa fa-times"></i> Hat kein Open Data Portal<br>';
 
-					if( this.data[ i]['linkWebNames'] != '') {
-						str += '<i class="fa fa-check"></i> Vornamen auf der <a href="' + this.data[ i]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
+					if( data[ i]['linkWebNames'] != '') {
+						str += '<i class="fa fa-check"></i> Vornamen auf der <a href="' + data[ i]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
 					}
 				} else {
 					bgColor = cDenied;
 					str += '<i class="fa fa-times"></i> Hat kein Open Data Portal<br>';
 
-					if( typeof this.data[ i]['history'] === 'undefined') {
+					if( typeof data[ i]['history'] === 'undefined') {
 						continue;
 					}
 				}
 
 				str += '<br>';
 
-				if( typeof this.data[ i]['history'] !== 'undefined') {
-					var historySize = this.data[ i]['history'].length;
+				if( typeof data[ i]['history'] !== 'undefined') {
+					var historySize = data[ i]['history'].length;
 					for( var h = 0; h < historySize; ++h) {
 						str += '<div style="border-top:1px solid #aaaaaa;color:#aaaaaa;padding-top:0.5em;margin-top:0.5em;">';
-						str += '<i class="fa fa-calendar"></i> ' + this.data[ i]['history'][ h]['date'] + '<br>';
-						str += '<i class="fa fa-comment-o"></i> ' + this.data[ i]['history'][ h]['event'] + '</div>';
+						str += '<i class="fa fa-calendar"></i> ' + data[ i]['history'][ h]['date'] + '<br>';
+						str += '<i class="fa fa-comment-o"></i> ' + data[ i]['history'][ h]['event'] + '</div>';
 					}
 				}
 				str += '</div>';
@@ -155,68 +155,70 @@ function generateCharts()
 		arrayNames['Österreich'] = 0;
 		arrayNames['Schweiz'] = 0;
 
+		var useMunicipality = ('citizen' != $( 'input[name="choiceCalc"]:checked').val());
+
 		var max = data.length;
 		for( var i = 0; i < max; ++i) {
 			var population = data[ i]['population'];
 			var country = data[ i]['country'];
-			var hasOGD = (typeof this.data[ i]['linkOGD'] !== 'undefined');
-			var hasOGDNames = (typeof this.data[ i]['linkOGDNames'] !== 'undefined');
-			var hasWebNames = (typeof this.data[ i]['linkWebNames'] !== 'undefined');
-			var countOGD = (typeof this.data[ i]['countOGD'] !== 'undefined') ? this.data[ i]['countOGD'] : true;
-			var countNames = (typeof this.data[ i]['countNames'] !== 'undefined') ? this.data[ i]['countNames'] : true;
+			var hasOGD = (typeof data[ i]['linkOGD'] !== 'undefined');
+			var hasOGDNames = (typeof data[ i]['linkOGDNames'] !== 'undefined');
+			var hasWebNames = (typeof data[ i]['linkWebNames'] !== 'undefined');
+			var countOGD = (typeof data[ i]['countOGD'] !== 'undefined') ? data[ i]['countOGD'] : true;
+			var countNames = (typeof data[ i]['countNames'] !== 'undefined') ? data[ i]['countNames'] : true;
+			var countMunicipality = (typeof data[ i]['municipality'] !== 'undefined') ? data[ i]['municipality'] : 1;
 
 			if( countOGD && hasOGD) {
-				arrayOGD[country] += population;
+				arrayOGD[country] += useMunicipality ? countMunicipality : population;
 			}
 			if( countNames && (hasOGDNames || hasWebNames)) {
-				arrayNames[country] += population;
+				arrayNames[country] += useMunicipality ? countMunicipality : population;
 			}
 		}
 
-		var txt = 'In Österreich liefern ';
-		txt += Math.round( arrayOGD['Österreich'] / 8504850 * 100) + '%';
-		txt += ' der Kommunen Open Data.<br>In Deutschland (';
-		txt += Math.round( arrayOGD['Deutschland'] / 80380000 * 100) + '%';
-		txt += ') und der Schweiz (';
-		txt += Math.round( arrayOGD['Schweiz'] / 8112200 * 100) + '%';
-		txt += ') ergeben sich niedrigere Werte.';
+		var arrayResult = [];
+		arrayResult['Deutschland'] = 0;
+		arrayResult['Österreich'] = 0;
+		arrayResult['Schweiz'] = 0;
+
+		var txtSources = '';
+		if( 'ogd' == $( 'input[name="choiceSources"]:checked').val()) {
+			arrayResult = arrayOGD;
+			txtSources = 'findet man offene Daten in den OGD-Portalen';
+		} else {
+			arrayResult = arrayNames;
+			txtSources = 'findet man Vornamenlisten in den OGD-Portalen';
+		}
+
+		var txt = 'Über wie viele Kommunen ' + txtSources + '?<br>';
+
+		var arrayMax = [];
+		if( useMunicipality) {
+			arrayMax['Deutschland'] = 11116;
+			arrayMax['Österreich'] =   2354;
+			arrayMax['Schweiz'] =      2551;
+			txt += 'Hochgerechnet nach der Anzahl der Kommunen.';
+		} else {
+			arrayMax['Deutschland'] = 80380000;
+			arrayMax['Österreich'] =   8504850;
+			arrayMax['Schweiz'] =      8112200;
+			txt += 'Hochgerechnet nach der Einwohnerzahl der Kommunen.';
+		}
+
 		$( '#chart1').html( txt);
 		$( '#chart1').trigger( "create");
 		$( '#chart1').trigger( 'updatelayout');
 		var chart1DE = Circles.create({
-			id:'chart1DE',value:arrayOGD['Deutschland'],maxValue:80380000,
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
+			id:'chart1DE',value:arrayResult['Deutschland'],maxValue:arrayMax['Deutschland'],
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['Deutschland'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['Deutschland'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['Deutschland'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
 		});
 		var chart1AT = Circles.create({
-			id:'chart1AT',value:arrayOGD['Österreich'],maxValue:8504850,
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
+			id:'chart1AT',value:arrayResult['Österreich'],maxValue:arrayMax['Österreich'],
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['Österreich'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['Österreich'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['Österreich'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
 		});
 		var chart1CH = Circles.create({
-			id:'chart1CH',value:arrayOGD['Schweiz'],maxValue:8112200,
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
-		});
-
-		txt = 'Zu ';
-		txt += Math.round( arrayNames['Österreich'] / 8504850 * 100) + '%';
-		txt += ' der neugeborenen Österreicher werden Vornamen veröffentlicht.<br>In Deutschland (';
-		txt += Math.round( arrayNames['Deutschland'] / 80380000 * 100) + '%';
-		txt += ') und der Schweiz (';
-		txt += Math.round( arrayNames['Schweiz'] / 8112200 * 100) + '%';
-		txt += ') ergeben sich auch hier niedrigere Werte.';
-		$( '#chart2').html( txt);
-		$( '#chart2').trigger( "create");
-		$( '#chart2').trigger( 'updatelayout');
-		var chart2DE = Circles.create({
-			id:'chart2DE',value:arrayNames['Deutschland'],maxValue:80380000,
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
-		});
-		var chart2AT = Circles.create({
-			id:'chart2AT',value:arrayNames['Österreich'],maxValue:8504850,
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
-		});
-		var chart2CH = Circles.create({
-			id:'chart2CH',value:arrayNames['Schweiz'],maxValue:8112200,
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:0,text:function(value){return '';},wrpClass:'circles-wrp',textClass:'circles-text',
+			id:'chart1CH',value:arrayResult['Schweiz'],maxValue:arrayMax['Schweiz'],
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['Schweiz'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['Schweiz'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['Schweiz'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
 		});
 	} catch( e) {
 	}
@@ -235,6 +237,11 @@ $( document).on( "pagecreate", "#pageMap", function()
 
 		$( '#popupCopyright').popup( 'open');
 	});
+
+	$( '#choiceSourceOGD').on( 'click', function( e) { generateCharts(); });
+	$( '#choiceSourceNames').on( 'click', function( e) { generateCharts(); });
+	$( '#choiceCalcCitizen').on( 'click', function( e) { generateCharts(); });
+	$( '#choiceCalcMunicipality').on( 'click', function( e) { generateCharts(); });
 });
 
 // -----------------------------------------------------------------------------
