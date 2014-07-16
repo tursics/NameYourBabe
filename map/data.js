@@ -599,6 +599,11 @@ var data = [
 	"population":294627,
 	"lat":49.48,
 	"lon":8.46,
+	"linkWebNames":"https://www.mannheim.de/buerger-sein/geburten",
+	"history":[
+		{"date":"16.07.2014","event":"Anfrage nach Vornamen"},
+		{"date":"16.07.2014","event":"Screenshot der Top 30 für 2012, 2013 bekommen"},
+	],
 },
 {
 	"name":"Fürth",
@@ -844,6 +849,10 @@ var data = [
 	"population":218043,
 	"lat":47.99,
 	"lon":7.84,
+	"linkWebNames":"http://www.freiburg.de/pb/,Lde/205556.html",
+	"history":[
+		{"date":"16.07.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Salzburg (Land)",
