@@ -77,16 +77,6 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 			return left.txt > right.txt;
 		});
 
-		var nuts2 = [];
-		for( var i = 0; i < max; ++i) {
-			if( 3 == gDataSource[i].nuts.length) {
-				nuts2.push({ val: gDataSource[i].nuts, txt: gDataSource[i].name[CInternationalization.lang_] });
-			}
-		}
-		nuts2.sort( function( left, right) {
-			return left.txt > right.txt;
-		});
-
 		txt += '<li data-role="list-divider"><br></li>';
 		txt += '<li class="ui-field-contain afterDivider" style="padding:0;">';
 		txt += '<select name="choiceNUTS1" id="choiceNUTS1">';
@@ -98,21 +88,18 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 		txt += '</select>';
 		txt += '</li>';
 
-/*		txt += '<li class="ui-field-contain" style="padding:0;">';
-		txt += '<select name="choiceNUTS2" id="choiceNUTS2">';
-		txt += '<option value="">' + _( 'filterWorld') + '</option>';
-		var maxnuts = nuts2.length;
-		for( var i = 0; i < maxnuts; ++i) {
-			txt += '<option value="' + nuts2[i].val + '">' + nuts2[i].txt + '</option>';
-		}
-		txt += '</select>';
-		txt += '</li>';*/
+//		txt += '<li class="ui-field-contain" style="padding:0;">';
+//		txt += '<select name="choiceNUTS2" id="choiceNUTS2">';
+//		txt += '</select>';
+//		txt += '</li>';
 
 		txt += '</ul>';
 
 		$( '#divFilter').html( txt);
 		$( '#divFilter').trigger( "create");
 		$( '#divFilter').trigger( 'updatelayout');
+
+//		updateNUTS2List();
 
 		$( "#h1Filter").html( _( 'filterTitle'));
 		$( "#filterBack").html( _( 'settingsDone'));
@@ -148,6 +135,36 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 		window.external.notify( "applicationBarClear");
 	}
 });
+
+//----------------------------
+
+function updateNUTS2List()
+{
+	try {
+		var max = gDataSource.length;
+		var nuts2 = [];
+		for( var i = 0; i < max; ++i) {
+			if( 3 == gDataSource[i].nuts.length) {
+				nuts2.push({ val: gDataSource[i].nuts, txt: gDataSource[i].name[CInternationalization.lang_] });
+			}
+		}
+		nuts2.sort( function( left, right) {
+			return left.txt > right.txt;
+		});
+
+		var txt = '';
+		txt += '<option value="">' + _( 'filterWorld') + '</option>';
+		var maxnuts = nuts2.length;
+		for( var i = 0; i < maxnuts; ++i) {
+			txt += '<option value="' + nuts2[i].val + '">' + nuts2[i].txt + '</option>';
+		}
+
+		$( '#choiceNUTS2').html( txt);
+		$( '#choiceNUTS2').trigger( 'updatelayout');
+	} catch( e) {
+		console.log(e);
+	}
+}
 
 //----------------------------
 
