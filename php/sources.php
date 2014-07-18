@@ -90,7 +90,7 @@ function parseSourcedataAll( $file, $sourceIndex, $urlID, $quite)
 	if( $vecCount > 10) {
 		$cells = 0;
 		for( $i = 0; $i < 10; ++$i) {
-			$cells += count($vec[ i]);
+			$cells += count($vec[ $i]);
 		}
 		if( 0 == $cells) {
 			$vec = Array();
