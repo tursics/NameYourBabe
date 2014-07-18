@@ -88,10 +88,10 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 		txt += '</select>';
 		txt += '</li>';
 
-//		txt += '<li class="ui-field-contain" style="padding:0;">';
-//		txt += '<select name="choiceNUTS2" id="choiceNUTS2">';
-//		txt += '</select>';
-//		txt += '</li>';
+		txt += '<li class="ui-field-contain" id="liNUTS2" style="padding:0;display:none;">';
+		txt += '<select name="choiceNUTS2" id="choiceNUTS2">';
+		txt += '</select>';
+		txt += '</li>';
 
 		txt += '</ul>';
 
@@ -99,13 +99,13 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 		$( '#divFilter').trigger( "create");
 		$( '#divFilter').trigger( 'updatelayout');
 
-//		updateNUTS2List();
-
 		$( "#h1Filter").html( _( 'filterTitle'));
 		$( "#filterBack").html( _( 'settingsDone'));
 		if( gShowWP) {
 			$( "#filterBack_").css( 'display', 'none');
 		}
+
+		$( "#choiceNUTS1").change( function() { updateNUTS2List(); });
 	} catch( e) {
 		if( gShowWP) {
 			window.external.notify( "applicationBarClear");
@@ -124,7 +124,7 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 	}
 
 	for( var i = 0; i < maxnuts; ++i) {
-		if( nuts1[i].val == gSettings.filterNUTS) {
+		if( nuts1[i].val == gSettings.filterNUTS.substr( 0, 2)) {
 			$('#choiceNUTS1')[0].selectedIndex = 1 + i;
 			$('#choiceNUTS1').selectmenu('refresh');
 			break;
@@ -134,6 +134,8 @@ $( document).on( 'pageshow', '#pageFilter',  function()
 	if( gShowWP) {
 		window.external.notify( "applicationBarClear");
 	}
+
+	updateNUTS2List();
 });
 
 //----------------------------
@@ -142,25 +144,47 @@ function updateNUTS2List()
 {
 	try {
 		var max = gDataSource.length;
+		var nuts1 = $('#choiceNUTS1').val();
 		var nuts2 = [];
+		var nutsTitle = {};
+		var nutsSel = nuts1;
+
+		var nutsLen = 3;
+		if(( 'AT' == nuts1) || ('CH' == nuts1)) {
+			++nutsLen;
+		}
+		var nutsSetting = gSettings.filterNUTS.substr( 0, nutsLen);
+
 		for( var i = 0; i < max; ++i) {
-			if( 3 == gDataSource[i].nuts.length) {
+			if( nuts1 == gDataSource[i].nuts) {
+				nutsTitle = { val: gDataSource[i].nuts, txt: gDataSource[i].name[CInternationalization.lang_] };
+			}
+			if(( nutsLen == gDataSource[i].nuts.length) && (nuts1 == gDataSource[i].nuts.substr( 0, 2))) {
 				nuts2.push({ val: gDataSource[i].nuts, txt: gDataSource[i].name[CInternationalization.lang_] });
+
+				if( nutsSetting == gDataSource[i].nuts) {
+					nutsSel = gDataSource[i].nuts;
+				}
 			}
 		}
 		nuts2.sort( function( left, right) {
 			return left.txt > right.txt;
 		});
 
-		var txt = '';
-		txt += '<option value="">' + _( 'filterWorld') + '</option>';
 		var maxnuts = nuts2.length;
-		for( var i = 0; i < maxnuts; ++i) {
-			txt += '<option value="' + nuts2[i].val + '">' + nuts2[i].txt + '</option>';
+		var txt = '';
+
+		if( '' != nuts1) {
+			txt += '<option value="' + nutsTitle.val + '"' + (nuts1 == nutsSel ? ' selected=""' : '') + '>' + nutsTitle.txt + '</option>';
+			for( var i = 0; i < maxnuts; ++i) {
+				txt += '<option value="' + nuts2[i].val + '"' + (nuts2[i].val == nutsSel ? ' selected=""' : '') + '>' + nuts2[i].txt + '</option>';
+			}
 		}
 
 		$( '#choiceNUTS2').html( txt);
 		$( '#choiceNUTS2').trigger( 'updatelayout');
+		$( '#choiceNUTS2').selectmenu('refresh');
+		$( "#liNUTS2").css( 'display', 0 == txt.length ? 'none' : 'block');
 	} catch( e) {
 		console.log(e);
 	}
@@ -172,6 +196,9 @@ $( document).on( 'pagehide', '#pageFilter',  function()
 {
 	gSettings.filterGender = $('#choiceGender').val();
 	gSettings.filterNUTS = $('#choiceNUTS1').val();
+	if( 2 == gSettings.filterNUTS.length) {
+		gSettings.filterNUTS = $('#choiceNUTS2').val();
+	}
 
 	gRandomNames = [];
 
