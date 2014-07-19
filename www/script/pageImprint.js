@@ -32,7 +32,23 @@ $( document).on( 'pageshow', '#pageImprint',  function()
 		txt += '<ul data-role="listview" data-theme="a">';
 		txt += '<li data-role="list-divider">&nbsp;</li>';
 		if( gShowIOS) {
-			txt += '<li data-icon="false" class="afterDivider"><a href="http://itunes.apple.com/app/604279644">' + _( 'imprintTitleRateMe') + '</div></a></li>';
+			var lang = (navigator.language) ? navigator.language : navigator.userLanguage; 
+			lang = lang.toLowerCase();
+			lang = lang.substr( 0, 2);
+			if( 'uk' == lang) {
+				lang = 'gb';
+			} else if( 'en' == lang) {
+				lang = 'us';
+			} else if( 'zh' == lang) {
+				lang = 'cn';
+			} else if( 'vi' == lang) {
+				lang = 'vn';
+			} else if( 'sv' == lang) {
+				lang = 'se';
+			}
+			txt += '<li data-icon="false" class="afterDivider"><a href="https://itunes.apple.com/' + lang + '/app/name-your-babe/id604279644?mt=8&uo=4">' + _( 'imprintTitleRateMe') + '</div></a></li>';
+		} else {
+//			txt += '<li data-icon="false" class="afterDivider"><a href="market://details?id=de.tursics.nameyourbabe">' + _( 'imprintTitleRateMe') + '</div></a></li>';
 		}
 		txt += '<li data-icon="false"><a href="#pageWebView" data-rel="dialog" data-role="button" data-theme="b" data-inline="true" onClick="onPageImprintHome();return true;">' + _( 'imprintWebHome') + '</div></a></li>';
 		txt += '<li data-icon="false"><a href="#pageWebView" data-rel="dialog" data-role="button" data-theme="b" data-inline="true" onClick="onPageImprintSupport();return true;">' + _( 'imprintWebSupport') + '</div></a></li>';
