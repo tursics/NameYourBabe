@@ -48,6 +48,7 @@ $( document).bind( "mobileinit", function()
 	$.mobile.allowCrossDomainPages = true;
 //	$.fn.buttonMarkup.defaults.corners = false;
 	$.mobile.listview.prototype.options.filterPlaceholder = _( 'searchPlaceholder');
+	$.mobile.fixedToolbars.setTouchToggleEnabled( false);
 });
 
 //----------------------------
