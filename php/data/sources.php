@@ -38,7 +38,7 @@ $gSource=array (
     array (
       0 => 'AT12',
     ),
-    'autoModified' => '2014-07-09',
+    'autoModified' => '2014-07-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Niederösterreich - data.noe.gv.at',
   ),
@@ -194,7 +194,7 @@ $gSource=array (
     array (
       0 => 'AT31',
     ),
-    'autoModified' => '2014-07-09',
+    'autoModified' => '2014-07-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Oberösterreich - data.ooe.gv.at',
   ),
@@ -1413,14 +1413,8 @@ $gSource=array (
   47 => 
   array (
     'nuts' => 'FR',
-    'name' => 'Liste des prénoms',
+    'name' => 'Liste des prénoms (Suchmaske)',
     'id' => 47,
-    'de-DE' => 
-    array (
-    ),
-    'en-US' => 
-    array (
-    ),
     'url' => 'http://www.data.gouv.fr/de/dataset?q=pr%C3%A9nom&ext_territory=&page=1',
     'modified' => '2014-03-26',
     'autoUpdate' => -1,
@@ -1865,6 +1859,202 @@ $gSource=array (
     'autoCitation' => 'Datenquelle: Stadt Köln – offenedaten-koeln.de',
     'autoModified' => '2014-07-11',
     'autoLicense' => 'CC BY 3.0 DE',
+  ),
+  65 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms déclarés (Nantes, Bordeaux, Paris, Sarlat-la-Canéda, Rennes, Toulouse, Digne-les-Bains, Strasbourg)',
+    'id' => 65,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-declares',
+  ),
+  66 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Prénoms (Ville de Montpellier)',
+    'id' => 66,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/prenoms-mtn',
+  ),
+  67 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Les prénoms des petits français (Rennes, Nantes, Strasbourg, Toulouse)',
+    'id' => 67,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/les-prenoms-des-petits-francais',
+  ),
+  68 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Fichier prénoms',
+    'id' => 68,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/fichier-prenoms-nd',
+  ),
+  69 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms (La Ville d\'Issy-les-Moulineaux)',
+    'id' => 69,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms',
+  ),
+  70 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms par année (Paris)',
+    'id' => 70,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-par-annee-prs',
+  ),
+  71 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms par année (Paris)',
+    'id' => 71,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-par-annee-ods',
+  ),
+  72 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms féminins en 2012 (Paris)',
+    'id' => 72,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-feminins-en-2012-prs',
+  ),
+  73 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms masculins en 2012 (Paris)',
+    'id' => 73,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-masculins-en-2012-prs',
+  ),
+  74 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms 2004 à 2013 (Paris)',
+    'id' => 74,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-2004-a-2013-prs',
+  ),
+  75 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms 2004 à 2012 (Paris)',
+    'id' => 75,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-2004-a-2012-ods',
+  ),
+  76 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms féminins en 2012 (Paris)',
+    'id' => 76,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-feminins-en-2012-ods',
+  ),
+  77 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms masculins en 2012 (Paris)',
+    'id' => 77,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-masculins-en-2012-ods',
+  ),
+  78 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Prénoms des enfants nés à Nantes',
+    'id' => 78,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/prenoms-des-enfants-nes-a-nantes-nd',
+  ),
+  79 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms déclarés de 2001 à 2011 (Coulommiers)',
+    'id' => 79,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-declares-de-2001-a-2011-30383288',
+  ),
+  80 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms 2008 de Digne-les-Bains',
+    'id' => 80,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-2008-de-digne-les-bains-op',
+  ),
+  81 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms 2009 de Digne-les-Bains',
+    'id' => 81,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-2009-de-digne-les-bains-op',
+  ),
+  82 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms 2010 de Digne-les-Bains',
+    'id' => 82,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-2010-de-digne-les-bains-op',
+  ),
+  83 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms 2011 de Digne-les-Bains',
+    'id' => 83,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-2011-de-digne-les-bains-op',
+  ),
+  84 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms 2012 de Digne-les-Bains',
+    'id' => 84,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-2012-de-digne-les-bains-op',
+  ),
+  85 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms 2013 de Digne-les-Bains',
+    'id' => 85,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-2013-de-digne-les-bains-op',
+  ),
+  86 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Prénoms des enfants nés à Rennes de 2007 à 2011',
+    'id' => 86,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/prenoms-des-enfants-nes-a-rennes-de-2007-a-2011-rm',
+  ),
+  87 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Palmarès des prénoms déclarés en 2007 (Sarlat)',
+    'id' => 87,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/palmares-des-prenoms-declares-en-2007-etat-civil-383438',
+  ),
+  88 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Palmarès des prénoms déclarés en 2008 (Sarlat)',
+    'id' => 88,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/palmares-des-prenoms-declares-en-2008-etat-civil-383440',
+  ),
+  89 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Palmarès des prénoms déclarés en 2009 (Sarlat)',
+    'id' => 89,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/palmares-des-prenoms-declares-en-2009-etat-civil-383442',
+  ),
+  90 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Palmarès des prénoms déclarés en 2010 (Sarlat)',
+    'id' => 90,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/palmares-des-prenoms-declares-en-2010-etat-civil-383444',
+  ),
+  91 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Liste des prénoms des enfants nés à Nantes entre 2001 et 2012',
+    'id' => 91,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/liste-des-prenoms-des-enfants-nes-a-nantes-entre-2001-et-2012-laod',
+  ),
+  92 => 
+  array (
+    'nuts' => 'FR',
+    'name' => 'Prénoms inscrits annuellement à l\'état civil de la ville de Strasbourg',
+    'id' => 92,
+    'url' => 'http://www.data.gouv.fr/fr/dataset/prenoms-inscrits-annuellement-a-l-etat-civil-de-la-ville-de-strasbourg-nd',
   ),
 );
 ?>
