@@ -417,3 +417,15 @@ a.myBackButton.ui-shadow, a.myBackButton {
 	-o-user-select: none;
 	user-select: none;
 }
+
+#pageHomeControl div {
+	display: inline-block;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	-ms-border-radius: 1em;
+	-o-border-radius: 1em;
+	border-radius: 1em;
+	width: 1em;
+	height: 1em;
+	margin: 0.2em;
+}

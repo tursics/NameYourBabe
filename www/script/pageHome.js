@@ -175,6 +175,7 @@ function showNameByIndex( pos)
 	} catch( e) {
 	}
 
+	$( "#boxGenderA").attr("href", "#name?given=" + gDataName[ pos].name);
 	$( "#boxNameA").attr("href", "#name?given=" + gDataName[ pos].name);
 	$( "#boxNameImg").attr("src", "art/list-logo" + gDataName[ pos].gender + ".png");
 	$( "#boxNameCharts").html( charts);
@@ -189,13 +190,13 @@ function updateHomeControl()
 	for( var idx = 0; idx < 5; ++idx) {
 		var pos = gRandomNames[ gRandomNames.length - 1 - idx];
 		if( idx == 2) {
-			$( "#pageHomeControl span:eq(" + (4-idx) +")").css( 'color', '#000000');
+			$( "#pageHomeControl div:eq(" + (4-idx) +")").css( 'background-color', '#000000');
 		} else if( 'm' == gDataName[ pos].gender) {
-			$( "#pageHomeControl span:eq(" + (4-idx) +")").css( 'color', '#a9c4f5'); //#6495ed
+			$( "#pageHomeControl div:eq(" + (4-idx) +")").css( 'background-color', '#a9c4f5'); //#6495ed
 		} else if( 'f' == gDataName[ pos].gender) {
-			$( "#pageHomeControl span:eq(" + (4-idx) +")").css( 'color', '#f8c4c4'); //#f08080
+			$( "#pageHomeControl div:eq(" + (4-idx) +")").css( 'background-color', '#f8c4c4'); //#f08080
 		} else {
-			$( "#pageHomeControl span:eq(" + (4-idx) +")").css( 'color', '#c6c6c6'); //#a0a0a0
+			$( "#pageHomeControl div:eq(" + (4-idx) +")").css( 'background-color', '#c6c6c6'); //#a0a0a0
 		}
 	}
 }
@@ -208,7 +209,7 @@ $( document).on( 'pageshow', '#pageHome',  function()
 		init();
 
 		var txt = '';
-		txt += '<li data-role="list-divider" style="height:40px;"><center><img src="art/list-logob.png" id="boxNameImg" style="width:40px;height:40px;pointer-events:none;"></center></li>';
+		txt += '<li data-role="list-divider" style="height:40px;"><a href="#" id="boxGenderA"><center><img src="art/list-logob.png" id="boxNameImg" style="width:40px;height:40px;pointer-events:none;"></center></a></li>';
 		txt += '<li data-icon="false" class="afterDivider"><a href="#" id="boxNameA"><div style="text-align:center;height:5.2em;line-height:5.2em;"><span id="boxName" style="font-size:4em;white-space:nowrap;overflow:hidden;"></span></div></a></li>';
 		txt += '<li data-role="list-divider" id="boxNameCharts" style="text-align:center;border-bottom:none !important;"></li>';
 
