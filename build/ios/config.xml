@@ -2,8 +2,8 @@
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="de.tursics.nameyourbabe"
-        version="3.2"
-        versionCode="32">
+        version="3.3"
+        versionCode="33">
 
 	<!-- Essential property (Blackberry only supports latin character) -->
 	<name>Name your babe</name>

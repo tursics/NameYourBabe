@@ -29,7 +29,7 @@ All features at a glance:
 
 The most popular given names for girls and boys in:
 - Austria (Engerwitzdorf, Graz, Linz, Lower Austria, City of Salzburg, State of Salzburg, Styria, Tyrol, Upper Austria, Vienna, Vorarlberg)
-- Germany (Berlin, Bremen, Chemnitz, Essen, Hamburg, Moers, Munich, Münster, Nuremberg, Paderborn and Ulm)
+- Germany (Berlin, Bonn, Bremen, Chemnitz, Cologne, Essen, Hamburg, Moers, Munich, Münster, Nuremberg, Paderborn and Ulm)
 - Switzerland (Zurich)
 - More regions to come
 
@@ -90,7 +90,7 @@ Alle Features auf einem Blick:
 - Kostenlos und werbefrei
 
 Die beliebtesten Vornamen für Mädchen und Jungen aus:
-- Deutschland (Berlin, Bremen, Chemnitz, Essen, Hamburg, Moers, München, Münster, Nürnberg, Paderborn und Ulm)
+- Deutschland (Berlin, Bonn, Bremen, Chemnitz, Essen, Hamburg, Köln, Moers, München, Münster, Nürnberg, Paderborn und Ulm)
 - Österreich (Engerwitzdorf, Graz, Linz, Niederösterreich, Oberösterreich, Land Salzburg, Stadt Salzburg, Steiermark, Tirol, Vorarlberg, Wien)
 - Schweiz (Zürich)
 - Weitere Regionen in Vorbereitung

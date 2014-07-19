@@ -3,10 +3,25 @@
 
 Current version and update messages in English and German.
 
-Version 3.3 ()
+Version 3.4 ()
 ------------------------
-- Bonn 2012-2013
-- Köln 2010-2013
+
+tbd.
+Mannheim
+Innsbruck
+Klagenfurt
+Freiburg
+
+Version 3.3 (2014-07-19)
+------------------------
+
+- Introduced a filter for Cities, in addition to the Filter for countries
+- Added data from Bonn (2012-2013)
+- Added data from Cologne (2010-2013)
+
+- Zusätzlich zum Länderfilter kann man jetzt auch nach Städten filtern
+- Neue Daten von Bonn (2012-2013)
+- Neue Daten von Köln (2010-2013)
 
 Version 3.2 (2014-06-29)
 ------------------------
