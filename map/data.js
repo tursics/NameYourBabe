@@ -90,6 +90,18 @@ var data = [
 	],
 },
 {
+	"name":"Delmenhorst",
+	"country":"Deutschland",
+	"population":73588,
+	"lat":53.04,
+	"lon":8.63,
+	"linkWebNames":"http://www.delmenhorst.de/leben-in-del/familie/standesamt/",
+	"history":[
+		{"date":"11.08.2014","event":"Anfrage nach Vornamen"},
+		{"date":"13.08.2014","event":"Antwort: TIFF-Datei mit den aktuell 30 beliebtesten Namen"},
+	],
+},
+{
 	"name":"Niedersachsen",
 	"country":"Deutschland",
 	"population":7774000,
@@ -416,6 +428,10 @@ var data = [
 	"population":525105,
 	"lat":51.04,
 	"lon":13.73,
+	"linkWebNames":"http://www.dresden.de/de/02/035/01/2013/01/pm_022.php",
+	"history":[
+		{"date":"12.08.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Leverkusen",
@@ -934,7 +950,8 @@ var data = [
 		{"date":"15.10.2013","event":"Antwort: Es gibt keine OGD Stategie!"},
 		{"date":"19.10.2013","event":"Allgemeine OGD Anfrage"},
 		{"date":"-","event":"Keine Antwort"},
-		{"date":"11.07.2014","event":"OGD Anfrage nach ganz oben"},
+		{"date":"11.07.2014","event":"OGD Anfrage beim Landeshauptmann"},
+		{"date":"22.07.2014","event":"Es gäbe bereits Geo- und Umweltdaten"},
 	],
 },
 {
