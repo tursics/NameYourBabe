@@ -49,6 +49,10 @@ $( document).on( 'pageshow', '#pageImprint',  function()
 			txt += '<li data-icon="false" class="afterDivider"><a href="https://itunes.apple.com/' + lang + '/app/name-your-babe/id604279644?mt=8&uo=4">' + _( 'imprintTitleRateMe') + '</div></a></li>';
 		} else {
 //			txt += '<li data-icon="false" class="afterDivider"><a href="market://details?id=de.tursics.nameyourbabe">' + _( 'imprintTitleRateMe') + '</div></a></li>';
+//		} else {
+//			http://msdn.microsoft.com/de-de/library/windows/apps/hh394017%28v=vs.105%29.aspx
+//		} else {
+//			http://msdn.microsoft.com/de-DE/library/windows/apps/hh974767.aspx
 		}
 		txt += '<li data-icon="false"><a href="#pageWebView" data-rel="dialog" data-role="button" data-theme="b" data-inline="true" onClick="onPageImprintHome();return true;">' + _( 'imprintWebHome') + '</div></a></li>';
 		txt += '<li data-icon="false"><a href="#pageWebView" data-rel="dialog" data-role="button" data-theme="b" data-inline="true" onClick="onPageImprintSupport();return true;">' + _( 'imprintWebSupport') + '</div></a></li>';
