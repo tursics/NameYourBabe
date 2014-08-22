@@ -278,6 +278,14 @@ var data = [
 	"population":362213,
 	"lat":51.48,
 	"lon":7.21,
+	"linkWebNames":"http://www.bochum.de/C125708500379A31/vwContentByKey/W28Q7EA4560BOLDDE/nav/98MA2L748BOCM",
+	"linkOGD":"http://www.bochum.de/opendata",
+	"linkOGDNames":"http://www.bochum.de/opendata/datensaetze/jugend-familie-soziales/nav/75F9RD294BOLD",
+	"linkOGDLicense":"DL DE BY 1.0",
+	"history":[
+		{"date":"09.08.2014","event":"Anfrage nach Vornamen"},
+		{"date":"18.08.2014","event":"Vornamen-Statistik 2013 im Portal veröffentlicht"},
+	],
 },
 {
 	"name":"Oberhausen",
