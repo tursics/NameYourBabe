@@ -14,6 +14,7 @@ function initNokiaMap( elementName, lat, lon, zoom)
 	// until: 2014-07-02
 	nokia.Settings.set( 'app_id', 'gbHZJd1LPxixPJOwPtgz');
 	nokia.Settings.set( 'app_code', 'EC7vp6T4ERlNCLllgzzrow');
+	nokia.Settings.set( 'defaultLanguage', 'de-DE');
 
 	map = new nokia.maps.map.Display(
 		document.getElementById( elementName), {

@@ -128,12 +128,31 @@
 					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
 				</center>
 			</div>
-			<div data-role="popup" id="popupShare" data-theme="a" data-position-to="origin" data-transition="slidedown">
-				<div data-role="controlgroup" data-type="horizontal">
-					<a href="https://twitter.com/intent/tweet?text=Wo+gibt+es+%23OpenData+Vornamen?+Die+de-at-ch-Karte+auf+http%3A%2F%2Fvornamen.tursics.de+von+@tursics" target="_blank" class="ui-btn"><i class="fa fa-twitter"></i></a>
-					<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvornamen.tursics.de&t=Wo+gibt+es+%23OpenData+Vornamen?+Die+de-at-ch-Karte+(von+Thomas+Tursics)" target="_blank" class="ui-btn"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="ui-btn" data-rel="back" data-transition="flow"><i class="fa fa-times "></i></a>
+			<div data-role="popup" id="popupShare" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
+				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Teilen</div>
+				<div>
+					Gefällt dir diese Seite? Erzähle es weiter.<br>
 				</div>
+				<div style="color:gray;text-align:center;border-top:solid 1px gray;margin-top:0.5em;padding-top:1.5em;">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://vornamen.tursics.de" data-text="Eine #OpenData Vornamen-Karte von de-at-ch auf" data-via="tursics" data-lang="de">Twittern</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				</div>
+				<div style="color:gray;text-align:center;border-bottom:solid 1px gray;margin-bottom:0.5em;padding:1em 0 1.5em 0;">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&appId=625938384187754&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+						<div class="fb-like" data-href="http://vornamen.tursics.de" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+				</div>
+				<center>
+					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
+				</center>
 			</div>
 			<div data-role="popup" id="popupCopyright" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Wo gibt es Open Data Vornamen?</div>
