@@ -14,7 +14,7 @@ Name your babe
 App description
 ---------------
 
-Name your babe - The encyclopedia of names, to find THE given name for your baby.
+The encyclopedia of names for parents-to-be to find a name for their baby
 
 It has never been so easy to find the perfect fitting given name for your babe! The app shows you a given name popular in your region. You don't like it? Simply shake your smartphone, and you will get a new name.
 
@@ -75,7 +75,7 @@ Baby benamsen
 App description
 ---------------
 
-Das Namenslexikon für werdende Eltern, um einen Namen für ihr Baby zu finden.
+Das Namenslexikon für werdende Eltern, um einen Namen für ihr Baby zu finden
 
 So einfach war es noch nie, den passenden Vornamen für dein Baby zu finden! Einfach das Smartphone schütteln oder über das Display wischen - und ein neuer Name erscheint.
 
