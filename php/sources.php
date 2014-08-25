@@ -905,8 +905,29 @@ function sourcesShowPageItem( $id)
 
 	$txt = '';
 	$txt .= '<h1>'.$name.'</h1>';
-	$txt .= '<a href="do=browse&what=sources">Back to Source list</a>';
+	echo( $txt);
+
+	// nuts
+	$txt = '';
+	$oldNuts = '';
+	for( $j = 0; $j < count( $gSource[$i]['manNUTS']); ++$j) {
+		$nutsName = $gSource[$i]['manNUTS'][$j];
+		if( $oldNuts != $nutsName) {
+			$oldNuts = $nutsName;
+
+			$tmp = $nutsName;
+			do {
+				if( nutsExists( $nutsName)) {
+					$names = nutsGetName( $nutsName);
+					$tmp .= ' | '.$names['en-US'];
+				}
+				$nutsName = substr( $nutsName, 0, -1);
+			} while( strlen( $nutsName) > 0);
+			$txt .= $tmp."<br>";
+		}
+	}
 	$txt .= '<br>';
+	$txt .= '<hr>';
 	$txt .= '<br>';
 	echo( $txt);
 
@@ -948,8 +969,12 @@ function sourcesShowPageItem( $id)
 		}
 	}
 
-	$txt = '';
+	$txt = '<br>';
+	$txt .= '<hr>';
 	$txt .= '<br>';
+	echo( $txt);
+
+	$txt = '';
 	$txt .= 'Boys:<br>';
 	echo( $txt);
 
@@ -988,7 +1013,7 @@ function sourcesShowPageItem( $id)
 	}
 
 	$txt = '';
-	$txt .= $boys . ' boys (from '.$allboys.' boys)<br>';
+	$txt .= $boys . ' boys (from '.$allboys.' boys - ' . count( $gBoys) . ' at all)<br>';
 	$txt .= '<br>';
 	$txt .= 'Girls:<br>';
 	echo( $txt);
@@ -1026,9 +1051,87 @@ function sourcesShowPageItem( $id)
 	}
 
 	$txt = '';
-	$txt .= $girls . ' girls (from '.$allgirls.' girls)<br>';
+	$txt .= $girls . ' girls (from '.$allgirls.' girls - ' . count( $gGirls) . ' at all)<br>';
+
 	$txt .= '<br>';
+	$txt .= '<hr>';
+	$txt .= '<br>';
+
+	$txt .= '<a href="do=">Back to main</a><br>';
+	$txt .= '<a href="do=browse&what=sources">Back to Source list</a><br>';
+	$txt .= '<br>';
+	$txt .= '<a href="do=delete&what=sourcedata&id='.$id.'"><span style="color:red;">Delete all statistic data</span></a><br>';
+
 	echo( $txt);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+function showPageDeleteSourcedata( $id)
+{
+	global $gSource;
+	global $gBoys;
+	global $gGirls;
+
+	for( $i = 0; $i < count( $gSource); ++$i) {
+		if( intval( $id) == intval( $gSource[$i]['id'])) {
+			break;
+		}
+	}
+
+	$name = $gSource[$i]['name'];
+	$group = '';
+	if( isset( $gSource[$i]['group'])) {
+		$group = $gSource[$i]['group'];
+		$name = $group;
+	}
+
+	$idVec = Array();
+	for( $i = 0; $i < count( $gSource); ++$i) {
+		if( $group == '') {
+			if( intval( $id) != intval( $gSource[$i]['id'])) {
+				continue;
+			}
+		} else {
+			if( $group != $gSource[$i]['group']) {
+				continue;
+			}
+		}
+
+		$idVec[] = $gSource[$i]['id'];
+	}
+
+	foreach( $gBoys as $key => $value) {
+		foreach( $value['ref'] as $refkey => $refvalue) {
+			$posSource = strpos( $refvalue, '-');
+			$strSource = substr( $refvalue, 0, $posSource);
+
+			if( in_array( intval( $strSource), $idVec)) {
+				unset( $value['ref'][$refkey]);
+			}
+		}
+		$gBoys[$key] = $value;
+	}
+
+	foreach( $gGirls as $key => $value) {
+		foreach( $value['ref'] as $refkey => $refvalue) {
+			$posSource = strpos( $refvalue, '-');
+			$strSource = substr( $refvalue, 0, $posSource);
+
+			if( in_array( intval( $strSource), $idVec)) {
+				unset( $value['ref'][$refkey]);
+			}
+		}
+		$gGirls[$key] = $value;
+	}
+
+	$gSource[$i]['autoModified'] = '2001-01-01';
+
+	gBoysToFile();
+	gGirlsToFile();
+	gSourceToFile();
+
+	sourcesShowPageItem( $id);
 }
 
 //--------------------------------------------------------------------------------------------------

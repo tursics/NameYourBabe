@@ -1,11 +1,15 @@
 <?php
 	$do = '';
 	$what = '';
+	$whatId = '';
 	if( isset( $_GET[ 'do'])) {
 		$do = $_GET[ 'do'];
 	}
 	if( isset( $_GET[ 'what'])) {
 		$what = $_GET[ 'what'];
+	}
+	if( isset( $_GET[ 'id'])) {
+		$whatId = $_GET[ 'id'];
 	}
 
 	include_once( "export.php");
@@ -499,7 +503,7 @@ function showPageUpdateSourcedata()
 		echo( $txt);
 
 		for( $j = 0; $j < count( $gSource[$i]['autoUrl']); ++$j) {
-//		for( $j = 0; $j < 6; ++$j) {
+//		for( $j = 0; $j < 3; ++$j) {
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/katalog/storage')) {
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at' . $gSource[$i]['autoUrl'][$j];
 			} else
@@ -567,7 +571,7 @@ function showPageSaveSourcedata()
 		echo( $txt);
 
 		for( $j = 0; $j < count( $gSource[$i]['autoUrl']); ++$j) {
-//		for( $j = 0; $j < 6; ++$j) {
+//		for( $j = 0; $j < 3; ++$j) {
 			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/katalog/storage')) {
 				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at' . $gSource[$i]['autoUrl'][$j];
 			} else
@@ -969,6 +973,7 @@ function main()
 {
 	global $do;
 	global $what;
+	global $whatId;
 
 	if( $do == '') {
 		showPageHome();
@@ -996,6 +1001,8 @@ function main()
 		exportShowPageDataSourceJS();
 	} else if( $do == 'export' && $what == 'dataName.js') {
 		exportShowPageDataNameJS();
+	} else if( $do == 'delete' && $what == 'sourcedata' && $whatId != '') {
+		showPageDeleteSourcedata( $whatId);
 	} else {
 		echo( '<h1>ERROR</h1>');
 		echo( '<br>Did not understand '.$do.' '.$what.'.');
