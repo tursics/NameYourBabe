@@ -10,6 +10,7 @@ var gWebViewHref = "";
 var gWebViewTitle = "";
 gInit = false;
 gShowIOS = false;
+gShowAndroid = false;
 gShowWP = false;
 gDebug = false;
 gScreenshot = false;
@@ -65,6 +66,7 @@ function init()
 
 		if(( typeof device !== "undefined") && (typeof device.platform !== "undefined")) {
 			gShowIOS = ((device.platform == "iPhone") || (device.platform == "iPad") || (device.platform == "iPod touch") || (device.platform == "iOS"));
+			gShowAndroid = (device.platform == "Android");
 		}
 		if( !gShowIOS && (typeof window.external !== "undefined") && (typeof window.external.notify !== "undefined")) {
 			gShowWP = true;
