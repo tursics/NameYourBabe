@@ -27,7 +27,7 @@
 	<meta name="twitter:creator" content="@tursics">
 
 	<link rel="stylesheet" href="jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.css">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
 
 	<script src="http://js.api.here.com/se/2.5.4/jsl.js?with=maps,places,directions,positioning" type="text/javascript" charset="utf-8"></script>
 
@@ -83,9 +83,10 @@
 			</div>
 			<div style="float:left;font-size:2em;font-weight:100 !important;padding:0.3em 0 0 1em;">Wo gibt es Open Data Vornamen?</div>
 			<div data-role="controlgroup" data-type="horizontal" style="float:right;margin-right:1em;">
-				<a href="#popupCharts"    data-rel="popup" class="ui-btn"><i class="fa fa-bar-chart-o" style="font-size:1.5em;"></i></a>
+				<a href="#popupCharts"    data-rel="popup" class="ui-btn"><i class="fa fa-line-chart" style="font-size:1.5em;"></i></a>
 				<a href="#popupSamples"   data-rel="popup" class="ui-btn"><i class="fa fa-flask" style="font-size:1.5em;"></i></a>
-				<a href="#popupShare"     data-rel="popup" class="ui-btn"><i class="fa fa-share-square-o" style="font-size:1.5em;"></i></a>
+				<a href="#popupContests"  data-rel="popup" class="ui-btn"><i class="fa fa-trophy" style="font-size:1.5em;"></i></a>
+				<a href="#popupShare"     data-rel="popup" class="ui-btn"><i class="fa fa-share-alt" style="font-size:1.5em;"></i></a>
 				<a href="#popupCopyright" data-rel="popup" class="ui-btn"><i class="fa fa-info-circle" style="font-size:1.5em;"></i></a>
 			</div>
 			<div data-role="popup" id="popupCharts" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
@@ -123,6 +124,33 @@
 					<li><a href="http://www.newmediaart.at/" target="blank_"><img src="vornamen/ratemyname.png"><h2>rate my name</h2><p>von Benjamin Grabner</p></a></li>
 					<li><a href="http://data.gv.at/anwendungen/statistik-niederosterreich/" target="blank_"><img src="vornamen/statistikniederoesterreich.png"><h2>Statistik Niederösterreich</h2><p>von Benjamin Grabner</p></a></li>
 					<li><a href="http://issy.netcomdev.com/" target="blank_"><img src="vornamen/issylesmoulineaux.png"><h2>Les prénoms les plus portés</h2><p>von Ville d'Issy-les-Moulineaux</p></a></li>
+				</ul>
+				<center>
+					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
+				</center>
+			</div>
+			<div data-role="popup" id="popupContests" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
+				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Wettbewerbe</div>
+				<div>
+					Aktuell laufen Wettbewerbe rund um Open Data.<br>
+				</div>
+				<ul data-role="listview" data-inset="true">
+					<li><a href="http://data.ktn.gv.at/news/ogd-challenge/" target="blank_">
+						<img src="http://data.ktn.gv.at/wp-content/uploads/2014/09/header_v5.jpg">
+						<h2>OpenDataChallenge Kärnten</h2>
+						<p>- Web-Anwendungen und mobile Applikationen<br>- Konzepte</p>
+						<p>Nur Personen mit Wohnsitz in Österreich, Teams nur bis 10 Personen<br>
+						Bereits veröffentlichte Konzepte und Apps erlaubt<br>
+						Einreichungsfrist: <b>31. Januar 2015</b> um 24:00 Uhr MEZ</p>
+					</a></li>
+					<li><a href="https://www.tirol.gv.at/data/App-Wettbewerb/" target="blank_">
+						<img src="https://wwwstatic.tirol.gv.at/t3tiro/typo3temp/pics/App_Wettbewerb_Tirol_08583d2edb.jpg">
+						<h2>APP-Wettbewerb Tirol `15</h2>
+						<p>- Anwendungen und mobile Applikationen (Apps)<br>- Ideen und Konzepte</p>
+						<p>Jeder darf teilnehmen, auch Teams<br>
+						Nur neue Konzepte, Ideen, Apps (nach dem 1. Juli 2014)<br>
+						Einreichungsfrist: <b>28. Februar 2015</b> um 24.00 Uhr MEZ</p>
+					</a></li>
 				</ul>
 				<center>
 					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>

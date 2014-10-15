@@ -89,6 +89,10 @@ function addMarker()
 								good = true;
 							} else if( 'CC BY 3.0' == license) {
 								good = true;
+							} else if( 'DL DE 0 2.0' == license) {
+								good = true;
+							} else if( 'DL DE BY 2.0' == license) {
+								good = true;
 							}
 
 							if( good) {
@@ -100,6 +104,11 @@ function addMarker()
 						}
 					} else {
 						str += '<i class="fa fa-times"></i> Kein Vornamen-Datensatz vorhanden<br>';
+
+						if(( typeof data[ i]['linkWebNames'] !== 'undefined') && (data[ i]['linkWebNames'] != '')) {
+							bgColor = cYellow;
+							str += '<i class="fa fa-minus"></i> Vornamen auf der <a href="' + data[ i]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
+						}
 					}
 				} else if( typeof data[ i]['linkWebNames'] !== 'undefined') {
 					bgColor = cYellow;

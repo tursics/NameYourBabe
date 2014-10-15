@@ -13,6 +13,10 @@ var data = [
 	"population":239866,
 	"lat":54.32,
 	"lon":10.14,
+	"linkWebNames":"http://www.kiel.de/rathaus/statistik/statistische_berichte/statistische_jahrbuecher/Statistischer_Bericht_Nr._232_-_Kieler_Zahlen_2013.pdf",
+	"history":[
+		{"date":"15.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Rostock",
@@ -310,7 +314,7 @@ var data = [
 	"lon":6.62,
 	"linkOGD":"http://offenedaten.moers.de/",
 	"linkOGDNames":"http://www.moers.de/C1257221003C7526/html/17821D658E239C2EC1257C36003D0934?opendocument",
-	"linkOGDLicense":"DL DE BY 1.0",
+	"linkOGDLicense":"DL DE 0 2.0",
 	"history":[
 		{"date":"29.04.2013","event":"Bereits verfügbar"},
 	],
@@ -354,6 +358,10 @@ var data = [
 	"population":520838,
 	"lat":51.34,
 	"lon":12.37,
+	"linkWebNames":"http://www.leipzig.de/buergerservice-und-verwaltung/lebenslagen-und-themen/geburt/vornamen-und-familiennamen/hitliste-vornamen/",
+	"history":[
+		{"date":"15.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Krefeld",
@@ -368,6 +376,10 @@ var data = [
 	"population":192874,
 	"lat":51.31,
 	"lon":9.50,
+	"linkWebNames":"http://www.stadt-kassel.de/aktuelles/meldungen/19904/index.html",
+	"history":[
+		{"date":"15.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Wuppertal",
@@ -427,8 +439,12 @@ var data = [
 	"country":"Deutschland",
 	"population":4054000,
 	"municipality":432,
-	"lat":51.04,
-	"lon":13.73,
+	"lat":51.06,
+	"lon":13.15,
+	"linkOGD":"http://www.opendata.sachsen.de/",
+	"history":[
+		{"date":"07.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Dresden",
@@ -504,11 +520,27 @@ var data = [
 	],
 },
 {
+	"name":"Eschweiler",
+	"country":"Deutschland",
+	"population":55026,
+	"lat":50.82,
+	"lon":6.26,
+	"linkWebNames":"http://www.eschweiler.de/city_info/webaccessibility/index.cfm?region_id=437&waid=459&design_id=11057&item_id=0&modul_id=15&record_id=22306",
+	"history":[
+		{"date":"07.10.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"name":"Aachen",
 	"country":"Deutschland",
 	"population":240086,
 	"lat":50.77,
 	"lon":6.08,
+	"linkOGD":"http://offenedaten.aachen.de/",
+	"history":[
+		{"date":"07.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"15.10.2014","event":"Antwort: Wunsch wurde aufgenommen"},
+	],
 },
 {
 	"name":"Bonn",
@@ -545,6 +577,14 @@ var data = [
 	"population":687775,
 	"lat":50.11,
 	"lon":8.68,
+	"linkWebNames":"http://www.frankfurt.de/sixcms/detail.php?id=2950&_ffmpar[_id_inhalt]=21414845",
+	"linkOGD":"http://offenedaten.frankfurt.de/",
+	"linkOGDNames":"http://www.offenedaten.frankfurt.de/dataset/vornamensstatistik-von-2000-bis-2014",
+	"linkOGDLicense":"DL DE BY 2.0",
+	"history":[
+		{"date":"22.09.2014","event":"Anfrage nach Vornamen"},
+		{"date":"15.10.2014","event":"Neues Portal gestartet - mit Vornamen"},
+	],
 },
 {
 	"name":"Offenbach am Main",
@@ -875,7 +915,12 @@ var data = [
 	"lon":7.84,
 	"linkWebNames":"http://www.freiburg.de/pb/,Lde/205556.html",
 	"history":[
-		{"date":"16.07.2014","event":"Anfrage nach Vornamen"},
+		{"date":"16.07.2014","event":"Anfrage nach Vornamen (Koordinierungsstelle OGD)"},
+		{"date":"28.07.2014","event":"Open Data soll im Jahr 2015 kommen"},
+		{"date":"07.10.2014","event":"Anfrage beim Pressereferat"},
+		{"date":"07.10.2014","event":"Antwort: Daten von 2012, 2013 bekommen"},
+		{"date":"07.10.2014","event":"Anfrage beim Standesamt"},
+		{"date":"10.10.2014","event":"Antwort: Anfrage wird intern geprüft"},
 	],
 },
 {
@@ -1101,6 +1146,8 @@ var data = [
 		{"date":"09.07.2013","event":"Anfrage nach Vornamen"},
 		{"date":"25.07.2013","event":"Antwort: Portal ist in Vorbereitung"},
 		{"date":"11.10.2013","event":"Neues Portal gefunden, aber ohne Vornamen"},
+		{"date":"23.09.2014","event":"Anfrage nach Vornamen"},
+		{"date":"23.09.2014","event":"Antwort: In Zukunft mehr Daten zur Bevölkerung"},
 	],
 },
 {
@@ -1109,6 +1156,7 @@ var data = [
 	"population":95450,
 	"lat":46.61,
 	"lon":14.30,
+	"linkWebNames":"http://www.klagenfurt.at/klagenfurt-am-woerthersee/downloads/Jahrbuch2013%281%29.pdf",
 	"linkOGD":"http://www.data.gv.at/auftritte/?organisation=stadt-klagenfurt",
 	"history":[
 		{"date":"02.11.2013","event":"Anfrage nach Vornamen"},
