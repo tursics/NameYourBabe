@@ -1,5 +1,16 @@
 var data = [
 {
+	"name":"Flensburg",
+	"country":"Deutschland",
+	"population":83971,
+	"lat":54.78,
+	"lon":9.43,
+	"linkWebNames":"http://www.flensburg.de/imperia/md/content/asp/flensburg/buergerservice/schutzundordnung/vornamenstatistik_2013.pdf",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"name":"Schleswig-Holstein",
 	"country":"Deutschland",
 	"population":2802000,
@@ -78,6 +89,10 @@ var data = [
 	"population":158658,
 	"lat":53.14,
 	"lon":8.21,
+	"linkWebNames":"http://www.oldenburg.de/microsites/familie/standesamt/geburt/beliebteste-vornamen-2013.html",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Bremen",
@@ -133,6 +148,10 @@ var data = [
 	"population":121758,
 	"lat":52.42,
 	"lon":10.78,
+	"linkWebNames":"http://www.wolfsburg.de/irj/go/km/docs/imperia/mam/portal/buergerdienste/standesamt/vornamensliste_2010.pdf",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Potsdam",
@@ -140,6 +159,10 @@ var data = [
 	"population":159456,
 	"lat":52.39,
 	"lon":13.06,
+	"linkWebNames":"http://www.potsdam.de/sites/default/files/documents/statistischerjahresbericht2013.pdf",
+	"history":[
+		{"date":"15.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Hannover",
@@ -187,6 +210,11 @@ var data = [
 	"population":328314,
 	"lat":52.02,
 	"lon":8.53,
+	"linkWebNames":"http://www.bielefeld.de/de/rv/ds_stadtverwaltung/stand/birth/vor10.html",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"16.10.2014","event":"PDF der Jahre 2009 bis heute per Mail bekommen"},
+	],
 },
 {
 	"name":"Sachsen-Anhalt",
@@ -332,11 +360,36 @@ var data = [
 	],
 },
 {
+	"name":"Warstein",
+	"country":"Deutschland",
+	"population":25247,
+	"lat":51.44,
+	"lon":8.35,
+	"linkWebNames":"http://www.warstein.de/Lebenslagen.408+M50c2a19af32.0.html?&tx_civserv_pi1[community_id]=11833&tx_civserv_pi1[id]=264&tx_civserv_pi1[mode]=service",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"name":"Schwerte",
+	"country":"Deutschland",
+	"population":46198,
+	"lat":51.44,
+	"lon":7.56,
+	"linkWebNames":"http://stadt.schwerte.de/fileadmin/download/publikationen/34/34_Vornamenstatistik.pdf",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"name":"Duisburg",
 	"country":"Deutschland",
 	"population":486816,
 	"lat":51.43,
 	"lon":6.76,
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Mülheim an der Ruhr",
@@ -543,6 +596,18 @@ var data = [
 	],
 },
 {
+	"name":"Düren",
+	"country":"Deutschland",
+	"population":88953,
+	"lat":50.80,
+	"lon":6.48,
+	"linkWebNames":"http://www.dueren.de/buergerservice/buergerbuero/standesamtswesen/vornamenstatistik/",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"16.10.2014","event":"Eingescannte Bilder der letzten 2 Jahre per Mail bekommen"},
+	],
+},
+{
 	"name":"Bonn",
 	"country":"Deutschland",
 	"population":309869,
@@ -554,6 +619,17 @@ var data = [
 	"history":[
 		{"date":"01.06.2013","event":"Anfrage nach Vornamen"},
 		{"date":"09.07.2014","event":"Datensatz ist verfügbar"},
+	],
+},
+{
+	"name":"Simmerath",
+	"country":"Deutschland",
+	"population":15022,
+	"lat":50.60,
+	"lon":6.30,
+	"linkWebNames":"http://www.simmerath.de/cache/dl-Vornamenstatistik-2013-25bb516e1534afa4c8f163d51635e94f-6190.pdf",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
 	],
 },
 {
@@ -570,6 +646,18 @@ var data = [
 	"population":109779,
 	"lat":50.35,
 	"lon":7.59,
+},
+{
+	"name":"Bad Kissingen",
+	"country":"Deutschland",
+	"population":21225,
+	"lat":50.19,
+	"lon":10.07,
+	"linkWebNames":"http://www.badkissingen.de/de/stadt/rathaus/verwaltungsbereiche/standesamt1/17050.Vornamenstatistik_.html",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"16.10.2014","event":"Eingescannte Bilder der letzten 10 Jahre per Mail bekommen"},
+	],
 },
 {
 	"name":"Frankfurt am Main",
@@ -630,6 +718,17 @@ var data = [
 	"lon":8.65,
 },
 {
+	"name":"Bad Kreuznach",
+	"country":"Deutschland",
+	"population":47687,
+	"lat":49.84,
+	"lon":7.86,
+	"linkWebNames":"http://www.bad-kreuznach.de/sv_bad_kreuznach/Politik%20und%20Verwaltung/Nachrichtenarchiv/Januar%202014/%C3%9Cber%201.600%20Geburten%20in%20Bad%20Kreuznach%20-%20Sophie%20und%20Elias%20sind%20die%20beliebtesten%20Vornamen/2014-01-21%20PM%20Vornamen%20Vornamenstatistik%202013.pdf",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"name":"Würzburg",
 	"country":"Deutschland",
 	"population":124577,
@@ -649,6 +748,17 @@ var data = [
 	"population":105412,
 	"lat":49.59,
 	"lon":11.00,
+},
+{
+	"name":"Frankenthal (Pfalz)",
+	"country":"Deutschland",
+	"population":47035,
+	"lat":49.53,
+	"lon":8.35,
+	"linkWebNames":"http://www.frankenthal.de/sv_frankenthal/de/Homepage/Stadt%20und%20B%C3%BCrger/B%C3%BCrgerdienste/Serviceleistungen%20Standesamt/Geburten/vornamen2013.pdf",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Ludwigshafen am Rhein",
@@ -709,6 +819,10 @@ var data = [
 	"population":176996,
 	"lat":49.23,
 	"lon":7.00,
+	"linkWebNames":"http://www.saarbruecken.de/de/rathaus/buergerservice/geburt",
+	"history":[
+		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Heilbronn",
