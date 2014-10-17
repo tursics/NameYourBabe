@@ -237,6 +237,17 @@ var data = [
 	],
 },
 {
+	"name":"Ahlen",
+	"country":"Deutschland",
+	"population":51766,
+	"lat":51.76,
+	"lon":7.89,
+	"linkWebNames":"http://www.ahlen.de/fileadmin/pdf/Allgemein/Vornamenliste-2012.pdf",
+	"history":[
+		{"date":"17.10.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"name":"Paderborn",
 	"country":"Deutschland",
 	"population":143575,
@@ -275,6 +286,10 @@ var data = [
 	"population":116650,
 	"lat":51.53,
 	"lon":9.93,
+	"linkWebNames":"http://www.goesis.goettingen.de/pdf/024_29.pdf",
+	"history":[
+		{"date":"17.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Bottrop",
@@ -296,6 +311,10 @@ var data = [
 	"population":572087,
 	"lat":51.51,
 	"lon":7.46,
+	"linkWebNames":"http://www.dortmund.de/de/rathaus_und_buergerservice/buergerdienste/standesamt/die_beliebtesten_vornamen/index.html",
+	"history":[
+		{"date":"17.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Halle (Saale)",
@@ -387,6 +406,7 @@ var data = [
 	"population":486816,
 	"lat":51.43,
 	"lon":6.76,
+	"linkWebNames":"http://www.duisburg.de/vv/produkte/produkte_amt32/vvmedien_amt32/Hochzeitsbroschuere_-_Jul13.pdf",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
 	],
@@ -432,6 +452,7 @@ var data = [
 	"linkWebNames":"http://www.stadt-kassel.de/aktuelles/meldungen/19904/index.html",
 	"history":[
 		{"date":"15.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"17.10.2014","event":"Antwort: PDF-Dateien per Mail bekommen"},
 	],
 },
 {
@@ -627,9 +648,10 @@ var data = [
 	"population":15022,
 	"lat":50.60,
 	"lon":6.30,
-	"linkWebNames":"http://www.simmerath.de/cache/dl-Vornamenstatistik-2013-25bb516e1534afa4c8f163d51635e94f-6190.pdf",
+	"linkWebNames":"http://www.simmerath.de/rathaus/gemeindeverwaltung/standesamt-ii/",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"17.10.2014","event":"PDF-Dateien für die letzten 10 Jahre bekommen"},
 	],
 },
 {
@@ -687,6 +709,10 @@ var data = [
 	"population":272636,
 	"lat":50.08,
 	"lon":8.24,
+	"linkWebNames":"http://www.wiesbaden.de/vv/produkte/34/141010100000008813.php",
+	"history":[
+		{"date":"17.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Mainz",
@@ -705,8 +731,6 @@ var data = [
 	"linkOGD":"http://daten.rlp.de/",
 	"history":[
 		{"date":"25.05.2013","event":"Anfrage nach Vornamen"},
-		{"date":"31.05.2013","event":"Hinweis auf Gesellschaft für deutsche Sprache"},
-		{"date":"31.05.2013","event":"Nachfrage"},
 		{"date":"31.05.2013","event":"Angebot zum Kauf einer Liste mit Standesämtern bekommen"},
 	],
 },
@@ -1068,6 +1092,17 @@ var data = [
 		{"date":"06.07.2013","event":"Anfrage nach Vornamen"},
 		{"date":"10.07.2013","event":"Es wird eine interne Anfrage gestellt"},
 		{"date":"10.10.2013","event":"Datensatz ist verfügbar"},
+	],
+},
+{
+	"name":"Tettnang",
+	"country":"Deutschland",
+	"population":18216,
+	"lat":47.67,
+	"lon":9.58,
+	"linkWebNames":"http://www.tettnang.de/tt/rathaus-service/buergerservice/standesamt.php",
+	"history":[
+		{"date":"17.10.2014","event":"Anfrage nach Vornamen"},
 	],
 },
 /*{
