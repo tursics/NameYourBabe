@@ -45,7 +45,7 @@
 			height:100%;
 		}
 		#mapContainer {
-			width:100%;
+			width:70%;
 			height:100%;
 			left:0;
 			top:0;
@@ -53,8 +53,24 @@
 			padding:0px!important;
 			text-shadow:none;
 		}
+		#mapDetails {
+			position:absolute;
+			width:30%;
+			height:100%;
+			right:0;
+			top:0;
+			margin-top:0;
+			padding:0 !important;
+			text-shadow:none;
+			background:#ffffff !important;
+			border-left:1px solid #000000 !important;
+		}
+		#mapDetailsDiv {
+			margin:3.5em 0 0 0;
+			padding:1em;
+		}
 		.ui-header {
-			background:#ffffff  !important;
+			background:#ffffff !important;
 			border-bottom:1px solid #000000 !important;
 		}
 		.segmented-control { text-align:center; }
@@ -83,16 +99,16 @@
 			</div>
 			<div style="float:left;font-size:2em;font-weight:100 !important;padding:0.3em 0 0 1em;">Wo gibt es Open Data Vornamen?</div>
 			<div data-role="controlgroup" data-type="horizontal" style="float:right;margin-right:1em;">
-				<a href="#popupCharts"    data-rel="popup" class="ui-btn"><i class="fa fa-line-chart" style="font-size:1.5em;"></i></a>
-				<a href="#popupSamples"   data-rel="popup" class="ui-btn"><i class="fa fa-flask" style="font-size:1.5em;"></i></a>
-				<a href="#popupContests"  data-rel="popup" class="ui-btn"><i class="fa fa-trophy" style="font-size:1.5em;"></i></a>
-				<a href="#popupShare"     data-rel="popup" class="ui-btn"><i class="fa fa-share-alt" style="font-size:1.5em;"></i></a>
-				<a href="#popupCopyright" data-rel="popup" class="ui-btn"><i class="fa fa-info-circle" style="font-size:1.5em;"></i></a>
+				<a href="#" id="aPopupCharts"    data-rel="popup" class="ui-btn"><i class="fa fa-line-chart" style="font-size:1.5em;"></i></a>
+				<a href="#" id="aPopupSamples"   data-rel="popup" class="ui-btn"><i class="fa fa-flask" style="font-size:1.5em;"></i></a>
+				<a href="#" id="aPopupContests"  data-rel="popup" class="ui-btn"><i class="fa fa-trophy" style="font-size:1.5em;"></i></a>
+				<a href="#" id="aPopupShare"     data-rel="popup" class="ui-btn"><i class="fa fa-share-alt" style="font-size:1.5em;"></i></a>
+				<a href="#" id="aPopupCopyright" data-rel="popup" class="ui-btn"><i class="fa fa-info-circle" style="font-size:1.5em;"></i></a>
 			</div>
 			<div data-role="popup" id="popupCharts" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Open Government Data</div>
 				<div>Die aktuelle Statistik über Open Government Data in Deutschland, Österreich und der Schweiz.</div>
-				<div style="border-top:solid 1px gray;margin-top:1.5em;">
+				<div style="margin-top:1.5em;">
 					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="float:left;">
 						<input name="choiceSources" id="choiceSourceOGD"   value="ogd"   checked="checked" type="radio"><label for="choiceSourceOGD"><i class="fa fa-university" style="font-size:1.5em;"></i></label>
 						<input name="choiceSources" id="choiceSourceNames" value="names" type="radio"><label for="choiceSourceNames"><i class="fa fa-child" style="font-size:1.5em;"></i></label>
@@ -108,9 +124,6 @@
 					<div class="chart chartAT" id="chart1AT"></div><div class="chart chartDE" id="chart1DE"></div><div class="chart chartCH" id="chart1CH"></div>
 				</center>
 				<div style="color:gray;text-align:center;margin-top:4em;padding-top:0.5em;">Schweizer Daten sind noch nicht komplett evaluiert.</div>
-				<div style="text-align:center;border-top:solid 1px gray;margin-top:0.5em;padding-top:0.5em;">
-					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
-				</div>
 			</div>
 			<div data-role="popup" id="popupSamples" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Beispiele</div>
@@ -125,9 +138,6 @@
 					<li><a href="http://data.gv.at/anwendungen/statistik-niederosterreich/" target="blank_"><img src="vornamen/statistikniederoesterreich.png"><h2>Statistik Niederösterreich</h2><p>von Benjamin Grabner</p></a></li>
 					<li><a href="http://issy.netcomdev.com/" target="blank_"><img src="vornamen/issylesmoulineaux.png"><h2>Les prénoms les plus portés</h2><p>von Ville d'Issy-les-Moulineaux</p></a></li>
 				</ul>
-				<center>
-					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
-				</center>
 			</div>
 			<div data-role="popup" id="popupContests" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Wettbewerbe</div>
@@ -152,20 +162,17 @@
 						Einreichungsfrist: <b>28. Februar 2015</b> um 24.00 Uhr MEZ</p>
 					</a></li>
 				</ul>
-				<center>
-					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
-				</center>
 			</div>
 			<div data-role="popup" id="popupShare" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Teilen</div>
 				<div>
 					Gefällt dir diese Seite? Erzähle es weiter.<br>
 				</div>
-				<div style="color:gray;text-align:center;border-top:solid 1px gray;margin-top:0.5em;padding-top:1.5em;">
+				<div style="color:gray;text-align:center;margin-top:0.5em;padding-top:1.5em;">
 					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://vornamen.tursics.de" data-text="Eine #OpenData Vornamen-Karte von de-at-ch auf" data-via="tursics" data-lang="de">Twittern</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
-				<div style="color:gray;text-align:center;border-bottom:solid 1px gray;margin-bottom:0.5em;padding:1em 0 1.5em 0;">
+				<div style="color:gray;text-align:center;margin-bottom:0.5em;padding:1em 0 1.5em 0;">
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -178,9 +185,6 @@
 
 						<div class="fb-like" data-href="http://vornamen.tursics.de" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 				</div>
-				<center>
-					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
-				</center>
 			</div>
 			<div data-role="popup" id="popupCopyright" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Wo gibt es Open Data Vornamen?</div>
@@ -198,13 +202,22 @@
 					<a href="https://google.com/+ThomasTursics"          target="_blank" class="ui-btn"><i class="fa fa-google-plus"></i></a>
 					<a href="https://github.com/tursics/NameYourBabe/tree/master/map" target="_blank" class="ui-btn"><i class="fa fa-github"></i></a>
 				</div></center><br>
-				<center>
-					<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Schließen</a>
-				</center>
 				<div style="color:gray;text-align:center;border-top:solid 1px gray;margin-top:0.5em;padding-top:0.5em;">Thomas Tursics • Frankfurter Allee 172 • 10365 Berlin</div>
+			</div>
+			<div data-role="popup" id="popupStart" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
+				Farben der Pins:<br>
+				<br>
+				<i class="fa fa-map-marker" style="color:#f03b20;font-size:1.5em;"></i> <i class="fa fa-map-marker" style="color:#fec44f;font-size:1.5em;"></i> Hat kein Open Data Portal<br>
+				<i class="fa fa-map-marker" style="color:#f03b20;font-size:1.5em;"></i> Keine Vornamen auf der Webseite<br>
+				<i class="fa fa-map-marker" style="color:#fec44f;font-size:1.5em;"></i> Vornamen auf der Webseite<br>
+				<br>
+				<i class="fa fa-map-marker" style="color:#2362a0;font-size:1.5em;"></i> <i class="fa fa-map-marker" style="color:#31a354;font-size:1.5em;"></i> Hat ein Open Data Portal<br>
+				<i class="fa fa-map-marker" style="color:#2362a0;font-size:1.5em;"></i> Kein Vornamen-Datensatz vorhanden<br>
+				<i class="fa fa-map-marker" style="color:#31a354;font-size:1.5em;"></i> Vornamen-Datensatz vorhanden<br>
 			</div>
 		</div>
 		<div role="main" class="ui-content" id="mapContainer"></div>
+		<div id="mapDetails"><div id="mapDetailsDiv"></div></div>
 	</div>
 </body>
 </html>

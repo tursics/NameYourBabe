@@ -52,7 +52,7 @@ function addMarker()
 		var cVoid = '#b7A6ad';
 		var cGood = '#31a354';
 		var cWell = '#31a354';
-		var cPortal = '#43a2ca';
+		var cPortal = '#2362a0';
 		var cYellow = '#fec44f';
 		var cDenied = '#f03b20';
 		for( var i = 0; i < max; ++i) {
@@ -236,6 +236,21 @@ function generateCharts()
 
 // -----------------------------------------------------------------------------
 
+function showPage( pageName)
+{
+	$( '#mapDetailsDiv').html( $( pageName).html());
+//	$( pageName).popup( 'open');
+
+	if( '#popupCharts') {
+		$( '#choiceSourceOGD').on( 'click', function( e) { generateCharts(); });
+		$( '#choiceSourceNames').on( 'click', function( e) { generateCharts(); });
+		$( '#choiceCalcCitizen').on( 'click', function( e) { generateCharts(); });
+		$( '#choiceCalcMunicipality').on( 'click', function( e) { generateCharts(); });
+	}
+}
+
+// -----------------------------------------------------------------------------
+
 $( document).on( "pagecreate", "#pageMap", function()
 {
 	initNokiaMap( 'mapContainer', 52.516, 13.4795, 6);
@@ -245,13 +260,14 @@ $( document).on( "pagecreate", "#pageMap", function()
 	map.addListener( "displayready", function () {
 		generateCharts();
 
-		$( '#popupCopyright').popup( 'open');
+		showPage( '#popupStart');
 	});
 
-	$( '#choiceSourceOGD').on( 'click', function( e) { generateCharts(); });
-	$( '#choiceSourceNames').on( 'click', function( e) { generateCharts(); });
-	$( '#choiceCalcCitizen').on( 'click', function( e) { generateCharts(); });
-	$( '#choiceCalcMunicipality').on( 'click', function( e) { generateCharts(); });
+	$( '#aPopupCharts').on( 'click', function( e) { showPage( '#popupCharts'); return false; });
+	$( '#aPopupSamples').on( 'click', function( e) { showPage( '#popupSamples'); return false; });
+	$( '#aPopupContests').on( 'click', function( e) { showPage( '#popupContests'); return false; });
+	$( '#aPopupShare').on( 'click', function( e) { showPage( '#popupShare'); return false; });
+	$( '#aPopupCopyright').on( 'click', function( e) { showPage( '#popupCopyright'); return false; });
 });
 
 // -----------------------------------------------------------------------------
