@@ -205,6 +205,17 @@ var data = [
 	"lon":11.61,
 },
 {
+	"name":"Dissen am Teutoburger Wald",
+	"country":"Deutschland",
+	"population":9342,
+	"lat":52.11,
+	"lon":8.20,
+	"linkWebNames":"http://www.dissen.de/bilder/beitraege/beitrag_1365.pdf",
+	"history":[
+		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"name":"Bielefeld",
 	"country":"Deutschland",
 	"population":328314,
@@ -265,6 +276,17 @@ var data = [
 	"population":176440,
 	"lat":51.68,
 	"lon":7.81,
+},
+{
+	"name":"Salzkotten",
+	"country":"Deutschland",
+	"population":24547,
+	"lat":51.67,
+	"lon":8.60,
+	"linkWebNames":"http://vv.salzkotten.de/vv/produkte/174030100000004840.php?area=links",
+	"history":[
+		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Recklinghausen",
@@ -468,6 +490,10 @@ var data = [
 	"population":593682,
 	"lat":51.22,
 	"lon":6.78,
+	"linkWebNames":"http://www.duesseldorf.de/standesamt/geburt/vorname/index.shtml",
+	"history":[
+		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Mönchengladbach",
@@ -537,6 +563,10 @@ var data = [
 	"population":159926,
 	"lat":51.03,
 	"lon":6.98,
+	"linkWebNames":"http://www.leverkusen.de/vv/produkte/FB33/FB33/334/Statistik_Veroeffentlichungen_Ein_Blick_auf.php.media/5214/3-14.pdf",
+	"history":[
+		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Bergisch Gladbach",
@@ -643,6 +673,16 @@ var data = [
 	],
 },
 {
+	"name":"Greiz",
+	"country":"Deutschland",
+	"population":21284,
+	"lat":50.65,
+	"lon":12.19,
+	"history":[
+		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"name":"Simmerath",
 	"country":"Deutschland",
 	"population":15022,
@@ -661,6 +701,16 @@ var data = [
 	"municipality":426,
 	"lat":50.59,
 	"lon":9.02,
+},
+{
+	"name":"Schleiz",
+	"country":"Deutschland",
+	"population":8500,
+	"lat":50.58,
+	"lon":11.81,
+	"history":[
+		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Koblenz",
@@ -1062,6 +1112,17 @@ var data = [
 	],
 },
 {
+	"name":"Starnberg",
+	"country":"Deutschland",
+	"population":22650,
+	"lat":47.99,
+	"lon":11.34,
+	"linkWebNames":"http://www.starnberg.de/index.php?id=329&L=0",
+	"history":[
+		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"name":"Salzburg (Land)",
 	"country":"Österreich",
 	"population":531898,
@@ -1075,6 +1136,17 @@ var data = [
 		{"date":"09.07.2013","event":"Anfrage nach Vornamen"},
 		{"date":"10.07.2013","event":"Antwort: Portal ist in Vorbereitung"},
 		{"date":"30.06.2014","event":"Portal gestartet, Daten vorhanden"},
+	],
+},
+{
+	"name":"Schongau",
+	"country":"Deutschland",
+	"population":11912,
+	"lat":47.81,
+	"lon":10.90,
+	"linkWebNames":"http://www.schongau.de/Geburt-eines-Kindes.296.0.html",
+	"history":[
+		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
 	],
 },
 {
