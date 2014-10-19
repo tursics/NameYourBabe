@@ -373,6 +373,11 @@ a.myBackButton.ui-shadow, a.myBackButton {
     margin-right:20%;
 }
 
+/* iOS 7 */
+.ios .ui-header .ui-title, .ios .ui-header .ui-btn {
+	padding-top:1.7em;
+}
+
 #pageWebView {
 	padding:0 !important;
 }
@@ -392,6 +397,9 @@ a.myBackButton.ui-shadow, a.myBackButton {
 /* iOS 7 */
 .canvasPanel {
 	background-color:#F9F9F9 !important;
+}
+.ios .canvasPanel {
+	padding-top:1em;
 }
 /* iOS 7 */
 .canvasPanel.ui-panel-display-reveal {

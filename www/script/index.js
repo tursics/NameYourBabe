@@ -15,6 +15,7 @@ gShowWP = false;
 gDebug = false;
 gScreenshot = false;
 
+var Environment = {};
 //gShowIOS = true;
 //gScreenshot = true;
 //gShowWP = true;
@@ -63,6 +64,34 @@ function init()
 		gInit = true;
 
 		CInternationalization.init();
+
+		Environment.isMac = navigator.platform.toLowerCase().indexOf('mac') > -1;
+		Environment.isChrome = navigator.userAgent.indexOf('Chrome') > -1;
+		Environment.isSafari = navigator.userAgent.indexOf('Safari') > -1 && navigator.userAgent.indexOf('Chrome') == -1;
+//		Environment.isIE = $.browser.msie;
+//		Environment.isFirefox = $.browser.mozilla;
+		Environment.isiOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false);
+		Environment.isAndroid = (navigator.userAgent.indexOf('android') > -1);
+		console.log(Environment.isiOS);
+
+		var bodyClass;
+		if( Environment.isiOS) {
+			$('body').addClass('ios');
+		} else if( Environment.isAndroid) {
+			$('body').addClass('android');
+		} else {
+			if( Environment.isMac) {
+				$('body').addClass('osx');
+			} else {
+				$('body').addClass('win');
+			}
+//			var bodyClass;
+//			if( Environment.isChrome) bodyClass = 'chrome';
+//			else if (Environment.isFirefox) bodyClass = 'firefox';
+//			else if (Environment.isSafari) bodyClass = 'safari';
+//			else if (Environment.isIE) bodyClass = 'ie';
+//			$('body').addClass(bodyClass);
+		}
 
 		if(( typeof device !== "undefined") && (typeof device.platform !== "undefined")) {
 			gShowIOS = ((device.platform == "iPhone") || (device.platform == "iPad") || (device.platform == "iPod touch") || (device.platform == "iOS"));
