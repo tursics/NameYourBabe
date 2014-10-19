@@ -31,7 +31,7 @@ $( document).on( 'pageshow', '#pageImprint',  function()
 
 		txt += '<ul data-role="listview" data-theme="a">';
 		txt += '<li data-role="list-divider">&nbsp;</li>';
-		if( gShowIOS) {
+		if( Environment.isiOS) {
 			var lang = 'us';
 //			var lang = (navigator.language) ? navigator.language : navigator.userLanguage; 
 //			lang = lang.toLowerCase();
@@ -48,7 +48,7 @@ $( document).on( 'pageshow', '#pageImprint',  function()
 //				lang = 'se';
 //			}
 			txt += '<li data-icon="false" class="afterDivider"><a href="itms-apps://itunes.apple.com/' + lang + '/app/name-your-babe/id604279644?mt=8&uo=4">' + _( 'imprintTitleRateMe') + '</a></li>';
-		} else if( gShowAndroid) {
+		} else if( Environment.isAndroid) {
 			txt += '<li data-icon="false" class="afterDivider"><a href="market://details?id=de.tursics.nameyourbabe">' + _( 'imprintTitleRateMe') + '</div></a></li>';
 //		} else {
 //			http://msdn.microsoft.com/de-de/library/windows/apps/hh394017%28v=vs.105%29.aspx
