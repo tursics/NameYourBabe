@@ -8,6 +8,7 @@ var data = [
 	"linkWebNames":"http://www.flensburg.de/imperia/md/content/asp/flensburg/buergerservice/schutzundordnung/vornamenstatistik_2013.pdf",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"23.10.2014","event":"Antwort: 5 Bilder mit je 100 Vornamen per Mail"},
 	],
 },
 {
@@ -55,6 +56,17 @@ var data = [
 	"municipality":757,
 	"lat":53.61,
 	"lon":12.70,
+},
+{
+	"name":"Neubrandenburg",
+	"country":"Deutschland",
+	"population":63437,
+	"lat":53.55,
+	"lon":13.26,
+	"linkOGD":"http://www.neubrandenburg.de/opendata/",
+	"history":[
+		{"date":"23.10.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Hamburg",
@@ -151,6 +163,7 @@ var data = [
 	"linkWebNames":"http://www.wolfsburg.de/irj/go/km/docs/imperia/mam/portal/buergerdienste/standesamt/vornamensliste_2010.pdf",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"20.10.2014","event":"3 komplette Jahrgänge als PDF-Dateien per Mail bekommen"},
 	],
 },
 {
@@ -213,6 +226,7 @@ var data = [
 	"linkWebNames":"http://www.dissen.de/bilder/beitraege/beitrag_1365.pdf",
 	"history":[
 		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"20.10.2014","event":"Einfach von Webseite nehmen"},
 	],
 },
 {
@@ -311,6 +325,7 @@ var data = [
 	"linkWebNames":"http://www.goesis.goettingen.de/pdf/024_29.pdf",
 	"history":[
 		{"date":"17.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"20.10.2014","event":"19 Excel-Dateien per Mail bekommen"},
 	],
 },
 {
@@ -336,7 +351,16 @@ var data = [
 	"linkWebNames":"http://www.dortmund.de/de/rathaus_und_buergerservice/buergerdienste/standesamt/die_beliebtesten_vornamen/index.html",
 	"history":[
 		{"date":"17.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"21.10.2014","event":"10 PDF-Dateien mit Top 100-Listen per Mail bekommen"},
 	],
+},
+{
+	"name":"Kamp-Lintfort",
+	"country":"Deutschland",
+	"population":36973,
+	"lat":51.50,
+	"lon":6.53,
+	"linkOGD":"http://offenedaten.moers.de/C1257221003C7526/html/5BBA521E7D82450FC1257D7E004D23DB?opendocument",
 },
 {
 	"name":"Halle (Saale)",
@@ -420,6 +444,7 @@ var data = [
 	"linkWebNames":"http://stadt.schwerte.de/fileadmin/download/publikationen/34/34_Vornamenstatistik.pdf",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"23.10.2014","event":"Antwort: 12 CSV-Dateien per Mail bekommen"},
 	],
 },
 {
@@ -431,6 +456,7 @@ var data = [
 	"linkWebNames":"http://www.duisburg.de/vv/produkte/produkte_amt32/vvmedien_amt32/Hochzeitsbroschuere_-_Jul13.pdf",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"20.10.2014","event":"Antwort: Bilder der letzten Jahre per Mail bekommen"},
 	],
 },
 {
@@ -566,6 +592,7 @@ var data = [
 	"linkWebNames":"http://www.leverkusen.de/vv/produkte/FB33/FB33/334/Statistik_Veroeffentlichungen_Ein_Blick_auf.php.media/5214/3-14.pdf",
 	"history":[
 		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"23.10.2014","event":"Antwort: 3 PDF-Dateien per Mail bekommen"},
 	],
 },
 {
@@ -832,6 +859,7 @@ var data = [
 	"linkWebNames":"http://www.frankenthal.de/sv_frankenthal/de/Homepage/Stadt%20und%20B%C3%BCrger/B%C3%BCrgerdienste/Serviceleistungen%20Standesamt/Geburten/vornamen2013.pdf",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"20.10.2014","event":"Antwort: 3 CSV-Dateien erhalten"},
 	],
 },
 {
@@ -1120,6 +1148,7 @@ var data = [
 	"linkWebNames":"http://www.starnberg.de/index.php?id=329&L=0",
 	"history":[
 		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"23.10.2014","event":"Antwort: Einfach von Webseite nehmen"},
 	],
 },
 {
