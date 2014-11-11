@@ -66,6 +66,7 @@ var data = [
 	"linkOGD":"http://www.neubrandenburg.de/opendata/",
 	"history":[
 		{"date":"23.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"28.10.2014","event":"Antwort: PDF-Datei per Mail bekommen"},
 	],
 },
 {
@@ -175,6 +176,7 @@ var data = [
 	"linkWebNames":"http://www.potsdam.de/sites/default/files/documents/statistischerjahresbericht2013.pdf",
 	"history":[
 		{"date":"15.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"30.10.2014","event":"Antwort: Excel-Datei per Mail erhalten, Top 3 bis Top 13 seit 2003"},
 	],
 },
 {
@@ -300,6 +302,7 @@ var data = [
 	"linkWebNames":"http://vv.salzkotten.de/vv/produkte/174030100000004840.php?area=links",
 	"history":[
 		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"27.10.2014","event":"Antwort: Weitere Daten als PDF-Datei per Mail bekommen"},
 	],
 },
 {
@@ -465,6 +468,12 @@ var data = [
 	"population":166654,
 	"lat":51.42,
 	"lon":6.88,
+	"linkOGD":"https://geo.muelheim-ruhr.de/opendata",
+	"linkOGDNames":"https://geo.muelheim-ruhr.de/vornamen",
+	"linkOGDLicense":"DL DE BY 1.0",
+	"history":[
+		{"date":"08.08.2014","event":"Bereits verfügbar"},
+	],
 },
 {
 	"name":"Hagen",
@@ -629,6 +638,17 @@ var data = [
 	"population":106915,
 	"lat":50.92,
 	"lon":11.58,
+},
+{
+	"name":"Siegen",
+	"country":"Deutschland",
+	"population":99403,
+	"lat": 50.87,
+	"lon":8.02,
+	"linkWebNames":"http://www.siegen.de/standard/page.sys/details/eintrag_id=5864/content_id=6008/775.htm",
+	"history":[
+		{"date":"11.11.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Thüringen",
@@ -950,6 +970,10 @@ var data = [
 	"population":296033,
 	"lat":49.01,
 	"lon":8.40,
+	"linkWebNames":"http://www.karlsruhe.de/b4/buergerdienste/oa/sta/5-beliebteste-vornam",
+	"history":[
+		{"date":"07.11.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Bayern",
@@ -999,6 +1023,14 @@ var data = [
 	"population":110681,
 	"lat":48.48,
 	"lon":9.21,
+},
+{
+	"name":"Ortenaukreis",
+	"country":"Deutschland",
+	"population":412678,
+	"lat":48.46,
+	"lon":7.94,
+	"linkOGD":"http://www.ortenaukreis.de/Online-Dienste/Open-Data",
 },
 {
 	"name":"Ulm",
