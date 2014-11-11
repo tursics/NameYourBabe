@@ -263,6 +263,7 @@ $( document).on( "pagecreate", "#pageMap", function()
 		showPage( '#popupStart');
 	});
 
+	$( '#aPopupStart').on( 'click', function( e) { showPage( '#popupStart'); return false; });
 	$( '#aPopupCharts').on( 'click', function( e) { showPage( '#popupCharts'); return false; });
 	$( '#aPopupSamples').on( 'click', function( e) { showPage( '#popupSamples'); return false; });
 	$( '#aPopupContests').on( 'click', function( e) { showPage( '#popupContests'); return false; });
