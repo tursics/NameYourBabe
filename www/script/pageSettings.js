@@ -255,6 +255,7 @@ $( document).on( 'pageshow', '#pageSettings',  function()
 		txt += '<option value="auto">' + _( 'settingsAutomatic') + '</option>';
 		txt += '<option value="en">English</option>';
 		txt += '<option value="de">Deutsch</option>';
+//		txt += '<option value="ku">کوردی</option>';
 		txt += '</select>';
 		txt += '</li>';
 

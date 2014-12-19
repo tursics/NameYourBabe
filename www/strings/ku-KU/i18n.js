@@ -1,0 +1,68 @@
+﻿if( typeof gDict === "undefined") gDict = new Array();
+
+gDict['ku'] = {
+	"appLang": 'ku-KU',
+	"appName": 'ناو لە منداڵەکەت بنێ',
+	"appDescription": 'It has never been easier to name your baby. The app shows one of the most popular names in Austria. You don\'t like it? Shake your smartphone and a new name appears.<br><br>It\'s as simple as that.<br><br>And here is what you will get:<br>- the most popular names in Austria<br>- over 200 most popular names for girls<br>- over 175 most popular names for boys<br>- over 3700 names altogether<br>- rich variety from over 10 years<br>- mark favorite names',
+
+	"homeSub": 'لەوە ئاسانتر نەبووە بۆ ناونانی منداڵەکەت',
+	"homeGirl": 'کچ',
+	"homeBoy": 'کوڕ',
+	"homeBoyGirl": 'Boys and girls',
+	"homeFav": 'دڵخوازەکان',
+	"homeSearch": 'گەڕان بۆ ناو',
+	"homeSearchShort": 'گەڕان',
+	"homeShare": 'هاوبەشکردن',
+	"homeImprint": 'مۆر',
+	"homeBack": 'بۆ دواوە',
+	"homeHome": 'دەستپێک',
+
+	"canvasFilter": 'Show only',
+	"canvasCopyright": 'Copyright',
+	"canvasHelp": 'Tutorial',
+	"canvasSettings": 'Settings',
+
+	"resultGirl": 'ئەو کچ دەبێت',
+	"resultBoy": 'ئەو کوڕ دەبێت',
+	"resultShake": 'هەژاندن بۆ ناوی دواتر',
+	"resultButtonShake": 'هەژاندن',
+	"resultButtonNext": 'Next name',
+
+	"detailAlternate": 'ناوە هاوشێوەکان',
+	"detailSpread": 'بڵاوکردنەوە',
+	"detailMore": 'خوێندنەوە',
+	"detailGenericBoy": '%name% ناوێکی کوڕانە',
+	"detailGenericGirl": '%name% ناوێکی کچانە',
+	"detailGenericBoth": '%name% is a male and a female name.',
+	"detailChartPos": 'Place %pos% in %nuts% in %year%',
+	"detailChartPosShort": 'Place %pos%',
+	"detailFav": 'نیشانکردن وەک ناوی دڵخواز',
+
+	"imprintCopyright": 'مافی له‌به‌رگرتنه‌وه‌ 2012-2014، تۆماس تورسیکس',
+	"imprintWebHome": 'Website',
+	"imprintWebSupport": 'Support',
+	"imprintTitleData": "ئامارە بەکارهێنراوەکان",
+	"imprintTitleImage": "وێنە بەکارهاتووەکان",
+	"imprintTitleText": "دەقە بەکارهاتووەکان",
+	"imprintTitleWikipedia": "ویکیپیدیا",
+	"imprintTitleRateMe": "Please rate the app",
+	"imprintBodyWikipedia": "زانیاری دەربارەی ناوەکان لە ویکیپیدیا وەرگیراوە. لەژێرە باسکردنی ناوەکە بەستەرێک کە پەیوەستە بە پەڕەکەوە دەبینرێت.",
+	"imprintCopyrightOther": "Additional sources",
+	"imprintCopyrightThanks": "Many thanks to",
+
+	"settingsOn": 'On',
+	"settingsOff": 'Off',
+	"settingsNewName": 'Shuffle name by',
+	"settingsShake": 'Shaking',
+	"settingsSwipe": 'Swiping',
+	"settingsLanguage": 'Use language',
+	"settingsAutomatic": 'Automatic',
+	"settingsDone": 'Done',
+
+	"filterTitle": 'Filter',
+	"filterText": 'Apply this filter to all functions like name suggestion, search, similar names and geographical extension.',
+	"filterWorld": 'Worldwide',
+
+	"favoritesEmpty": 'You have not added any favorite names yet. Start shaking and swiping names now and tag the ones you like best.',
+	"searchTooMany": 'Wow - more than 100 names found!<br>Please specify your search ...',
+};
