@@ -185,6 +185,9 @@ var data = [
 	"population":514137,
 	"lat":52.37,
 	"lon":9.73,
+	"history":[
+		{"date":"19.11.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Brandenburg",
@@ -344,6 +347,10 @@ var data = [
 	"population":257607,
 	"lat":51.51,
 	"lon":7.10,
+	"linkWebNames":"http://www.gelsenkirchen.de/de/Rathaus/Standesamt/",
+	"history":[
+		{"date":"19.11.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Dortmund",
@@ -476,6 +483,18 @@ var data = [
 	],
 },
 {
+	"name":"Arnsberg",
+	"country":"Deutschland",
+	"population":73501,
+	"lat":51.39,
+	"lon":8.06,
+	"linkWebNames":"http://www.arnsberg.de/standesamt/geburt/statistik-geburten.php",
+	"linkOGD":"http://offenedaten.arnsberg.de",
+	"history":[
+		{"date":"25.11.2014","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"name":"Hagen",
 	"country":"Deutschland",
 	"population":186243,
@@ -518,6 +537,10 @@ var data = [
 	"population":342885,
 	"lat":51.25,
 	"lon":7.21,
+	"linkOGD":"https://www.wuppertal.de/rathaus-buergerservice/offene_daten/index.php",
+	"history":[
+		{"date":"19.11.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Düsseldorf",
@@ -536,6 +559,9 @@ var data = [
 	"population":255087,
 	"lat":51.19,
 	"lon":6.44,
+	"history":[
+		{"date":"19.11.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"name":"Neuss",
@@ -648,6 +674,7 @@ var data = [
 	"linkWebNames":"http://www.siegen.de/standard/page.sys/details/eintrag_id=5864/content_id=6008/775.htm",
 	"history":[
 		{"date":"11.11.2014","event":"Anfrage nach Vornamen"},
+		{"date":"19.11.2014","event":"5 PDF-Dateien per Mail bekommen"},
 	],
 },
 {
@@ -717,6 +744,18 @@ var data = [
 	"history":[
 		{"date":"01.06.2013","event":"Anfrage nach Vornamen"},
 		{"date":"09.07.2014","event":"Datensatz ist verfügbar"},
+	],
+},
+{
+	"name":"Euskirchen",
+	"country":"Deutschland",
+	"population":55558,
+	"lat":50.66,
+	"lon":6.78,
+	"linkWebNames":"http://www.euskirchen.de/index.php?id=136&pm_show=v",
+	"history":[
+		{"date":"26.11.2014","event":"Anfrage nach Vornamen"},
+		{"date":"27.11.2014","event":"Weitere Vornamen per Mail bekommen (Excel, 2007 bis 2013)"},
 	],
 },
 {
@@ -982,7 +1021,7 @@ var data = [
 	"municipality":2056,
 	"lat":48.94,
 	"lon":11.39,
-	"linkOGD":"http://daten.ulm.de/",
+	"linkOGD":"http://www.opendata.bayern.de/",
 },
 {
 	"name":"Pforzheim",
@@ -1054,6 +1093,10 @@ var data = [
 	"population":272699,
 	"lat":48.37,
 	"lon":10.89,
+	"linkWebNames":"http://www.augsburg.de/buergerservice-rathaus/buergerservice/dienste-a-z/aemterweise/leistungen-standesamt/geburt/",
+	"history":[
+		{"date":"19.11.2014","event":"Anfrage nach Vornamen"},
+	],
 },
 {
 	"countOGD":false,
@@ -1104,10 +1147,13 @@ var data = [
 	"population":1388308,
 	"lat":48.13,
 	"lon":11.57,
-	"linkWebNames":"",
+	"linkOGD":"http://www.opengov-muenchen.de",
+	"linkOGDNames":"http://www.opengov-muenchen.de/dataset/vornamen",
+	"linkOGDLicense":"DL DE BY 2.0",
 	"history":[
 		{"date":"15.03.2014","event":"Anfrage nach Vornamen"},
 		{"date":"18.03.2014","event":"3 Excel-Dateien per Mail bekommen"},
+		{"date":"19.12.2014","event":"Testbetrieb vom Open Data Portal (mit Vornamen 2013)"},
 	],
 },
 {
