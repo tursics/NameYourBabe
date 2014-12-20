@@ -316,6 +316,40 @@ var objectNuts1Portals = {
 
 // -----------------------------------------------------------------------------
 
+var objectCityPortals = {
+	getDataset: function() {
+		var ret = [];
+
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( 'DE' == dataBasics[i].nuts.substr( 0, 2)) {
+				if(( dataBasics[i].nuts.length > 3) || (dataBasics[i].name == 'Berlin') || (dataBasics[i].name == 'Hamburg') || (dataBasics[i].name == 'Bremen')) {
+					if( dataBasics[i].population >= 100000) {
+						ret[ ret.length] = i;
+					}
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( nr) {
+		var marker = 'red';
+		if( typeof dataBasics[nr]['linkOGD'] !== "undefined") {
+			marker = 'green';
+		}
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + nr + '\');" border=0><i class="fa fa-map-marker marker-' + marker + '"></i>' + dataBasics[nr].name + ' <span class="ui-li-count">' + dataBasics[nr].population + '</span></a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
+		     + '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>';
+	}
+};
+
+// -----------------------------------------------------------------------------
+
 function generateDataList()
 {
 	var txt = '';
@@ -328,7 +362,7 @@ function generateDataList()
 	txt += '<option value="all"' + ('all' == filterLevel ? ' selected="selected"' : '') + '>Alle</option>';
 //	txt += '<option value="bund"' + ('bund' == filterLevel ? ' selected="selected"' : '') + '>Obere Behörden</option>';
 	txt += '<option value="nuts1"' + ('nuts1' == filterLevel ? ' selected="selected"' : '') + '>Bundesländer</option>';
-//	txt += '<option value="cities"' + ('cities' == filterLevel ? ' selected="selected"' : '') + '>Großstädte</option>';
+	txt += '<option value="cities"' + ('cities' == filterLevel ? ' selected="selected"' : '') + '>Großstädte</option>';
 	txt += '</select>';
 	txt += '<select name="filterDataset" id="filterDataset">';
 	txt += '<option value="portals"' + ('portals' == filterDataset ? ' selected="selected"' : '') + '>Open Data Portale</option>';
@@ -340,9 +374,10 @@ function generateDataList()
 	var obj = objectDefault;
 	if(( 'all' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectAllPortals;
-	} else
-	if(( 'nuts1' == filterLevel) && ('portals' == filterDataset)) {
+	} else if(( 'nuts1' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectNuts1Portals;
+	} else if(( 'cities' == filterLevel) && ('portals' == filterDataset)) {
+		obj = objectCityPortals;
 	}
 
 	txt += '<div id="dataInfo">';

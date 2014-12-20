@@ -1,7 +1,7 @@
 var dataBasics = [
 {
 	"name":"Flensburg",
-	"nuts":"DE",
+	"nuts":"DEF01",
 	"population":83971,
 	"lat":54.78,
 	"lon":9.43,
@@ -21,7 +21,7 @@ var dataBasics = [
 },
 {
 	"name":"Kiel",
-	"nuts":"DE",
+	"nuts":"DEF02",
 	"population":239866,
 	"lat":54.32,
 	"lon":10.14,
@@ -32,7 +32,7 @@ var dataBasics = [
 },
 {
 	"name":"Rostock",
-	"nuts":"DE",
+	"nuts":"DE803",
 	"population":202887,
 	"lat":54.08,
 	"lon":12.13,
@@ -44,7 +44,7 @@ var dataBasics = [
 },
 {
 	"name":"Lübeck",
-	"nuts":"DE",
+	"nuts":"DEF03",
 	"population":211713,
 	"lat":53.86,
 	"lon":10.68,
@@ -59,7 +59,7 @@ var dataBasics = [
 },
 {
 	"name":"Neubrandenburg",
-	"nuts":"DE",
+	"nuts":"DE802",
 	"population":63437,
 	"lat":53.55,
 	"lon":13.26,
@@ -91,14 +91,14 @@ var dataBasics = [
 },
 {
 	"name":"Bremerhaven",
-	"nuts":"DE",
+	"nuts":"DE502",
 	"population":108323,
 	"lat":53.54,
 	"lon":8.57,
 },
 {
 	"name":"Oldenburg",
-	"nuts":"DE",
+	"nuts":"DE943",
 	"population":158658,
 	"lat":53.14,
 	"lon":8.21,
@@ -123,7 +123,7 @@ var dataBasics = [
 },
 {
 	"name":"Delmenhorst",
-	"nuts":"DE",
+	"nuts":"DE941",
 	"population":73588,
 	"lat":53.04,
 	"lon":8.63,
@@ -157,7 +157,7 @@ var dataBasics = [
 },
 {
 	"name":"Wolfsburg",
-	"nuts":"DE",
+	"nuts":"DE913",
 	"population":121758,
 	"lat":52.42,
 	"lon":10.78,
@@ -169,7 +169,7 @@ var dataBasics = [
 },
 {
 	"name":"Potsdam",
-	"nuts":"DE",
+	"nuts":"DE404",
 	"population":159456,
 	"lat":52.39,
 	"lon":13.06,
@@ -181,7 +181,7 @@ var dataBasics = [
 },
 {
 	"name":"Hannover",
-	"nuts":"DE",
+	"nuts":"DE92903241001",
 	"population":514137,
 	"lat":52.37,
 	"lon":9.73,
@@ -199,14 +199,14 @@ var dataBasics = [
 },
 {
 	"name":"Osnabrück",
-	"nuts":"DE",
+	"nuts":"DE944",
 	"population":155625,
 	"lat":52.27,
 	"lon":8.04,
 },
 {
 	"name":"Braunschweig",
-	"nuts":"DE",
+	"nuts":"DE911",
 	"population":245798,
 	"lat":52.26,
 	"lon":10.52,
@@ -217,14 +217,14 @@ var dataBasics = [
 },
 {
 	"name":"Magdeburg",
-	"nuts":"DE",
+	"nuts":"DEE03",
 	"population":229924,
 	"lat":52.13,
 	"lon":11.61,
 },
 {
 	"name":"Dissen am Teutoburger Wald",
-	"nuts":"DE",
+	"nuts":"DE94E03459015",
 	"population":9342,
 	"lat":52.11,
 	"lon":8.20,
@@ -236,7 +236,7 @@ var dataBasics = [
 },
 {
 	"name":"Bielefeld",
-	"nuts":"DE",
+	"nuts":"DEA41",
 	"population":328314,
 	"lat":52.02,
 	"lon":8.53,
@@ -256,7 +256,7 @@ var dataBasics = [
 },
 {
 	"name":"Münster",
-	"nuts":"DE",
+	"nuts":"DEA33",
 	"population":296599,
 	"lat":51.96,
 	"lon":7.62,
@@ -268,7 +268,7 @@ var dataBasics = [
 },
 {
 	"name":"Ahlen",
-	"nuts":"DE",
+	"nuts":"DEA3805570004",
 	"population":51766,
 	"lat":51.76,
 	"lon":7.89,
@@ -279,7 +279,7 @@ var dataBasics = [
 },
 {
 	"name":"Paderborn",
-	"nuts":"DE",
+	"nuts":"DEA4705774032",
 	"population":143575,
 	"lat":51.71,
 	"lon":8.75,
@@ -291,14 +291,14 @@ var dataBasics = [
 },
 {
 	"name":"Hamm",
-	"nuts":"DE",
+	"nuts":"DEA54",
 	"population":176440,
 	"lat":51.68,
 	"lon":7.81,
 },
 {
 	"name":"Salzkotten",
-	"nuts":"DE",
+	"nuts":"DEA4705774036",
 	"population":24547,
 	"lat":51.67,
 	"lon":8.60,
@@ -310,21 +310,21 @@ var dataBasics = [
 },
 {
 	"name":"Recklinghausen",
-	"nuts":"DE",
+	"nuts":"DEA36",
 	"population":115385,
 	"lat":51.61,
 	"lon":7.20,
 },
 {
 	"name":"Herne",
-	"nuts":"DE",
+	"nuts":"DEA55",
 	"population":154563,
 	"lat":51.54,
 	"lon":7.22,
 },
 {
 	"name":"Göttingen",
-	"nuts":"DE",
+	"nuts":"DE915",
 	"population":116650,
 	"lat":51.53,
 	"lon":9.93,
@@ -336,14 +336,14 @@ var dataBasics = [
 },
 {
 	"name":"Bottrop",
-	"nuts":"DE",
+	"nuts":"DEA31",
 	"population":116498,
 	"lat":51.52,
 	"lon":6.92,
 },
 {
 	"name":"Gelsenkirchen",
-	"nuts":"DE",
+	"nuts":"DEA32",
 	"population":257607,
 	"lat":51.51,
 	"lon":7.10,
@@ -354,7 +354,7 @@ var dataBasics = [
 },
 {
 	"name":"Dortmund",
-	"nuts":"DE",
+	"nuts":"DEA52",
 	"population":572087,
 	"lat":51.51,
 	"lon":7.46,
@@ -366,7 +366,7 @@ var dataBasics = [
 },
 {
 	"name":"Kamp-Lintfort",
-	"nuts":"DE",
+	"nuts":"DEA1F05170020",
 	"population":36973,
 	"lat":51.50,
 	"lon":6.53,
@@ -374,14 +374,14 @@ var dataBasics = [
 },
 {
 	"name":"Halle (Saale)",
-	"nuts":"DE",
+	"nuts":"DEE02",
 	"population":231440,
 	"lat":51.48,
 	"lon":11.97,
 },
 {
 	"name":"Bochum",
-	"nuts":"DE",
+	"nuts":"DEA51",
 	"population":362213,
 	"lat":51.48,
 	"lon":7.21,
@@ -396,7 +396,7 @@ var dataBasics = [
 },
 {
 	"name":"Oberhausen",
-	"nuts":"DE",
+	"nuts":"DEA17",
 	"population":210005,
 	"lat":51.47,
 	"lon":6.86,
@@ -411,7 +411,7 @@ var dataBasics = [
 },
 {
 	"name":"Moers",
-	"nuts":"DE",
+	"nuts":"DEA1F05170024",
 	"population":103504,
 	"lat":51.45,
 	"lon":6.62,
@@ -424,7 +424,7 @@ var dataBasics = [
 },
 {
 	"name":"Essen",
-	"nuts":"DE",
+	"nuts":"DEA13",
 	"population":566862,
 	"lat":51.45,
 	"lon":7.01,
@@ -436,7 +436,7 @@ var dataBasics = [
 },
 {
 	"name":"Warstein",
-	"nuts":"DE",
+	"nuts":"DEA5B05974044",
 	"population":25247,
 	"lat":51.44,
 	"lon":8.35,
@@ -447,7 +447,7 @@ var dataBasics = [
 },
 {
 	"name":"Schwerte",
-	"nuts":"DE",
+	"nuts":"DEA5C05978028",
 	"population":46198,
 	"lat":51.44,
 	"lon":7.56,
@@ -459,7 +459,7 @@ var dataBasics = [
 },
 {
 	"name":"Duisburg",
-	"nuts":"DE",
+	"nuts":"DEA12",
 	"population":486816,
 	"lat":51.43,
 	"lon":6.76,
@@ -471,7 +471,7 @@ var dataBasics = [
 },
 {
 	"name":"Mülheim an der Ruhr",
-	"nuts":"DE",
+	"nuts":"DEA16",
 	"population":166654,
 	"lat":51.42,
 	"lon":6.88,
@@ -484,7 +484,7 @@ var dataBasics = [
 },
 {
 	"name":"Arnsberg",
-	"nuts":"DE",
+	"nuts":"DEA5705958004",
 	"population":73501,
 	"lat":51.39,
 	"lon":8.06,
@@ -496,14 +496,14 @@ var dataBasics = [
 },
 {
 	"name":"Hagen",
-	"nuts":"DE",
+	"nuts":"DEA53",
 	"population":186243,
 	"lat":51.35,
 	"lon":7.47,
 },
 {
 	"name":"Leipzig",
-	"nuts":"DE",
+	"nuts":"DED51",
 	"population":520838,
 	"lat":51.34,
 	"lon":12.37,
@@ -514,14 +514,14 @@ var dataBasics = [
 },
 {
 	"name":"Krefeld",
-	"nuts":"DE",
+	"nuts":"DEA14",
 	"population":222026,
 	"lat":51.33,
 	"lon":6.56,
 },
 {
 	"name":"Kassel",
-	"nuts":"DE",
+	"nuts":"DE731",
 	"population":192874,
 	"lat":51.31,
 	"lon":9.50,
@@ -533,7 +533,7 @@ var dataBasics = [
 },
 {
 	"name":"Wuppertal",
-	"nuts":"DE",
+	"nuts":"DEA1A",
 	"population":342885,
 	"lat":51.25,
 	"lon":7.21,
@@ -544,7 +544,7 @@ var dataBasics = [
 },
 {
 	"name":"Düsseldorf",
-	"nuts":"DE",
+	"nuts":"DEA11",
 	"population":593682,
 	"lat":51.22,
 	"lon":6.78,
@@ -555,7 +555,7 @@ var dataBasics = [
 },
 {
 	"name":"Mönchengladbach",
-	"nuts":"DE",
+	"nuts":"DEA15",
 	"population":255087,
 	"lat":51.19,
 	"lon":6.44,
@@ -565,21 +565,21 @@ var dataBasics = [
 },
 {
 	"name":"Neuss",
-	"nuts":"DE",
+	"nuts":"DEA1D05162024",
 	"population":151486,
 	"lat":51.19,
 	"lon":6.69,
 },
 {
 	"name":"Solingen",
-	"nuts":"DE",
+	"nuts":"DEA19",
 	"population":155316,
 	"lat":51.17,
 	"lon":7.08,
 },
 {
 	"name":"Remscheid",
-	"nuts":"DE",
+	"nuts":"DEA18",
 	"population":109352,
 	"lat":51.17,
 	"lon":7.19,
@@ -609,7 +609,7 @@ var dataBasics = [
 },
 {
 	"name":"Dresden",
-	"nuts":"DE",
+	"nuts":"DED21",
 	"population":525105,
 	"lat":51.04,
 	"lon":13.73,
@@ -620,7 +620,7 @@ var dataBasics = [
 },
 {
 	"name":"Leverkusen",
-	"nuts":"DE",
+	"nuts":"DEA24",
 	"population":159926,
 	"lat":51.03,
 	"lon":6.98,
@@ -632,21 +632,21 @@ var dataBasics = [
 },
 {
 	"name":"Bergisch Gladbach",
-	"nuts":"DE",
+	"nuts":"DEA2B05378004",
 	"population":109138,
 	"lat":50.99,
 	"lon":7.13,
 },
 {
 	"name":"Erfurt",
-	"nuts":"DE",
+	"nuts":"DEG01",
 	"population":203485,
 	"lat":50.97,
 	"lon":11.02,
 },
 {
 	"name":"Köln",
-	"nuts":"DE",
+	"nuts":"DEA23",
 	"population":1024373,
 	"lat":50.93,
 	"lon":6.95,
@@ -660,14 +660,14 @@ var dataBasics = [
 },
 {
 	"name":"Jena",
-	"nuts":"DE",
+	"nuts":"DEG03",
 	"population":106915,
 	"lat":50.92,
 	"lon":11.58,
 },
 {
 	"name":"Siegen",
-	"nuts":"DE",
+	"nuts":"DEA5A05970040",
 	"population":99403,
 	"lat": 50.87,
 	"lon":8.02,
@@ -687,7 +687,7 @@ var dataBasics = [
 },
 {
 	"name":"Chemnitz",
-	"nuts":"DE",
+	"nuts":"DED41",
 	"population":241210,
 	"lat":50.83,
 	"lon":12.92,
@@ -699,7 +699,7 @@ var dataBasics = [
 },
 {
 	"name":"Eschweiler",
-	"nuts":"DE",
+	"nuts":"DEA2D05334012",
 	"population":55026,
 	"lat":50.82,
 	"lon":6.26,
@@ -710,7 +710,7 @@ var dataBasics = [
 },
 {
 	"name":"Aachen",
-	"nuts":"DE",
+	"nuts":"DEA2D05334002",
 	"population":240086,
 	"lat":50.77,
 	"lon":6.08,
@@ -722,7 +722,7 @@ var dataBasics = [
 },
 {
 	"name":"Düren",
-	"nuts":"DE",
+	"nuts":"DEA26",
 	"population":88953,
 	"lat":50.80,
 	"lon":6.48,
@@ -734,7 +734,7 @@ var dataBasics = [
 },
 {
 	"name":"Bonn",
-	"nuts":"DE",
+	"nuts":"DEA22",
 	"population":309869,
 	"lat":50.73,
 	"lon":7.09,
@@ -748,7 +748,7 @@ var dataBasics = [
 },
 {
 	"name":"Euskirchen",
-	"nuts":"DE",
+	"nuts":"DEA28",
 	"population":55558,
 	"lat":50.66,
 	"lon":6.78,
@@ -760,7 +760,7 @@ var dataBasics = [
 },
 {
 	"name":"Greiz",
-	"nuts":"DE",
+	"nuts":"DEG0L",
 	"population":21284,
 	"lat":50.65,
 	"lon":12.19,
@@ -770,7 +770,7 @@ var dataBasics = [
 },
 {
 	"name":"Simmerath",
-	"nuts":"DE",
+	"nuts":"DEA2D05334028",
 	"population":15022,
 	"lat":50.60,
 	"lon":6.30,
@@ -790,7 +790,7 @@ var dataBasics = [
 },
 {
 	"name":"Schleiz",
-	"nuts":"DE",
+	"nuts":"DEG0K16075098",
 	"population":8500,
 	"lat":50.58,
 	"lon":11.81,
@@ -800,14 +800,14 @@ var dataBasics = [
 },
 {
 	"name":"Koblenz",
-	"nuts":"DE",
+	"nuts":"DEB11",
 	"population":109779,
 	"lat":50.35,
 	"lon":7.59,
 },
 {
 	"name":"Bad Kissingen",
-	"nuts":"DE",
+	"nuts":"DE265",
 	"population":21225,
 	"lat":50.19,
 	"lon":10.07,
@@ -819,7 +819,7 @@ var dataBasics = [
 },
 {
 	"name":"Frankfurt am Main",
-	"nuts":"DE",
+	"nuts":"DE712",
 	"population":687775,
 	"lat":50.11,
 	"lon":8.68,
@@ -834,14 +834,14 @@ var dataBasics = [
 },
 {
 	"name":"Offenbach am Main",
-	"nuts":"DE",
+	"nuts":"DE713",
 	"population":116945,
 	"lat":50.09,
 	"lon":8.77,
 },
 {
 	"name":"Wiesbaden",
-	"nuts":"DE",
+	"nuts":"DE714",
 	"population":272636,
 	"lat":50.08,
 	"lon":8.24,
@@ -852,7 +852,7 @@ var dataBasics = [
 },
 {
 	"name":"Mainz",
-	"nuts":"DE",
+	"nuts":"DEB35",
 	"population":202756,
 	"lat":50.00,
 	"lon":8.27,
@@ -872,14 +872,14 @@ var dataBasics = [
 },
 {
 	"name":"Darmstadt",
-	"nuts":"DE",
+	"nuts":"DE711",
 	"population":147925,
 	"lat":49.86,
 	"lon":8.65,
 },
 {
 	"name":"Bad Kreuznach",
-	"nuts":"DE",
+	"nuts":"DEB14",
 	"population":47687,
 	"lat":49.84,
 	"lon":7.86,
@@ -890,28 +890,28 @@ var dataBasics = [
 },
 {
 	"name":"Würzburg",
-	"nuts":"DE",
+	"nuts":"DE263",
 	"population":124577,
 	"lat":49.79,
 	"lon":9.92,
 },
 {
 	"name":"Trier",
-	"nuts":"DE",
+	"nuts":"DEB21",
 	"population":106544,
 	"lat":49.75,
 	"lon":6.64,
 },
 {
 	"name":"Erlangen",
-	"nuts":"DE",
+	"nuts":"DE252",
 	"population":105412,
 	"lat":49.59,
 	"lon":11.00,
 },
 {
 	"name":"Frankenthal (Pfalz)",
-	"nuts":"DE",
+	"nuts":"DEB31",
 	"population":47035,
 	"lat":49.53,
 	"lon":8.35,
@@ -923,14 +923,14 @@ var dataBasics = [
 },
 {
 	"name":"Ludwigshafen am Rhein",
-	"nuts":"DE",
+	"nuts":"DEB34",
 	"population":160179,
 	"lat":49.48,
 	"lon":8.44,
 },
 {
 	"name":"Mannheim",
-	"nuts":"DE",
+	"nuts":"DE126",
 	"population":294627,
 	"lat":49.48,
 	"lon":8.46,
@@ -942,14 +942,14 @@ var dataBasics = [
 },
 {
 	"name":"Fürth",
-	"nuts":"DE",
+	"nuts":"DE253",
 	"population":118358,
 	"lat":49.47,
 	"lon":10.99,
 },
 {
 	"name":"Nürnberg",
-	"nuts":"DE",
+	"nuts":"DE254",
 	"population":495121,
 	"lat":49.45,
 	"lon":11.07,
@@ -961,7 +961,7 @@ var dataBasics = [
 },
 {
 	"name":"Heidelberg",
-	"nuts":"DE",
+	"nuts":"DE125",
 	"population":150335,
 	"lat":49.41,
 	"lon":8.71,
@@ -976,7 +976,7 @@ var dataBasics = [
 },
 {
 	"name":"Saarbrücken",
-	"nuts":"DE",
+	"nuts":"DEC0110041100",
 	"population":176996,
 	"lat":49.23,
 	"lon":7.00,
@@ -987,7 +987,7 @@ var dataBasics = [
 },
 {
 	"name":"Heilbronn",
-	"nuts":"DE",
+	"nuts":"DE117",
 	"population":117531,
 	"lat":49.14,
 	"lon":9.22,
@@ -998,14 +998,14 @@ var dataBasics = [
 },
 {
 	"name":"Regensburg",
-	"nuts":"DE",
+	"nuts":"DE232",
 	"population":138296,
 	"lat":49.01,
 	"lon":12.09,
 },
 {
 	"name":"Karlsruhe",
-	"nuts":"DE",
+	"nuts":"DE122",
 	"population":296033,
 	"lat":49.01,
 	"lon":8.40,
@@ -1025,14 +1025,14 @@ var dataBasics = [
 },
 {
 	"name":"Pforzheim",
-	"nuts":"DE",
+	"nuts":"DE129",
 	"population":116425,
 	"lat":48.89,
 	"lon":8.69,
 },
 {
 	"name":"Stuttgart",
-	"nuts":"DE",
+	"nuts":"DE111",
 	"population":597939,
 	"lat":48.77,
 	"lon":9.18,
@@ -1043,7 +1043,7 @@ var dataBasics = [
 },
 {
 	"name":"Ingolstadt",
-	"nuts":"DE",
+	"nuts":"DE211",
 	"population":127886,
 	"lat":48.76,
 	"lon":11.42,
@@ -1058,7 +1058,7 @@ var dataBasics = [
 },
 {
 	"name":"Reutlingen",
-	"nuts":"DE",
+	"nuts":"DE141",
 	"population":110681,
 	"lat":48.48,
 	"lon":9.21,
@@ -1073,7 +1073,7 @@ var dataBasics = [
 },
 {
 	"name":"Ulm",
-	"nuts":"DE",
+	"nuts":"DE144",
 	"population":117977,
 	"lat":48.40,
 	"lon":9.98,
@@ -1089,7 +1089,7 @@ var dataBasics = [
 },
 {
 	"name":"Augsburg",
-	"nuts":"DE",
+	"nuts":"DE271",
 	"population":272699,
 	"lat":48.37,
 	"lon":10.89,
@@ -1143,7 +1143,7 @@ var dataBasics = [
 },
 {
 	"name":"München",
-	"nuts":"DE",
+	"nuts":"DE212",
 	"population":1388308,
 	"lat":48.13,
 	"lon":11.57,
@@ -1203,7 +1203,7 @@ var dataBasics = [
 },
 {
 	"name":"Freiburg im Breisgau",
-	"nuts":"DE",
+	"nuts":"DE131",
 	"population":218043,
 	"lat":47.99,
 	"lon":7.84,
@@ -1219,7 +1219,7 @@ var dataBasics = [
 },
 {
 	"name":"Starnberg",
-	"nuts":"DE",
+	"nuts":"DE21L",
 	"population":22650,
 	"lat":47.99,
 	"lon":11.34,
@@ -1247,7 +1247,7 @@ var dataBasics = [
 },
 {
 	"name":"Schongau",
-	"nuts":"DE",
+	"nuts":"DE21N09190148",
 	"population":11912,
 	"lat":47.81,
 	"lon":10.90,
@@ -1275,7 +1275,7 @@ var dataBasics = [
 },
 {
 	"name":"Tettnang",
-	"nuts":"DE",
+	"nuts":"DE14708435057",
 	"population":18216,
 	"lat":47.67,
 	"lon":9.58,
