@@ -475,7 +475,7 @@ var dataBasics = [
 	"population":166654,
 	"lat":51.42,
 	"lon":6.88,
-	"linkOGD":"https://geo.muelheim-ruhr.de/opendata",
+	"linkOGD":"https://geo.muelheim-ruhr.de/open-data/13819",
 	"linkOGDNames":"https://geo.muelheim-ruhr.de/vornamen",
 	"linkOGDLicense":"DL DE BY 1.0",
 	"history":[
