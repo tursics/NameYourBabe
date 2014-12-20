@@ -140,7 +140,8 @@ function addMarker()
 
 				var marker = new nokia.maps.map.StandardMarker([dataBasics[ i]['lat'], dataBasics[ i]['lon']], {
 					brush: {color: bgColor},
-					html: str
+					html: str,
+					nr: i
 				});
 				container.objects.add( marker);
 			}
@@ -279,7 +280,7 @@ function generateDataList()
 
 	for( var i = 0; i < arr.length; ++i) {
 		var nr = arr[ i];
-		txt += '<li><i class="fa fa-map-marker marker-green"></i>' + dataBasics[nr].name + '</li>';
+		txt += '<li><a href="#" onClick="clickOnDataItem(\'' + nr + '\');" border=0><i class="fa fa-map-marker marker-green"></i>' + dataBasics[nr].name + '</a></li>';
 	}
 
 	txt += '</ul>';
@@ -287,6 +288,32 @@ function generateDataList()
 	$( '#mapDetailsDiv').html( txt);
 	$( '#mapDetailsDiv').trigger( 'create');
 	$( '#mapDetailsDiv').trigger( 'updatelayout');
+}
+
+// -----------------------------------------------------------------------------
+
+function clickOnDataItem( nr)
+{
+	nr = parseInt( nr);
+	map.set( 'zoomLevel', 10);
+	map.set( 'center', [dataBasics[nr].lat, dataBasics[nr].lon]);
+
+	var TOUCH = nokia.maps.dom.Page.browser.touch;
+	var CLICK = TOUCH ? 'tap' : 'click';
+	var len = container.objects.getLength();
+
+	for( var i = 0; i < len; ++i) {
+		if( nr === container.objects.get( i).nr) {
+			container.dispatch(
+				new nokia.maps.dom.Event({
+					type: CLICK,
+					target: container.objects.get( i)
+				})
+			);
+//			map.zoomTo( container.objects.get( i).getBoundingBox(), true);
+			break;
+		}
+	}
 }
 
 // -----------------------------------------------------------------------------
