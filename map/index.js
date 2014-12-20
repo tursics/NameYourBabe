@@ -239,27 +239,80 @@ function generateCharts()
 
 // -----------------------------------------------------------------------------
 
-function generateDataset( country, greenVal)
-{
-	var ret = [];
-
-	for( var i = 0; i < dataBasics.length; ++i) {
-		if( country == dataBasics[i].nuts.substr( 0, 2)) {
-			if( typeof dataBasics[i][greenVal] !== "undefined") {
-				ret[ ret.length] = i;
-			}
-		}
+var objectDefault = {
+	getDataset: function() {
+		var ret = [];
+		return ret;
+	},
+	getListItem: function( nr) {
+		return '<li>' + dataBasics[nr].name + '</li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '';
 	}
-
-	return ret;
-}
+};
 
 // -----------------------------------------------------------------------------
 
-function sortByName( left, right)
-{
-	return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
-}
+var objectAllPortals = {
+	getDataset: function() {
+		var ret = [];
+
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( 'DE' == dataBasics[i].nuts.substr( 0, 2)) {
+				if( typeof dataBasics[i]['linkOGD'] !== "undefined") {
+					ret[ ret.length] = i;
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( nr) {
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + nr + '\');" border=0><i class="fa fa-map-marker marker-green"></i>' + dataBasics[nr].name + '</a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>';
+	}
+};
+
+// -----------------------------------------------------------------------------
+
+var objectNuts1Portals = {
+	getDataset: function() {
+		var ret = [];
+
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( 'DE' == dataBasics[i].nuts.substr( 0, 2)) {
+				if( dataBasics[i].nuts.length == 3) {
+					ret[ ret.length] = i;
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( nr) {
+		var marker = 'red';
+		if( typeof dataBasics[nr]['linkOGD'] !== "undefined") {
+			marker = 'green';
+		}
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + nr + '\');" border=0><i class="fa fa-map-marker marker-' + marker + '"></i>' + dataBasics[nr].name + '</a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
+		     + '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>';
+	}
+};
 
 // -----------------------------------------------------------------------------
 
@@ -284,22 +337,26 @@ function generateDataList()
 	txt += '</fieldset>';
 	txt += '</form>';
 
-	txt += '<div id="dataInfo">';
-	txt += '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>';
-	if( 'all' != filterLevel) {
-		txt += '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>';
+	var obj = objectDefault;
+	if(( 'all' == filterLevel) && ('portals' == filterDataset)) {
+		obj = objectAllPortals;
+	} else
+	if(( 'nuts1' == filterLevel) && ('portals' == filterDataset)) {
+		obj = objectNuts1Portals;
 	}
+
+	txt += '<div id="dataInfo">';
+	txt += obj.getLegend();
 	txt += '</div>';
 
-	var arr = generateDataset( 'de', 'linkOGD');
-	arr.sort( sortByName);
+	var arr = obj.getDataset();
+	arr.sort( obj.sort);
 
 	txt += '<ul id="dataList" data-role="listview" data-inset="false">';
 	txt += '<li data-role="list-divider">' + arr.length + ' Einträge</li>';
 
 	for( var i = 0; i < arr.length; ++i) {
-		var nr = arr[ i];
-		txt += '<li><a href="#" onClick="clickOnDataItem(\'' + nr + '\');" border=0><i class="fa fa-map-marker marker-green"></i>' + dataBasics[nr].name + '</a></li>';
+		txt += obj.getListItem( arr[ i]);
 	}
 
 	txt += '</ul>';
