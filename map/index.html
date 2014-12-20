@@ -64,9 +64,10 @@
 			text-shadow:none;
 			background:#ffffff !important;
 			border-left:1px solid #000000 !important;
+			overflow-y:scroll;
 		}
 		#mapDetailsDiv {
-			margin:3.5em 0 0 0;
+			margin:3.5em 0 3.5em 0;
 			padding:1em;
 		}
 		.ui-header {
@@ -84,9 +85,22 @@
 		.circles-text span { font-size:0.75em;position:absolute;top:70px;left:0;width:100px; }
 
 		#pageMap { width:100%; height:100%; }
+		#dataList {
+			margin:1em -1em 0 -1em;
+		}
+		.marker-red {
+			color:#f03b20;
+			font-size:1.5em;
+			padding-right:0.2em;
+		}
+		.marker-green {
+			color:#31a354;
+			font-size:1.5em;
+			padding-right:0.2em;
+		}
 	</style>
 	<script src="jquery.mobile-1.4.2/jquery-1.10.2.min.js"></script>
-	<script src="data.js"></script>
+	<script src="data/dataBasics.js"></script>
 	<script src="index.js"></script>
 	<script src="jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.js"></script>
 	<script src="circles-0.0.5/circles.min.js"></script>
@@ -100,7 +114,8 @@
 			<div style="float:left;font-size:2em;font-weight:100 !important;padding:0.3em 0 0 1em;">Wo gibt es Open Data Vornamen?</div>
 			<div data-role="controlgroup" data-type="horizontal" style="float:right;margin-right:1em;">
 				<a href="#" id="aPopupStart"     data-rel="popup" class="ui-btn"><i class="fa fa-map-marker" style="font-size:1.5em;"></i></a>
-				<a href="#" id="aPopupCharts"    data-rel="popup" class="ui-btn"><i class="fa fa-line-chart" style="font-size:1.5em;"></i></a>
+				<a href="#" id="aPopupData"      data-rel="popup" class="ui-btn"><i class="fa fa-list" style="font-size:1.5em;"></i></a>
+				<a href="#" id="aPopupCharts"    data-rel="popup" class="ui-btn"><i class="fa fa-pie-chart" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupSamples"   data-rel="popup" class="ui-btn"><i class="fa fa-flask" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupContests"  data-rel="popup" class="ui-btn"><i class="fa fa-trophy" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupShare"     data-rel="popup" class="ui-btn"><i class="fa fa-share-alt" style="font-size:1.5em;"></i></a>
@@ -205,6 +220,10 @@
 					<a href="https://github.com/tursics/NameYourBabe/tree/master/map" target="_blank" class="ui-btn"><i class="fa fa-github"></i></a>
 				</div></center><br>
 				<div style="color:gray;text-align:center;border-top:solid 1px gray;margin-top:0.5em;padding-top:0.5em;">Thomas Tursics • Frankfurter Allee 172 • 10365 Berlin</div>
+			</div>
+			<div data-role="popup" id="popupData" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
+				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Die Daten</div>
+				<div>Einen kurzen Moment noch...</div>
 			</div>
 			<div data-role="popup" id="popupStart" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				Farben der Pins:<br>

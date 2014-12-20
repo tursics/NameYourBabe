@@ -48,7 +48,7 @@ function initNokiaMap( elementName, lat, lon, zoom)
 function addMarker()
 {
 	try {
-		var max = data.length;
+		var max = dataBasics.length;
 		var cVoid = '#b7A6ad';
 		var cGood = '#31a354';
 		var cWell = '#31a354';
@@ -56,9 +56,9 @@ function addMarker()
 		var cYellow = '#fec44f';
 		var cDenied = '#f03b20';
 		for( var i = 0; i < max; ++i) {
-			if(( null != data[ i]['lat']) && (null != data[ i]['lon'])) {
+			if(( null != dataBasics[ i]['lat']) && (null != dataBasics[ i]['lon'])) {
 				var bgColor = cVoid;
-				var popStr = data[ i]['population'].toString();
+				var popStr = dataBasics[ i]['population'].toString();
 				if( popStr.length > 3) {
 					popStr = popStr.substr( 0, popStr.length - 3) + '.' + popStr.substr( popStr.length - 3);
 				}
@@ -69,20 +69,20 @@ function addMarker()
 				var str = '<div style="font-size:1.25em;">';
 
 				str += '<div style="border-bottom:1px solid white;padding-bottom:0.5em;margin-bottom:0.5em;">';
-				str += '<i class="fa fa-map-marker"></i> ' + data[ i]['name'] + ' (' + data[ i]['country'] + ')<br>';
+				str += '<i class="fa fa-map-marker"></i> ' + dataBasics[ i]['name'] + '<br>';
 				str += '<i class="fa fa-male"></i> ' + popStr + ' Einwohner<br>';
 				str += '</div>';
 
-				if( typeof data[ i]['linkOGD'] !== 'undefined') {
+				if( typeof dataBasics[ i]['linkOGD'] !== 'undefined') {
 					bgColor = cPortal;
-					str += '<i class="fa fa-check"></i> Hat ein <a href="' + data[ i]['linkOGD'] + '" target="_blank">Open Data Portal</a><br>';
+					str += '<i class="fa fa-check"></i> Hat ein <a href="' + dataBasics[ i]['linkOGD'] + '" target="_blank">Open Data Portal</a><br>';
 
-					if( typeof data[ i]['linkOGDNames'] !== 'undefined') {
+					if( typeof dataBasics[ i]['linkOGDNames'] !== 'undefined') {
 						bgColor = cGood;
-						str += '<i class="fa fa-heart"></i> Enthält einen <a href="' + data[ i]['linkOGDNames'] + '" target="_blank">Vornamen-Datensatz</a><br>';
+						str += '<i class="fa fa-heart"></i> Enthält einen <a href="' + dataBasics[ i]['linkOGDNames'] + '" target="_blank">Vornamen-Datensatz</a><br>';
 
-						if( typeof data[ i]['linkOGDLicense'] !== 'undefined') {
-							var license = data[ i]['linkOGDLicense'];
+						if( typeof dataBasics[ i]['linkOGDLicense'] !== 'undefined') {
+							var license = dataBasics[ i]['linkOGDLicense'];
 							var good = false;
 
 							if( 'CC 0' == license) {
@@ -105,40 +105,40 @@ function addMarker()
 					} else {
 						str += '<i class="fa fa-times"></i> Kein Vornamen-Datensatz vorhanden<br>';
 
-						if(( typeof data[ i]['linkWebNames'] !== 'undefined') && (data[ i]['linkWebNames'] != '')) {
+						if(( typeof dataBasics[ i]['linkWebNames'] !== 'undefined') && (dataBasics[ i]['linkWebNames'] != '')) {
 							bgColor = cYellow;
-							str += '<i class="fa fa-minus"></i> Vornamen auf der <a href="' + data[ i]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
+							str += '<i class="fa fa-minus"></i> Vornamen auf der <a href="' + dataBasics[ i]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
 						}
 					}
-				} else if( typeof data[ i]['linkWebNames'] !== 'undefined') {
+				} else if( typeof dataBasics[ i]['linkWebNames'] !== 'undefined') {
 					bgColor = cYellow;
 					str += '<i class="fa fa-times"></i> Hat kein Open Data Portal<br>';
 
-					if( data[ i]['linkWebNames'] != '') {
-						str += '<i class="fa fa-check"></i> Vornamen auf der <a href="' + data[ i]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
+					if( dataBasics[ i]['linkWebNames'] != '') {
+						str += '<i class="fa fa-check"></i> Vornamen auf der <a href="' + dataBasics[ i]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
 					}
 				} else {
 					bgColor = cDenied;
 					str += '<i class="fa fa-times"></i> Hat kein Open Data Portal<br>';
 
-					if( typeof data[ i]['history'] === 'undefined') {
+					if( typeof dataBasics[ i]['history'] === 'undefined') {
 						continue;
 					}
 				}
 
 				str += '<br>';
 
-				if( typeof data[ i]['history'] !== 'undefined') {
-					var historySize = data[ i]['history'].length;
+				if( typeof dataBasics[ i]['history'] !== 'undefined') {
+					var historySize = dataBasics[ i]['history'].length;
 					for( var h = 0; h < historySize; ++h) {
 						str += '<div style="border-top:1px solid #aaaaaa;color:#aaaaaa;padding-top:0.5em;margin-top:0.5em;">';
-						str += '<i class="fa fa-calendar"></i> ' + data[ i]['history'][ h]['date'] + '<br>';
-						str += '<i class="fa fa-comment-o"></i> ' + data[ i]['history'][ h]['event'] + '</div>';
+						str += '<i class="fa fa-calendar"></i> ' + dataBasics[ i]['history'][ h]['date'] + '<br>';
+						str += '<i class="fa fa-comment-o"></i> ' + dataBasics[ i]['history'][ h]['event'] + '</div>';
 					}
 				}
 				str += '</div>';
 
-				var marker = new nokia.maps.map.StandardMarker([data[ i]['lat'], data[ i]['lon']], {
+				var marker = new nokia.maps.map.StandardMarker([dataBasics[ i]['lat'], dataBasics[ i]['lon']], {
 					brush: {color: bgColor},
 					html: str
 				});
@@ -156,27 +156,27 @@ function generateCharts()
 {
 	try {
 		var arrayOGD = [];
-		arrayOGD['Deutschland'] = 0;
-		arrayOGD['Österreich'] = 0;
-		arrayOGD['Schweiz'] = 0;
+		arrayOGD['de'] = 0;
+		arrayOGD['at'] = 0;
+		arrayOGD['ch'] = 0;
 
 		var arrayNames = [];
-		arrayNames['Deutschland'] = 0;
-		arrayNames['Österreich'] = 0;
-		arrayNames['Schweiz'] = 0;
+		arrayNames['de'] = 0;
+		arrayNames['at'] = 0;
+		arrayNames['ch'] = 0;
 
 		var useMunicipality = ('citizen' != $( 'input[name="choiceCalc"]:checked').val());
 
-		var max = data.length;
+		var max = dataBasics.length;
 		for( var i = 0; i < max; ++i) {
-			var population = data[ i]['population'];
-			var country = data[ i]['country'];
-			var hasOGD = (typeof data[ i]['linkOGD'] !== 'undefined');
-			var hasOGDNames = (typeof data[ i]['linkOGDNames'] !== 'undefined');
-			var hasWebNames = (typeof data[ i]['linkWebNames'] !== 'undefined');
-			var countOGD = (typeof data[ i]['countOGD'] !== 'undefined') ? data[ i]['countOGD'] : true;
-			var countNames = (typeof data[ i]['countNames'] !== 'undefined') ? data[ i]['countNames'] : true;
-			var countMunicipality = (typeof data[ i]['municipality'] !== 'undefined') ? data[ i]['municipality'] : 1;
+			var population = dataBasics[ i]['population'];
+			var country = dataBasics[ i]['nuts'].substr( 0, 2);
+			var hasOGD = (typeof dataBasics[ i]['linkOGD'] !== 'undefined');
+			var hasOGDNames = (typeof dataBasics[ i]['linkOGDNames'] !== 'undefined');
+			var hasWebNames = (typeof dataBasics[ i]['linkWebNames'] !== 'undefined');
+			var countOGD = (typeof dataBasics[ i]['countOGD'] !== 'undefined') ? dataBasics[ i]['countOGD'] : true;
+			var countNames = (typeof dataBasics[ i]['countNames'] !== 'undefined') ? dataBasics[ i]['countNames'] : true;
+			var countMunicipality = (typeof dataBasics[ i]['municipality'] !== 'undefined') ? dataBasics[ i]['municipality'] : 1;
 
 			if( countOGD && hasOGD) {
 				arrayOGD[country] += useMunicipality ? countMunicipality : population;
@@ -187,9 +187,9 @@ function generateCharts()
 		}
 
 		var arrayResult = [];
-		arrayResult['Deutschland'] = 0;
-		arrayResult['Österreich'] = 0;
-		arrayResult['Schweiz'] = 0;
+		arrayResult['de'] = 0;
+		arrayResult['at'] = 0;
+		arrayResult['ch'] = 0;
 
 		var txtSources = '';
 		if( 'ogd' == $( 'input[name="choiceSources"]:checked').val()) {
@@ -204,14 +204,14 @@ function generateCharts()
 
 		var arrayMax = [];
 		if( useMunicipality) {
-			arrayMax['Deutschland'] = 11116;
-			arrayMax['Österreich'] =   2354;
-			arrayMax['Schweiz'] =      2551;
+			arrayMax['de'] = 11116;
+			arrayMax['at'] = 2354;
+			arrayMax['ch'] = 2551;
 			txt += 'Hochgerechnet nach der Anzahl der Kommunen.';
 		} else {
-			arrayMax['Deutschland'] = 80380000;
-			arrayMax['Österreich'] =   8504850;
-			arrayMax['Schweiz'] =      8112200;
+			arrayMax['de'] = 80380000;
+			arrayMax['at'] = 8504850;
+			arrayMax['ch'] = 8112200;
 			txt += 'Hochgerechnet nach der Einwohnerzahl der Kommunen.';
 		}
 
@@ -219,19 +219,74 @@ function generateCharts()
 		$( '#chart1').trigger( "create");
 		$( '#chart1').trigger( 'updatelayout');
 		var chart1DE = Circles.create({
-			id:'chart1DE',value:arrayResult['Deutschland'],maxValue:arrayMax['Deutschland'],
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['Deutschland'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['Deutschland'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['Deutschland'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+			id:'chart1DE',value:arrayResult['de'],maxValue:arrayMax['de'],
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['de'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['de'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['de'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
 		});
 		var chart1AT = Circles.create({
-			id:'chart1AT',value:arrayResult['Österreich'],maxValue:arrayMax['Österreich'],
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['Österreich'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['Österreich'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['Österreich'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+			id:'chart1AT',value:arrayResult['at'],maxValue:arrayMax['at'],
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['at'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['at'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['at'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
 		});
 		var chart1CH = Circles.create({
-			id:'chart1CH',value:arrayResult['Schweiz'],maxValue:arrayMax['Schweiz'],
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['Schweiz'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['Schweiz'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['Schweiz'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+			id:'chart1CH',value:arrayResult['ch'],maxValue:arrayMax['ch'],
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['ch'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['ch'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['ch'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
 		});
 	} catch( e) {
 	}
+}
+
+// -----------------------------------------------------------------------------
+
+function generateDataset( country, greenVal)
+{
+	var ret = [];
+
+	for( var i = 0; i < dataBasics.length; ++i) {
+		if( country == dataBasics[i].nuts.substr( 0, 2)) {
+			if( typeof dataBasics[i][greenVal] !== "undefined") {
+				ret[ ret.length] = i;
+			}
+		}
+	}
+
+	return ret;
+}
+
+// -----------------------------------------------------------------------------
+
+function sortByName( left, right)
+{
+	return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
+}
+
+// -----------------------------------------------------------------------------
+
+function generateDataList()
+{
+	var txt = '';
+
+	txt += '<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Die Daten</div>';
+
+	txt += '<div id="dataInfo">';
+	txt += '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>';
+	txt += '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>';
+	txt += '</div>';
+
+	var arr = generateDataset( 'de', 'linkOGD');
+	arr.sort( sortByName);
+
+	txt += '<ul id="dataList" data-role="listview" data-inset="false">';
+	txt += '<li data-role="list-divider">' + arr.length + ' Einträge</li>';
+
+	for( var i = 0; i < arr.length; ++i) {
+		var nr = arr[ i];
+		txt += '<li><i class="fa fa-map-marker marker-green"></i>' + dataBasics[nr].name + '</li>';
+	}
+
+	txt += '</ul>';
+
+	$( '#mapDetailsDiv').html( txt);
+	$( '#mapDetailsDiv').trigger( 'create');
+	$( '#mapDetailsDiv').trigger( 'updatelayout');
 }
 
 // -----------------------------------------------------------------------------
@@ -241,11 +296,13 @@ function showPage( pageName)
 	$( '#mapDetailsDiv').html( $( pageName).html());
 //	$( pageName).popup( 'open');
 
-	if( '#popupCharts') {
+	if( '#popupCharts' == pageName) {
 		$( '#choiceSourceOGD').on( 'click', function( e) { generateCharts(); });
 		$( '#choiceSourceNames').on( 'click', function( e) { generateCharts(); });
 		$( '#choiceCalcCitizen').on( 'click', function( e) { generateCharts(); });
 		$( '#choiceCalcMunicipality').on( 'click', function( e) { generateCharts(); });
+	} else if( '#popupData' == pageName) {
+		generateDataList();
 	}
 }
 
@@ -263,6 +320,7 @@ $( document).on( "pagecreate", "#pageMap", function()
 		showPage( '#popupStart');
 	});
 
+	$( '#aPopupData').on( 'click', function( e) { showPage( '#popupData'); return false; });
 	$( '#aPopupStart').on( 'click', function( e) { showPage( '#popupStart'); return false; });
 	$( '#aPopupCharts').on( 'click', function( e) { showPage( '#popupCharts'); return false; });
 	$( '#aPopupSamples').on( 'click', function( e) { showPage( '#popupSamples'); return false; });
