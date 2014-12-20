@@ -4,6 +4,8 @@
 
 var map = null;
 var container = null;
+var filterLevel = 'all';
+var filterDataset = 'portals';
 
 // -----------------------------------------------------------------------------
 
@@ -265,11 +267,28 @@ function generateDataList()
 {
 	var txt = '';
 
-	txt += '<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Die Daten</div>';
+	txt += '<div style="font-size:2em;font-weight:100;padding:0;">Die Daten</div>';
+
+	txt += '<form>';
+	txt += '<fieldset data-role="controlgroup">';
+	txt += '<select name="filterLevel" id="filterLevel">';
+	txt += '<option value="all"' + ('all' == filterLevel ? ' selected="selected"' : '') + '>Alle</option>';
+//	txt += '<option value="bund"' + ('bund' == filterLevel ? ' selected="selected"' : '') + '>Obere Behörden</option>';
+	txt += '<option value="nuts1"' + ('nuts1' == filterLevel ? ' selected="selected"' : '') + '>Bundesländer</option>';
+//	txt += '<option value="cities"' + ('cities' == filterLevel ? ' selected="selected"' : '') + '>Großstädte</option>';
+	txt += '</select>';
+	txt += '<select name="filterDataset" id="filterDataset">';
+	txt += '<option value="portals"' + ('portals' == filterDataset ? ' selected="selected"' : '') + '>Open Data Portale</option>';
+//	txt += '<option value="firstnames"' + ('firstnames' == filterDataset ? ' selected="selected"' : '') + '>Vornamen Datensätze</option>';
+	txt += '</select>';
+	txt += '</fieldset>';
+	txt += '</form>';
 
 	txt += '<div id="dataInfo">';
 	txt += '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>';
-	txt += '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>';
+	if( 'all' != filterLevel) {
+		txt += '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>';
+	}
 	txt += '</div>';
 
 	var arr = generateDataset( 'de', 'linkOGD');
@@ -288,6 +307,15 @@ function generateDataList()
 	$( '#mapDetailsDiv').html( txt);
 	$( '#mapDetailsDiv').trigger( 'create');
 	$( '#mapDetailsDiv').trigger( 'updatelayout');
+
+	$( '#filterLevel').change( function() {
+		filterLevel = $( this).val();
+		generateDataList();
+	});
+	$( '#filterDataset').change( function() {
+		filterDataset = $( this).val();
+		generateDataList();
+	});
 }
 
 // -----------------------------------------------------------------------------
@@ -310,7 +338,6 @@ function clickOnDataItem( nr)
 					target: container.objects.get( i)
 				})
 			);
-//			map.zoomTo( container.objects.get( i).getBoundingBox(), true);
 			break;
 		}
 	}
@@ -339,7 +366,9 @@ $( document).on( "pagecreate", "#pageMap", function()
 {
 	initNokiaMap( 'mapContainer', 52.516, 13.4795, 6);
 
-	addMarker();
+ 	$.mobile.selectmenu.prototype.options.nativeMenu = false;
+ 
+ 	addMarker();
 
 	map.addListener( "displayready", function () {
 		generateCharts();
