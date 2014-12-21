@@ -159,12 +159,12 @@ function generateCharts()
 {
 	try {
 		var arrayOGD = [];
-		arrayOGD['de'] = 0;
+		arrayOGD['DE'] = 0;
 		arrayOGD['at'] = 0;
 		arrayOGD['ch'] = 0;
 
 		var arrayNames = [];
-		arrayNames['de'] = 0;
+		arrayNames['DE'] = 0;
 		arrayNames['at'] = 0;
 		arrayNames['ch'] = 0;
 
@@ -190,7 +190,7 @@ function generateCharts()
 		}
 
 		var arrayResult = [];
-		arrayResult['de'] = 0;
+		arrayResult['DE'] = 0;
 		arrayResult['at'] = 0;
 		arrayResult['ch'] = 0;
 
@@ -207,12 +207,12 @@ function generateCharts()
 
 		var arrayMax = [];
 		if( useMunicipality) {
-			arrayMax['de'] = 11116;
+			arrayMax['DE'] = 11116;
 			arrayMax['at'] = 2354;
 			arrayMax['ch'] = 2551;
 			txt += 'Hochgerechnet nach der Anzahl der Kommunen.';
 		} else {
-			arrayMax['de'] = 80380000;
+			arrayMax['DE'] = 80380000;
 			arrayMax['at'] = 8504850;
 			arrayMax['ch'] = 8112200;
 			txt += 'Hochgerechnet nach der Einwohnerzahl der Kommunen.';
@@ -222,8 +222,8 @@ function generateCharts()
 		$( '#chart1').trigger( "create");
 		$( '#chart1').trigger( 'updatelayout');
 		var chart1DE = Circles.create({
-			id:'chart1DE',value:arrayResult['de'],maxValue:arrayMax['de'],
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['de'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['de'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['de'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+			id:'chart1DE',value:arrayResult['DE'],maxValue:arrayMax['DE'],
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['DE'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['DE'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['DE'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
 		});
 		var chart1AT = Circles.create({
 			id:'chart1AT',value:arrayResult['at'],maxValue:arrayMax['at'],
