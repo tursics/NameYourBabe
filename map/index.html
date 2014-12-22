@@ -7,10 +7,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
 
- 	<title>Vornamen</title>
-	<meta name="title" content="Vornamen" />
-	<meta property="og:title" content="Vornamen" />
-	<meta name="twitter:title" content="Vornamen" />
+ 	<title>Open Data DACH-Map</title>
+	<meta name="title" content="Open Data DACH-Map" />
+	<meta property="og:title" content="Open Data DACH-Map" />
+	<meta name="twitter:title" content="Open Data DACH-Map" />
 
 	<meta name="description" content="Wo gibt es Open Data Vornamen in Deutschland, Österreich und der Schweiz?" />
 	<meta property="og:description" content="Wo gibt es Open Data Vornamen in Deutschland, Österreich und der Schweiz?" />
@@ -98,6 +98,11 @@
 			font-size:1.5em;
 			padding-right:0.2em;
 		}
+		#dataInfo {
+			border-top:1px solid #000000 !important;
+			margin:1em -1em 0 -1em;
+			padding:1em 1em 0 1em;
+		}
 	</style>
 	<script src="jquery.mobile-1.4.2/jquery-1.10.2.min.js"></script>
 	<script src="data/dataBasics.js"></script>
@@ -111,10 +116,9 @@
 			<div style="float:left;">
 				<a href="http://codefor.de/berlin/" class="ui-link" target="_blank"><img src="images/cfg_berlin.svg" style="height:3.5em" /></a>
 			</div>
-			<div style="float:left;font-size:2em;font-weight:100 !important;padding:0.3em 0 0 1em;">Wo gibt es Open Data Vornamen?</div>
+			<div style="float:left;font-size:2em;font-weight:100 !important;padding:0.3em 0 0 1em;">Open Data DACH-Map</div>
 			<div data-role="controlgroup" data-type="horizontal" style="float:right;margin-right:1em;">
-				<a href="#" id="aPopupStart"     data-rel="popup" class="ui-btn"><i class="fa fa-map-marker" style="font-size:1.5em;"></i></a>
-				<a href="#" id="aPopupData"      data-rel="popup" class="ui-btn"><i class="fa fa-list" style="font-size:1.5em;"></i></a>
+				<a href="#" id="aPopupData"      data-rel="popup" class="ui-btn"><i class="fa fa-map-marker" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupCharts"    data-rel="popup" class="ui-btn"><i class="fa fa-pie-chart" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupSamples"   data-rel="popup" class="ui-btn"><i class="fa fa-flask" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupContests"  data-rel="popup" class="ui-btn"><i class="fa fa-trophy" style="font-size:1.5em;"></i></a>
@@ -125,10 +129,6 @@
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Open Government Data</div>
 				<div>Die aktuelle Statistik über Open Government Data in Deutschland, Österreich und der Schweiz.</div>
 				<div style="margin-top:1.5em;">
-					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="float:left;">
-						<input name="choiceSources" id="choiceSourceOGD"   value="ogd"   checked="checked" type="radio"><label for="choiceSourceOGD"><i class="fa fa-university" style="font-size:1.5em;"></i></label>
-						<input name="choiceSources" id="choiceSourceNames" value="names" type="radio"><label for="choiceSourceNames"><i class="fa fa-child" style="font-size:1.5em;"></i></label>
-					</fieldset>
 					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="float:left;padding-left:1em;">
 						<input name="choiceCalc" id="choiceCalcCitizen"      value="citizen"      checked="checked" type="radio"><label for="choiceCalcCitizen"><i class="fa fa-users" style="font-size:1.5em;"></i></label>
 						<input name="choiceCalc" id="choiceCalcMunicipality" value="municipality" type="radio"><label for="choiceCalcMunicipality"><i class="fa fa-list" style="font-size:1.5em;"></i></label>
@@ -186,7 +186,7 @@
 					Gefällt dir diese Seite? Erzähle es weiter.<br>
 				</div>
 				<div style="color:gray;text-align:center;margin-top:0.5em;padding-top:1.5em;">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://vornamen.tursics.de" data-text="Eine #OpenData Vornamen-Karte von de-at-ch auf" data-via="tursics" data-lang="de">Twittern</a>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://vornamen.tursics.de" data-text="Die Open Data DACH-Map auf" data-via="tursics" data-lang="de">Twittern</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
 				<div style="color:gray;text-align:center;margin-bottom:0.5em;padding:1em 0 1.5em 0;">
@@ -204,12 +204,10 @@
 				</div>
 			</div>
 			<div data-role="popup" id="popupCopyright" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
-				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Wo gibt es Open Data Vornamen?</div>
-				Wo im deutschsprachigen Raum gibt es Open Data Portale?<br>
-				Und bieten sie auch Vornamen-Daten neugeborener Kinder an?<br>
+				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Wo gibt es Open Data?</div>
+				Wo im deutschsprachigen Raum gibt es Open Data Portale? Und bieten sie auch Vornamen-Daten neugeborener Kinder an?<br>
 				<br>
-				Diese Karte zeigt den aktuellen Stand in Sachen Open Data<br>
-				und Vornamen in Deutschland, Österreich und der Schweiz an.<br>
+				Diese Karte zeigt den aktuellen Stand in Sachen Open Data und Vornamen in Deutschland, Österreich und der Schweiz an.<br>
 				<br>
 				Habe ich ein Datenportal übersehen? Sag es mir:<br>
 				<center><div data-role="controlgroup" data-type="horizontal">
@@ -223,19 +221,6 @@
 			</div>
 			<div data-role="popup" id="popupData" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div>Einen kurzen Moment noch...</div>
-			</div>
-			<div data-role="popup" id="popupStart" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
-				Farben der Pins:<br>
-				<br>
-				<i class="fa fa-map-marker" style="color:#f03b20;font-size:1.5em;"></i> <i class="fa fa-map-marker" style="color:#fec44f;font-size:1.5em;"></i> Hat kein Open Data Portal<br>
-				<i class="fa fa-map-marker" style="color:#f03b20;font-size:1.5em;"></i> Keine Vornamen auf der Webseite<br>
-				<i class="fa fa-map-marker" style="color:#fec44f;font-size:1.5em;"></i> Vornamen auf der Webseite<br>
-				<br>
-				<i class="fa fa-map-marker" style="color:#2362a0;font-size:1.5em;"></i> <i class="fa fa-map-marker" style="color:#31a354;font-size:1.5em;"></i> Hat ein Open Data Portal<br>
-				<i class="fa fa-map-marker" style="color:#2362a0;font-size:1.5em;"></i> Kein Vornamen-Datensatz vorhanden<br>
-				<i class="fa fa-map-marker" style="color:#31a354;font-size:1.5em;"></i> Vornamen-Datensatz vorhanden<br>
-				<br>
-				Diese Seite entsteht gerade. Es funktioniert noch nichts alles, ich weiß. <i class="fa fa-smile-o"></i>
 			</div>
 		</div>
 		<div role="main" class="ui-content" id="mapContainer"></div>
