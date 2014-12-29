@@ -165,6 +165,7 @@ var dataFirstnames = [
 	"linkWebNames":"http://www.gelsenkirchen.de/de/Rathaus/Standesamt/",
 	"history":[
 		{"date":"19.11.2014","event":"Anfrage nach Vornamen"},
+		{"date":"23.12.2014","event":"Antwort: angesprochenen Daten bedarf keiner gesonderten Genehmigung"},
 	],
 },
 {
