@@ -14,11 +14,20 @@ var filterDataset = 'portals';
 
 function initNokiaMap( elementName, lat, lon, zoom)
 {
+	// https://developer.here.com/myapps/create-eval
 	// test key for
 	// url: http://www.tursics.de/sample/vornamen/
 	// until: 2014-07-02
-	nokia.Settings.set( 'app_id', 'gbHZJd1LPxixPJOwPtgz');
-	nokia.Settings.set( 'app_code', 'EC7vp6T4ERlNCLllgzzrow');
+//	nokia.Settings.set( 'app_id', 'gbHZJd1LPxixPJOwPtgz');
+//	nokia.Settings.set( 'app_code', 'EC7vp6T4ERlNCLllgzzrow');
+//	nokia.Settings.set( 'defaultLanguage', 'de-DE');
+
+	// https://developer.here.com/myapps
+	// PLAN: Free
+	// url: http://www.tursics.de/sample/vornamen/
+	// limit: 100,000 monthly transactions
+	nokia.Settings.set( 'app_id', 'bgDmVjIXSo2vkcxMYcdb');
+	nokia.Settings.set( 'app_code', '0Kn_z4FcPn2Wxpbz--j7xw');
 	nokia.Settings.set( 'defaultLanguage', 'de-DE');
 
 	map = new nokia.maps.map.Display(
