@@ -1,5 +1,45 @@
 var dataBasics = [
 {
+	"name":"OffeneDaten.de",
+	"group":"other",
+	"nuts":"DE",
+	"population":0,
+	"lat":52.51,
+	"lon":13.42,
+	"linkOGD":"https://offenedaten.de/",
+},
+{
+	"name":"Open Data Portal Österreich",
+	"group":"other",
+	"nuts":"AT",
+	"population":0,
+	"lat":48.20,
+	"lon":16.35,
+	"linkOGD":"https://www.opendataportal.at/",
+},
+{
+	"name":"Wirtschaftsuniversität Wien",
+	"group":"other",
+	"nuts":"AT",
+	"population":0,
+	"lat":48.21,
+	"lon":16.40,
+	"linkOGD":"http://data.wu.ac.at/",
+},
+{
+	"name":"Statistik Österreich",
+	"group":"other",
+	"nuts":"AT",
+	"population":0,
+	"lat":48.18,
+	"lon":16.42,
+	"linkOGD":"http://data.statistik.gv.at",
+	"history":[
+		{"date":"05.08.2013","event":"Anfrage nach Open Data"},
+		{"date":"20.08.2013","event":"Antwort: Portal kommt voraussichtlich Q1 2014"},
+	],
+},
+{
 	"name":"Flensburg",
 	"group":"city",
 	"nuts":"DEF01",
@@ -480,8 +520,6 @@ var dataBasics = [
 	"lon":7.19,
 },
 {
-	"countOGD":false,
-	"countNames":false,
 	"name":"Deutschland",
 	"group":"country",
 	"municipality":11116,
@@ -887,6 +925,7 @@ var dataBasics = [
 	"population":10512000,
 	"lat":48.53,
 	"lon":9.05,
+	"linkOGD":"http://opendata.service-bw.de",
 },
 {
 	"name":"Reutlingen",
@@ -923,8 +962,6 @@ var dataBasics = [
 	"lon":10.89,
 },
 {
-	"countOGD":false,
-	"countNames":false,
 	"name":"Engerwitzdorf",
 	"group":"city",
 	"nuts":"AT31241605",
@@ -934,8 +971,6 @@ var dataBasics = [
 	"linkOGD":"http://data.engerwitzdorf.gv.at/",
 },
 {
-	"countOGD":false,
-	"countNames":false,
 	"name":"Linz",
 	"group":"city",
 	"nuts":"AT31240101",
@@ -967,8 +1002,6 @@ var dataBasics = [
 	],
 },
 {
-	"countOGD":false,
-	"countNames":false,
 	"name":"Kremsmünster",
 	"group":"city",
 	"nuts":"AT31440907",
@@ -1039,8 +1072,6 @@ var dataBasics = [
 	"lon":10.90,
 },
 {
-	"countOGD":false,
-	"countNames":false,
 	"name":"Salzburg (Stadt)",
 	"group":"city",
 	"nuts":"AT32350101",
@@ -1057,24 +1088,7 @@ var dataBasics = [
 	"lat":47.67,
 	"lon":9.58,
 },
-/*{
-	"countOGD":false,
-	"countNames":false,
-	"name":"Statistik Österreich",
-	"group":"???",
-	"nuts":"AT???",
-	"population":8504850,
-	"lat":47.60,
-	"lon":13.78,
-	"history":[
-		{"date":"05.08.2013","event":"Anfrage nach Vornamen"},
-		{"date":"20.08.2013","event":"Antwort: Portal kommt voraussichtlich Q1 2014"},
-		{"date":"","event":""},
-	],
-},*/
 {
-	"countOGD":false,
-	"countNames":false,
 	"name":"Österreich",
 	"group":"country",
 	"nuts":"AT",
@@ -1139,8 +1153,6 @@ var dataBasics = [
 	"linkOGD":"http://www.stadt-zuerich.ch/opendata",
 },
 {
-	"countOGD":false,
-	"countNames":false,
 	"name":"Innsbruck",
 	"group":"city",
 	"nuts":"AT332",
@@ -1160,8 +1172,6 @@ var dataBasics = [
 	"linkOGD":"http://data.vorarlberg.gv.at/",
 },
 {
-	"countOGD":false,
-	"countNames":false,
 	"name":"Graz",
 	"group":"city",
 	"nuts":"AT221",
@@ -1189,8 +1199,6 @@ var dataBasics = [
 	"lon":7.43,
 },
 {
-	"countOGD":false,
-	"countNames":false,
 	"name":"Schweiz",
 	"group":"country",
 	"nuts":"CH",
