@@ -56,7 +56,9 @@ function getBubbleHTML( id)
 		var str = '<div style="font-size:1.25em;">';
 		str += '<div style="border-bottom:1px solid white;padding-bottom:0.5em;margin-bottom:0.5em;">';
 		str += '<i class="fa fa-map-marker"></i> ' + dataBasics[ id]['name'] + '<br>';
-		str += '<i class="fa fa-male"></i> ' + formatPopulation( dataBasics[ id]['population']) + ' Einwohner<br>';
+		if( dataBasics[ id]['population'] > 0) {
+			str += '<i class="fa fa-male"></i> ' + formatPopulation( dataBasics[ id]['population']) + ' Einwohner<br>';
+		}
 		str += '</div>';
 
 		if( typeof dataBasics[ id]['linkOGD'] !== 'undefined') {
@@ -196,90 +198,6 @@ function addMarker()
 */
 // -----------------------------------------------------------------------------
 
-function generateCharts()
-{
-	try {
-		var arrayOGD = [];
-		arrayOGD['DE'] = 0;
-		arrayOGD['AT'] = 0;
-		arrayOGD['CH'] = 0;
-
-		var arrayNames = [];
-		arrayNames['DE'] = 0;
-		arrayNames['AT'] = 0;
-		arrayNames['CH'] = 0;
-
-		var useMunicipality = ('citizen' != $( 'input[name="choiceCalc"]:checked').val());
-
-		var max = dataBasics.length;
-		for( var i = 0; i < max; ++i) {
-			var population = dataBasics[ i]['population'];
-			var country = dataBasics[ i]['nuts'].substr( 0, 2);
-			var hasOGD = (typeof dataBasics[ i]['linkOGD'] !== 'undefined');
-			var hasOGDNames = (typeof dataBasics[ i]['linkOGDNames'] !== 'undefined');
-			var hasWebNames = (typeof dataBasics[ i]['linkWebNames'] !== 'undefined');
-			var countOGD = (typeof dataBasics[ i]['countOGD'] !== 'undefined') ? dataBasics[ i]['countOGD'] : true;
-			var countNames = (typeof dataBasics[ i]['countNames'] !== 'undefined') ? dataBasics[ i]['countNames'] : true;
-			var countMunicipality = (typeof dataBasics[ i]['municipality'] !== 'undefined') ? dataBasics[ i]['municipality'] : 1;
-
-			if( countOGD && hasOGD) {
-				arrayOGD[country] += useMunicipality ? countMunicipality : population;
-			}
-			if( countNames && (hasOGDNames || hasWebNames)) {
-				arrayNames[country] += useMunicipality ? countMunicipality : population;
-			}
-		}
-
-		var arrayResult = [];
-		arrayResult['DE'] = 0;
-		arrayResult['AT'] = 0;
-		arrayResult['CH'] = 0;
-
-		var txtSources = '';
-//		if( 'ogd' == $( 'input[name="choiceSources"]:checked').val()) {
-			arrayResult = arrayOGD;
-			txtSources = 'findet man offene Daten in den OGD-Portalen';
-//		} else {
-//			arrayResult = arrayNames;
-//			txtSources = 'findet man Vornamenlisten in den OGD-Portalen';
-//		}
-
-		var txt = 'Über wie viele Kommunen ' + txtSources + '?<br>';
-
-		var arrayMax = [];
-		if( useMunicipality) {
-			arrayMax['DE'] = 11116;
-			arrayMax['AT'] = 2354;
-			arrayMax['CH'] = 2551;
-			txt += 'Hochgerechnet nach der Anzahl der Kommunen.';
-		} else {
-			arrayMax['DE'] = 80380000;
-			arrayMax['AT'] = 8504850;
-			arrayMax['CH'] = 8112200;
-			txt += 'Hochgerechnet nach der Einwohnerzahl der Kommunen.';
-		}
-
-		$( '#chart1').html( txt);
-		$( '#chart1').trigger( "create");
-		$( '#chart1').trigger( 'updatelayout');
-		var chart1DE = Circles.create({
-			id:'chart1DE',value:arrayResult['DE'],maxValue:arrayMax['DE'],
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['DE'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['DE'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['DE'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
-		});
-		var chart1AT = Circles.create({
-			id:'chart1AT',value:arrayResult['AT'],maxValue:arrayMax['AT'],
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['AT'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['AT'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['AT'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
-		});
-		var chart1CH = Circles.create({
-			id:'chart1CH',value:arrayResult['CH'],maxValue:arrayMax['CH'],
-			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / arrayMax['CH'] * 100) < 10) {return '<span>'+Math.round( value / arrayMax['CH'] * 1000)/10+'%</span>';} else {return '<span>'+Math.round( value / arrayMax['CH'] * 100)+'%</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
-		});
-	} catch( e) {
-	}
-}
-
-// -----------------------------------------------------------------------------
-
 var objectDefault = {
 	getDataset: function() {
 		var ret = [];
@@ -293,6 +211,13 @@ var objectDefault = {
 	},
 	getLegend: function() {
 		return '';
+	},
+	addMarker: function( vec) {
+	},
+	getCharts: function() {
+		return '';
+	},
+	createCharts: function( vec) {
 	}
 };
 
@@ -332,6 +257,11 @@ var objectAllPortals = {
 			});
 			mapContainer.objects.add( marker);
 		}
+	},
+	getCharts: function() {
+		return '';
+	},
+	createCharts: function( vec) {
 	}
 };
 
@@ -378,12 +308,53 @@ var objectNuts1Portals = {
 			});
 			mapContainer.objects.add( marker);
 		}
+	},
+	getCharts: function() {
+		var txt = '';
+		txt += '<div class="chart chart' + filterCountry + '" id="chartCount"></div>';
+		txt += '<div class="chart chart' + filterCountry + '" id="chartPeople"></div>';
+
+		return txt;
+	},
+	createCharts: function( vec) {
+		var maxCount = vec.length;
+		var maxPeople = 0;
+		var valCount = 0;
+		var valPeople = 0;
+		var txtCount = '% der<br>Bundesländer';
+		var txtPeople = '% der<br>Bevölkerung';
+		if( 'CH' == filterCountry) {
+			txtCount = '% der<br>Kantone';
+		}
+		for( var i = 0; i < maxCount; ++i) {
+			var id = vec[ i];
+			if( typeof dataBasics[id]['linkOGD'] !== "undefined") {
+				++valCount;
+				valPeople += dataBasics[id]['population'];
+			}
+		}
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( dataBasics[i]['nuts'] == filterCountry) {
+				maxPeople = dataBasics[i]['population'];
+			}
+		}
+		if( 0 == maxCount) {
+			maxCount = 1;
+		}
+		var chartCount = Circles.create({
+			id:'chartCount',value:valCount,maxValue:maxCount,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / maxCount * 100) < 10) {return '<span>'+Math.round( value / maxCount * 1000)/10+txtCount+'</span>';} else {return '<span>'+Math.round( value / maxCount * 100)+txtCount+'</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+		var chartPeople = Circles.create({
+			id:'chartPeople',value:valPeople,maxValue:maxPeople,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / maxPeople * 100) < 10) {return '<span>'+Math.round( value / maxPeople * 1000)/10+txtPeople+'</span>';} else {return '<span>'+Math.round( value / maxPeople * 100)+txtPeople+'</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
 	}
 };
 
 // -----------------------------------------------------------------------------
 
-var objectCityDistricts = {
+var objectDistrictPortals = {
 	getDataset: function() {
 		var ret = [];
 		var group = 'district';
@@ -420,6 +391,11 @@ var objectCityDistricts = {
 			});
 			mapContainer.objects.add( marker);
 		}
+	},
+	getCharts: function() {
+		return '';
+	},
+	createCharts: function( vec) {
 	}
 };
 
@@ -468,6 +444,160 @@ var objectCityPortals = {
 			});
 			mapContainer.objects.add( marker);
 		}
+	},
+	getCharts: function() {
+		var txt = '';
+		txt += '<div class="chart chart' + filterCountry + '" id="chartCount"></div>';
+		txt += '<div class="chart chart' + filterCountry + '" id="chartPeople"></div>';
+
+		return txt;
+	},
+	createCharts: function( vec) {
+		var maxCount = vec.length;
+		var maxPeople = 0;
+		var valCount = 0;
+		var valPeople = 0;
+		var txtCount = '% der<br>Großstädte';
+		var txtPeople = '% der<br>Bevölkerung';
+		for( var i = 0; i < maxCount; ++i) {
+			var id = vec[ i];
+			if( typeof dataBasics[id]['linkOGD'] !== "undefined") {
+				++valCount;
+				valPeople += dataBasics[id]['population'];
+			}
+		}
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( dataBasics[i]['nuts'] == filterCountry) {
+				maxPeople = dataBasics[i]['population'];
+			}
+		}
+		if( 0 == maxCount) {
+			maxCount = 1;
+		}
+		var chartCount = Circles.create({
+			id:'chartCount',value:valCount,maxValue:maxCount,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / maxCount * 100) < 10) {return '<span>'+Math.round( value / maxCount * 1000)/10+txtCount+'</span>';} else {return '<span>'+Math.round( value / maxCount * 100)+txtCount+'</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+		var chartPeople = Circles.create({
+			id:'chartPeople',value:valPeople,maxValue:maxPeople,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / maxPeople * 100) < 10) {return '<span>'+Math.round( value / maxPeople * 1000)/10+txtPeople+'</span>';} else {return '<span>'+Math.round( value / maxPeople * 100)+txtPeople+'</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+	}
+};
+
+// -----------------------------------------------------------------------------
+
+var objectMunicipalPortals = {
+	getDataset: function() {
+		var ret = [];
+		var group = 'city';
+
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( filterCountry == dataBasics[i].nuts.substr( 0, 2)) {
+				if( 0 <= dataBasics[i].group.indexOf( group)) {
+					if( typeof dataBasics[i]['linkOGD'] !== "undefined") {
+						if( dataBasics[i].population < 100000) {
+							ret[ ret.length] = i;
+						}
+					}
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( nr) {
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + nr + '\');" border=0><i class="fa fa-map-marker marker-green"></i>' + dataBasics[nr].name + ' <span class="ui-li-count">' + formatPopulation( dataBasics[nr].population) + '</span></a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
+	},
+	addMarker: function( vec) {
+		var max = vec.length;
+		var cGreen = '#31a354';
+		for( var i = 0; i < max; ++i) {
+			var id = vec[ i];
+			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
+				brush: {color: cGreen},
+				nr: id
+			});
+			mapContainer.objects.add( marker);
+		}
+	},
+	getCharts: function() {
+		var txt = '';
+		txt += '<div class="chart chart' + filterCountry + '" id="chartPeople"></div>';
+
+		return txt;
+	},
+	createCharts: function( vec) {
+		var maxCount = vec.length;
+		var maxPeople = 0;
+		var valPeople = 0;
+		var txtPeople = '% der<br>Bevölkerung';
+		for( var i = 0; i < maxCount; ++i) {
+			var id = vec[ i];
+			valPeople += dataBasics[id]['population'];
+		}
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( dataBasics[i]['nuts'] == filterCountry) {
+				maxPeople = dataBasics[i]['population'];
+			}
+		}
+		var chartPeople = Circles.create({
+			id:'chartPeople',value:valPeople,maxValue:maxPeople,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / maxPeople * 100) < 10) {return '<span>'+Math.round( value / maxPeople * 1000)/10+txtPeople+'</span>';} else {return '<span>'+Math.round( value / maxPeople * 100)+txtPeople+'</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+	}
+};
+
+// -----------------------------------------------------------------------------
+
+var objectOtherPortals = {
+	getDataset: function() {
+		var ret = [];
+		var group = 'other';
+
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( filterCountry == dataBasics[i].nuts.substr( 0, 2)) {
+				if( typeof dataBasics[i]['linkOGD'] !== "undefined") {
+					if( 0 <= dataBasics[i].group.indexOf( group)) {
+						ret[ ret.length] = i;
+					}
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( nr) {
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + nr + '\');" border=0><i class="fa fa-map-marker marker-green"></i>' + dataBasics[nr].name + '</a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
+	},
+	addMarker: function( vec) {
+		var max = vec.length;
+		var cGreen = '#31a354';
+		for( var i = 0; i < max; ++i) {
+			var id = vec[ i];
+			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
+				brush: {color: cGreen},
+				nr: id
+			});
+			mapContainer.objects.add( marker);
+		}
+	},
+	getCharts: function() {
+		return '';
+	},
+	createCharts: function( vec) {
 	}
 };
 
@@ -509,6 +639,8 @@ function generateDataList()
 	}
 	txt += '<option value="district"' + ('district' == filterLevel ? ' selected="selected"' : '') + '>Die Landkreise mit</option>';
 	txt += '<option value="cities"' + ('cities' == filterLevel ? ' selected="selected"' : '') + '>Alle Großstädte mit</option>';
+	txt += '<option value="municipal"' + ('municipal' == filterLevel ? ' selected="selected"' : '') + '>Kleinere Gemeinden mit</option>';
+	txt += '<option value="other"' + ('other' == filterLevel ? ' selected="selected"' : '') + '>Andere Stellen mit</option>';
 	txt += '</select>';
 
 	txt += '<select name="filterDataset" id="filterDataset">';
@@ -535,16 +667,23 @@ function generateDataList()
 	} else if(( 'nuts1' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectNuts1Portals;
 	} else if(( 'district' == filterLevel) && ('portals' == filterDataset)) {
-		obj = objectCityDistricts;
+		obj = objectDistrictPortals;
 	} else if(( 'cities' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectCityPortals;
+	} else if(( 'municipal' == filterLevel) && ('portals' == filterDataset)) {
+		obj = objectMunicipalPortals;
+	} else if(( 'other' == filterLevel) && ('portals' == filterDataset)) {
+		obj = objectOtherPortals;
 	}
 
 	if( 'CH' == filterCountry) {
-		txt += '<div style="color:gray;margin:.4em 0 .4em 0;">Die Schweizer Daten sind noch nicht komplett evaluiert.</div>';
+		txt += '<div style="color:crimson;margin:.4em 0 .4em 0;">Die Schweizer Daten sind noch nicht komplett evaluiert.</div>';
 	}
 	txt += '<div id="dataInfo">';
 	txt += obj.getLegend();
+	txt += '</div>';
+	txt += '<div style="text-align:center;">';
+	txt += obj.getCharts();
 	txt += '</div>';
 
 	var arr = obj.getDataset();
@@ -578,6 +717,7 @@ function generateDataList()
 
 	arr.sort( geoSort);
 	obj.addMarker( arr);
+	obj.createCharts( arr);
 }
 
 // -----------------------------------------------------------------------------
@@ -612,12 +752,7 @@ function showPage( pageName)
 	$( '#mapDetailsDiv').html( $( pageName).html());
 //	$( pageName).popup( 'open');
 
-	if( '#popupCharts' == pageName) {
-		$( '#choiceSourceOGD').on( 'click', function( e) { generateCharts(); });
-		$( '#choiceSourceNames').on( 'click', function( e) { generateCharts(); });
-		$( '#choiceCalcCitizen').on( 'click', function( e) { generateCharts(); });
-		$( '#choiceCalcMunicipality').on( 'click', function( e) { generateCharts(); });
-	} else if( '#popupData' == pageName) {
+	if( '#popupData' == pageName) {
 		generateDataList();
 	}
 }
@@ -631,13 +766,10 @@ $( document).on( "pagecreate", "#pageMap", function()
 	$.mobile.selectmenu.prototype.options.nativeMenu = false;
 
 	map.addListener( "displayready", function () {
-		generateCharts();
-
 		showPage( '#popupData');
 	});
 
 	$( '#aPopupData').on( 'click', function( e) { showPage( '#popupData'); return false; });
-	$( '#aPopupCharts').on( 'click', function( e) { showPage( '#popupCharts'); return false; });
 	$( '#aPopupSamples').on( 'click', function( e) { showPage( '#popupSamples'); return false; });
 	$( '#aPopupContests').on( 'click', function( e) { showPage( '#popupContests'); return false; });
 	$( '#aPopupShare').on( 'click', function( e) { showPage( '#popupShare'); return false; });

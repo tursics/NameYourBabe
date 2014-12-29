@@ -76,13 +76,14 @@
 		}
 		.segmented-control { text-align:center; }
 		.segmented-control .ui-controlgroup { display:inline; margin:.2em 0px; }
-		.chart { display:inline;padding:0 0.5em 0 0.5em; }
+		.chart { display:inline;padding:0.5em 0.75em 0 0.75em; }
 		.chart div { background-repeat:no-repeat;background-position:15px 15px;background-size:70px 70px; }
 		.chartAT div { background-image:url('images/at.png'); }
 		.chartCH div { background-image:url('images/ch.png'); }
 		.chartDE div { background-image:url('images/de.png'); }
 		#chart1 {padding:0 0 2.5em 0; }
-		.circles-text span { font-size:0.75em;position:absolute;top:70px;left:0;width:100px; }
+		.circles-text span { font-size:0.5em;position:absolute;top:107px;left:0;width:100px;line-height:normal; }
+		.circles-wrp { height:140px; }
 
 		#pageMap { width:100%; height:100%; }
 		#dataList {
@@ -119,27 +120,10 @@
 			<div style="float:left;font-size:2em;font-weight:100 !important;padding:0.3em 0 0 1em;">Open Data DACH-Map</div>
 			<div data-role="controlgroup" data-type="horizontal" style="float:right;margin-right:1em;">
 				<a href="#" id="aPopupData"      data-rel="popup" class="ui-btn"><i class="fa fa-map-marker" style="font-size:1.5em;"></i></a>
-				<a href="#" id="aPopupCharts"    data-rel="popup" class="ui-btn"><i class="fa fa-pie-chart" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupSamples"   data-rel="popup" class="ui-btn"><i class="fa fa-flask" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupContests"  data-rel="popup" class="ui-btn"><i class="fa fa-trophy" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupShare"     data-rel="popup" class="ui-btn"><i class="fa fa-share-alt" style="font-size:1.5em;"></i></a>
 				<a href="#" id="aPopupCopyright" data-rel="popup" class="ui-btn"><i class="fa fa-info-circle" style="font-size:1.5em;"></i></a>
-			</div>
-			<div data-role="popup" id="popupCharts" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
-				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Open Government Data</div>
-				<div>Die aktuelle Statistik über Open Government Data in Deutschland, Österreich und der Schweiz.</div>
-				<div style="margin-top:1.5em;">
-					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="float:left;padding-left:1em;">
-						<input name="choiceCalc" id="choiceCalcCitizen"      value="citizen"      checked="checked" type="radio"><label for="choiceCalcCitizen"><i class="fa fa-users" style="font-size:1.5em;"></i></label>
-						<input name="choiceCalc" id="choiceCalcMunicipality" value="municipality" type="radio"><label for="choiceCalcMunicipality"><i class="fa fa-list" style="font-size:1.5em;"></i></label>
-					</fieldset>
-					<div style="clear:both;"></div>
-				</div>
-				<div id="chart1"></div>
-				<center>
-					<div class="chart chartAT" id="chart1AT"></div><div class="chart chartDE" id="chart1DE"></div><div class="chart chartCH" id="chart1CH"></div>
-				</center>
-				<div style="color:gray;text-align:center;margin-top:4em;padding-top:0.5em;">Schweizer Daten sind noch nicht komplett evaluiert.</div>
 			</div>
 			<div data-role="popup" id="popupSamples" data-theme="a" data-position-to="window" data-transition="slidedown" class="ui-corner-all ui-content">
 				<div style="font-size:2em;font-weight:100;padding:0 0 .5em 0;">Beispiele</div>
