@@ -12,6 +12,8 @@
 		$whatId = $_GET[ 'id'];
 	}
 
+	include_once( "HarvestMetadata.php");
+
 	include_once( "export.php");
 	include_once( "metadata.php");
 	include_once( "sources.php");
@@ -40,7 +42,7 @@ function gMeaningsToFile()
 //--------------------------------------------------------------------------------------------------
 
 $gBoysMem = memory_get_peak_usage( false);
-include_once( "data/boys.php");
+//include_once( "data/boys.php");
 $gBoysMem = memory_get_peak_usage( false) - $gBoysMem;
 
 function gBoysToFile()
@@ -51,7 +53,7 @@ function gBoysToFile()
 	$contents .= var_export( $gBoys, true);
 	$contents .= ';'."\n".'?>'."\n";
 
-	file_put_contents( dirname(__FILE__) . '/data/boys.php', $contents);
+//	file_put_contents( dirname(__FILE__) . '/data/boys.php', $contents);
 	file_put_contents( dirname(__FILE__) . '/backup/boys-' . date( 'Y-W') . '.php', $contents);
 }
 
@@ -60,7 +62,7 @@ function gBoysToFile()
 //--------------------------------------------------------------------------------------------------
 
 $gGirlsMem = memory_get_peak_usage( false);
-include_once( "data/girls.php");
+//include_once( "data/girls.php");
 $gGirlsMem = memory_get_peak_usage( false) - $gGirlsMem;
 
 function gGirlsToFile()
@@ -71,7 +73,7 @@ function gGirlsToFile()
 	$contents .= var_export( $gGirls, true);
 	$contents .= ';'."\n".'?>'."\n";
 
-	file_put_contents( dirname(__FILE__) . '/data/girls.php', $contents);
+//	file_put_contents( dirname(__FILE__) . '/data/girls.php', $contents);
 	file_put_contents( dirname(__FILE__) . '/backup/girls-' . date( 'Y-W') . '.php', $contents);
 }
 
@@ -989,6 +991,8 @@ function main()
 		nutsShowPageBrowse();
 	} else if( $do == 'update' && $what == 'sourcemetadata') {
 		metadataShowPageUpdate();
+	} else if( $do == 'update' && $what == 'sourcedata' && $whatId != '') {
+		sourcesShowPageUpdateId( $whatId);
 	} else if( $do == 'update' && $what == 'sourcedata') {
 		showPageUpdateSourcedata();
 	} else if( $do == 'update' && $what == 'namehitlist') {
@@ -1021,6 +1025,9 @@ function main()
 	echo( "a {color:ForestGreen;}\n");
 	echo( "h1 {border-bottom:1px solid ForestGreen;margin:-1em -1em 1em -1em;background:#444444;padding:1em;font-size:1em;}\n");
 	echo( "hr {border-bottom:1px solid ForestGreen;margin:0 -1em 0 -1em;}\n");
+	echo( ".log {margin:.5em 0 .5em .5em;font-family:monospace;font-size:1em;color:#fff;white-space:nowrap;overflow-x:hidden;}\n");
+	echo( ".log a {color:ForestGreen;text-decoration:none;}\n");
+	echo( ".log a:hover {color:ForestGreen;text-decoration:underline;}\n");
 	echo( "</style>\n");
 	echo( "</head>\n");
 

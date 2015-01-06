@@ -5,8 +5,6 @@
 //--------------------------------------------------------------------------------------------------
 
 include_once( "data/sources.php");
-// old tags (to be removed)
-//   'Modified'
 
 function gSourceToFile()
 {
@@ -773,102 +771,119 @@ function sourcesShowPageBrowseAllCmp( $a, $b)
 
 //--------------------------------------------------------------------------------------------------
 
+function sortMetadataVecByNUTS( $a, $b)
+{
+	if( $a['nuts'] != $b['nuts']) {
+		if( $a['nuts'] == '') {
+			return 1;
+		}
+		if( $b['nuts'] == '') {
+			return -1;
+		}
+		return ($a['nuts'] < $b['nuts']) ? -1 : 1;
+	}
+	if( $a['name'] == $b['name']) {
+		return 0;
+	}
+	return ($a['name'] > $b['name']) ? -1 : 1;
+}
+
+//--------------------------------------------------------------------------------------------------
+
 function sourcesShowPageBrowseAll()
 {
-	global $gSource;
+	global $MetadataVec;
+	global $dataHarvestMetadata;
 
 	$txt = '';
-	$txt .= '<h1>Source list</h1>';
+	$txt .= '<div class="log">Source list<br>===========<br><br>';
 
-	$txt .= '<div><div style="display:inline;float:left;min-width:3.5em;">AT11</div><span>NUTS region</span></div>';
-	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:ForestGreen;margin-right:2.15em;">&nbsp;</div><span>Data up to date</span></div>';
-	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:ForestGreen;margin-right:2.15em;">&nbsp;</div><span>NUTS exists in own table and "manNUTS" in source file</span></div>';
-	$txt .= '<div><div style="display:inline;float:left;min-width:1.25em;background-color:ForestGreen;margin-right:2.15em;text-align:center;">©</div><span>Well known copyright information</span></div>';
+	$txt .= 'NUTS region&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NUTS&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;Name<br>';
+	$txt .= '---------------- ----------- ------- --------- ----------------------------------------<br>';
 
-	$txt .= '<br>';
-	$txt .= '<hr>';
-	$txt .= '<br>';
+	usort( $MetadataVec, "sortMetadataVecByNUTS");
 
-	usort( $gSource, "sourcesShowPageBrowseAllCmp");
-
-	$group = '';
 	$skipped = 0;
-	$bg = true;
-	$nuts1 = substr( $gSource[0]['nuts'], 0, 2);
-	for( $i = 0; $i < count( $gSource); ++$i) {
-		$name = $gSource[$i]['name'];
-		if( isset( $gSource[$i]['group'])) {
-			if( $group == $gSource[$i]['group']) {
-				++$skipped;
-				continue;
+	$group = '';
+	$nuts1 = substr( $MetadataVec[0]['nuts'], 0, 2);
+	for( $i = 0; $i < count( $MetadataVec); ++$i) {
+		if( $group == $MetadataVec[$i]['nuts']) {
+			++$skipped;
+			continue;
+		}
+		$group = $MetadataVec[$i]['nuts'];
+		$name = $MetadataVec[$i]['name'];
+		$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+
+		if( $nuts1 != substr( $MetadataVec[$i]['nuts'], 0, 2)) {
+			$nuts1 = substr( $MetadataVec[$i]['nuts'], 0, 2);
+			$txt .= '<br>';
+		}
+
+		$dataUpdate = '';
+		$dataUpdateLink = '';
+		if( $harvest['update'] < 0) {
+			$dataUpdate = 'no data';
+		} else if( $harvest['update'] > 0) {
+			$dataUpdate = 'need update';
+			$dataUpdateLink = 'do=update&what=sourcedata&id='.md5($MetadataVec[$i]['meta']);
+		} else if( $harvest['update'] === 0) {
+			$dataUpdate = '&#10003;';
+		} else {
+			$dataUpdate = 'ERROR';
+		}
+
+		$dataNuts = '';
+		if( 0 == strlen( $MetadataVec[$i]['nuts'])) {
+			$dataNuts = 'missing';
+		} else {
+			if( nutsExists( $MetadataVec[$i]['nuts'])) {
+				$dataNuts = '&#10003;';
+			} else {
+				$dataNuts = 'missing';
 			}
-			$group = $gSource[$i]['group'];
-			$name = $group;
+		}
+
+		$dataCopyright = 'ERROR';
+		if( 0 == count( $harvest['url'])) {
+			$dataCopyright = 'unknown';
+		} else if( isset( $harvest['license']) && isset( $harvest['citation'])) {
+			$dataCopyright = '&#10003;';
+		} else if( isset( $harvest['citation']) && isset( $MetadataVec[$i]['citation'])) {
+			$dataCopyright = 'missing';
+		} else if( isset( $harvest['license']) && isset( $MetadataVec[$i]['citation'])) {
+			$dataCopyright = '&#10003;';
+		} else if( isset( $MetadataVec[$i]['license']) && isset( $MetadataVec[$i]['citation'])) {
+			$dataCopyright = '&#10003;';
 		} else {
-			$group = '';
+			$dataCopyright = 'missing';
 		}
 
-		if( $nuts1 != substr( $gSource[$i]['nuts'], 0, 2)) {
-			$nuts1 = substr( $gSource[$i]['nuts'], 0, 2);
-			$txt .= '<div style="background:' . ($bg ? '#444444' : '#3a3a3a') .';">&nbsp;</div>';
+		$txt .= $MetadataVec[$i]['nuts'];
+		for( $j = strlen($MetadataVec[$i]['nuts']); $j < 17; ++$j) $txt .= '&nbsp;';
+
+		if( '' == $dataUpdateLink) {
+			$txt .= $dataUpdate;
 		} else {
-			$bg = !$bg;
+			$txt .= '<a href="'.$dataUpdateLink.'">'.$dataUpdate.'</a>';
 		}
+		for( $j = ('&' == substr($dataUpdate,0,1) ? 1 : strlen($dataUpdate)); $j < 12; ++$j) $txt .= '&nbsp;';
 
-		$bgColor = $bg ? '#3a3a3a' : '#444444';
+		$txt .= $dataNuts;
+		for( $j = ('&' == substr($dataNuts,0,1) ? 1 : strlen($dataNuts)); $j < 8; ++$j) $txt .= '&nbsp;';
 
-		$updateColor = '#000000';
-		if( $gSource[$i]['autoUpdate'] < 0) {
-			$updateColor = '$bgColor';
-		} else if( $gSource[$i]['autoUpdate'] > 0) {
-			$updateColor = 'DarkOrange';
-		} else {
-			$updateColor = 'ForestGreen';
-		}
+		$txt .= $dataCopyright;
+		for( $j = ('&' == substr($dataCopyright,0,1) ? 1 : strlen($dataCopyright)); $j < 10; ++$j) $txt .= '&nbsp;';
 
-		$nutsColor = '#000000';
-		if( 0 == count( $gSource[$i]['autoUrl'])) {
-			$nutsColor = '$bgColor';
-		} else if(( count( $gSource[$i]['autoUrl']) == count( $gSource[$i]['autoName'])) && (count( $gSource[$i]['autoName']) == count( $gSource[$i]['manNUTS']))) {
-			$nutsColor = 'ForestGreen';
-			for( $j = 0; $j < count( $gSource[$i]['manNUTS']); ++$j) {
-				if( !nutsExists( $gSource[$i]['manNUTS'][$j])) {
-					$nutsColor = 'DarkOrange';
-				}
-			}
-		} else {
-			$nutsColor = 'DarkOrange';
-		}
-
-		$copyColor = '#000000';
-		$copyText = '&nbsp;';
-		if( 0 == count( $gSource[$i]['autoUrl'])) {
-			$copyColor = '$bgColor';
-		} else if( isset( $gSource[$i]['autoLicense']) && isset( $gSource[$i]['autoCitation'])) {
-			$copyColor = 'ForestGreen';
-		} else if( isset( $gSource[$i]['autoCitation']) && isset( $gSource[$i]['manCitation'])) {
-			$copyColor = 'DarkOrange';
-		} else if( isset( $gSource[$i]['autoLicense']) && isset( $gSource[$i]['manCitation'])) {
-			$copyColor = 'ForestGreen';
-		} else if( isset( $gSource[$i]['manLicense']) && isset( $gSource[$i]['manCitation'])) {
-			$copyColor = 'ForestGreen';
-		} else {
-			$copyColor = 'DarkOrange';
-		}
-		if( isset( $gSource[$i]['autoLicense']) || isset( $gSource[$i]['manLicense'])) {
-			$copyText = '©';
-		}
-
-		$txt .= '<div style="background:' . $bgColor .';">';
-		$txt .= '<div style="display:inline;float:left;min-width:3.5em;">' . $gSource[$i]['nuts'] . '&nbsp;</div>';
-		$txt .= '<div style="display:inline;float:left;min-width:1.25em;background-color:'.$updateColor.';margin-right:0.15em;">&nbsp;</div>';
-		$txt .= '<div style="display:inline;float:left;min-width:1.25em;background-color:'.$nutsColor.';margin-right:0.15em;">&nbsp;</div>';
-		$txt .= '<div style="display:inline;float:left;min-width:1.25em;background-color:'.$copyColor.';margin-right:0.75em;text-align:center;">'.$copyText.'</div>';
-		$txt .= '<span style="width:6em;"><a href="do=source&what='.$gSource[$i]['id'].'">'.$name.'</a></span>';
-		$txt .= '</div>';
+		$txt .= '<a href="do=source&what='.$MetadataVec[$i]['id'].'">'.$name.'</a>';
+		$txt .= '<br>';
 	}
 
-	$txt .= (count( $gSource) - $skipped) . ' sources (' . count( $gSource) . ' source links)<br>';
+	$txt .= '---------------- ----------- ------- --------- ----------------------------------------<br>';
+	$txt .= '<br>';
+	$txt .= (count( $MetadataVec) - $skipped) . ' sources (' . count( $MetadataVec) . ' source links)<br>';
+
+	$txt .= '</div>';
 
 	$txt .= '<br>';
 	$txt .= '<hr>';
@@ -878,6 +893,150 @@ function sourcesShowPageBrowseAll()
 	$txt .= '<br>';
 	$txt .= '<a href="do=update&what=sourcemetadata">Update Metadata</a><br>';
 	$txt .= '<a href="do=update&what=sourcedata">Update dirty data</a><br>';
+
+	echo( $txt);
+}
+
+//--------------------------------------------------------------------------------------------------
+
+function sourcesShowPageUpdateDownload( $i)
+{
+	global $HarvestMetadata;
+	global $MetadataVec;
+	global $dataHarvestMetadata;
+
+	$txt = '';
+	$txt .= 'Number&nbsp;Copy from&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To local path<br>';
+	$txt .= '------ ------------------------------ ----------------------------------------<br>';
+	echo( $txt);
+
+	$harvest = & $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+	$harvest['download'] = Array();
+
+	for( $idx = 0; $idx < count( $harvest['url']); ++$idx) {
+		$name = $harvest['name'][$idx];
+		$url = $harvest['url'][$idx];
+
+		if( 0 === strpos( $url, '/katalog/storage')) {
+			$url = 'http://data.gv.at' . $url;
+		} else if( 0 === strpos( $url, '/at.gv.brz.ogd/storage')) {
+			$url = 'http://data.gv.at/katalog/' . substr( $url, 15);
+		} else if( 0 === strpos( $url, '/private/')) {
+			$url = dirname(__FILE__) . '/data' . $url;
+		}
+
+		$path = substr($url,strrpos($url,'/') + 1);
+		if( strlen( $name) == 0) {
+			$name = $path;
+		}
+		if( $name == '') {
+			$name = $path;
+		}
+
+		$txt = '';
+
+		$num = (string)($idx+1);
+		$txt .= $num;
+		for( $j = strlen($num); $j < 7; ++$j) $txt .= '&nbsp;';
+
+		$txt .= '<a href="' . $url. '" title="'.$name.'" target="_blank">' . substr($name,0,30) . '</a>&nbsp;';
+		for( $j = strlen($name); $j < 30; ++$j) $txt .= '&nbsp;';
+
+		if( '' == $path) {
+			$txt .= '[ignore path]';
+		} else {
+			$file = dirname(__FILE__).'/data/harvest/'.substr($MetadataVec[$i]['nuts'], 0, 2);
+			if( !file_exists( $file)) {
+				mkdir( $file, 0777);
+			}
+			$file .= '/'.$MetadataVec[$i]['nuts'];
+			if( !file_exists( $file)) {
+				mkdir( $file, 0777);
+			}
+
+			$path = 'data/harvest/'.substr($MetadataVec[$i]['nuts'], 0, 2).'/'.$MetadataVec[$i]['nuts'].'/'.$path;
+			$txt .= $path;
+
+			if( !copy( $url, dirname(__FILE__).'/'.$path)) {
+				$txt .= '[failed to download file]';
+			} else {
+				$harvest['download'][] = $path;
+
+				if( '.zip' == substr( $path, -4)) {
+					$zip = new ZipArchive();
+					$zip->open( dirname(__FILE__).'/'.$path);
+
+					for( $num = 0; $num < $zip->numFiles; ++$num) {
+						$info = $zip->statIndex( $num);
+						$number = ($idx+1).'.'.($num+1);
+						$txt .= '<br>'.$number;
+						for( $j = strlen($number); $j < 37; ++$j) $txt .= '&nbsp;';
+
+						$path = 'data/harvest/'.substr($MetadataVec[$i]['nuts'], 0, 2).'/'.$MetadataVec[$i]['nuts'].'/zip_'.$info['name'];
+						$txt .= $path;
+
+						$url = 'zip://' . $zip->filename . '#' . $info['name'];
+
+						if( !copy( $url, dirname(__FILE__).'/'.$path)) {
+							$txt .= '[failed to unzip file '.$info['name'].']';
+						} else {
+							$harvest['download'][] = $path;
+						}
+
+//						parseSourcedataAll( $file, $sourceIndex, $urlID, $quite);
+					}
+				}
+			}
+		}
+		$txt .= '<br>';
+		echo( $txt);
+
+//		parseSourcedataURL( $i, $idx, false);
+	}
+
+	$txt = '';
+	$txt .= '------ ------------------------------ ----------------------------------------<br>';
+	echo( $txt);
+
+//	$HarvestMetadata->save();
+}
+
+function sourcesShowPageUpdateId( $id)
+{
+	global $MetadataVec;
+	global $dataHarvestMetadata;
+
+	$txt = '';
+	$txt .= '<div class="log">Update source data<br>==================<br><br>';
+	echo( $txt);
+
+	for( $i = 0; $i < count( $MetadataVec); ++$i) {
+		if( $id == md5($MetadataVec[$i]['meta'])) {
+			$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+
+			$txt = '';
+			$txt .= 'Update '.$MetadataVec[$i]['name'] . '<br>';
+			if( 1 == $harvest['update']) {
+				$txt .= 'Update available since ' . $harvest['update'] . ' day<br>';
+			} else {
+				$txt .= 'Update available since ' . $harvest['update'] . ' days<br>';
+			}
+			$txt .= '<br>';
+			echo( $txt);
+
+			sourcesShowPageUpdateDownload( $i);
+			break;
+		}
+	}
+
+	$txt = '';
+	$txt .= '</div>';
+
+	$txt .= '<br>';
+	$txt .= '<hr>';
+	$txt .= '<br>';
+	$txt .= '<a href="do=save&what=sourcedata">Save</a><br>';
+	$txt .= '<a href="do=browse&what=sources">Cancel</a><br>';
 
 	echo( $txt);
 }
