@@ -13,6 +13,7 @@
 	}
 
 	include_once( "HarvestMetadata.php");
+	include_once( "HarvestData.php");
 
 	include_once( "export.php");
 	include_once( "metadata.php");
