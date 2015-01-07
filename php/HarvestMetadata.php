@@ -142,7 +142,7 @@ class HarvestMetadataParserOGDAustria11 extends HarvestMetadataParserBase
 	public function parse( $contents, $json)
 	{
 		$ret = new HarvestMetadataResult();
-		$ret->modified = strtotime( $json['metadata_modified']);
+		$ret->modified = $this->strtotimeLoc( $json['metadata_modified']);
 		$ret->modDays = intval(( strtotime( 'now') - $ret->modified) /60 /60 /24);
 		$ret->vecURL = Array();
 		$ret->vecName = Array();
@@ -159,6 +159,20 @@ class HarvestMetadataParserOGDAustria11 extends HarvestMetadataParserBase
 
 		return $ret;
 	}
+
+	public function strtotimeLoc( $date_string)
+	{
+		$ret = strtotime( $date_string);
+		if( $ret === false) {
+			$date_string = strtr( strtolower( $date_string), array('januar'=>'jan','februar'=>'feb','märz'=>'march','april'=>'apr','mai'=>'may','juni'=>'jun','juli'=>'jul','august'=>'aug','september'=>'sep','oktober'=>'oct','november'=>'nov','dezember'=>'dec'));
+			$ret = strtotime( $date_string);
+			if( $ret === false) {
+				$date_string = strtr( $date_string, array('-'=>''));
+				$ret = strtotime( $date_string);
+			}
+		}
+		return $ret;
+	}
 } // class HarvestMetadataParserOGDAustria11
 $HarvestMetadata->addParser('HarvestMetadataParserOGDAustria11');
 
@@ -173,7 +187,7 @@ class HarvestMetadataParserOGDAustria21 extends HarvestMetadataParserOGDAustria1
 
 	public function parse( $contents, $json)
 	{
-		return parent::parse( $contents, $json['result']);
+		return parent::parse( $contents, $json);
 	}
 } // class HarvestMetadataParserOGDAustria21
 $HarvestMetadata->addParser('HarvestMetadataParserOGDAustria21');
@@ -189,6 +203,9 @@ class HarvestMetadataParserOGDAustria3 extends HarvestMetadataParserOGDAustria11
 
 	public function parse( $contents, $json)
 	{
+		if( 1 == count( $json['result'])) {
+			return parent::parse( $contents, $json['result'][0]);
+		}
 		return parent::parse( $contents, $json['result']);
 	}
 } // class HarvestMetadataParserOGDAustria3
