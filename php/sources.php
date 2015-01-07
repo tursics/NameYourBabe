@@ -982,21 +982,137 @@ function sourcesShowPageUpdateDownload( $i)
 						} else {
 							$harvest['download'][] = $path;
 						}
-
-//						parseSourcedataAll( $file, $sourceIndex, $urlID, $quite);
 					}
 				}
 			}
 		}
 		$txt .= '<br>';
 		echo( $txt);
-
-//		parseSourcedataURL( $i, $idx, false);
 	}
 
 	$txt = '';
 	$txt .= '------ ------------------------------ ----------------------------------------<br>';
 	echo( $txt);
+
+	$HarvestMetadata->save();
+}
+
+function sourcesShowPageUpdateHarvest( $i)
+{
+	global $HarvestData;
+	global $MetadataVec;
+	global $dataHarvestMetadata;
+
+	$harvest = & $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+	$nuts = $MetadataVec[$i]['nuts'];
+	$vecDownload = $harvest['download'];
+
+	for( $idx = 0; $idx < count( $vecDownload); ++$idx) {
+		$url = $vecDownload[$idx];
+		$file = dirname(__FILE__).'/'.$url;
+
+		$txt = '';
+		$txt .= '<br>';
+		$txt .= 'Analyse '.filesize( $file).' bytes of '.$url.'<br>';
+		$txt .= '------------------------------------------------------------------------------<br>';
+		echo( $txt);
+
+		$contents = file_get_contents( $file);
+//		$contents = utf8_encode( $contents);
+
+		$vec = Array();
+		$rows = explode( "\n", $contents);
+		$rowsCount = count( $rows);
+		for( $i = 0; $i < $rowsCount; ++$i) {
+			$vec[] = explode( ";", $rows[ $i]);
+		}
+
+		$vecCount = count( $vec);
+		if( $vecCount > 10) {
+			$cells = 0;
+			for( $i = 0; $i < 10; ++$i) {
+				$cells += count($vec[ $i]);
+			}
+			if( 0 == $cells) {
+				$vec = Array();
+				for( $i = 0; $i < $rowsCount; ++$i) {
+					$vec[] = explode( ",", $rows[ $i]);
+				}
+			}
+		}
+
+		$result = $HarvestData->parse( $vec, $vecCount);
+		$txt = '';
+
+		if( $result->error) {
+			$txt .= 'Error: ' . $result->errorMsg . '<br>';
+		} else {
+			$dataCount = count( $result->data);
+			for( $it = 0; $it < $dataCount; ++$it) {
+				$item = $result->data[ $it];
+				if( '' != $item['error']) {
+					$txt .= $item['error'].' (#' . $item['pos'] . ' '.($item['male']?'male':'female').' in ' . $item['year'] . ')'.'<br>';
+				}
+			}
+			$txt .= '<br>'.$dataCount . ' items collected.<br>';
+
+/*			$lastMod = strtotime( $harvest['modified']);
+			$diffMod = intval(( $result->modified - $lastMod) /60 /60 /24);
+
+			if( 0 >= $diffMod) {
+				$dataData = '&#10003;'.' Last mod: '.$lastMod;
+				$harvest['update'] = 0;
+			} else {
+				if( 1 == $result->modDays) {
+					$dataData = $result->modDays.' day';
+				} else {
+					$dataData = $result->modDays.' days';
+				}
+				$harvest['name'] = $result->vecName;
+				$harvest['url'] = $result->vecURL;
+				$harvest['license'] = $result->license;
+				$harvest['citation'] = $result->citation;
+				$harvest['update'] = $result->modDays;
+				if( 0 == $harvest['update']) {
+					$harvest['update'] = 1;
+				}
+			}*/
+		}
+
+		$txt .= '------------------------------------------------------------------------------<br>';
+		echo( $txt);
+	}
+
+/*	if(( $vecCount > 2) && ($vec[2][1] == 'NUTS2')) {
+		parseSourcedataNUTS( $vec, $sourceID, $urlID, $quite);
+	} else if(( $vecCount > 0) && (substr( $vec[0][0], 0, 21) == 'GemeindeEngerwitzdorf')) {
+		parseSourcedataEngerwitzdorf( $vec, $sourceID, $urlID, $quite);
+	} else if(( $vecCount > 0) && ($vec[0][0] == 'Rang') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname')) {
+		parseSourcedataLinz( $vec, $sourceID, $urlID, $gSource[$sourceIndex]['autoName'][$urlID], $quite);*/
+//	} else if(( $vecCount > 0) && /*($vec[0][0] == 'Rang') &&*/ ($vec[0][1] == 'NUTS') && (trim( $vec[0][2]) == 'Geschlecht') && (trim( $vec[0][3]) == 'Vorname') && (trim( $vec[0][4]) == 'Jahr')) {
+//		parseSourcedataSalzburg( $vec, $sourceID, $urlID, $quite);
+/*	} else if(( $vecCount > 0) && ($vec[0][0] == 'Jahr') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname')) {
+		parseSourcedataVorarlberg( $vec, $sourceID, $urlID, $quite);
+	} else if(( $vecCount > 0) && ($vec[0][1] == '"Vorname"') && (trim( $vec[0][2]) == '"Geschlecht"') && (trim( $vec[0][3]) == '"Anzahl"')) {
+		parseSourcedataZuerich( $vec, $sourceID, $urlID, $quite);*/
+//	} else if(( $vecCount > 0) && /*($vec[0][0] == 'vorname') &&*/ ($vec[0][1] == 'anzahl') && (trim( $vec[0][2]) == 'geschlecht')) {
+/*		$theYear = 2012; // berlin missing year number in 2012
+		preg_match_all('!\d+!', $file, $yearVec);
+		if( 0 < count( $yearVec[0])) {
+			$lastYear = $yearVec[0][count($yearVec[0])-1];
+			$lastYear = substr( $lastYear, strlen( $lastYear) - 4);
+			if(( 1900 < $lastYear) && ($lastYear < 2100)) {
+				$theYear = $lastYear;
+			}
+		}
+		parseSourcedataBerlinBonnChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theYear, $quite);
+	} else if(( $vecCount > 1) && ($vec[1][0] == 'Anzahl der  Kinder mit')) {
+		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
+	} else if(( $vecCount > 1) && (trim( $vec[1][0]) == 'Anzahl der Kinder mit')) {
+		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
+	} else if(( $vecCount > 2) && (trim( $vec[2][0]) == 'Anzahl der Kinder mit')) {
+		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
+	}*/
 
 //	$HarvestMetadata->save();
 }
@@ -1015,16 +1131,20 @@ function sourcesShowPageUpdateId( $id)
 			$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
 
 			$txt = '';
-			$txt .= 'Update '.$MetadataVec[$i]['name'] . '<br>';
+			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $MetadataVec[$i]['nuts'])['en-US'] . '<br>';
+			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$MetadataVec[$i]['nuts'] . '<br>';
+			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
+			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
 			if( 1 == $harvest['update']) {
-				$txt .= 'Update available since ' . $harvest['update'] . ' day<br>';
+				$txt .= ' day<br>';
 			} else {
-				$txt .= 'Update available since ' . $harvest['update'] . ' days<br>';
+				$txt .= ' days<br>';
 			}
 			$txt .= '<br>';
 			echo( $txt);
 
 			sourcesShowPageUpdateDownload( $i);
+			sourcesShowPageUpdateHarvest( $i);
 			break;
 		}
 	}
