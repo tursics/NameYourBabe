@@ -562,5 +562,11 @@ $MetadataVec=array (
     'name' => 'Delmenhorst',
     'meta' => '/private/delmenhorst/metadata.json',
   ),
+  array (
+    'nuts' => 'DEA1F024',
+    'name' => 'Vornamenstatistik für Neugeborene 2014 der Stadt Moers',
+    'meta' => 'http://www.offenedaten.moers.de/C1257221003C7526/html/D7AB28A163F86824C1257DC60047A1F0?OpenDocument',
+    'citation' => 'Datenquelle: Stadt Moers – offenedaten.moers.de',
+  ),
 );
 ?>
