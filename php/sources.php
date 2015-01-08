@@ -1041,8 +1041,16 @@ function sourcesShowPageUpdateHarvest( $i)
 			}
 		}
 
-		$result = $HarvestData->parse( $vec, $vecCount);
 		$txt = '';
+
+		if( '.pdf' == substr( $url, -4)) {
+			$txt .= 'Ignore PDF files<br>';
+			$txt .= '------------------------------------------------------------------------------<br>';
+			echo( $txt);
+			continue;
+		}
+
+		$result = $HarvestData->parse( $vec, $vecCount, $nuts, $url);
 
 		if( $result->error) {
 			$txt .= 'Error: ' . $result->errorMsg . '<br>';
@@ -1054,7 +1062,11 @@ function sourcesShowPageUpdateHarvest( $i)
 					$txt .= $item['error'].' (#' . $item['pos'] . ' '.($item['male']?'male':'female').' in ' . $item['year'] . ')'.'<br>';
 				}
 			}
-			$txt .= '<br>'.$dataCount . ' items collected.<br>';
+			if( 0 == strlen( $txt)) {
+				$txt .= $dataCount . ' entries saved in ' . count( $result->file) . ' files<br>';
+			} else {
+				$txt .= $dataCount . ' entries collected but error found. No files saved!<br>';
+			}
 
 /*			$lastMod = strtotime( $harvest['modified']);
 			$diffMod = intval(( $result->modified - $lastMod) /60 /60 /24);
@@ -1093,20 +1105,7 @@ function sourcesShowPageUpdateHarvest( $i)
 //		parseSourcedataSalzburg( $vec, $sourceID, $urlID, $quite);
 /*	} else if(( $vecCount > 0) && ($vec[0][0] == 'Jahr') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname')) {
 		parseSourcedataVorarlberg( $vec, $sourceID, $urlID, $quite);
-	} else if(( $vecCount > 0) && ($vec[0][1] == '"Vorname"') && (trim( $vec[0][2]) == '"Geschlecht"') && (trim( $vec[0][3]) == '"Anzahl"')) {
-		parseSourcedataZuerich( $vec, $sourceID, $urlID, $quite);*/
-//	} else if(( $vecCount > 0) && /*($vec[0][0] == 'vorname') &&*/ ($vec[0][1] == 'anzahl') && (trim( $vec[0][2]) == 'geschlecht')) {
-/*		$theYear = 2012; // berlin missing year number in 2012
-		preg_match_all('!\d+!', $file, $yearVec);
-		if( 0 < count( $yearVec[0])) {
-			$lastYear = $yearVec[0][count($yearVec[0])-1];
-			$lastYear = substr( $lastYear, strlen( $lastYear) - 4);
-			if(( 1900 < $lastYear) && ($lastYear < 2100)) {
-				$theYear = $lastYear;
-			}
-		}
-		parseSourcedataBerlinBonnChemnitzHamburgUlm( $vec, $sourceID, $urlID, $theYear, $quite);
-	} else if(( $vecCount > 1) && ($vec[1][0] == 'Anzahl der  Kinder mit')) {
+/*	} else if(( $vecCount > 1) && ($vec[1][0] == 'Anzahl der  Kinder mit')) {
 		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
 	} else if(( $vecCount > 1) && (trim( $vec[1][0]) == 'Anzahl der Kinder mit')) {
 		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
