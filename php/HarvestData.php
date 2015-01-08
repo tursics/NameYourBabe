@@ -25,7 +25,7 @@ class HarvestDataParserBase
 		}
 	}
 
-	public function saveData( & $data, & $fileVec, & $checksumVec, $nuts)
+	public function saveData( & $data, & $fileVec, & $checksumVec, & $yearVec, $nuts)
 	{
 		$contents = Array();
 		$dataCount = count( $data);
@@ -41,6 +41,7 @@ class HarvestDataParserBase
 
 		$fileVec = Array();
 		$checksumVec = Array();
+		$yearVec = Array();
 
 		foreach( $contents as $key => $value) {
 			$path = 'data/harvest/'.substr($nuts, 0, 2).'/'.$nuts.'/'.$nuts.'_'.$key.'.csv';
@@ -51,6 +52,9 @@ class HarvestDataParserBase
 
 			$fileVec[] = $path;
 			$checksumVec[] = md5( $out);
+			if( !in_array( substr( $key, 0, 4), $yearVec)) {
+				$yearVec[] = substr( $key, 0, 4);
+			}
 		}
 
 		// check md5!
@@ -139,6 +143,7 @@ class HarvestDataResult
 	public $data = Array();
 	public $file = Array();
 	public $checksum = Array();
+	public $years = Array();
 } // class HarvestDataResult
 
 //------------------------------------------------------------------------------
@@ -262,6 +267,8 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 						$name = 'Anna-Lena';
 					} else if( $name == "ANNA-MARIA") {
 						$name = 'Anna-Maria';
+					} else if( $name == "ANNA-SOPHIE") {
+						$name = 'Anna-Sophie';
 					} else if( $name == "LISA-MARIE") {
 						$name = 'Lisa-Marie';
 					} else {
@@ -285,7 +292,7 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 		}
 
 		$this->parseData( $ret->data);
-		$this->saveData( $ret->data, $ret->file, $ret->checksum, $nuts);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
 
 		$ret->error = false;
 		$ret->errorMsg = '';
@@ -370,7 +377,8 @@ class HarvestDataParserAutiSta extends HarvestDataParserBase
 				}
 
 				$name = trim( $vec[ $row][ $colName]);
-				if( false) {
+//				if( false)
+				{
 					if( $name == "noch") {
 						continue;
 					} else if( $name == "kein") {
@@ -483,7 +491,7 @@ class HarvestDataParserAutiSta extends HarvestDataParserBase
 		}
 
 		$this->parseData( $ret->data);
-		$this->saveData( $ret->data, $ret->file, $ret->checksum, $nuts);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
 
 		$ret->error = false;
 		$ret->errorMsg = '';
@@ -560,7 +568,7 @@ class HarvestDataParserZuerich extends HarvestDataParserBase
 		$this->generateDataPos( $ret->data);
 
 		$this->parseData( $ret->data);
-//		$this->saveData( $ret->data, $ret->file, $ret->checksum, $nuts);
+//		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
 
 		$ret->error = false;
 		$ret->errorMsg = '';

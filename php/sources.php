@@ -798,8 +798,10 @@ function sourcesShowPageBrowseAll()
 	$txt = '';
 	$txt .= '<div class="log">Source list<br>===========<br><br>';
 
-	$txt .= 'NUTS region&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NUTS&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;Name<br>';
-	$txt .= '---------------- ----------- ------- --------- ----------------------------------------<br>';
+	$year = intVal( date("Y")) - 1;
+
+	$txt .= 'NUTS region&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$year.'...'.($year-9).'&nbsp;NUTS&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;Name<br>';
+	$txt .= '---------------- ----------- ----------- ------- --------- ----------------------------------------<br>';
 
 	usort( $MetadataVec, "sortMetadataVecByNUTS");
 
@@ -859,6 +861,20 @@ function sourcesShowPageBrowseAll()
 			$dataCopyright = 'missing';
 		}
 
+		$dataYears = '';
+		if( 0 < count( $harvest['years'])) {
+			for( $j = 0; $j < 10; ++$j) {
+				if( in_array( $year - $j, $harvest['years'])) {
+					$dataYears .= 'X';
+				} else {
+					$dataYears .= '.';
+				}
+			}
+			if( in_array( $year - $j, $harvest['years'])) {
+				$dataYears .= '+';
+			}
+		}
+
 		$txt .= $MetadataVec[$i]['nuts'];
 		for( $j = strlen($MetadataVec[$i]['nuts']); $j < 17; ++$j) $txt .= '&nbsp;';
 
@@ -868,6 +884,9 @@ function sourcesShowPageBrowseAll()
 			$txt .= '<a href="'.$dataUpdateLink.'">'.$dataUpdate.'</a>';
 		}
 		for( $j = ('&' == substr($dataUpdate,0,1) ? 1 : strlen($dataUpdate)); $j < 12; ++$j) $txt .= '&nbsp;';
+
+		$txt .= $dataYears;
+		for( $j = ('&' == substr($dataYears,0,1) ? 1 : strlen($dataYears)); $j < 12; ++$j) $txt .= '&nbsp;';
 
 		$txt .= $dataNuts;
 		for( $j = ('&' == substr($dataNuts,0,1) ? 1 : strlen($dataNuts)); $j < 8; ++$j) $txt .= '&nbsp;';
@@ -879,7 +898,7 @@ function sourcesShowPageBrowseAll()
 		$txt .= '<br>';
 	}
 
-	$txt .= '---------------- ----------- ------- --------- ----------------------------------------<br>';
+	$txt .= '---------------- ----------- ----------- ------- --------- ----------------------------------------<br>';
 	$txt .= '<br>';
 	$txt .= (count( $MetadataVec) - $skipped) . ' sources (' . count( $MetadataVec) . ' source links)<br>';
 
@@ -1000,6 +1019,7 @@ function sourcesShowPageUpdateDownload( $i)
 function sourcesShowPageUpdateHarvest( $i)
 {
 	global $HarvestData;
+	global $HarvestMetadata;
 	global $MetadataVec;
 	global $dataHarvestMetadata;
 
@@ -1048,6 +1068,11 @@ function sourcesShowPageUpdateHarvest( $i)
 			$txt .= '------------------------------------------------------------------------------<br>';
 			echo( $txt);
 			continue;
+		} else if( '.zip' == substr( $url, -4)) {
+			$txt .= 'Ignore ZIP files<br>';
+			$txt .= '------------------------------------------------------------------------------<br>';
+			echo( $txt);
+			continue;
 		}
 
 		$result = $HarvestData->parse( $vec, $vecCount, $nuts, $url);
@@ -1064,6 +1089,7 @@ function sourcesShowPageUpdateHarvest( $i)
 			}
 			if( 0 == strlen( $txt)) {
 				$txt .= $dataCount . ' entries saved in ' . count( $result->file) . ' files<br>';
+				$harvest['years'] = $result->years;
 			} else {
 				$txt .= $dataCount . ' entries collected but error found. No files saved!<br>';
 			}
@@ -1113,7 +1139,7 @@ function sourcesShowPageUpdateHarvest( $i)
 		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
 	}*/
 
-//	$HarvestMetadata->save();
+	$HarvestMetadata->save();
 }
 
 function sourcesShowPageUpdateId( $id)
