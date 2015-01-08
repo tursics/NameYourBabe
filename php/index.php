@@ -14,6 +14,7 @@
 
 	include_once( "HarvestMetadata.php");
 	include_once( "HarvestData.php");
+	include_once( "HarvestNames.php");
 
 	include_once( "export.php");
 	include_once( "metadata.php");
@@ -82,11 +83,8 @@ function gGirlsToFile()
 
 function showPageHome()
 {
-	global $gGirls;
-	global $gBoys;
-	global $gSource;
-	global $gGirlsMem;
-	global $gBoysMem;
+	global $HarvestNames;
+	global $MetadataVec;
 
 	$memory_limit = ini_get( 'memory_limit');
 	if( preg_match('/^(\d+)(.)$/', $memory_limit, $matches)) {
@@ -97,18 +95,24 @@ function showPageHome()
 		}
 	}
 
+	$HarvestNames->load();
+
 	$txt = '';
-	$txt .= '<h1>Admin area</h1>';
-	$txt .= '<div style="display:inline;float:left;min-width:7em;">Memory max:</div> ' . intval( $memory_limit /1024/1024*10)/10 . ' MByte<br>';
-	$txt .= '<div style="display:inline;float:left;min-width:7em;">Memory used:</div> ' . intval( memory_get_peak_usage() /1024/1024*10)/10 . ' MByte<br>';
-	$txt .= '<div style="display:inline;float:left;min-width:7em;">Memory:</div> ' . intval( memory_get_peak_usage() * 100 / $memory_limit) . '%<br>';
+	$txt .= '<div class="log">Admin area<br>==========<br><br>';
+	$txt .= 'Memory max:&nbsp;&nbsp;&nbsp;' . intval( $memory_limit /1024/1024*10)/10 . ' MByte<br>';
+	$txt .= 'Memory used:&nbsp;&nbsp;' . intval( memory_get_peak_usage() /1024/1024*10)/10 . ' MByte<br>';
+	$txt .= 'Memory:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . intval( memory_get_peak_usage() * 100 / $memory_limit) . '%<br>';
 	$txt .= '<br>';
-	$txt .= '<div style="display:inline;float:left;min-width:7em;">Girl mem:</div> ' . intval( $gGirlsMem /1024/1024*10)/10 . ' MByte<br>';
-	$txt .= '<div style="display:inline;float:left;min-width:7em;">Boy mem:</div> ' . intval( $gBoysMem /1024/1024*10)/10 . ' MByte<br>';
+	$txt .= 'Male mem:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . intval( $HarvestNames->maleUsedMemory /1024/1024*10)/10 . ' MByte<br>';
+	$txt .= 'Female mem:&nbsp;&nbsp;&nbsp;' . intval( $HarvestNames->femaleUsedMemory /1024/1024*10)/10 . ' MByte<br>';
 	$txt .= '<br>';
-	$txt .= '<div style="display:inline;float:left;min-width:7em;">Girl count:</div> ' . count( $gGirls) . '<br>';
-	$txt .= '<div style="display:inline;float:left;min-width:7em;">Boy count:</div> ' . count( $gBoys) . '<br>';
-	$txt .= '<div style="display:inline;float:left;min-width:7em;">Source count:</div> ' . count( $gSource) . '<br>';
+	$txt .= 'Male count:&nbsp;&nbsp;&nbsp;' . count( $HarvestNames->male) . '<br>';
+	$txt .= 'Female count: ' . count( $HarvestNames->female) . '<br>';
+	$txt .= 'Source count: ' . count( $MetadataVec) . '<br>';
+	$txt .= '</div>';
+	echo( $txt);
+
+	$txt = '';
 	$txt .= '<br>';
 	$txt .= '<hr>';
 	$txt .= '<br>';
