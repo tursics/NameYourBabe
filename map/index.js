@@ -72,12 +72,18 @@ function getBubbleHTML( id)
 
 		if( typeof dataBasics[ id]['linkOGD'] !== 'undefined') {
 			str += '<i class="fa fa-check"></i> Hat ein <a href="' + dataBasics[ id]['linkOGD'] + '" target="_blank">Open Data Portal</a><br>';
+		} else {
+			str += '<i class="fa fa-times"></i> Hat kein Open Data Portal<br>';
+		}
 
-/*			if( typeof dataBasics[ id]['linkOGDNames'] !== 'undefined') {
-				str += '<i class="fa fa-heart"></i> Enthält einen <a href="' + dataBasics[ id]['linkOGDNames'] + '" target="_blank">Vornamen-Datensatz</a><br>';
+		if( 'firstnames' == filterDataset) {
+			var idata = basicIndexGetDataIndex( id);
 
-				if( typeof dataBasics[ id]['linkOGDLicense'] !== 'undefined') {
-					var license = dataBasics[ id]['linkOGDLicense'];
+			if( typeof dataFirstnames[ idata]['linkOGData'] !== 'undefined') {
+				str += '<i class="fa fa-heart"></i> Enthält einen <a href="' + dataFirstnames[ idata]['linkOGData'] + '" target="_blank">Vornamen-Datensatz</a><br>';
+
+				if( typeof dataFirstnames[ idata]['linkOGDLicense'] !== 'undefined') {
+					var license = dataFirstnames[ idata]['linkOGDLicense'];
 					var good = false;
 
 					if( 'CC 0' == license) {
@@ -97,30 +103,39 @@ function getBubbleHTML( id)
 					}
 				}
 			} else {
-				str += '<i class="fa fa-times"></i> Kein Vornamen-Datensatz vorhanden<br>';
-
-				if(( typeof dataBasics[ id]['linkWebNames'] !== 'undefined') && (dataBasics[ id]['linkWebNames'] != '')) {
-					str += '<i class="fa fa-minus"></i> Vornamen auf der <a href="' + dataBasics[ id]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
+				if( typeof dataBasics[ id]['linkOGD'] !== 'undefined') {
+					str += '<i class="fa fa-times"></i> Kein Vornamen-Datensatz vorhanden<br>';
 				}
-			}*/
-/*		} else if( typeof dataBasics[ id]['linkWebNames'] !== 'undefined') {
-			str += '<i class="fa fa-times"></i> Hat kein Open Data Portal<br>';
 
-			if( dataBasics[ id]['linkWebNames'] != '') {
-				str += '<i class="fa fa-check"></i> Vornamen auf der <a href="' + dataBasics[ id]['linkWebNames'] + '" target="_blank">Webseite</a><br>';
-			}*/
-		} else {
-			str += '<i class="fa fa-times"></i> Hat kein Open Data Portal<br>';
+				if(( typeof dataFirstnames[ idata]['linkWebData'] !== 'undefined') && (dataFirstnames[ idata]['linkWebData'] != '')) {
+					str += '<i class="fa fa-check"></i> Vornamen auf der <a href="' + dataFirstnames[ idata]['linkWebData'] + '" target="_blank">Webseite</a><br>';
+				} else if( typeof dataBasics[ id]['linkOGD'] === 'undefined') {
+					str += '<i class="fa fa-times"></i> Keine Vornamen vorhanden<br>';
+				}
+			}
 		}
 
-		if( typeof dataBasics[ id]['history'] !== 'undefined') {
-			str += '<br>';
+		if( 'firstnames' == filterDataset) {
+			if( typeof dataFirstnames[ idata]['history'] !== 'undefined') {
+				str += '<br>';
 
-			var historySize = dataBasics[ id]['history'].length;
-			for( var h = 0; h < historySize; ++h) {
-				str += '<div style="border-top:1px solid #aaaaaa;color:#aaaaaa;padding-top:0.5em;margin-top:0.5em;">';
-				str += '<i class="fa fa-calendar"></i> ' + dataBasics[ id]['history'][ h]['date'] + '<br>';
-				str += '<i class="fa fa-comment-o"></i> ' + dataBasics[ id]['history'][ h]['event'] + '</div>';
+				var historySize = dataFirstnames[ idata]['history'].length;
+				for( var h = 0; h < historySize; ++h) {
+					str += '<div style="border-top:1px solid #aaaaaa;color:#aaaaaa;padding-top:0.5em;margin-top:0.5em;">';
+					str += '<i class="fa fa-calendar"></i> ' + dataFirstnames[ idata]['history'][ h]['date'] + '<br>';
+					str += '<i class="fa fa-comment-o"></i> ' + dataFirstnames[ idata]['history'][ h]['event'] + '</div>';
+				}
+			}
+		} else {
+			if( typeof dataBasics[ id]['history'] !== 'undefined') {
+				str += '<br>';
+
+				var historySize = dataBasics[ id]['history'].length;
+				for( var h = 0; h < historySize; ++h) {
+					str += '<div style="border-top:1px solid #aaaaaa;color:#aaaaaa;padding-top:0.5em;margin-top:0.5em;">';
+					str += '<i class="fa fa-calendar"></i> ' + dataBasics[ id]['history'][ h]['date'] + '<br>';
+					str += '<i class="fa fa-comment-o"></i> ' + dataBasics[ id]['history'][ h]['event'] + '</div>';
+				}
 			}
 		}
 		str += '</div>';
@@ -146,65 +161,30 @@ function formatPopulation( population)
 }
 
 // -----------------------------------------------------------------------------
-/*
-function addMarker()
+
+function nutsGetBasicIndex( nuts)
 {
-	try {
-		var max = dataBasics.length;
-		var cVoid = '#b7A6ad';
-		var cGood = '#31a354';
-		var cWell = '#31a354';
-		var cPortal = '#2362a0';
-		var cYellow = '#fec44f';
-		var cDenied = '#f03b20';
-		for( var i = 0; i < max; ++i) {
-			if(( null != dataBasics[ i]['lat']) && (null != dataBasics[ i]['lon'])) {
-				var bgColor = cVoid;
-
-				if( typeof dataBasics[ i]['linkOGD'] !== 'undefined') {
-					bgColor = cPortal;
-
-					if( typeof dataBasics[ i]['linkOGDNames'] !== 'undefined') {
-						bgColor = cGood;
-
-						if( typeof dataBasics[ i]['linkOGDLicense'] !== 'undefined') {
-							var license = dataBasics[ i]['linkOGDLicense'];
-
-							if( 'CC 0' == license) {
-							} else if( 'CC BY 3.0' == license) {
-							} else if( 'DL DE 0 2.0' == license) {
-							} else if( 'DL DE BY 2.0' == license) {
-							} else {
-								bgColor = cWell;
-							}
-						}
-					} else {
-						if(( typeof dataBasics[ i]['linkWebNames'] !== 'undefined') && (dataBasics[ i]['linkWebNames'] != '')) {
-							bgColor = cYellow;
-						}
-					}
-				} else if( typeof dataBasics[ i]['linkWebNames'] !== 'undefined') {
-					bgColor = cYellow;
-				} else {
-					bgColor = cDenied;
-
-					if( typeof dataBasics[ i]['history'] === 'undefined') {
-						continue;
-					}
-				}
-
-				var marker = new nokia.maps.map.StandardMarker([dataBasics[ i]['lat'], dataBasics[ i]['lon']], {
-					brush: {color: bgColor},
-					nr: i
-				});
-				mapContainer.objects.add( marker);
-			}
+	for( var i = 0; i < dataBasics.length; ++i) {
+		if( nuts == dataBasics[i].nuts) {
+			return i;
 		}
-	} catch( e) {
-//		alert( e);
 	}
+	return -1;
 }
-*/
+
+// -----------------------------------------------------------------------------
+
+function basicIndexGetDataIndex( id)
+{
+	var nuts = dataBasics[id].nuts;
+	for( var idata = 0; idata < dataFirstnames.length; ++idata) {
+		if( nuts == dataFirstnames[idata].nuts) {
+			return idata;
+		}
+	}
+	return -1;
+}
+
 // -----------------------------------------------------------------------------
 
 var objectDefault = {
@@ -262,6 +242,61 @@ var objectAllPortals = {
 			var id = vec[ i];
 			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
 				brush: {color: cGreen},
+				nr: id
+			});
+			mapContainer.objects.add( marker);
+		}
+	},
+	getCharts: function() {
+		return '';
+	},
+	createCharts: function( vec) {
+	}
+};
+
+// -----------------------------------------------------------------------------
+
+var objectAllFirstnames = {
+	getDataset: function() {
+		var ret = [];
+
+		for( var idata = 0; idata < dataFirstnames.length; ++idata) {
+			var i = nutsGetBasicIndex( dataFirstnames[idata].nuts);
+			if( filterCountry == dataBasics[i].nuts.substr( 0, 2)) {
+				ret[ ret.length] = i;
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( id) {
+		var idata = basicIndexGetDataIndex( id);
+		var marker = 'red';
+		if( typeof dataFirstnames[idata]['linkOGData'] !== "undefined") {
+			marker = 'green';
+		} else if( typeof dataFirstnames[idata]['linkWebData'] !== "undefined") {
+			marker = 'yellow';
+		}
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + id + '\');" border=0><i class="fa fa-map-marker marker-' + marker + '"></i>' + dataBasics[id].name + '</a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-red"></i>Keine Vornamen vorhanden<br>'
+		     + '<i class="fa fa-map-marker marker-yellow"></i>Daten mit Vornamen erhältlich<br>'
+		     + '<i class="fa fa-map-marker marker-green"></i>Open Data-Datensatz mit Vornamen<br>';
+	},
+	addMarker: function( vec) {
+		var max = vec.length;
+		var cRed = '#f03b20';
+		var cYellow = '#e1c64b';
+		var cGreen = '#31a354';
+		for( var i = 0; i < max; ++i) {
+			var id = vec[ i];
+			var idata = basicIndexGetDataIndex( id);
+			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
+				brush: {color: (typeof dataFirstnames[idata]['linkOGData'] !== "undefined") ? cGreen : ((typeof dataFirstnames[idata]['linkWebData'] !== "undefined") ? cYellow :cRed) },
 				nr: id
 			});
 			mapContainer.objects.add( marker);
@@ -658,7 +693,7 @@ function generateDataList()
 	} else {
 		txt += '<option value="portals"' + ('portals' == filterDataset ? ' selected="selected"' : '') + '>Open Data Portalen</option>';
 	}
-	txt += '<option value="firstnames"' + ('firstnames' == filterDataset ? ' selected="selected"' : '') + ' disabled="disabled">Vornamen Datensätze</option>';
+	txt += '<option value="firstnames"' + ('firstnames' == filterDataset ? ' selected="selected"' : '') + '>Vornamen Datensätze</option>';
 	txt += '</select>';
 
 	txt += '<select name="filterCountry" id="filterCountry">';
@@ -673,6 +708,8 @@ function generateDataList()
 	var obj = objectDefault;
 	if(( 'all' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectAllPortals;
+	} else if(( 'all' == filterLevel) && ('firstnames' == filterDataset)) {
+		obj = objectAllFirstnames;
 	} else if(( 'nuts1' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectNuts1Portals;
 	} else if(( 'district' == filterLevel) && ('portals' == filterDataset)) {
