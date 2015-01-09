@@ -79,7 +79,7 @@ function getBubbleHTML( id)
 		if( 'firstnames' == filterDataset) {
 			var idata = basicIndexGetDataIndex( id);
 
-			if( typeof dataFirstnames[ idata]['linkOGData'] !== 'undefined') {
+			if(( -1 != idata) && (typeof dataFirstnames[ idata]['linkOGData'] !== 'undefined')) {
 				str += '<i class="fa fa-heart"></i> Enthält einen <a href="' + dataFirstnames[ idata]['linkOGData'] + '" target="_blank">Vornamen-Datensatz</a><br>';
 
 				if( typeof dataFirstnames[ idata]['linkOGDLicense'] !== 'undefined') {
@@ -107,7 +107,7 @@ function getBubbleHTML( id)
 					str += '<i class="fa fa-times"></i> Kein Vornamen-Datensatz vorhanden<br>';
 				}
 
-				if(( typeof dataFirstnames[ idata]['linkWebData'] !== 'undefined') && (dataFirstnames[ idata]['linkWebData'] != '')) {
+				if((-1 != idata) && ( typeof dataFirstnames[ idata]['linkWebData'] !== 'undefined') && (dataFirstnames[ idata]['linkWebData'] != '')) {
 					str += '<i class="fa fa-check"></i> Vornamen auf der <a href="' + dataFirstnames[ idata]['linkWebData'] + '" target="_blank">Webseite</a><br>';
 				} else if( typeof dataBasics[ id]['linkOGD'] === 'undefined') {
 					str += '<i class="fa fa-times"></i> Keine Vornamen vorhanden<br>';
@@ -116,7 +116,7 @@ function getBubbleHTML( id)
 		}
 
 		if( 'firstnames' == filterDataset) {
-			if( typeof dataFirstnames[ idata]['history'] !== 'undefined') {
+			if(( -1 != idata) && (typeof dataFirstnames[ idata]['history'] !== 'undefined')) {
 				str += '<br>';
 
 				var historySize = dataFirstnames[ idata]['history'].length;
@@ -272,7 +272,8 @@ var objectAllFirstnames = {
 	getListItem: function( id) {
 		var idata = basicIndexGetDataIndex( id);
 		var marker = 'red';
-		if( typeof dataFirstnames[idata]['linkOGData'] !== "undefined") {
+		if( -1 == idata) {
+		} else if( typeof dataFirstnames[idata]['linkOGData'] !== "undefined") {
 			marker = 'green';
 		} else if( typeof dataFirstnames[idata]['linkWebData'] !== "undefined") {
 			marker = 'yellow';
@@ -296,7 +297,7 @@ var objectAllFirstnames = {
 			var id = vec[ i];
 			var idata = basicIndexGetDataIndex( id);
 			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
-				brush: {color: (typeof dataFirstnames[idata]['linkOGData'] !== "undefined") ? cGreen : ((typeof dataFirstnames[idata]['linkWebData'] !== "undefined") ? cYellow :cRed) },
+				brush: {color: (-1 == idata ? cRed : (typeof dataFirstnames[idata]['linkOGData'] !== "undefined") ? cGreen : ((typeof dataFirstnames[idata]['linkWebData'] !== "undefined") ? cYellow :cRed)) },
 				nr: id
 			});
 			mapContainer.objects.add( marker);
@@ -337,8 +338,8 @@ var objectNuts1Portals = {
 		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
 	},
 	getLegend: function() {
-		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
-		     + '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>';
+		return '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>'
+		     + '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>';
 	},
 	addMarker: function( vec) {
 		var max = vec.length;
@@ -373,6 +374,99 @@ var objectNuts1Portals = {
 		for( var i = 0; i < maxCount; ++i) {
 			var id = vec[ i];
 			if( typeof dataBasics[id]['linkOGD'] !== "undefined") {
+				++valCount;
+				valPeople += dataBasics[id]['population'];
+			}
+		}
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( dataBasics[i]['nuts'] == filterCountry) {
+				maxPeople = dataBasics[i]['population'];
+			}
+		}
+		if( 0 == maxCount) {
+			maxCount = 1;
+		}
+		var chartCount = Circles.create({
+			id:'chartCount',value:valCount,maxValue:maxCount,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / maxCount * 100) < 10) {return '<span>'+Math.round( value / maxCount * 1000)/10+txtCount+'</span>';} else {return '<span>'+Math.round( value / maxCount * 100)+txtCount+'</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+		var chartPeople = Circles.create({
+			id:'chartPeople',value:valPeople,maxValue:maxPeople,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / maxPeople * 100) < 10) {return '<span>'+Math.round( value / maxPeople * 1000)/10+txtPeople+'</span>';} else {return '<span>'+Math.round( value / maxPeople * 100)+txtPeople+'</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+	}
+};
+
+// -----------------------------------------------------------------------------
+
+var objectNuts1Firstnames = {
+	getDataset: function() {
+		var ret = [];
+		var group = 'state';
+
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( filterCountry == dataBasics[i].nuts.substr( 0, 2)) {
+				if( 0 <= dataBasics[i].group.indexOf( group)) {
+					ret[ ret.length] = i;
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( id) {
+		var idata = basicIndexGetDataIndex( id);
+		var marker = 'red';
+		if( -1 == idata) {
+		} else if( typeof dataFirstnames[idata]['linkOGData'] !== "undefined") {
+			marker = 'green';
+		} else if( typeof dataFirstnames[idata]['linkWebData'] !== "undefined") {
+			marker = 'yellow';
+		}
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + id + '\');" border=0><i class="fa fa-map-marker marker-' + marker + '"></i>' + dataBasics[id].name + '</a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-red"></i>Keine Vornamen vorhanden<br>'
+		     + '<i class="fa fa-map-marker marker-green"></i>Open Data-Datensatz mit Vornamen<br>';
+	},
+	addMarker: function( vec) {
+		var max = vec.length;
+		var cGreen = '#31a354';
+		var cRed = '#f03b20';
+		for( var i = 0; i < max; ++i) {
+			var id = vec[ i];
+			var idata = basicIndexGetDataIndex( id);
+			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
+				brush: {color: (-1 == idata ? cRed : (typeof dataFirstnames[idata]['linkOGData'] !== "undefined") ? cGreen : ((typeof dataFirstnames[idata]['linkWebData'] !== "undefined") ? cYellow :cRed)) },
+				nr: id
+			});
+			mapContainer.objects.add( marker);
+		}
+	},
+	getCharts: function() {
+		var txt = '';
+		txt += '<div class="chart chart' + filterCountry + '" id="chartCount"></div>';
+		txt += '<div class="chart chart' + filterCountry + '" id="chartPeople"></div>';
+
+		return txt;
+	},
+	createCharts: function( vec) {
+		var maxCount = vec.length;
+		var maxPeople = 0;
+		var valCount = 0;
+		var valPeople = 0;
+		var txtCount = '% der<br>Bundesländer';
+		var txtPeople = '% der<br>Bevölkerung';
+		if( 'CH' == filterCountry) {
+			txtCount = '% der<br>Kantone';
+		}
+		for( var i = 0; i < maxCount; ++i) {
+			var id = vec[ i];
+			var idata = basicIndexGetDataIndex( id);
+			if(( -1 != idata) && (typeof dataFirstnames[idata]['linkOGData'] !== "undefined")) {
 				++valCount;
 				valPeople += dataBasics[id]['population'];
 			}
@@ -445,6 +539,52 @@ var objectDistrictPortals = {
 
 // -----------------------------------------------------------------------------
 
+var objectDistrictFirstnames = {
+	getDataset: function() {
+		var ret = [];
+		var group = 'district';
+
+		for( var idata = 0; idata < dataFirstnames.length; ++idata) {
+			var i = nutsGetBasicIndex( dataFirstnames[idata].nuts);
+			if( filterCountry == dataBasics[i].nuts.substr( 0, 2)) {
+				if( 0 <= dataBasics[i].group.indexOf( group)) {
+					ret[ ret.length] = i;
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( nr) {
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + nr + '\');" border=0><i class="fa fa-map-marker marker-green"></i>' + dataBasics[nr].name + '</a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-green"></i>Open Data-Datensatz mit Vornamen<br>'
+	},
+	addMarker: function( vec) {
+		var max = vec.length;
+		var cGreen = '#31a354';
+		for( var i = 0; i < max; ++i) {
+			var id = vec[ i];
+			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
+				brush: {color: cGreen},
+				nr: id
+			});
+			mapContainer.objects.add( marker);
+		}
+	},
+	getCharts: function() {
+		return '';
+	},
+	createCharts: function( vec) {
+	}
+};
+
+// -----------------------------------------------------------------------------
+
 var objectCityPortals = {
 	getDataset: function() {
 		var ret = [];
@@ -473,8 +613,8 @@ var objectCityPortals = {
 		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
 	},
 	getLegend: function() {
-		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
-		     + '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>';
+		return '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>'
+		     + '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>';
 	},
 	addMarker: function( vec) {
 		var max = vec.length;
@@ -506,6 +646,100 @@ var objectCityPortals = {
 		for( var i = 0; i < maxCount; ++i) {
 			var id = vec[ i];
 			if( typeof dataBasics[id]['linkOGD'] !== "undefined") {
+				++valCount;
+				valPeople += dataBasics[id]['population'];
+			}
+		}
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( dataBasics[i]['nuts'] == filterCountry) {
+				maxPeople = dataBasics[i]['population'];
+			}
+		}
+		if( 0 == maxCount) {
+			maxCount = 1;
+		}
+		var chartCount = Circles.create({
+			id:'chartCount',value:valCount,maxValue:maxCount,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / maxCount * 100) < 10) {return '<span>'+Math.round( value / maxCount * 1000)/10+txtCount+'</span>';} else {return '<span>'+Math.round( value / maxCount * 100)+txtCount+'</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+		var chartPeople = Circles.create({
+			id:'chartPeople',value:valPeople,maxValue:maxPeople,
+			colors:['#9ac9c6','#33a1df'],radius:50,width:10,duration:500,text:function(value){if(Math.round( value / maxPeople * 100) < 10) {return '<span>'+Math.round( value / maxPeople * 1000)/10+txtPeople+'</span>';} else {return '<span>'+Math.round( value / maxPeople * 100)+txtPeople+'</span>';}},wrpClass:'circles-wrp',textClass:'circles-text',
+		});
+	}
+};
+
+// -----------------------------------------------------------------------------
+
+var objectCityFirstnames = {
+	getDataset: function() {
+		var ret = [];
+		var group = 'city';
+
+		for( var i = 0; i < dataBasics.length; ++i) {
+			if( filterCountry == dataBasics[i].nuts.substr( 0, 2)) {
+				if( 0 <= dataBasics[i].group.indexOf( group)) {
+					if( dataBasics[i].population >= 100000) {
+						ret[ ret.length] = i;
+					}
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( id) {
+		var idata = basicIndexGetDataIndex( id);
+		var marker = 'red';
+		if( -1 == idata) {
+		} else if( typeof dataFirstnames[idata]['linkOGData'] !== "undefined") {
+			marker = 'green';
+		} else if( typeof dataFirstnames[idata]['linkWebData'] !== "undefined") {
+			marker = 'yellow';
+		}
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + id + '\');" border=0><i class="fa fa-map-marker marker-' + marker + '"></i>' + dataBasics[id].name + ' <span class="ui-li-count">' + formatPopulation( dataBasics[id].population) + '</span></a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-red"></i>Keine Vornamen vorhanden<br>'
+		     + '<i class="fa fa-map-marker marker-yellow"></i>Daten mit Vornamen erhältlich<br>'
+		     + '<i class="fa fa-map-marker marker-green"></i>Open Data-Datensatz mit Vornamen<br>';
+	},
+	addMarker: function( vec) {
+		var max = vec.length;
+		var cRed = '#f03b20';
+		var cYellow = '#e1c64b';
+		var cGreen = '#31a354';
+		for( var i = 0; i < max; ++i) {
+			var id = vec[ i];
+			var idata = basicIndexGetDataIndex( id);
+			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
+				brush: {color: (-1 == idata ? cRed : (typeof dataFirstnames[idata]['linkOGData'] !== "undefined") ? cGreen : ((typeof dataFirstnames[idata]['linkWebData'] !== "undefined") ? cYellow :cRed)) },
+				nr: id
+			});
+			mapContainer.objects.add( marker);
+		}
+	},
+	getCharts: function() {
+		var txt = '';
+		txt += '<div class="chart chart' + filterCountry + '" id="chartCount"></div>';
+		txt += '<div class="chart chart' + filterCountry + '" id="chartPeople"></div>';
+
+		return txt;
+	},
+	createCharts: function( vec) {
+		var maxCount = vec.length;
+		var maxPeople = 0;
+		var valCount = 0;
+		var valPeople = 0;
+		var txtCount = '% der<br>Großstädte';
+		var txtPeople = '% der<br>Bevölkerung';
+		for( var i = 0; i < maxCount; ++i) {
+			var id = vec[ i];
+			var idata = basicIndexGetDataIndex( id);
+			if(( -1 != idata) && (typeof dataFirstnames[idata]['linkOGData'] !== "undefined")) {
 				++valCount;
 				valPeople += dataBasics[id]['population'];
 			}
@@ -600,6 +834,67 @@ var objectMunicipalPortals = {
 
 // -----------------------------------------------------------------------------
 
+var objectMunicipalFirstnames = {
+	getDataset: function() {
+		var ret = [];
+		var group = 'city';
+
+		for( var idata = 0; idata < dataFirstnames.length; ++idata) {
+			var i = nutsGetBasicIndex( dataFirstnames[idata].nuts);
+			if( filterCountry == dataBasics[i].nuts.substr( 0, 2)) {
+				if( 0 <= dataBasics[i].group.indexOf( group)) {
+					if( dataBasics[i].population < 100000) {
+						ret[ ret.length] = i;
+					}
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( id) {
+		var idata = basicIndexGetDataIndex( id);
+		var marker = 'red';
+		if( -1 == idata) {
+		} else if( typeof dataFirstnames[idata]['linkOGData'] !== "undefined") {
+			marker = 'green';
+		} else if( typeof dataFirstnames[idata]['linkWebData'] !== "undefined") {
+			marker = 'yellow';
+		}
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + id + '\');" border=0><i class="fa fa-map-marker marker-' + marker + '"></i>' + dataBasics[id].name + ' <span class="ui-li-count">' + formatPopulation( dataBasics[id].population) + '</span></a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-red"></i>Keine Vornamen vorhanden<br>'
+		     + '<i class="fa fa-map-marker marker-yellow"></i>Daten mit Vornamen erhältlich<br>'
+		     + '<i class="fa fa-map-marker marker-green"></i>Open Data-Datensatz mit Vornamen<br>';
+	},
+	addMarker: function( vec) {
+		var max = vec.length;
+		var cRed = '#f03b20';
+		var cYellow = '#e1c64b';
+		var cGreen = '#31a354';
+		for( var i = 0; i < max; ++i) {
+			var id = vec[ i];
+			var idata = basicIndexGetDataIndex( id);
+			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
+				brush: {color: (-1 == idata ? cRed : (typeof dataFirstnames[idata]['linkOGData'] !== "undefined") ? cGreen : ((typeof dataFirstnames[idata]['linkWebData'] !== "undefined") ? cYellow :cRed)) },
+				nr: id
+			});
+			mapContainer.objects.add( marker);
+		}
+	},
+	getCharts: function() {
+		return '';
+	},
+	createCharts: function( vec) {
+	}
+};
+
+// -----------------------------------------------------------------------------
+
 var objectOtherPortals = {
 	getDataset: function() {
 		var ret = [];
@@ -625,6 +920,52 @@ var objectOtherPortals = {
 	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
+	},
+	addMarker: function( vec) {
+		var max = vec.length;
+		var cGreen = '#31a354';
+		for( var i = 0; i < max; ++i) {
+			var id = vec[ i];
+			var marker = new nokia.maps.map.StandardMarker([dataBasics[ id]['lat'], dataBasics[ id]['lon']], {
+				brush: {color: cGreen},
+				nr: id
+			});
+			mapContainer.objects.add( marker);
+		}
+	},
+	getCharts: function() {
+		return '';
+	},
+	createCharts: function( vec) {
+	}
+};
+
+// -----------------------------------------------------------------------------
+
+var objectOtherFirstnames = {
+	getDataset: function() {
+		var ret = [];
+		var group = 'other';
+
+		for( var idata = 0; idata < dataFirstnames.length; ++idata) {
+			var i = nutsGetBasicIndex( dataFirstnames[idata].nuts);
+			if( filterCountry == dataBasics[i].nuts.substr( 0, 2)) {
+				if( 0 <= dataBasics[i].group.indexOf( group)) {
+					ret[ ret.length] = i;
+				}
+			}
+		}
+
+		return ret;
+	},
+	getListItem: function( nr) {
+		return '<li><a href="#" onClick="clickOnDataItem(\'' + nr + '\');" border=0><i class="fa fa-map-marker marker-green"></i>' + dataBasics[nr].name + '</a></li>';
+	},
+	sort: function( left, right) {
+		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	getLegend: function() {
+		return '<i class="fa fa-map-marker marker-green"></i>Open Data-Datensatz mit Vornamen<br>'
 	},
 	addMarker: function( vec) {
 		var max = vec.length;
@@ -712,14 +1053,24 @@ function generateDataList()
 		obj = objectAllFirstnames;
 	} else if(( 'nuts1' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectNuts1Portals;
+	} else if(( 'nuts1' == filterLevel) && ('firstnames' == filterDataset)) {
+		obj = objectNuts1Firstnames;
 	} else if(( 'district' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectDistrictPortals;
+	} else if(( 'district' == filterLevel) && ('firstnames' == filterDataset)) {
+		obj = objectDistrictFirstnames;
 	} else if(( 'cities' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectCityPortals;
+	} else if(( 'cities' == filterLevel) && ('firstnames' == filterDataset)) {
+		obj = objectCityFirstnames;
 	} else if(( 'municipal' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectMunicipalPortals;
+	} else if(( 'municipal' == filterLevel) && ('firstnames' == filterDataset)) {
+		obj = objectMunicipalFirstnames;
 	} else if(( 'other' == filterLevel) && ('portals' == filterDataset)) {
 		obj = objectOtherPortals;
+	} else if(( 'other' == filterLevel) && ('firstnames' == filterDataset)) {
+		obj = objectOtherFirstnames;
 	}
 
 	if( 'CH' == filterCountry) {
