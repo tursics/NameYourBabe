@@ -52,7 +52,7 @@ class HarvestDataParserBase
 
 			$fileVec[] = $path;
 			$checksumVec[] = md5( $out);
-			if( !in_array( substr( $key, 0, 4), $yearVec)) {
+			if( !isset( $yearVec[substr( $key, 0, 4)])) {
 				$yearVec[] = substr( $key, 0, 4);
 			}
 		}
@@ -72,11 +72,11 @@ class HarvestDataParserBase
 		$HarvestNames->load();
 
 		if( $isBoy) {
-			$found = in_array( $nameUFT8, $HarvestNames->male);
+			$found = isset( $HarvestNames->male[ $nameUFT8]);
 		} else {
-			$found = in_array( $nameUFT8, $HarvestNames->female);
+			$found = isset( $HarvestNames->female[ $nameUFT8]);
 		}
-
+/*
 //		if( false)
 		{
 			if( $name == 'ohne') return $name;
@@ -129,7 +129,7 @@ class HarvestDataParserBase
 			}
 			return $ret . '">' . $name . '</span>';
 		}
-
+*/
 		return $ret;
 	}
 } // class HarvestDataParserBase
@@ -526,7 +526,7 @@ class HarvestDataParserZuerich extends HarvestDataParserBase
 
 	public function parse( $vec, $vecCount, $nuts, $url)
 	{
-		// AutiSta used in Berlin, Bonn, Chemnitz, Hamburg, Moers, Ulm ...
+		// Used in Zurich
 		$ret = new HarvestDataResult();
 
 		$colName = 1;
@@ -538,7 +538,7 @@ class HarvestDataParserZuerich extends HarvestDataParserBase
 
 		$vecCount = count( $vec);
 		if( $vecCount < 2) {
-			$ret->errorMsg = 'Unknown Zürich format!';
+			$ret->errorMsg = 'Unknown Zurich format!';
 			return $ret;
 		}
 
@@ -568,7 +568,7 @@ class HarvestDataParserZuerich extends HarvestDataParserBase
 		$this->generateDataPos( $ret->data);
 
 		$this->parseData( $ret->data);
-//		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
 
 		$ret->error = false;
 		$ret->errorMsg = '';
