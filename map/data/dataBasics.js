@@ -2,7 +2,7 @@ var dataBasics = [
 {
 	"name":"OffeneDaten.de",
 	"group":"other",
-	"nuts":"DE",
+	"nuts":"DE_odde",
 	"population":0,
 	"lat":52.51,
 	"lon":13.42,
@@ -11,7 +11,7 @@ var dataBasics = [
 {
 	"name":"Open Data Portal Österreich",
 	"group":"other",
-	"nuts":"AT",
+	"nuts":"AT_odp",
 	"population":0,
 	"lat":48.20,
 	"lon":16.35,
@@ -20,7 +20,7 @@ var dataBasics = [
 {
 	"name":"Wirtschaftsuniversität Wien",
 	"group":"other",
-	"nuts":"AT",
+	"nuts":"AT_wuw",
 	"population":0,
 	"lat":48.21,
 	"lon":16.40,
@@ -29,7 +29,7 @@ var dataBasics = [
 {
 	"name":"Statistik Österreich",
 	"group":"other",
-	"nuts":"AT",
+	"nuts":"AT_autista",
 	"population":0,
 	"lat":48.18,
 	"lon":16.42,
