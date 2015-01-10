@@ -1,5 +1,47 @@
 var dataFirstnames = [
 {
+	"nuts":"DE935022",
+	"linkWebData":"",
+	"history":[
+		{"date":"10.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA35016",
+	"linkWebData":"",
+	"history":[
+		{"date":"10.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA58024",
+	"linkWebData":"",
+	"history":[
+		{"date":"10.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE502",
+	"linkWebData":"http://www.bremerhaven.de/buergerservice/aemter-einrichtungen/stadtverwaltung/standesamt/vornamenstatistiken-2004-2013.10360.html",
+	"history":[
+		{"date":"10.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE94B015",
+	"linkWebData":"",
+	"history":[
+		{"date":"09.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA34008",
+	"linkWebData":"",
+	"history":[
+		{"date":"09.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"nuts":"DEF01",
 	"linkWebData":"http://www.flensburg.de/imperia/md/content/asp/flensburg/buergerservice/schutzundordnung/vornamenstatistik_2013.pdf",
 	"history":[
@@ -224,6 +266,7 @@ var dataFirstnames = [
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
 		{"date":"20.10.2014","event":"Antwort: Bilder der letzten Jahre per Mail bekommen"},
+		{"date":"10.01.2015","event":"Anfrage nach Vornamen 2014"},
 	],
 },
 {
@@ -433,6 +476,7 @@ var dataFirstnames = [
 	"history":[
 		{"date":"16.07.2014","event":"Anfrage nach Vornamen"},
 		{"date":"16.07.2014","event":"Screenshot der Top 30 für 2012, 2013 bekommen"},
+		{"date":"10.01.2015","event":"Anfrage nach Vornamen 2014"},
 	],
 },
 {
