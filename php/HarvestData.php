@@ -58,6 +58,7 @@ class HarvestDataParserBase
 		}
 
 		// check md5!
+		// $fileVec, $checksumVec and $yearVec are overwritten ;-(
 	}
 
 	public function parseNames( $item, $isBoy)
@@ -186,7 +187,7 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 
 	public function parse( $vec, $vecCount, $nuts, $url)
 	{
-		// Lower Austria, Wien, ...
+		// Lower Austria, ...
 		$ret = new HarvestDataResult();
 
 		$colName = -1;
@@ -242,6 +243,10 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 
 		for( $row = $startRow + 1; $row < count( $vec); ++$row) {
 			if( count( $vec[ $row]) > 1) {
+				if(( '' == $vec[ $row][ $colName]) && ('' == $vec[ $row][ $colCount]) && ('' == $vec[ $row][ $colSex])) {
+					continue;
+				}
+
 				if( $posVec[ $vec[ $row][ $colSex]][ $vec[ $row][ $colYear]] == NULL) {
 					$posVec[ $vec[ $row][ $colSex]][ $vec[ $row][ $colYear]] = 0;
 				}
@@ -283,7 +288,7 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 				$ret->data[] = Array(
 					name=> $name,
 					male=> $vec[ $row][ $colSex] == '1' ? true : false,
-					year=> $vec[ $row][ $colYear],
+					year=> trim( $vec[ $row][ $colYear]),
 					pos=> $colPos == -1 ? $posVec[ $vec[ $row][ $colSex]][ $vec[ $row][ $colYear]] : $vec[ $row][ $colPos],
 					number=> $vec[ $row][ $colCount],
 					error=> '',
@@ -315,6 +320,40 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 	}
 } // class HarvestDataParserNUTS
 $HarvestData->addParser('HarvestDataParserNUTS');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserNUTSAlt1 extends HarvestDataParserNUTS
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 2) && ($vec[2][1] == 'NUTS2');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Vienna, ...
+		return parent::parse( $vec, $vecCount, $nuts, $url);
+	}
+} // class HarvestDataParserNUTSAlt1
+$HarvestData->addParser('HarvestDataParserNUTSAlt1');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserNUTSAlt2 extends HarvestDataParserNUTS
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 0) && ($vec[0][1] == 'NUTS2');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Styria, ...
+		return parent::parse( $vec, $vecCount, $nuts, $url);
+	}
+} // class HarvestDataParserNUTSAlt2
+$HarvestData->addParser('HarvestDataParserNUTSAlt2');
 
 //------------------------------------------------------------------------------
 
@@ -480,7 +519,7 @@ class HarvestDataParserAutiSta extends HarvestDataParserBase
 				$ret->data[] = Array(
 					name=> $name,
 					male=> $sex == 'm' ? true : false,
-					year=> $theYear,
+					year=> trim( $theYear),
 					pos=> $yearPos[ $sex],
 					number=> $vec[ $row][ $colCount],
 					error=> '',
@@ -557,7 +596,7 @@ class HarvestDataParserZuerich extends HarvestDataParserBase
 				$ret->data[] = Array(
 					name=> $name,
 					male=> $vec[ $row][ $colSex] == '"weiblich"' ? false : true,
-					year=> $vec[ $row][ $colYear],
+					year=> trim( $vec[ $row][ $colYear]),
 					pos=> 0,
 					number=> intVal( $vec[ $row][ $colCount]),
 					error=> '',
@@ -600,6 +639,91 @@ class HarvestDataParserZuerich extends HarvestDataParserBase
 	}
 } // class HarvestDataParserZuerich
 $HarvestData->addParser('HarvestDataParserZuerich');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserLinz extends HarvestDataParserBase
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 0) && ($vec[0][0] == 'Rang') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Used in Linz
+		$ret = new HarvestDataResult();
+
+		// Beliebteste Vornamen 0-4 Jährige am 01.01.$year  | /Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_$year.csv
+		// Beliebteste Vornamen 5-9 Jährige am 01.01.$year  | /Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_$year.csv
+		// Beliebteste Vornamen des Jahres $year            | /Beliebteste_Vornamen_des_Jahres_$year.csv
+		// Beliebteste Vornamen aller Linzer am 01.01.$year | /Beliebteste_Vornamen_aller_Linzer_am_1_1_$year.csv
+
+		$theYear = intval( substr( $url, strlen( $url) - 8, 4));
+
+		if( false !== strpos( $url, 'Beliebteste_Vornamen_0-4_Jaehrige')) {
+			// ignore data
+			$ret->error = false;
+			$ret->errorMsg = '';
+			return $ret;
+		}
+		if( false !== strpos( $url, 'Beliebteste_Vornamen_5-9_Jaehrige')) {
+			// ignore data
+			$ret->error = false;
+			$ret->errorMsg = '';
+			return $ret;
+		}
+		if( false !== strpos( $url, 'Beliebteste_Vornamen_aller_Linzer')) {
+			// ignore data
+			$ret->error = false;
+			$ret->errorMsg = '';
+			return $ret;
+		}
+
+		$colName = 2;
+		$colSex = 1;
+//		$colYear = -1;
+		$colPos = 0;
+//		$colCount = -1;
+		$startRow = 0;
+
+		$vecCount = count( $vec);
+		if( $vecCount < 2) {
+			$ret->errorMsg = 'Unknown Linz format!';
+			return $ret;
+		}
+
+		$ret->data = Array();
+
+		$lastPos = 1;
+		for( $row = $startRow + 1; $row < $vecCount; ++$row) {
+			if( count( $vec[ $row]) > 1) {
+				$pos = intVal( $vec[ $row][ $colPos]);
+				if( 0 != $pos) {
+					$lastPos = $pos;
+				}
+
+				$ret->data[] = Array(
+					name=> trim( $vec[ $row][ $colName]),
+					male=> $vec[ $row][ $colSex] == 'weiblich' ? false : true,
+					year=> $theYear,
+					pos=> $lastPos,
+					number=> 0,
+					error=> '',
+				);
+			}
+		}
+
+		$this->parseData( $ret->data);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+} // class HarvestDataParserLinz
+$HarvestData->addParser('HarvestDataParserLinz');
 
 //------------------------------------------------------------------------------
 
