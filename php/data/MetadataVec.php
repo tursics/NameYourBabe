@@ -555,7 +555,7 @@ $MetadataVec=array (
   array (
     'nuts' => 'DEA51',
     'name' => 'Vornamen-Statistiken, Bochum',
-    'url' => 'http://www.bochum.de/opendata/datensaetze/jugend-familie-soziales/nav/75F9RD294BOLD',
+    'meta' => 'http://www.bochum.de/opendata/datensaetze/jugend-familie-soziales/nav/75F9RD294BOLD',
   ),
   array (
     'nuts' => 'DEBKGDL20000E023',

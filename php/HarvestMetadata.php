@@ -63,6 +63,20 @@ class HarvestMetadataParserBase
 			$ret->citation = '';
 		}
 	}
+
+	public function strtotimeLoc( $date_string)
+	{
+		$ret = strtotime( $date_string);
+		if( $ret === false) {
+			$date_string = strtr( strtolower( $date_string), array('januar'=>'jan','februar'=>'feb','märz'=>'march','april'=>'apr','mai'=>'may','juni'=>'jun','juli'=>'jul','august'=>'aug','september'=>'sep','oktober'=>'oct','november'=>'nov','dezember'=>'dec'));
+			$ret = strtotime( $date_string);
+			if( $ret === false) {
+				$date_string = strtr( $date_string, array('-'=>''));
+				$ret = strtotime( $date_string);
+			}
+		}
+		return $ret;
+	}
 } // class HarvestMetadataParserBase
 
 //------------------------------------------------------------------------------
@@ -81,7 +95,7 @@ class HarvestMetadata
 		for( $i = 0; $i < count( $this->parserVec); ++$i) {
 			$parser = new $this->parserVec[$i]();
 			if( $parser->accept( $contents, $json)) {
-				return $parser->parse( $contents, $json);
+			return $parser->parse( $contents, $json);
 			}
 		}
 
@@ -157,20 +171,6 @@ class HarvestMetadataParserOGDAustria11 extends HarvestMetadataParserBase
 		$ret->error = false;
 		$ret->errorMsg = '';
 
-		return $ret;
-	}
-
-	public function strtotimeLoc( $date_string)
-	{
-		$ret = strtotime( $date_string);
-		if( $ret === false) {
-			$date_string = strtr( strtolower( $date_string), array('januar'=>'jan','februar'=>'feb','märz'=>'march','april'=>'apr','mai'=>'may','juni'=>'jun','juli'=>'jul','august'=>'aug','september'=>'sep','oktober'=>'oct','november'=>'nov','dezember'=>'dec'));
-			$ret = strtotime( $date_string);
-			if( $ret === false) {
-				$date_string = strtr( $date_string, array('-'=>''));
-				$ret = strtotime( $date_string);
-			}
-		}
 		return $ret;
 	}
 } // class HarvestMetadataParserOGDAustria11
@@ -346,6 +346,95 @@ class HarvestMetadataParserMoers extends HarvestMetadataParserBase
 	}
 } // class HarvestMetadataParserMoers
 $HarvestMetadata->addParser('HarvestMetadataParserMoers');
+
+//------------------------------------------------------------------------------
+
+class HarvestMetadataParserBochum extends HarvestMetadataParserBase
+{
+	public function accept( $contents, $json)
+	{
+		return (0 == count( $json)) && (false !== strpos( $contents, 'Stadt Bochum'));
+	}
+
+	public function parse( $contents, $json)
+	{
+		$ret = new HarvestMetadataResult();
+		$ret->errorMsg = 'Could not parse metadata of Bochum';
+
+		$posStart = strpos( $contents, '<h2 id');
+		$posName = strpos( $contents, 'Vornamen', $posStart);
+		$posModified = strpos( $contents, 'zuletzt geändert', $posStart);
+		$posLicence = strpos( $contents, 'Lizenz', $posStart);
+		$posUrl = strpos( $contents, '<table', $posStart);
+		$posUrlEnd = strpos( $contents, '</table>', $posStart);
+
+		if( false === $posModified) {
+			$ret->errorMsg .= ' (pos modified)';
+			return $ret;
+		}
+		if( false === $posLicence) {
+			$ret->errorMsg .= ' (pos licence)';
+			return $ret;
+		}
+		if( false === $posUrl) {
+			$ret->errorMsg .= ' (pos url)';
+			return $ret;
+		}
+		if( false === $posName) {
+			$ret->errorMsg .= ' (pos name)';
+			return $ret;
+		}
+
+		$strName = substr( $contents, $posName, strpos( $contents, '</h2>', $posName) - $posName);
+
+		$posModified = strpos( $contents, '>', strpos( $contents, '<td', $posModified)) + 1;
+		$strModified = substr( $contents, $posModified, strpos( $contents, '<br/>', $posModified) - $posModified);
+
+		$posLicence = strpos( $contents, '>', strpos( $contents, '<a', $posLicence)) + 1;
+		$strLicence = substr( $contents, $posLicence, strpos( $contents, '</a>', $posLicence) - $posLicence);
+
+		$posLicUrl = strpos( $strLicence, 'href="') + strlen( 'href="');
+		$strLicUrl = substr( $strLicence, $posLicUrl, strpos( $strLicence, '"', $posLicUrl) - $posLicUrl);
+
+		$posLicName = strpos( $strLicence, '>', $posLicUrl) + strlen( '>');
+		$strLicName = substr( $strLicence, $posLicName, strpos( $strLicence, '</a', $posLicName) - $posLicName);
+
+		$ret->vecURL = Array();
+		$ret->vecName = Array();
+
+		do {
+			$posUrl = strpos( $contents, '<tr>', $posUrl);
+			if( false === $posUrl) {
+				break;
+			}
+			if( $posUrl > $posUrlEnd) {
+				break;
+			}
+
+			$posUrl = strpos( $contents, '<strong>', $posUrl) + strlen( '<strong>');
+			$strName = substr( $contents, $posUrl, strpos( $contents, '</strong>', $posUrl) - $posUrl);
+			$strName = strip_tags( $strName);
+
+			$posUrl = strpos( $contents, 'href="', $posUrl) + strlen( 'href="');
+			$strUrl = substr( $contents, $posUrl, strpos( $contents, '"', $posUrl) - $posUrl);
+			$strUrl = 'http://www.bochum.de' . $strUrl;
+
+			$ret->vecURL[] = $strUrl;
+			$ret->vecName[] = $strName;
+		} while( true);
+
+		$ret->modified = $this->strtotimeLoc( $strModified);
+		$ret->modDays = intval(( strtotime( 'now') - $ret->modified) /60 /60 /24);
+
+		$this->parseCopyright( $ret, $strLicName, $strLicUrl, '');
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+} // class HarvestMetadataParserBochum
+$HarvestMetadata->addParser('HarvestMetadataParserBochum');
 
 //------------------------------------------------------------------------------
 
