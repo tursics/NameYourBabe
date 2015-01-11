@@ -810,8 +810,8 @@ function sourcesShowPageBrowseAll()
 	$nuts1 = substr( $MetadataVec[0]['nuts'], 0, 2);
 	for( $i = 0; $i < count( $MetadataVec); ++$i) {
 		if( $group == $MetadataVec[$i]['nuts']) {
-			++$skipped;
-			continue;
+//			++$skipped;
+//			continue;
 		}
 		$group = $MetadataVec[$i]['nuts'];
 		$name = $MetadataVec[$i]['name'];
@@ -1089,7 +1089,13 @@ function sourcesShowPageUpdateHarvest( $i)
 			}
 			if( 0 == strlen( $txt)) {
 				$txt .= $dataCount . ' entries saved in ' . count( $result->file) . ' files<br>';
-				$harvest['years'] = $result->years;
+				if( 0 < count( $result->years)) {
+					if( 0 < count( $harvest['years'])) {
+						$harvest['years'] = array_unique( array_merge( $harvest['years'], $result->years));
+					} else {
+						$harvest['years'] = $result->years;
+					}
+				}
 			} else {
 				$txt .= $dataCount . ' entries collected but error found. No files saved!<br>';
 			}
@@ -1121,12 +1127,8 @@ function sourcesShowPageUpdateHarvest( $i)
 		echo( $txt);
 	}
 
-/*	if(( $vecCount > 2) && ($vec[2][1] == 'NUTS2')) {
-		parseSourcedataNUTS( $vec, $sourceID, $urlID, $quite);
-	} else if(( $vecCount > 0) && (substr( $vec[0][0], 0, 21) == 'GemeindeEngerwitzdorf')) {
-		parseSourcedataEngerwitzdorf( $vec, $sourceID, $urlID, $quite);
-	} else if(( $vecCount > 0) && ($vec[0][0] == 'Rang') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname')) {
-		parseSourcedataLinz( $vec, $sourceID, $urlID, $gSource[$sourceIndex]['autoName'][$urlID], $quite);*/
+//	} else if(( $vecCount > 0) && (substr( $vec[0][0], 0, 21) == 'GemeindeEngerwitzdorf')) {
+//		parseSourcedataEngerwitzdorf( $vec, $sourceID, $urlID, $quite);
 //	} else if(( $vecCount > 0) && /*($vec[0][0] == 'Rang') &&*/ ($vec[0][1] == 'NUTS') && (trim( $vec[0][2]) == 'Geschlecht') && (trim( $vec[0][3]) == 'Vorname') && (trim( $vec[0][4]) == 'Jahr')) {
 //		parseSourcedataSalzburg( $vec, $sourceID, $urlID, $quite);
 /*	} else if(( $vecCount > 0) && ($vec[0][0] == 'Jahr') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname')) {
@@ -1175,13 +1177,15 @@ function sourcesShowPageUpdateId( $id)
 	}
 
 	$txt = '';
+	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
 	$txt .= '</div>';
 
-	$txt .= '<br>';
+/*	$txt .= '<br>';
 	$txt .= '<hr>';
 	$txt .= '<br>';
 	$txt .= '<a href="do=save&what=sourcedata">Save</a><br>';
-	$txt .= '<a href="do=browse&what=sources">Cancel</a><br>';
+	$txt .= '<a href="do=browse&what=sources">Cancel</a><br>';*/
 
 	echo( $txt);
 }
