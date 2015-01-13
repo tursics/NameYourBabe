@@ -991,7 +991,7 @@ function sourcesShowPageUpdateDownload( $i)
 						$txt .= '<br>'.$number;
 						for( $j = strlen($number); $j < 37; ++$j) $txt .= '&nbsp;';
 
-						$path = 'data/harvest/'.substr($MetadataVec[$i]['nuts'], 0, 2).'/'.$MetadataVec[$i]['nuts'].'/zip_'.$info['name'];
+						$path = 'data/harvest/'.substr($MetadataVec[$i]['nuts'], 0, 2).'/'.$MetadataVec[$i]['nuts'].'/zip_'.substr( $info['name'], strrpos( $info['name'], '/') + 1);
 						$txt .= $path;
 
 						$url = 'zip://' . $zip->filename . '#' . $info['name'];
