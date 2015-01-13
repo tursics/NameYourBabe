@@ -198,6 +198,9 @@ var objectDefault = {
 	sort: function( left, right) {
 		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
 	},
+	geoSort: function( left, right) {
+		return geoSort( left, right);
+	},
 	getLegend: function() {
 		return '';
 	},
@@ -231,6 +234,9 @@ var objectAllPortals = {
 	},
 	sort: function( left, right) {
 		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
+	},
+	geoSort: function( left, right) {
+		return geoSort( left, right);
 	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>';
@@ -282,6 +288,22 @@ var objectAllFirstnames = {
 	},
 	sort: function( left, right) {
 		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
+	},
+	geoSort: function( left, right) {
+		var idataL = basicIndexGetDataIndex( left);
+		var idataR = basicIndexGetDataIndex( right);
+		var dataL = (-1 == idataL ? 0 : (typeof dataFirstnames[idataL]['linkOGData'] !== "undefined") ? 2 : ((typeof dataFirstnames[idataL]['linkWebData'] !== "undefined") ? 1 : 0));
+		var dataR = (-1 == idataR ? 0 : (typeof dataFirstnames[idataR]['linkOGData'] !== "undefined") ? 2 : ((typeof dataFirstnames[idataR]['linkWebData'] !== "undefined") ? 1 : 0));
+
+		if( dataL != dataR) {
+			return (dataL > dataR) ? 1 : -1;
+		}
+
+		if( dataBasics[left].lat == dataBasics[right].lat) {
+			return (dataBasics[left].lon < dataBasics[right].lon) ? 1 : -1;
+		}
+
+		return (dataBasics[left].lat < dataBasics[right].lat) ? 1 : -1;
 	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-red"></i>Keine Vornamen vorhanden<br>'
@@ -336,6 +358,9 @@ var objectNuts1Portals = {
 	},
 	sort: function( left, right) {
 		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
+	},
+	geoSort: function( left, right) {
+		return geoSort( left, right);
 	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>'
@@ -428,6 +453,9 @@ var objectNuts1Firstnames = {
 	sort: function( left, right) {
 		return (dataBasics[left].name > dataBasics[right].name) ? 1 : -1;
 	},
+	geoSort: function( left, right) {
+		return geoSort( left, right);
+	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-red"></i>Keine Vornamen vorhanden<br>'
 		     + '<i class="fa fa-map-marker marker-green"></i>Open Data-Datensatz mit Vornamen<br>';
@@ -515,6 +543,9 @@ var objectDistrictPortals = {
 	sort: function( left, right) {
 		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
 	},
+	geoSort: function( left, right) {
+		return geoSort( left, right);
+	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
 	},
@@ -560,6 +591,9 @@ var objectDistrictFirstnames = {
 	},
 	sort: function( left, right) {
 		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	geoSort: function( left, right) {
+		return geoSort( left, right);
 	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-green"></i>Open Data-Datensatz mit Vornamen<br>'
@@ -611,6 +645,20 @@ var objectCityPortals = {
 	},
 	sort: function( left, right) {
 		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	geoSort: function( left, right) {
+		var dataL = (typeof dataBasics[left]['linkOGD'] !== "undefined") ? 2 : 0;
+		var dataR = (typeof dataBasics[right]['linkOGD'] !== "undefined") ? 2 : 0;
+
+		if( dataL != dataR) {
+			return (dataL > dataR) ? 1 : -1;
+		}
+
+		if( dataBasics[left].lat == dataBasics[right].lat) {
+			return (dataBasics[left].lon < dataBasics[right].lon) ? 1 : -1;
+		}
+
+		return (dataBasics[left].lat < dataBasics[right].lat) ? 1 : -1;
 	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-red"></i>Hat kein Open Data Portal<br>'
@@ -702,6 +750,22 @@ var objectCityFirstnames = {
 	sort: function( left, right) {
 		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
 	},
+	geoSort: function( left, right) {
+		var idataL = basicIndexGetDataIndex( left);
+		var idataR = basicIndexGetDataIndex( right);
+		var dataL = (-1 == idataL ? 0 : (typeof dataFirstnames[idataL]['linkOGData'] !== "undefined") ? 2 : ((typeof dataFirstnames[idataL]['linkWebData'] !== "undefined") ? 1 : 0));
+		var dataR = (-1 == idataR ? 0 : (typeof dataFirstnames[idataR]['linkOGData'] !== "undefined") ? 2 : ((typeof dataFirstnames[idataR]['linkWebData'] !== "undefined") ? 1 : 0));
+
+		if( dataL != dataR) {
+			return (dataL > dataR) ? 1 : -1;
+		}
+
+		if( dataBasics[left].lat == dataBasics[right].lat) {
+			return (dataBasics[left].lon < dataBasics[right].lon) ? 1 : -1;
+		}
+
+		return (dataBasics[left].lat < dataBasics[right].lat) ? 1 : -1;
+	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-red"></i>Keine Vornamen vorhanden<br>'
 		     + '<i class="fa fa-map-marker marker-yellow"></i>Daten mit Vornamen erhältlich<br>'
@@ -790,6 +854,9 @@ var objectMunicipalPortals = {
 	sort: function( left, right) {
 		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
 	},
+	geoSort: function( left, right) {
+		return geoSort( left, right);
+	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
 	},
@@ -866,6 +933,22 @@ var objectMunicipalFirstnames = {
 	sort: function( left, right) {
 		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
 	},
+	geoSort: function( left, right) {
+		var idataL = basicIndexGetDataIndex( left);
+		var idataR = basicIndexGetDataIndex( right);
+		var dataL = (-1 == idataL ? 0 : (typeof dataFirstnames[idataL]['linkOGData'] !== "undefined") ? 2 : ((typeof dataFirstnames[idataL]['linkWebData'] !== "undefined") ? 1 : 0));
+		var dataR = (-1 == idataR ? 0 : (typeof dataFirstnames[idataR]['linkOGData'] !== "undefined") ? 2 : ((typeof dataFirstnames[idataR]['linkWebData'] !== "undefined") ? 1 : 0));
+
+		if( dataL != dataR) {
+			return (dataL > dataR) ? 1 : -1;
+		}
+
+		if( dataBasics[left].lat == dataBasics[right].lat) {
+			return (dataBasics[left].lon < dataBasics[right].lon) ? 1 : -1;
+		}
+
+		return (dataBasics[left].lat < dataBasics[right].lat) ? 1 : -1;
+	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-red"></i>Keine Vornamen vorhanden<br>'
 		     + '<i class="fa fa-map-marker marker-yellow"></i>Daten mit Vornamen erhältlich<br>'
@@ -918,6 +1001,9 @@ var objectOtherPortals = {
 	sort: function( left, right) {
 		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
 	},
+	geoSort: function( left, right) {
+		return geoSort( left, right);
+	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-green"></i>Hat ein Open Data Portal<br>'
 	},
@@ -963,6 +1049,9 @@ var objectOtherFirstnames = {
 	},
 	sort: function( left, right) {
 		return (dataBasics[left].population < dataBasics[right].population) ? 1 : -1;
+	},
+	geoSort: function( left, right) {
+		return geoSort( left, right);
 	},
 	getLegend: function() {
 		return '<i class="fa fa-map-marker marker-green"></i>Open Data-Datensatz mit Vornamen<br>'
@@ -1112,7 +1201,7 @@ function generateDataList()
 		generateDataList();
 	});
 
-	arr.sort( geoSort);
+	arr.sort( obj.geoSort);
 	obj.addMarker( arr);
 	obj.createCharts( arr);
 }
