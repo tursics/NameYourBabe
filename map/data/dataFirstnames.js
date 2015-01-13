@@ -1,21 +1,47 @@
 var dataFirstnames = [
 {
+	"nuts":"DEE0D535",
+	"history":[
+		{"date":"13.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DED45330",
+	"linkWebData":"https://www.zwickau.de/de/aktuelles/pressemitteilungen/2015/01/003.php?",
+	"history":[
+		{"date":"12.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"12.01.2015","event":"Es wird sich drum gekümmert"},
+	],
+},
+{
+	"nuts":"DE115048",
+	"linkWebData":"http://www.ludwigsburg.de/,Lde/start/stadt_buerger/Marie+und+Maximilian+sind+Ludwigsburgs+beliebteste+Vornamen.html",
+	"history":[
+		{"date":"12.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA36",
+	"linkWebData":"www.recklinghausen.de/Inhalte/Startseite/Rathaus_Politik/Standesamt/Geburt/_Aufstellung_der_beliebtesten_Vornamen.asp",
+	"history":[
+		{"date":"12.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"nuts":"DE935022",
-	"linkWebData":"",
 	"history":[
 		{"date":"10.01.2015","event":"Anfrage nach Vornamen"},
 	],
 },
 {
 	"nuts":"DEA35016",
-	"linkWebData":"",
 	"history":[
 		{"date":"10.01.2015","event":"Anfrage nach Vornamen"},
 	],
 },
 {
 	"nuts":"DEA58024",
-	"linkWebData":"",
+	"linkWebData":"http://www.iserlohn.de/aktuelles/pressemitteilungen-der-stadt/einzelansicht/article/statistik-des-standesamtes-sophie-und-paul-beliebteste-vornamen-anzahl-der-geburten-gestiegen.html",
 	"history":[
 		{"date":"10.01.2015","event":"Anfrage nach Vornamen"},
 	],
@@ -25,18 +51,18 @@ var dataFirstnames = [
 	"linkWebData":"http://www.bremerhaven.de/buergerservice/aemter-einrichtungen/stadtverwaltung/standesamt/vornamenstatistiken-2004-2013.10360.html",
 	"history":[
 		{"date":"10.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"12.01.2015","event":"Keine ausführlicheren Statistiken als auf bremerhaven.de vorhanden"},
 	],
 },
 {
 	"nuts":"DE94B015",
-	"linkWebData":"",
+	"linkWebData":"http://www.nordhorn.de/magazin/artikel.php?artikel=1542&type=2&menuid=45&topmenu=1290",
 	"history":[
 		{"date":"09.01.2015","event":"Anfrage nach Vornamen"},
 	],
 },
 {
 	"nuts":"DEA34008",
-	"linkWebData":"",
 	"history":[
 		{"date":"09.01.2015","event":"Anfrage nach Vornamen"},
 	],
@@ -139,6 +165,7 @@ var dataFirstnames = [
 	"nuts":"DE92903241001",
 	"history":[
 		{"date":"19.11.2014","event":"Anfrage nach Vornamen"},
+		{"date":"13.01.2015","event":"Erneute Anfrage nach Vornamen"},
 	],
 },
 {
@@ -217,6 +244,7 @@ var dataFirstnames = [
 	"history":[
 		{"date":"17.10.2014","event":"Anfrage nach Vornamen"},
 		{"date":"21.10.2014","event":"10 PDF-Dateien mit Top 100-Listen per Mail bekommen"},
+		{"date":"12.01.2015","event":"Anfrage nach Vornamen 2014"},
 	],
 },
 {
@@ -239,7 +267,7 @@ var dataFirstnames = [
 },
 {
 	"nuts":"DEA13",
-	"linkWebData":"http://www.essen.de/rathaus/aemter/ordner_33/standesamt/vornamen_aktuell_5.de.html",
+	"linkWebData":"https://www.essen.de/rathaus/aemter/ordner_33/standesamt/vornamen_aktuell_7.de.html",
 	"history":[
 		{"date":"20.01.2014","event":"Anfrage nach Vornamen"},
 		{"date":"21.01.2014","event":"Antwort: Kostenlose Nutzung erlaubt"},
@@ -267,6 +295,7 @@ var dataFirstnames = [
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
 		{"date":"20.10.2014","event":"Antwort: Bilder der letzten Jahre per Mail bekommen"},
 		{"date":"10.01.2015","event":"Anfrage nach Vornamen 2014"},
+		{"date":"12.01.2014","event":"Antwort: Top50 der letzen 2 Jahre, pro Standesamt"},
 	],
 },
 {
@@ -297,6 +326,8 @@ var dataFirstnames = [
 	"history":[
 		{"date":"15.10.2014","event":"Anfrage nach Vornamen"},
 		{"date":"17.10.2014","event":"Antwort: PDF-Dateien per Mail bekommen"},
+		{"date":"12.01.2015","event":"Anfrage nach Vornamen 2014"},
+		{"date":"12.01.2015","event":"Antwort: PDF-Datei per Mail bekommen"},
 	],
 },
 {
@@ -310,6 +341,7 @@ var dataFirstnames = [
 	"linkWebData":"http://www.duesseldorf.de/standesamt/geburt/vorname/index.shtml",
 	"history":[
 		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"12.01.2015","event":"Erneute Anfrage nach Vornamen"},
 	],
 },
 {

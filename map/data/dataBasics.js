@@ -1,5 +1,29 @@
 var dataBasics = [
 {
+	"name":"Stendal",
+	"group":"city",
+	"nuts":"DEE0D535",
+	"population":40028,
+	"lat":52.60,
+	"lon":11.86,
+},
+{
+	"name":"Zwickau",
+	"group":"city",
+	"nuts":"DED45330",
+	"population":91564,
+	"lat":50.71,
+	"lon":12.49,
+},
+{
+	"name":"Ludwigsburg",
+	"group":"city",
+	"nuts":"DE115048",
+	"population":89639,
+	"lat":48.89,
+	"lon":9.19,
+},
+{
 	"name":"Lüneburg",
 	"group":"city",
 	"nuts":"DE935022",
