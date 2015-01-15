@@ -1,11 +1,31 @@
 var dataBasics = [
 {
+	"name":"Aschersleben",
+	"group":"city",
+	"nuts":"DEE0C015",
+	"population":27995,
+	"lat":51.75,
+	"lon":11.45,
+},
+{
+	"name":"Falkensee",
+	"group":"city",
+	"nuts":"DE408080",
+	"population":42178,
+	"lat":52.55,
+	"lon":13.09,
+},
+{
 	"name":"Stendal",
 	"group":"city",
 	"nuts":"DEE0D535",
 	"population":40028,
 	"lat":52.60,
 	"lon":11.86,
+	"history":[
+		{"date":"13.01.2014","event":"Anfrage nach Open Data"},
+		{"date":"14.01.2014","event":"Antwort: In Kürze ein Ratsinformationssystem/Bürgerinformationssystem"},
+	],
 },
 {
 	"name":"Zwickau",
@@ -245,7 +265,7 @@ var dataBasics = [
 {
 	"name":"Hannover",
 	"group":"city",
-	"nuts":"DE92903241001",
+	"nuts":"DE929001",
 	"population":514137,
 	"lat":52.37,
 	"lon":9.73,
@@ -533,6 +553,10 @@ var dataBasics = [
 	"population":192874,
 	"lat":51.31,
 	"lon":9.50,
+	"history":[
+		{"date":"13.01.2015","event":"Anfrage nach Open Data"},
+		{"date":"13.01.2015","event":"Antwort: Stadtverordnetenversammlung hat im Oktober 2014 den Auftrag erteilt, OpenData zu realisieren"},
+	],
 },
 {
 	"name":"Wuppertal",
@@ -688,7 +712,7 @@ var dataBasics = [
 {
 	"name":"Aachen",
 	"group":"city",
-	"nuts":"DEA2D05334002",
+	"nuts":"DEA2D002",
 	"population":240086,
 	"lat":50.77,
 	"lon":6.08,
@@ -877,6 +901,10 @@ var dataBasics = [
 	"population":294627,
 	"lat":49.48,
 	"lon":8.46,
+	"history":[
+		{"date":"10.01.2014","event":"Anfrage nach Open Data"},
+		{"date":"14.01.2014","event":"Antwort: In Q1 gibt es eine Gemeinderatsentscheidung, in Q3 geht Portal online"},
+	],
 },
 {
 	"name":"Fürth",

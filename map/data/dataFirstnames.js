@@ -1,8 +1,31 @@
 var dataFirstnames = [
 {
+	"nuts":"DEE0C015",
+	"linkWebData":"http://www.aschersleben.de/cms/ms/startseite/aktuelles-im-detail/meldung/statistik/?FS=2&cHash=e384e2615be5f9f7b02db02edd15198c",
+	"history":[
+		{"date":"15.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE408080",
+	"linkWebData":"https://www.falkensee.de/news/1/266988/nachrichten/266988.html",
+	"history":[
+		{"date":"15.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE125",
+	"linkWebData":"http://www.heidelberg.de/hd,Lde/13_01_2015+Marie+und+Maximilian+sind+die+beliebtesten+Namen.html",
+	"history":[
+		{"date":"15.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"nuts":"DEE0D535",
+	"linkWebData":"",
 	"history":[
 		{"date":"13.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"14.01.2015","event":"Antwort: PDF-Datei per Mail bekommen"},
 	],
 },
 {
@@ -10,7 +33,7 @@ var dataFirstnames = [
 	"linkWebData":"https://www.zwickau.de/de/aktuelles/pressemitteilungen/2015/01/003.php?",
 	"history":[
 		{"date":"12.01.2015","event":"Anfrage nach Vornamen"},
-		{"date":"12.01.2015","event":"Es wird sich drum gekümmert"},
+		{"date":"15.01.2015","event":"Antwort: 3 Jahre á 3 Bilder per Mail bekommen"},
 	],
 },
 {
@@ -162,10 +185,12 @@ var dataFirstnames = [
 	],
 },
 {
-	"nuts":"DE92903241001",
+	"nuts":"DE929001",
+	"linkWebData":"",
 	"history":[
 		{"date":"19.11.2014","event":"Anfrage nach Vornamen"},
 		{"date":"13.01.2015","event":"Erneute Anfrage nach Vornamen"},
+		{"date":"14.01.2015","event":"Antwort: Bild mit Top30 Vornamen per Mail bekommen"},
 	],
 },
 {
@@ -361,6 +386,7 @@ var dataFirstnames = [
 	"linkWebData":"http://www.dresden.de/de/02/035/01/2013/01/pm_022.php",
 	"history":[
 		{"date":"12.08.2014","event":"Anfrage nach Vornamen"},
+		{"date":"15.01.2015","event":"Erneute Anfrage nach Vornamen"},
 	],
 },
 {
@@ -404,10 +430,13 @@ var dataFirstnames = [
 	],
 },
 {
-	"nuts":"DEA2D05334002",
+	"nuts":"DEA2D002",
+	"linkOGData":"http://offenedaten.aachen.de/dataset/vornamen-2014",
+	"linkOGDLicense":"DL DE BY 2.0",
 	"history":[
 		{"date":"07.10.2014","event":"Anfrage nach Vornamen"},
 		{"date":"15.10.2014","event":"Antwort: Wunsch wurde aufgenommen"},
+		{"date":"13.01.2015","event":"Datensatz ist verfügbar"},
 	],
 },
 {
@@ -556,6 +585,7 @@ var dataFirstnames = [
 		{"date":"14.01.2014","event":"PDF-Datei per Mail bekommen"},
 		{"date":"16.01.2014","event":"Nachfrage"},
 		{"date":"16.01.2014","event":"Datensatz ist verfügbar"},
+		{"date":"13.01.2015","event":"Hinweis bekommen auf Daten für 2014"},
 	],
 },
 {
