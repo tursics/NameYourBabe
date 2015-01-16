@@ -808,18 +808,28 @@ function sourcesShowPageBrowseAll()
 	$skipped = 0;
 	$group = '';
 	$nuts1 = substr( $MetadataVec[0]['nuts'], 0, 2);
+	$txtNUTS = '';
+	$txtData = '';
+	$txtYear = '';
+	$txtNuts = '';
+	$txtCopy = '';
+	$txtHref = '';
+	$txtName = '';
 	for( $i = 0; $i < count( $MetadataVec); ++$i) {
-		if( $group == $MetadataVec[$i]['nuts']) {
-//			++$skipped;
-//			continue;
-		}
-		$group = $MetadataVec[$i]['nuts'];
-		$name = $MetadataVec[$i]['name'];
 		$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
 
-		if( $nuts1 != substr( $MetadataVec[$i]['nuts'], 0, 2)) {
-			$nuts1 = substr( $MetadataVec[$i]['nuts'], 0, 2);
-			$txt .= '<br>';
+		$dataYears = '';
+		if( 0 < count( $harvest['years'])) {
+			for( $j = 0; $j < 10; ++$j) {
+				if( in_array( $year - $j, $harvest['years'])) {
+					$dataYears .= 'X';
+				} else {
+					$dataYears .= '.';
+				}
+			}
+			if( in_array( $year - $j, $harvest['years'])) {
+				$dataYears .= '+';
+			}
 		}
 
 		$dataUpdate = '';
@@ -833,6 +843,42 @@ function sourcesShowPageBrowseAll()
 			$dataUpdate = '&#10003;';
 		} else {
 			$dataUpdate = 'ERROR';
+		}
+
+		if( $group == $MetadataVec[$i]['nuts']) {
+			++$skipped;
+			$txtName = nutsGetName( $MetadataVec[$i]['nuts'])['en-US'];
+			if( '' != $dataUpdateLink) {
+				$txtData = str_replace( array( 'no data', 'need update', 'ERROR', '&nbsp;'), array( '', 'U', 'E', ''), $txtData);
+				$txtData .= '<a href="'.$dataUpdateLink.'">U</a>';
+			} else if( '&#10003;' == $dataUpdate) {
+				$txtData = str_replace( array( 'no data', 'need update', 'ERROR', '&nbsp;'), array( '', 'U', 'E', ''), $txtData);
+				$txtData .= $dataUpdate;
+			}
+			for( $j = strlen(strip_tags($txtData)); $j < 12; ++$j) $txtData .= '&nbsp;';
+
+			$txtYear = str_replace( '&nbsp;', ' ', $txtYear);
+			for( $j = 0; $j < strlen( $dataYears); ++$j) {
+				if( $txtYear[ $j] == '.') {
+					$txtYear[ $j] = $dataYears[ $j];
+				} else if( $txtYear[ $j] == ' ') {
+					$txtYear[ $j] = $dataYears[ $j];
+				}
+			}
+			$txtYear = str_replace( ' ', '&nbsp;', $txtYear);
+			continue;
+		}
+		if( $group != '') {
+			$txt .= $txtNUTS . $txtData . $txtYear . $txtNuts . $txtCopy . '<a href="'.$txtHref.'">'.$txtName.'</a><br>';
+		}
+
+		$group = $MetadataVec[$i]['nuts'];
+		$txtName = $MetadataVec[$i]['name'];
+		$txtHref = 'do=browse&what=source&id='.$MetadataVec[$i]['nuts'];
+
+		if( $nuts1 != substr( $MetadataVec[$i]['nuts'], 0, 2)) {
+			$nuts1 = substr( $MetadataVec[$i]['nuts'], 0, 2);
+			$txt .= '---------------- ----------- ----------- ------- --------- ----------------------------------------<br>';
 		}
 
 		$dataNuts = '';
@@ -861,46 +907,32 @@ function sourcesShowPageBrowseAll()
 			$dataCopyright = 'missing';
 		}
 
-		$dataYears = '';
-		if( 0 < count( $harvest['years'])) {
-			for( $j = 0; $j < 10; ++$j) {
-				if( in_array( $year - $j, $harvest['years'])) {
-					$dataYears .= 'X';
-				} else {
-					$dataYears .= '.';
-				}
-			}
-			if( in_array( $year - $j, $harvest['years'])) {
-				$dataYears .= '+';
-			}
-		}
-
-		$txt .= $MetadataVec[$i]['nuts'];
-		for( $j = strlen($MetadataVec[$i]['nuts']); $j < 17; ++$j) $txt .= '&nbsp;';
+		$txtNUTS = $MetadataVec[$i]['nuts'];
+		for( $j = strlen($txtNUTS); $j < 17; ++$j) $txtNUTS .= '&nbsp;';
 
 		if( '' == $dataUpdateLink) {
-			$txt .= $dataUpdate;
+			$txtData = $dataUpdate;
 		} else {
-			$txt .= '<a href="'.$dataUpdateLink.'">'.$dataUpdate.'</a>';
+			$txtData = '<a href="'.$dataUpdateLink.'">'.$dataUpdate.'</a>';
 		}
-		for( $j = ('&' == substr($dataUpdate,0,1) ? 1 : strlen($dataUpdate)); $j < 12; ++$j) $txt .= '&nbsp;';
+		for( $j = ('&' == substr($dataUpdate,0,1) ? 1 : strlen($dataUpdate)); $j < 12; ++$j) $txtData .= '&nbsp;';
+//		for( $j = strlen(strip_tags($txtData)); $j < 12; ++$j) $txtData .= '&nbsp;';
 
-		$txt .= $dataYears;
-		for( $j = ('&' == substr($dataYears,0,1) ? 1 : strlen($dataYears)); $j < 12; ++$j) $txt .= '&nbsp;';
+		$txtYear = $dataYears;
+		for( $j = ('&' == substr($txtYear,0,1) ? 1 : strlen($txtYear)); $j < 12; ++$j) $txtYear .= '&nbsp;';
 
-		$txt .= $dataNuts;
-		for( $j = ('&' == substr($dataNuts,0,1) ? 1 : strlen($dataNuts)); $j < 8; ++$j) $txt .= '&nbsp;';
+		$txtNuts = $dataNuts;
+		for( $j = ('&' == substr($txtNuts,0,1) ? 1 : strlen($txtNuts)); $j < 8; ++$j) $txtNuts .= '&nbsp;';
 
-		$txt .= $dataCopyright;
-		for( $j = ('&' == substr($dataCopyright,0,1) ? 1 : strlen($dataCopyright)); $j < 10; ++$j) $txt .= '&nbsp;';
+		$txtCopy = $dataCopyright;
+		for( $j = ('&' == substr($txtCopy,0,1) ? 1 : strlen($txtCopy)); $j < 10; ++$j) $txtCopy .= '&nbsp;';
 
-		$txt .= '<a href="do=source&what='.$MetadataVec[$i]['id'].'">'.$name.'</a>';
-		$txt .= '<br>';
 	}
 
+	$txt .= $txtNUTS . $txtData . $txtYear . $txtNuts . $txtCopy . '<a href="'.$txtHref.'">'.$txtName.'</a><br>';
 	$txt .= '---------------- ----------- ----------- ------- --------- ----------------------------------------<br>';
 	$txt .= '<br>';
-	$txt .= (count( $MetadataVec) - $skipped) . ' sources (' . count( $MetadataVec) . ' source links)<br>';
+	$txt .= (count( $MetadataVec) - $skipped) . ' sources (' . count( $MetadataVec) . ' source data sets)<br>';
 
 	$txt .= '</div>';
 
@@ -945,6 +977,9 @@ function sourcesShowPageUpdateDownload( $i)
 		}
 
 		$path = substr($url,strrpos($url,'/') + 1);
+		if( false !== strrpos($path,'?')) {
+			$path = substr($path,0,strrpos($path,'?'));
+		}
 		if( strlen( $name) == 0) {
 			$name = $path;
 		}
@@ -1127,20 +1162,6 @@ function sourcesShowPageUpdateHarvest( $i)
 		echo( $txt);
 	}
 
-//	} else if(( $vecCount > 0) && (substr( $vec[0][0], 0, 21) == 'GemeindeEngerwitzdorf')) {
-//		parseSourcedataEngerwitzdorf( $vec, $sourceID, $urlID, $quite);
-//	} else if(( $vecCount > 0) && /*($vec[0][0] == 'Rang') &&*/ ($vec[0][1] == 'NUTS') && (trim( $vec[0][2]) == 'Geschlecht') && (trim( $vec[0][3]) == 'Vorname') && (trim( $vec[0][4]) == 'Jahr')) {
-//		parseSourcedataSalzburg( $vec, $sourceID, $urlID, $quite);
-/*	} else if(( $vecCount > 0) && ($vec[0][0] == 'Jahr') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname')) {
-		parseSourcedataVorarlberg( $vec, $sourceID, $urlID, $quite);
-/*	} else if(( $vecCount > 1) && ($vec[1][0] == 'Anzahl der  Kinder mit')) {
-		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
-	} else if(( $vecCount > 1) && (trim( $vec[1][0]) == 'Anzahl der Kinder mit')) {
-		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
-	} else if(( $vecCount > 2) && (trim( $vec[2][0]) == 'Anzahl der Kinder mit')) {
-		parseSourcedataBremen( $vec, $sourceID, $urlID, $quite);
-	}*/
-
 	$HarvestMetadata->save();
 }
 
@@ -1192,90 +1213,103 @@ function sourcesShowPageUpdateId( $id)
 
 //--------------------------------------------------------------------------------------------------
 
-function sourcesShowPageItem( $id)
+function sourcesShowPageItem( $nuts)
 {
-	global $gSource;
-	global $gBoys;
-	global $gGirls;
-
-	for( $i = 0; $i < count( $gSource); ++$i) {
-		if( intval( $id) == intval( $gSource[$i]['id'])) {
-			break;
-		}
-	}
-
-	$name = $gSource[$i]['name'];
-	$group = '';
-	if( isset( $gSource[$i]['group'])) {
-		$group = $gSource[$i]['group'];
-		$name = $group;
-	}
+	global $MetadataVec;
+	global $dataHarvestMetadata;
+	global $HarvestMetadata;
 
 	$txt = '';
-	$txt .= '<h1>'.$name.'</h1>';
+	$txt .= '<div class="log">Show source data<br>================<br><br>';
 	echo( $txt);
 
 	// nuts
 	$txt = '';
-	$oldNuts = '';
-	for( $j = 0; $j < count( $gSource[$i]['manNUTS']); ++$j) {
-		$nutsName = $gSource[$i]['manNUTS'][$j];
-		if( $oldNuts != $nutsName) {
-			$oldNuts = $nutsName;
+	$nutsName = $nuts;
+	$txtTab = '&nbsp;&nbsp;&nbsp;|- ';
 
-			$tmp = $nutsName;
-			do {
-				if( nutsExists( $nutsName)) {
-					$names = nutsGetName( $nutsName);
-					$tmp .= ' | '.$names['en-US'];
+	$txt .= 'Name: '.nutsGetName( $nutsName)['en-US'] . '<br>';
+	$txt .= 'NUTS: '.$nutsName . '<br>';
+	$txt .= 'Path: '.nutsGetName( $nutsName)['en-US'] . '<br>';
+	do {
+		$nutsName = substr( $nutsName, 0, -1);
+		if( nutsExists( $nutsName)) {
+			$names = nutsGetName( $nutsName);
+			$txtTab = '&nbsp;&nbsp;&nbsp;'.$txtTab;
+			$txt .= $txtTab. $names['en-US'] . '<br>';
+		}
+	} while( strlen( $nutsName) > 0);
+	$txt .= '<br>';
+	$txt .= '<br>';
+	echo( $txt);
+
+	for( $i = 0; $i < count( $MetadataVec); ++$i) {
+		if( $nuts == $MetadataVec[$i]['nuts']) {
+			$dataUpdateLink = 'do=update&what=sourcedata&id='.md5($MetadataVec[$i]['meta']);
+			$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+			$txt = '';
+
+			$name = $MetadataVec[$i]['name'];
+			$txt .= $name.'<br>';
+			$txt .= '----------------------------------------------------------------------------------------------<br>';
+			$txt .= 'Metadata: [<a href="'.$MetadataVec[$i]['meta'].'" target="_blank">show metadata</a>] [<a href="'.$dataUpdateLink.'">update metadata</a>]<br>';
+
+			for( $idx = 0; $idx < count( $harvest['url']); ++$idx) {
+				$name = $harvest['name'][$idx];
+				$url = $harvest['url'][$idx];
+
+				if( 0 === strpos( $url, '/katalog/storage')) {
+					$url = 'http://data.gv.at' . $url;
+				} else if( 0 === strpos( $url, '/at.gv.brz.ogd/storage')) {
+					$url = 'http://data.gv.at/katalog/' . substr( $url, 15);
+				} else if( 0 === strpos( $url, '/private/')) {
+					$url = dirname(__FILE__) . '/data' . $url;
 				}
-				$nutsName = substr( $nutsName, 0, -1);
-			} while( strlen( $nutsName) > 0);
-			$txt .= $tmp."<br>";
-		}
-	}
-	$txt .= '<br>';
-	$txt .= '<hr>';
-	$txt .= '<br>';
-	echo( $txt);
 
-	$txt = '';
-	$txt .= 'Datasets:<br>';
-	echo( $txt);
+				$path = substr($url,strrpos($url,'/') + 1);
+				if( false !== strrpos($path,'?')) {
+					$path = substr($path,0,strrpos($path,'?'));
+				}
+				if( strlen( $name) == 0) {
+					$name = $path;
+				}
+				if( $name == '') {
+					$name = $path;
+				}
 
-	$idVec = Array();
-	for( $i = 0; $i < count( $gSource); ++$i) {
-		if( $group == '') {
-			if( intval( $id) != intval( $gSource[$i]['id'])) {
-				continue;
-			}
-		} else {
-			if( $group != $gSource[$i]['group']) {
-				continue;
-			}
-		}
-
-		$idVec[] = $gSource[$i]['id'];
-
-		for( $j = 0; $j < count( $gSource[$i]['autoUrl']); ++$j) {
-			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/katalog/storage')) {
-				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at' . $gSource[$i]['autoUrl'][$j];
-			} else
-			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/at.gv.brz.ogd/storage')) {
-				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at/katalog/' . substr( $gSource[$i]['autoUrl'][$j], 15);
+				$txt .= 'Source:&nbsp;&nbsp;&nbsp;<a href="' . $url. '" target="_blank">' . $name . '</a><br>';
 			}
 
-			$name = $gSource[$i]['autoName'][$j];
-			if( strlen( $name) == 0) {
-				$name = '[Data]';
+			$vecDownload = $harvest['download'];
+			for( $idx = 0; $idx < count( $vecDownload); ++$idx) {
+				$url = $vecDownload[$idx];
+				$file = dirname(__FILE__).'/'.$url;
+
+				$path = substr($url,strrpos($url,'/') + 1);
+				$txt .= 'Local:&nbsp;&nbsp;&nbsp;&nbsp;' . $url. ' ('.filesize( $file).' bytes)<br>';
 			}
-			if( $name == '') {
-				$name = '[Data]';
+
+			$txt .= 'Years:&nbsp;&nbsp;&nbsp;&nbsp;';
+			for( $j = 0; $j < count( $harvest['years']); ++$j) {
+				$txt .= $harvest['years'][$j] . ' ';
 			}
-			$txt = '&nbsp;&nbsp;<a href="' . $gSource[$i]['autoUrl'][$j]. '">' . $name . '</a><br>';
+			$txt .= '<br>';
+
+			$txt .= '----------------------------------------------------------------------------------------------<br>';
+			$txt .= '<br>';
 			echo( $txt);
 		}
 	}
+
+	$txt = '';
+	$txt .= '<br>';
+	$txt .= 'unfinished yet<br>';
+	echo( $txt);
+
+	$txt = '';
+	$txt .= '<br>';
+	$txt .= '</div>';
+	echo( $txt);
 
 	$txt = '<br>';
 	$txt .= '<hr>';
