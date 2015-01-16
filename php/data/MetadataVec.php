@@ -568,5 +568,10 @@ $MetadataVec=array (
     'meta' => 'http://www.offenedaten.moers.de/C1257221003C7526/html/D7AB28A163F86824C1257DC60047A1F0?OpenDocument',
     'citation' => 'Datenquelle: Stadt Moers – offenedaten.moers.de',
   ),
+  array (
+    'nuts' => 'DEA2D002',
+    'name' => 'Vornamen Aachen',
+    'meta' => 'http://offenedaten.aachen.de/dataset/vornamen-2014',
+  ),
 );
 ?>
