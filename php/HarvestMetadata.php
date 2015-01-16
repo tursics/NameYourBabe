@@ -95,7 +95,7 @@ class HarvestMetadata
 		for( $i = 0; $i < count( $this->parserVec); ++$i) {
 			$parser = new $this->parserVec[$i]();
 			if( $parser->accept( $contents, $json)) {
-			return $parser->parse( $contents, $json);
+				return $parser->parse( $contents, $json);
 			}
 		}
 
