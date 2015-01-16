@@ -290,7 +290,7 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 					male=> $vec[ $row][ $colSex] == '1' ? true : false,
 					year=> trim( $vec[ $row][ $colYear]),
 					pos=> $colPos == -1 ? $posVec[ $vec[ $row][ $colSex]][ $vec[ $row][ $colYear]] : $vec[ $row][ $colPos],
-					number=> $vec[ $row][ $colCount],
+					number=> trim( $vec[ $row][ $colCount]),
 					error=> '',
 				);
 			}
@@ -542,6 +542,310 @@ $HarvestData->addParser('HarvestDataParserAutiSta');
 
 //------------------------------------------------------------------------------
 
+class HarvestDataParserAutiStaScan extends HarvestDataParserBase
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 1) && (trim( $vec[1][0]) == 'Anzahl der Kinder mit');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// AutiSta used in Bremen, Moers, ...
+		$ret = new HarvestDataResult();
+
+		$vecCount = count( $vec);
+		if( $vecCount < 20) {
+			$ret->errorMsg = 'Unknown AutiSta scan format!';
+			return $ret;
+		}
+
+		$row = 0;
+		if( 'Vornamenstatistik' != explode( " ", trim( $vec[ $row][0]))[0]) {
+			++$row;
+		}
+
+		$theYearStr = trim( $vec[ $row][0]);
+		$theYearStr = substr( $theYearStr, strlen( $theYearStr) - 4);
+		$theYear = intval( $theYearStr);
+		if( $theYear < 2000) {
+			$ret->errorMsg = 'Unknown AutiSta scan year format... ' . $theYear . ' != ' . $theYearStr;
+			return $ret;
+		}
+
+		for( ; $row < $vecCount; ++$row) {
+			if( '' == $vec[ $row][0]) {
+				break;
+			} else if( false !== strpos( $vec[ $row][0], 'figkeit der vergebenen Vornamen')) {
+				--$row;
+				break;
+			} else if( 'Rang Mädchen Anzahl Knaben Anzahl' == $vec[ $row][0]) {
+				$row -= 2;
+				break;
+			} else if( 'Rang Mädchen Anzahl Jungen Anzahl' == $vec[ $row][0]) {
+				$row -= 2;
+				break;
+			} else if(( 'Rang' == $vec[ $row][0]) && ( 'Mädchen' == $vec[ $row][1])) {
+				$row -= 2;
+				break;
+			}
+		}
+		$row += 2;
+
+		if( $row >= $vecCount) {
+			$ret->errorMsg = 'Unknown AutiSta scan year format (less data)...';
+			return $ret;
+		}
+
+		if( 1 == count( $vec[ $row])) {
+			return $this->parseFromPDF( $vec, $vecCount, $nuts, $url, $row, $theYear);
+		}
+
+		if( 'Anzahl' != trim( $vec[ $row][2])) {
+			--$row;
+			if( 'Anzahl' != trim( $vec[ $row-1][2])) {
+				$ret->errorMsg = 'Unknown AutiSta scan year format (Anzahl 1)...';
+				return $ret;
+			}
+		}
+		if( 'Knaben' != trim( $vec[ $row][3])) {
+			if( 'Knaben' != trim( $vec[ $row-1][3])) {
+				$ret->errorMsg = 'Unknown AutiSta scan year format (Knaben)...';
+				return $ret;
+			}
+		}
+		if( 'Anzahl' != trim( $vec[ $row][4])) {
+			if( 'Anzahl' != trim( $vec[ $row-1][4])) {
+				$ret->errorMsg = 'Unknown AutiSta scan year format (Anzahl 2)...';
+				return $ret;
+			}
+		}
+
+		++$row;
+
+//		$colName = -1;
+		$colNameMale = 3;
+		$colNameFemale = 1;
+//		$colSex = -1;
+//		$colYear = 0;
+		$colPos = 0;
+//		$colCount = -1;
+		$colCountMale = 4;
+		$colCountFemale = 2;
+
+		$ret->data = Array();
+
+		for( ; $row < $vecCount; ++$row) {
+			if( intval( $vec[ $row][ $colPos]) < 1) {
+				break;
+			}
+			if( count( $vec[ $row]) > 1) {
+				$ret->data[] = Array(
+					name=> trim( $vec[ $row][ $colNameMale]),
+					male=> true,
+					year=> $theYear,
+					pos=> intval( $vec[ $row][ $colPos]),
+					number=> trim( $vec[ $row][ $colCountMale]),
+					error=> '',
+				);
+				$ret->data[] = Array(
+					name=> trim( $vec[ $row][ $colNameFemale]),
+					male=> false,
+					year=> $theYear,
+					pos=> intval( $vec[ $row][ $colPos]),
+					number=> trim( $vec[ $row][ $colCountFemale]),
+					error=> '',
+				);
+			}
+		}
+
+		$this->parseData( $ret->data);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+
+	public function parseFromPDF( $vec, $vecCount, $nuts, $url, $row, $theYear)
+	{
+		// Used in Essen, ...
+		$ret = new HarvestDataResult();
+		$vecCount = count( $vec);
+
+		$current = explode( " ", $vec[ $row][0]);
+		$previous = explode( " ", $vec[ $row-1][0]);
+
+		if( 'Anzahl' != trim( $current[2])) {
+			--$row;
+			if( 'Anzahl' != trim( $previous[2])) {
+				$ret->errorMsg = 'Unknown AutiSta scan pdf format (Anzahl 1)...';
+				return $ret;
+			}
+		}
+		if( 'Knaben' != trim( $current[3])) {
+			if( 'Knaben' != trim( $previous[3])) {
+				if( 'Jungen' != trim( $current[3])) {
+					if( 'Jungen' != trim( $previous[3])) {
+						$ret->errorMsg = 'Unknown AutiSta scan pdf format (Knaben)...';
+						return $ret;
+					}
+				}
+			}
+		}
+		if( 'Anzahl' != trim( $current[4])) {
+			if( 'Anzahl' != trim( $previous[4])) {
+				$ret->errorMsg = 'Unknown AutiSta scan pdf format (Anzahl 2)...';
+				return $ret;
+			}
+		}
+
+		++$row;
+
+//		$colName = -1;
+		$colNameMale = 3;
+		$colNameFemale = 1;
+//		$colSex = -1;
+//		$colYear = 0;
+		$colPos = 0;
+//		$colCount = -1;
+		$colCountMale = 4;
+		$colCountFemale = 2;
+
+		$ret->data = Array();
+
+		for( ; $row < $vecCount; ++$row) {
+			$current = explode( " ", $vec[ $row][0]);
+			if( intval( $current[ $colPos]) < 1) {
+				continue;
+			}
+			if( count( $current) > 3) {
+				$male = trim( $current[ $colNameMale]);
+				if( 'Tot' == $male) {} else
+				if( 'geborener' == $male) {} else
+				if( '(Vorname' == $male) {} else
+				if( '(Vor' == $male) {} else
+				if( 'und' == $male) {} else
+				if( 'Vatersname)' == $male) {} else
+				if( '(Vatersname)' == $male) {} else
+				if( 'noch' == $male) {} else
+				if( 'kein' == $male) {} else
+				if( 'Vorname' == $male) {} else
+				if( 'oğlu' == $male) {} else
+				if( 'van' == $male) {} else
+				if( 'Alessandro-' == $male) {} else // data corruption
+				if( 'Maximilian-' == $male) {} else // data corruption
+				if( '1' == $male) {} else // given name is empty, count is '1'
+				{
+					$ret->data[] = Array(
+						name=> $male,
+						male=> true,
+						year=> $theYear,
+						pos=> intval( $current[ $colPos]),
+						number=> trim( $current[ $colCountMale]),
+						error=> '',
+					);
+				}
+
+				$female = trim( $current[ $colNameFemale]);
+				if(( '' == $female) && ( '' == $current[ $colCountFemale])) {
+					continue;
+				}
+
+				if( 'Tot' == $female) {} else
+				if( 'geborenes' == $female) {} else
+				if( 'Mädchen' == $female) {} else
+				if( '(Vorname' == $female) {} else
+				if( 'und' == $female) {} else
+				if( 'Vatersname)' == $female) {} else
+				if( 'Vatersname' == $female) {} else
+				if( 'Vatersname:' == $female) {} else
+				if( 'Nameskette' == $female) {} else
+				if( 'Namenskette' == $female) {} else
+				if( '(Namenskette)' == $female) {} else
+				if( 'noch' == $female) {} else
+				if( 'kein' == $female) {} else
+				if( 'Vorname' == $female) {} else
+				if( '-Alexandra' == $female) {} else // data corruption
+				if( 'Irini-' == $female) {} else // data corruption
+				if( 'Jo-Essen' == $female) {} else // found in database from Essen
+				if( 'nana' == $female) {} else
+				if( 'kyzy' == $female) {} else
+				if( 'de' == $female) {} else
+				{
+					$ret->data[] = Array(
+						name=> $female,
+						male=> false,
+						year=> $theYear,
+						pos=> intval( $current[ $colPos]),
+						number=> trim( $current[ $colCountFemale]),
+						error=> '',
+					);
+				}
+			} else if( count( $current) > 1) {
+				$female = trim( $current[ 1]);
+				if( 'Zwischennamen:' == $female) {} else
+				{
+					$ret->data[] = Array(
+						name=> $female,
+						male=> false,
+						year=> $theYear,
+						pos=> intval( $current[ $colPos]),
+						number=> trim( $current[ $colCountFemale]),
+						error=> '',
+					);
+				}
+			}
+		}
+
+		$this->parseData( $ret->data);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+} // class HarvestDataParserAutiStaScan
+$HarvestData->addParser('HarvestDataParserAutiStaScan');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserAutiStaScan2 extends HarvestDataParserAutiStaScan
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 1) && ($vec[1][0] == 'Anzahl der  Kinder mit');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Bremen, ...
+		return parent::parse( $vec, $vecCount, $nuts, $url);
+	}
+} // class HarvestDataParserAutiStaScan2
+$HarvestData->addParser('HarvestDataParserAutiStaScan2');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserAutiStaScan3 extends HarvestDataParserAutiStaScan
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 2) && (trim( $vec[2][0]) == 'Anzahl der Kinder mit');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Munich, ...
+		return parent::parse( $vec, $vecCount, $nuts, $url);
+	}
+} // class HarvestDataParserAutiStaScan3
+$HarvestData->addParser('HarvestDataParserAutiStaScan3');
+
+//------------------------------------------------------------------------------
+
 function cmpHarvestDataParserZuerich( $a, $b)
 {
 	if( $a['year'] != $b['year']) {
@@ -724,6 +1028,217 @@ class HarvestDataParserLinz extends HarvestDataParserBase
 	}
 } // class HarvestDataParserLinz
 $HarvestData->addParser('HarvestDataParserLinz');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserVorarlberg extends HarvestDataParserBase
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 0) && ($vec[0][0] == 'Jahr') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Used in Vorarlberg
+		$ret = new HarvestDataResult();
+
+		$colName = 2;
+		$colSex = 1;
+		$colYear = 0;
+		$colPos = 3;
+//		$colCount = -1;
+		$startRow = 0;
+		$yearPos = 0;
+		$oldYear = 0;
+
+		$vecCount = count( $vec);
+		if( count( $vec) < 2) {
+			$ret->errorMsg = 'Unknown Vorarlberg format!';
+			return $ret;
+		}
+
+		$ret->data = Array();
+
+		for( $row = $startRow + 1; $row < $vecCount; ++$row, ++$yearPos) {
+			if( count( $vec[ $row]) > 1) {
+				if( $oldYear != intval( $vec[ $row][ $colYear])) {
+					$oldYear = intval( $vec[ $row][ $colYear]);
+					$yearPos = 1;
+				}
+
+				$ret->data[] = Array(
+					name=> trim( $vec[ $row][ $colName], '* '),
+					male=> $vec[ $row][ $colSex] == 'Knaben' ? true : false,
+					year=> trim( $vec[ $row][ $colYear]),
+					pos=> $yearPos,
+					number=> trim( $vec[ $row][ $colPos]),
+					error=> '',
+				);
+			}
+		}
+
+		$this->parseData( $ret->data);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+} // class HarvestDataParserVorarlberg
+$HarvestData->addParser('HarvestDataParserVorarlberg');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserEngerwitzdorf extends HarvestDataParserBase
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 0) && (substr( $vec[0][0], 0, 21) == 'GemeindeEngerwitzdorf');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Used in Engerwitzdorf
+		$ret = new HarvestDataResult();
+
+		$vecCount = count( $vec);
+
+		if( $vecCount < 12) {
+			$ret->errorMsg = 'Unknown Engerwitzdorf format!';
+			return $ret;
+		}
+
+		$row = 3;
+		$theYear = intval( $vec[ $row][0]);
+		$row += 2;
+		if( $theYear != intval( $vec[ $row][0])) {
+			$ret->errorMsg = 'Unknown Engerwitzdorf year format... ' . $theYear . ' != ' . $vec[ $row][0];
+			return $ret;
+		}
+
+		$isMale = true;
+		$row += 3;
+		if( 'weibl.' == trim( $vec[ $row][0])) {
+			$isMale = false;
+		} else if( "m\xe4nnl." != trim( $vec[ $row][0])) {
+			$ret->errorMsg = 'Unknown Engerwitzdorf sex format... ' . $vec[ $row][0];
+			return $ret;
+		}
+
+		if(( '' != trim( $vec[ $row + 1][0])) || ('' != trim( $vec[ $row + 2][0]))) {
+			$ret->errorMsg = 'Unknown Engerwitzdorf line feed format...';
+			return $ret;
+		}
+		$row += 3;
+
+		$ret->data = Array();
+		$thePos = 1;
+
+		for( ; ($row < $vecCount) && (0 < strlen( trim( $vec[ $row][0]))); ++$row) {
+			$theName = trim( $vec[ $row][0]);
+			if( is_numeric( $theName)) {
+				continue;
+			}
+
+			$nameExists = false;
+			for( $i = 0; $i < count( $ret->data); ++$i) {
+				if( $ret->data[ $i]['name'] == $theName) {
+					$nameExists = true;
+				}
+			}
+
+			if( $nameExists) {
+				continue;
+			}
+
+			$ret->data[] = Array(
+				name=> $theName,
+				male=> $isMale,
+				year=> $theYear,
+				pos=> $thePos,
+				number=> 0,
+				error=> '',
+			);
+			++$thePos;
+		}
+
+		$this->parseData( $ret->data);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+} // class HarvestDataParserEngerwitzdorf
+$HarvestData->addParser('HarvestDataParserEngerwitzdorf');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserSalzburg extends HarvestDataParserBase
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 0) && /*($vec[0][0] == 'Rang') &&*/ ($vec[0][1] == 'NUTS') && (trim( $vec[0][2]) == 'Geschlecht') && (trim( $vec[0][3]) == 'Vorname') && (trim( $vec[0][4]) == 'Jahr');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Used in Salzburg
+		$ret = new HarvestDataResult();
+
+		$colName = 3;
+		$colSex = 2;
+		$colYear = 4;
+		$colPos = 0;
+//		$colCount = -1;
+//		$colNuts = 1;
+		$currentPos = 0;
+
+		$vecCount = count( $vec);
+		if( $vecCount < 2) {
+			$ret->errorMsg = 'Unknown Salzburg format!';
+			return $ret;
+		}
+
+		$ret->data = Array();
+
+		for( $row = 1; $row < $vecCount; ++$row) {
+			if( count( $vec[ $row]) > 1) {
+				if(( '' == $vec[ $row][ $colPos]) && ('' == $vec[ $row][ $colSex])) {
+					continue;
+				}
+//				if( '' == $vec[ $row][ $colName]) {
+//					continue;
+//				}
+				if( strlen( trim( $vec[ $row][ $colPos])) > 0) {
+					$currentPos = $vec[ $row][ $colPos];
+				}
+
+				$ret->data[] = Array(
+					name=> trim( $vec[ $row][ $colName]),
+					male=> $vec[ $row][ $colSex] == 'weiblich' ? false : true,
+					year=> trim( $vec[ $row][ $colYear]),
+//					year=> '2013',
+					pos=> $currentPos,
+					number=> 0,
+					error=> '',
+				);
+			}
+		}
+
+		$this->parseData( $ret->data);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+} // class HarvestDataParserSalzburg
+$HarvestData->addParser('HarvestDataParserSalzburg');
 
 //------------------------------------------------------------------------------
 
