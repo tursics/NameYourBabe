@@ -575,7 +575,9 @@ class HarvestDataParserAutiStaScan extends HarvestDataParserBase
 
 		for( ; $row < $vecCount; ++$row) {
 			if( '' == $vec[ $row][0]) {
-				break;
+				if( $row > 3) {
+					break;
+				}
 			} else if( false !== strpos( $vec[ $row][0], 'figkeit der vergebenen Vornamen')) {
 				--$row;
 				break;
@@ -604,14 +606,19 @@ class HarvestDataParserAutiStaScan extends HarvestDataParserBase
 		if( 'Anzahl' != trim( $vec[ $row][2])) {
 			--$row;
 			if( 'Anzahl' != trim( $vec[ $row-1][2])) {
-				$ret->errorMsg = 'Unknown AutiSta scan year format (Anzahl 1)...';
-				return $ret;
+				$row += 2;
+				if( 'Anzahl' != trim( $vec[ $row][2])) {
+					$ret->errorMsg = 'Unknown AutiSta scan year format (Anzahl 1)...';
+					return $ret;
+				}
 			}
 		}
 		if( 'Knaben' != trim( $vec[ $row][3])) {
 			if( 'Knaben' != trim( $vec[ $row-1][3])) {
-				$ret->errorMsg = 'Unknown AutiSta scan year format (Knaben)...';
-				return $ret;
+				if( 'Jungen' != trim( $vec[ $row][3])) {
+					$ret->errorMsg = 'Unknown AutiSta scan year format (Knaben)...';
+					return $ret;
+				}
 			}
 		}
 		if( 'Anzahl' != trim( $vec[ $row][4])) {
@@ -843,6 +850,23 @@ class HarvestDataParserAutiStaScan3 extends HarvestDataParserAutiStaScan
 	}
 } // class HarvestDataParserAutiStaScan3
 $HarvestData->addParser('HarvestDataParserAutiStaScan3');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserAutiStaScan4 extends HarvestDataParserAutiStaScan
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 3) && (trim( $vec[3][0]) == 'Anzahl der Kinder mit');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Bochum, ...
+		return parent::parse( $vec, $vecCount, $nuts, $url);
+	}
+} // class HarvestDataParserAutiStaScan4
+$HarvestData->addParser('HarvestDataParserAutiStaScan4');
 
 //------------------------------------------------------------------------------
 
