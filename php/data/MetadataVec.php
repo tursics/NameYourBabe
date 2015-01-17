@@ -558,7 +558,7 @@ $MetadataVec=array (
     'meta' => 'http://www.bochum.de/opendata/datensaetze/jugend-familie-soziales/nav/75F9RD294BOLD',
   ),
   array (
-    'nuts' => 'DEBKGDL20000E023',
+    'nuts' => 'DE941',
     'name' => 'Delmenhorst',
     'meta' => '/private/delmenhorst/metadata.json',
   ),
@@ -571,7 +571,7 @@ $MetadataVec=array (
   array (
     'nuts' => 'DEA2D002',
     'name' => 'Vornamen Aachen',
-    'meta' => 'http://offenedaten.aachen.de/dataset/vornamen-2014',
+    'meta' => 'http://offenedaten.aachen.de/api/3/action/package_show?id=vornamen-2014',
   ),
 );
 ?>
