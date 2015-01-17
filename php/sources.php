@@ -887,6 +887,7 @@ function sourcesShowPageBrowseAll()
 		} else {
 			if( nutsExists( $MetadataVec[$i]['nuts'])) {
 				$dataNuts = '&#10003;';
+				$txtName = nutsGetName( $MetadataVec[$i]['nuts'])['en-US'];
 			} else {
 				$dataNuts = 'missing';
 			}
