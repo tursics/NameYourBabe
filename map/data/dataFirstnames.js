@@ -1,9 +1,49 @@
 var dataFirstnames = [
 {
+	"nuts":"DEG0C",
+	"history":[
+		{"date":"20.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA56036",
+	"linkWebData":"http://www.witten.de/buergerservicerat-amp-verwaltung/buergerservice/nutzergruppen/nutzergruppen.html?tx_civserv_pi1%5Bcommunity_id%5D=5954036&tx_civserv_pi1%5Bmode%5D=service&tx_civserv_pi1%5Bid%5D=5730&cHash=44a3579b350673e5d3248c10906f50cd",
+	"history":[
+		{"date":"20.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE711",
+	"linkWebData":"http://www.darmstadt.de/darmstadt-aktuell/article/beliebteste-vornamen/index.htm",
+	"history":[
+		{"date":"20.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEE0E375",
+	"history":[
+		{"date":"20.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA42008",
+	"linkWebData":"http://www.guetersloh.de/Z3VldGVyc2xvaGQ0Y21zOjMxOTc=.x4s?action=news&cid=11809",
+	"history":[
+		{"date":"19.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEC04115",
+	"history":[
+		{"date":"19.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
 	"nuts":"DEE0C015",
 	"linkWebData":"http://www.aschersleben.de/cms/ms/startseite/aktuelles-im-detail/meldung/statistik/?FS=2&cHash=e384e2615be5f9f7b02db02edd15198c",
 	"history":[
 		{"date":"15.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"19.01.2015","event":"Antwort: Bilder von Top30 der letzen 2 Jahre per Mail bekommen"},
 	],
 },
 {
@@ -18,6 +58,7 @@ var dataFirstnames = [
 	"linkWebData":"http://www.heidelberg.de/hd,Lde/13_01_2015+Marie+und+Maximilian+sind+die+beliebtesten+Namen.html",
 	"history":[
 		{"date":"15.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"20.01.2015","event":"Antwort: Top31 aus 2014 als Bild per Mail bekommen"},
 	],
 },
 {
@@ -48,6 +89,7 @@ var dataFirstnames = [
 	"linkWebData":"www.recklinghausen.de/Inhalte/Startseite/Rathaus_Politik/Standesamt/Geburt/_Aufstellung_der_beliebtesten_Vornamen.asp",
 	"history":[
 		{"date":"12.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"20.01.2015","event":"Antwort: Laut Impressum Nutzung von Webseite erlaubt"},
 	],
 },
 {
@@ -143,7 +185,7 @@ var dataFirstnames = [
 	],
 },
 {
-	"nuts":"DE5",
+	"nuts":"DE501",
 	"linkOGData":"http://www.daten.bremen.de/sixcms/detail.php?gsid=bremen248.c.9594.de",
 	"linkOGDLicense":"CC BY 3.0",
 	"history":[
@@ -518,9 +560,10 @@ var dataFirstnames = [
 },
 {
 	"nuts":"DEB14",
-	"linkWebData":"http://www.bad-kreuznach.de/sv_bad_kreuznach/Politik%20und%20Verwaltung/Nachrichtenarchiv/Januar%202014/%C3%9Cber%201.600%20Geburten%20in%20Bad%20Kreuznach%20-%20Sophie%20und%20Elias%20sind%20die%20beliebtesten%20Vornamen/2014-01-21%20PM%20Vornamen%20Vornamenstatistik%202013.pdf",
+	"linkWebData":"http://www.bad-kreuznach.de/sv_bad_kreuznach/Politik%20und%20Verwaltung/Nachrichtenarchiv/Jahresarchiv%202014/Januar%202014/%C3%9Cber%201.600%20Geburten%20in%20Bad%20Kreuznach%20-%20Sophie%20und%20Elias%20sind%20die%20beliebtesten%20Vornamen/2014-01-21%20PM%20Vornamen%20Vornamenstatistik%202013.pdf",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"20.01.2015","event":"Erneute Anfrage nach Vornamen"},
 	],
 },
 {
@@ -549,10 +592,12 @@ var dataFirstnames = [
 	],
 },
 {
-	"nuts":"DEC0110041100",
+	"nuts":"DEC01100",
 	"linkWebData":"http://www.saarbruecken.de/de/rathaus/buergerservice/geburt",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
+		{"date":"19.01.2015","event":"Erneute Anfrage nach Vornamen"},
+		{"date":"19.01.2015","event":"Antwort: Beim Standesamt nachgefragt, meldet sich wieder"},
 	],
 },
 {
