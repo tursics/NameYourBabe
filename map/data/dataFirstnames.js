@@ -325,7 +325,7 @@ var dataFirstnames = [
 	],
 },
 {
-	"nuts":"DEA1F05170024",
+	"nuts":"DEA1F024",
 	"linkOGData":"http://www.moers.de/C1257221003C7526/html/17821D658E239C2EC1257C36003D0934?opendocument",
 	"linkOGDLicense":"DL DE 0 2.0",
 	"history":[
