@@ -1,5 +1,143 @@
 var dataFirstnames = [
 {
+	"nuts":"DED2F270",
+	"linkWebData":"http://www.pirna.de/Pressemitteilungen.4289/?nr=5252",
+	"history":[
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"29.01.2015","event":"Antwort: Bild Top 30 aus 2014 + 2 PMs von 2012-2013 per Mail bekommen"},
+	],
+},
+{
+	"nuts":"DE21K182",
+	"linkWebData":"http://www.wasserburg.de/de//buerger/datenstatistiken/vornamenstatistikstandesamt/",
+	"history":[
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE21I149",
+	"linkWebData":"http://www.neuburg-donau.de/rathaus/aemter/standesamt/geburt/vornamen/vornamenstatistik/",
+	"history":[
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA36004",
+	"history":[
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA1C028",
+	"linkWebData":"http://www.stadt-ratingen.de/buergerservice/buergerinfo/produkte/32/standesamt/117280100000028360.php",
+	"history":[
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEF0B135",
+	"history":[
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEF04",
+	"history":[
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEE08590",
+	"history":[
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA34020",
+	"linkWebData":"http://www.gronau.de/PDF/Geburten_Dezember_2014.PDF?ObjSvrID=1486&ObjID=6392&ObjLa=1&Ext=PDF&WTR=1&_ts=1420552251",
+	"history":[
+		{"date":"28.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE949035",
+	"linkWebData":"http://www.meppen.de/aktuelles-und-service/aktuelle-nachrichten/2015-01-06/maria-und-jan-auf-platz-1-der-beliebtesten-vornamen.html?type=2",
+	"history":[
+		{"date":"28.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE949041",
+	"history":[
+		{"date":"28.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE949047",
+	"history":[
+		{"date":"28.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA37028",
+	"history":[
+		{"date":"28.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE94E019",
+	"linkWebData":"http://www.georgsmarienhuette.de/buergerservice/dienstleistungen/vornamensstatistik-900000387-0.html?myMedium=1&auswahl=0",
+	"history":[
+		{"date":"28.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DE944",
+	"linkWebData":"",
+	"history":[
+		{"date":"28.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"29.01.2015","event":"Antwort: Vornamen 2012-2014 per Mail bekommen"},
+	],
+},
+{
+	"nuts":"DE128084",
+	"linkWebData":"http://www.schwetzingen.de/pb/,Lde/32064_152166_821959_821948.html",
+	"history":[
+		{"date":"Januar 2015","event":"Anfrage nach Vornamen"},
+		{"date":"28.01.2015","event":"Antwort: Top 30 der letzten 5 Jahre als Bild per Mail"},
+	],
+},
+{
+	"nuts":"DEA46024",
+	"linkWebData":"http://www.minden.de/inhalt/datei.php?id=NzAwNDk4MjstO0Q6L3dlYnNlcnZlci9taW5kZW4vbWVkaWVuL2ludGVybi92b3JuYW1lbnN0YXRpc3Rpa18yMDExLnBkZg%3D%3D",
+	"history":[
+		{"date":"28.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"28.01.2015","event":"Antwort: Top 40 aus 2014 als Bild per Mail bekommen"},
+	],
+},
+{
+	"nuts":"DE148081",
+	"history":[
+		{"date":"27.01.2015","event":"Anfrage nach Vornamen"},
+	],
+},
+{
+	"nuts":"DEA36014",
+	"linkWebData":"",
+	"history":[
+		{"date":"27.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"27.01.2015","event":"Antwort: Top 5 vom letzten Jahr per Mail erhalten"},
+	],
+},
+{
+	"nuts":"DE236147",
+	"linkWebData":"https://www.neumarkt.de/de/rathaus/aktuelles/artikel/neumarkt_nicht_im_bundestrend_haeufigste_vornamen_sind_jonas_anna_und_marie.html",
+	"history":[
+		{"date":"23.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"27.01.2015","event":"Antwort: Interne Auflistung wird nicht weitergegeben"},
+	],
+},
+{
 	"nuts":"DEG0C",
 	"history":[
 		{"date":"20.01.2015","event":"Anfrage nach Vornamen"},
@@ -30,6 +168,7 @@ var dataFirstnames = [
 	"linkWebData":"http://www.guetersloh.de/Z3VldGVyc2xvaGQ0Y21zOjMxOTc=.x4s?action=news&cid=11809",
 	"history":[
 		{"date":"19.01.2015","event":"Anfrage nach Vornamen"},
+		{"date":"29.01.2015","event":"Antwort: Bilder der Top 6 aus 3 Jahren per Mail bekommen"},
 	],
 },
 {
@@ -150,8 +289,9 @@ var dataFirstnames = [
 {
 	"nuts":"DE803",
 	"history":[
-		{"date":"31.05.2013","event":"Datensatzanfrage wurde erstellt"},
+		{"date":"31.05.2013","event":"Datensatzanfrage im Open Data Portal wurde erstellt"},
 		{"date":"05.06.2013","event":"Interne Klärung. Dauert noch an"},
+		{"date":"29.01.2015","event":"Anfrage an das Standesamt"},
 	],
 },
 {
@@ -215,7 +355,9 @@ var dataFirstnames = [
 	"linkWebData":"http://www.wolfsburg.de/irj/go/km/docs/imperia/mam/portal/buergerdienste/standesamt/vornamensliste_2010.pdf",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
-		{"date":"20.10.2014","event":"3 komplette Jahrgänge als PDF-Dateien per Mail bekommen"},
+		{"date":"20.10.2014","event":"Antwort: 3 komplette Jahrgänge als PDF-Dateien per Mail bekommen"},
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen für 2014"},
+		{"date":"29.01.2015","event":"Antwort: kompletten Jahrgang 2014 als PDF-Dateien per Mail bekommen"},
 	],
 },
 {
@@ -243,19 +385,23 @@ var dataFirstnames = [
 	],
 },
 {
-	"nuts":"DE94E03459015",
+	"nuts":"DE94E015",
 	"linkWebData":"http://www.dissen.de/bilder/beitraege/beitrag_1365.pdf",
 	"history":[
 		{"date":"18.10.2014","event":"Anfrage nach Vornamen"},
-		{"date":"20.10.2014","event":"Einfach von Webseite nehmen"},
+		{"date":"20.10.2014","event":"Antwort: Einfach von Webseite nehmen"},
+		{"date":"28.01.2015","event":"Anfrage nach Vornamen für 2014 (und älter)"},
+		{"date":"28.01.2015","event":"Antwort: 3xPDF, 1xBild mit allen Vornamen für 2011-2014 per Mail erhalten"},
 	],
 },
 {
 	"nuts":"DEA41",
-	"linkWebData":"http://www.bielefeld.de/de/rv/ds_stadtverwaltung/stand/birth/vor10.html",
+	"linkWebData":"http://www.bielefeld.de/de/rv/ds_stadtverwaltung/stand/birth/vorn.html",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
-		{"date":"16.10.2014","event":"PDF der Jahre 2009 bis heute per Mail bekommen"},
+		{"date":"16.10.2014","event":"Antwort: Top 100-PDF der Jahre 2009 bis heute per Mail bekommen"},
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen für 2014"},
+		{"date":"29.01.2015","event":"Antwort: Komplettes Jahr 2014 als PDF per Mail bekommen"},
 	],
 },
 {
@@ -413,8 +559,11 @@ var dataFirstnames = [
 },
 {
 	"nuts":"DEA15",
+	"linkWebData":"",
 	"history":[
-		{"date":"19.11.2014","event":"Anfrage nach Vornamen"},
+		{"date":"19.11.2014","event":"Anfrage nach Vornamen beim Standesamt"},
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen beim Presseamt"},
+		{"date":"29.01.2015","event":"Antwort: Top30 Bild von 2014 per Mail bekommen + PMs 2011-2013"},
 	],
 },
 {
@@ -568,10 +717,12 @@ var dataFirstnames = [
 },
 {
 	"nuts":"DEB31",
-	"linkWebData":"http://www.frankenthal.de/sv_frankenthal/de/Homepage/Stadt%20und%20B%C3%BCrger/B%C3%BCrgerdienste/Serviceleistungen%20Standesamt/Geburten/vornamen2013.pdf",
+	"linkWebData":"http://www.frankenthal.de/sv_frankenthal/de/Homepage/Stadt%20und%20B%C3%BCrger/B%C3%BCrgerdienste/Serviceleistungen%20Standesamt/Geburten/vornamen2014.pdf",
 	"history":[
 		{"date":"16.10.2014","event":"Anfrage nach Vornamen"},
 		{"date":"20.10.2014","event":"Antwort: 3 CSV-Dateien erhalten"},
+		{"date":"29.01.2015","event":"Anfrage nach Vornamen für 2014"},
+		{"date":"29.01.2015","event":"Antwort: 1 CSV-Dateien erhalten"},
 	],
 },
 {
