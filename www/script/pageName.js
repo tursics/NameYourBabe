@@ -166,6 +166,11 @@ function onGotoName( urlObj, options)
 					}
 				}
 
+// ignore Nuremberg (license issues)
+if( 'DE254' == vec[3]) {
+	return true;
+}
+
 				var max = gDataSource.length;
 				var nuts = '';
 				for( var i = 0; i < max; ++i) {

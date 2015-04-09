@@ -72,7 +72,7 @@ function init()
 //		Environment.isFirefox = $.browser.mozilla;
 		Environment.isiOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false);
 		Environment.isAndroid = (navigator.userAgent.indexOf('android') > -1);
-		console.log(Environment.isiOS);
+//		console.log(Environment.isiOS);
 
 		var bodyClass;
 		if( Environment.isiOS) {

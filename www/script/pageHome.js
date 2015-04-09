@@ -45,7 +45,11 @@ function resizeBoxName( pos)
 {
 	var obj = $( "#boxName");
 	var fontHeight = 4.1;
-	obj.html( gDataName[ pos].name);
+	if( typeof pos !== "undefined") {
+		obj.html( gDataName[ pos].name);
+	} else {
+		obj.html( '');
+	}
 
 	do {
 		if( fontHeight <= 2) {
@@ -86,6 +90,12 @@ function initRandomNames()
 			gRandomNames.push( i);
 		}
 		shuffleArray( gRandomNames, gRandomNames.length);
+
+		// old filter with zero results
+		if(( 0 == gRandomNames.length) && (gDataName.length > 0)) {
+			gSettings.filterNUTS = '';
+			initRandomNames();
+		}
 	}
 }
 

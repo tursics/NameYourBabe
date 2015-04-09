@@ -25,6 +25,10 @@ function isFilteredName( nameObj)
 		var found = false;
 		$.each( nameObj.charts, function() {
 			var vec = this.split( '-');
+// ignore Nuremberg (license issues)
+if( 'DE254' == vec[3]) {
+	return true;
+}
 			if( 0 == vec[3].search( gSettings.filterNUTS)) {
 				found = true;
 				return;
