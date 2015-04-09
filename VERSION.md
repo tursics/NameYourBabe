@@ -3,14 +3,16 @@
 
 Current version and update messages in English and German.
 
-Version 3.4 ()
+Version 3.5 ()
 ------------------------
 
-tbd.
-Mannheim
-Innsbruck
-Klagenfurt
-Freiburg
+Version 3.4 (2015-04-01)
+------------------------
+- Security update
+- Removed Nürnberg (NDA)
+
+- Sicherheitsupdate
+- Nürnberg entfernt (NDA)
 
 Version 3.3 (2014-07-19)
 ------------------------
