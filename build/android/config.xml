@@ -2,8 +2,8 @@
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="de.tursics.nameyourbabe"
-        version="3.3"
-        versionCode="33">
+        version="3.4"
+        versionCode="34">
 
 	<!-- Essential property (Blackberry only supports latin character) -->
 	<name>Name your babe</name>
@@ -48,7 +48,7 @@
 	<gap:splash src="splash.png" gap:platform="android" gap:qualifier="xxhdpi" />
 
 	<!-- Useful property -->
-	<preference name="phonegap-version" value="3.3.0" />
+	<preference name="phonegap-version" value="3.7.0" />
 	<preference name="orientation" value="default" />
 	<!-- <preference name="fullscreen" value="true" /> -->
 	<preference name="webviewbounce" value="false" />
