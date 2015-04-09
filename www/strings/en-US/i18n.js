@@ -38,7 +38,7 @@ gDict['en'] = {
 	"detailChartPosShort": 'Place %pos%',
 	"detailFav": 'Mark favorite name',
 
-	"imprintCopyright": 'Copyright 2013-2014, Thomas Tursics',
+	"imprintCopyright": 'Copyright 2013-2015, Thomas Tursics',
 	"imprintWebHome": 'Website',
 	"imprintWebSupport": 'Support',
 	"imprintTitleData": "Used statistics",

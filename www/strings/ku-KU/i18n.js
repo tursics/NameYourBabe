@@ -38,7 +38,7 @@ gDict['ku'] = {
 	"detailChartPosShort": 'Place %pos%',
 	"detailFav": 'نیشانکردن وەک ناوی دڵخواز',
 
-	"imprintCopyright": 'مافی له‌به‌رگرتنه‌وه‌ 2012-2014، تۆماس تورسیکس',
+	"imprintCopyright": 'مافی له‌به‌رگرتنه‌وه‌ 2012-2015، تۆماس تورسیکس',
 	"imprintWebHome": 'Website',
 	"imprintWebSupport": 'Support',
 	"imprintTitleData": "ئامارە بەکارهێنراوەکان",
