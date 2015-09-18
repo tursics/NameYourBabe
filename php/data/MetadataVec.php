@@ -382,10 +382,15 @@ $MetadataVec=array (
     'name' => '[2007-2013] Essens beliebteste Vornamen (Privat)',
     'meta' => '/private/essen/metadata.json',
   ),
+//  array (
+//    'nuts' => 'DE212',
+//    'name' => '[2011-2013] Die häufigsten Vornamen des Jahrganges, München (Privat)',
+//    'meta' => '/private/muenchen/metadata.json',
+//  ),
   array (
     'nuts' => 'DE212',
-    'name' => '[2011-2013] Die häufigsten Vornamen des Jahrganges, München (Privat)',
-    'meta' => '/private/muenchen/metadata.json',
+    'name' => '[2013] Vornamen von Neugeborenen, München',
+    'meta' => 'https://www.opengov-muenchen.de/api/rest/dataset/vornamen',
   ),
   array (
     'nuts' => 'DEA33',

@@ -647,4 +647,39 @@ $HarvestMetadata->addParser('HarvestMetadataParserISO19139');
 
 //------------------------------------------------------------------------------
 
+class HarvestMetadataParserMunich extends HarvestMetadataParserBase
+{
+	public function accept( $contents, $json)
+	{
+		if( is_array( $json['extras'])) {
+			return array_key_exists( 'Aktualisierungszyklus', $json['extras']);
+		}
+		return false;
+	}
+
+	public function parse( $contents, $json)
+	{
+		$ret = new HarvestMetadataResult();
+		$ret->modified = strtotime( $json['metadata_modified']);
+		$ret->modDays = intval(( strtotime( 'now') - $ret->modified) /60 /60 /24);
+		$ret->vecURL = Array();
+		$ret->vecName = Array();
+
+		for( $i = 0; $i < count( $json['resources']); ++$i) {
+			$ret->vecURL[] = $json['resources'][$i]['url'];
+			$ret->vecName[] = $json['resources'][$i]['name'];
+		}
+
+		$this->parseCopyright( $ret, $json['license_title'], $json['license_url'], '');
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+} // class HarvestMetadataParserMunich
+$HarvestMetadata->addParser('HarvestMetadataParserMunich');
+
+//------------------------------------------------------------------------------
+
 ?>

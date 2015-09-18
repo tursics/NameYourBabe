@@ -377,6 +377,16 @@ class HarvestDataParserAutiSta extends HarvestDataParserBase
 		$startRow = 0;
 
 		$theYear = 2012; // berlin missing year number in 2012
+		if( false !== strpos( $url, '_0.')) {
+			$pos = strpos( $url, '_0.');
+			$url = substr( $url, 0, $pos).substr( $url, $pos + 2);
+		} else if( false !== strpos( $url, '_1.')) {
+			$pos = strpos( $url, '_1.');
+			$url = substr( $url, 0, $pos).substr( $url, $pos + 2);
+		} else if( false !== strpos( $url, '_2.')) {
+			$pos = strpos( $url, '_2.');
+			$url = substr( $url, 0, $pos).substr( $url, $pos + 2);
+		}
 		preg_match_all('!\d+!', $url, $yearVec);
 		if( 0 < count( $yearVec[0])) {
 			$lastYear = $yearVec[0][count($yearVec[0])-1];
@@ -1263,6 +1273,159 @@ class HarvestDataParserSalzburg extends HarvestDataParserBase
 	}
 } // class HarvestDataParserSalzburg
 $HarvestData->addParser('HarvestDataParserSalzburg');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserCKANDataset extends HarvestDataParserBase
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 0) && (substr( $vec[0][0], 0, 14) == '<!DOCTYPE html');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		global $MetadataVec;
+		global $HarvestMetadata;
+		global $dataHarvestMetadata;
+
+		// Used in Cologne, Bonn
+		$ret = new HarvestDataResult();
+		$ret->errorMsg = 'Unknown CKAN dataset format!';
+
+		$vecCount = count( $vec);
+		for( $row = 0; $row < $vecCount; ++$row) {
+			if( false !== strpos( $vec[$row][0], 'class="download"')) {
+				$posLicUrl = strpos( $vec[$row][0], 'href="') + strlen( 'href="');
+				$strLicUrl = substr( $vec[$row][0], $posLicUrl, strpos( $vec[$row][0], '"', $posLicUrl) - $posLicUrl);
+
+				for( $i = 0; $i < count( $MetadataVec); ++$i) {
+					if( $nuts == $MetadataVec[$i]['nuts']) {
+						$harvest = & $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+
+						for( $idx = 0; $idx < count( $harvest['url']); ++$idx) {
+							$download = $harvest['download'][$idx];
+							if( $url == $download) {
+//								$url = $harvest['url'][$idx];
+//								$url = substr( $url, 0, strpos( $url, '/', strpos( $url, '//') + 2));
+//								$url .= $strLicUrl;
+								$url = $strLicUrl;
+
+								$ret->errorMsg = 'Updated metadata. Please reload this site!';
+
+								$harvest['url'][$idx] = $url;
+								$harvest['download'][$idx] = '';
+							}
+						}
+
+						$HarvestMetadata->save();
+					}
+				}
+			}
+		}
+
+		return $ret;
+	}
+} // class HarvestDataParserCKANDataset
+$HarvestData->addParser('HarvestDataParserCKANDataset');
+
+//------------------------------------------------------------------------------
+
+class HarvestDataParserMunich extends HarvestDataParserBase
+{
+	public function accept( $vec, $vecCount)
+	{
+		return ($vecCount > 0) && ($vec[0][0] == '"Vorname"') && (trim( $vec[0][1]) == '"Anzahl"');
+	}
+
+	public function parse( $vec, $vecCount, $nuts, $url)
+	{
+		// Used in Munich
+		$ret = new HarvestDataResult();
+
+		// Vornamen 2013 männlich        | /vornamenmaennlich2013.csv
+		// Vornamen 2013 weiblich        | /vornamenweiblich2013.csv
+
+		// Beliebteste Vornamen 0-4 Jährige am 01.01.$year  | /Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_$year.csv
+		// Beliebteste Vornamen 5-9 Jährige am 01.01.$year  | /Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_$year.csv
+		// Beliebteste Vornamen des Jahres $year            | /Beliebteste_Vornamen_des_Jahres_$year.csv
+		// Beliebteste Vornamen aller Linzer am 01.01.$year | /Beliebteste_Vornamen_aller_Linzer_am_1_1_$year.csv
+
+		$theYear = intval( substr( $url, strlen( $url) - 8, 4));
+		$theMale = true;
+		if( false !== strpos( $url, 'weiblich')) {
+			$theMale = false;
+		}
+
+		$colName = 0;
+//		$colSex = -1;
+//		$colYear = -1;
+//		$colPos = -1;
+		$colCount = 1;
+		$startRow = 0;
+
+		$vecCount = count( $vec);
+		if( $vecCount < 2) {
+			$ret->errorMsg = 'Unknown Munich format!';
+			return $ret;
+		}
+
+		$ret->data = Array();
+
+		for( $row = $startRow + 1; $row < $vecCount; ++$row) {
+			if( count( $vec[ $row]) > 1) {
+				$name = trim( $vec[ $row][ $colName], '"* ');
+
+				if( $name == "Summe") {
+					continue;
+				}
+
+				$ret->data[] = Array(
+					name=> $name,
+					male=> $theMale,
+					year=> $theYear,
+					pos=> 0,
+					number=> intVal( $vec[ $row][ $colCount]),
+					error=> '',
+				);
+			}
+		}
+
+		$this->generateDataPos( $ret->data);
+
+		$this->parseData( $ret->data);
+		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+
+	public function generateDataPos( & $data)
+	{
+		usort( $data, "cmpHarvestDataParserZuerich");
+
+		$dataCount = count( $data);
+		$currentPos = 0;
+		$currentNumber = 0;
+		$currentMale = true;
+		$yearPos = 1;
+
+		for( $row = 0; $row < $dataCount; ++$row, ++$yearPos) {
+			if( $currentMale != $data[ $row][ 'male']) {
+				$currentMale = $data[ $row][ 'male'];
+				$yearPos = 1;
+			}
+			if( $currentNumber != $data[ $row][ 'number']) {
+				$currentNumber = $data[ $row][ 'number'];
+				$currentPos = $yearPos;
+			}
+			$data[ $row][ 'pos'] = $currentPos;
+		}
+	}
+} // class HarvestDataParserMunich
+$HarvestData->addParser('HarvestDataParserMunich');
 
 //------------------------------------------------------------------------------
 
