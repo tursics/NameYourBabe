@@ -390,7 +390,8 @@ $MetadataVec=array (
   array (
     'nuts' => 'DE212',
     'name' => '[2013] Vornamen von Neugeborenen, München',
-    'meta' => 'https://www.opengov-muenchen.de/api/rest/dataset/vornamen',
+//    'meta' => 'https://www.opengov-muenchen.de/api/rest/dataset/vornamen',
+    'meta' => 'https://www.opengov-muenchen.de/api/3/action/package_show?id=vornamen',
   ),
   array (
     'nuts' => 'DEA33',
@@ -577,6 +578,16 @@ $MetadataVec=array (
     'nuts' => 'DEA2D002',
     'name' => 'Vornamen Aachen',
     'meta' => 'http://offenedaten.aachen.de/api/3/action/package_show?id=vornamen-2014',
+  ),
+  array (
+    'nuts' => 'DEA1F024048',
+    'name' => 'Vornamenstatistik für Neugeborene 2014 in Wesel',
+    'meta' => 'https://www.offenesdatenportal.de/api/3/action/package_show?id=vornamenstatistik-fur-neugeborene-2014-in-wesel',
+  ),
+  array (
+    'nuts' => 'DEA1F024048',
+    'name' => 'Vornamenstatistik für Neugeborene 2004 - 2013 in Wesel',
+    'meta' => 'https://www.offenesdatenportal.de/api/3/action/package_show?id=vornamenstatistik2004-13',
   ),
 );
 ?>

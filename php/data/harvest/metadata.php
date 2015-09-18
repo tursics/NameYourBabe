@@ -26,7 +26,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT12/noe_name_sex_2011_2013_nuts2.csv',
@@ -51,7 +51,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT130/b11-givennames-vie.csv',
@@ -90,7 +90,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT22/STMK_2013_GIVEN_NAMES.csv',
@@ -116,10 +116,10 @@ $dataHarvestMetadata=array (
       1 => 'http://data.graz.gv.at//katalog/bevoelkerung/vornamensstatistik/vnalf2011graz.pdf',
       2 => 'http://data.graz.gv.at//katalog/bevoelkerung/vornamensstatistik/vnalf2012graz.pdf',
     ),
-    'license' => 'CC BY 3.0 AT',
+    'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 4,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT221/vnalf2010graz.pdf',
@@ -140,7 +140,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
     ),
@@ -193,10 +193,10 @@ $dataHarvestMetadata=array (
       18 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2012.csv',
       19 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2011.csv',
     ),
-    'license' => 'CC BY 3.0 AT',
+    'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 4,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2014.csv',
@@ -248,7 +248,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT31241605/Vornamen-maennlich-2011.txt',
@@ -271,7 +271,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT31241605/Vornamen-weiblich-2011.txt',
@@ -293,10 +293,10 @@ $dataHarvestMetadata=array (
       0 => 'http://www.salzburg.gv.at/ogd/e2f18f75-934f-4f39-9722-60e81d173ef5/names-szg.json',
       1 => 'http://www.salzburg.gv.at/ogd/e2f18f75-934f-4f39-9722-60e81d173ef5/names-szg.csv',
     ),
-    'license' => 'CC BY 3.0 AT',
+    'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 4,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT32/names-szg.json',
@@ -324,7 +324,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT32350101/Ranking_Vornamen_2010.csv',
@@ -347,7 +347,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT32350101/Ranking_Vornamen_2011.csv',
@@ -371,7 +371,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT32350101/Ranking_Vornamen_2012-v2.csv',
@@ -394,7 +394,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT32350101/ranking_vornamen_neu_2013.csv',
@@ -420,7 +420,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT33/top_100_vornamen_seit_2009.csv',
@@ -447,7 +447,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 2,
+    'update' => 8,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT34/Vornamenstatistik2005_2011.csv',
@@ -483,7 +483,7 @@ $dataHarvestMetadata=array (
     'license' => '',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 466,
+    'update' => 471,
     'download' => 
     array (
       0 => 'data/harvest/CH/CH04/vornamen_1993-2013.csv',
@@ -575,7 +575,7 @@ $dataHarvestMetadata=array (
     'license' => '',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 242,
+    'update' => 248,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE144/Vornamenstatistik_2014.csv',
@@ -676,7 +676,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Quelle: Amt für Stadtforschung und Statistik für Nürnberg und Fürth',
     'modified' => '2000-01-01',
-    'update' => 519,
+    'update' => 525,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE254/2001bis2013.csv',
@@ -745,7 +745,38 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 176,
+    'update' => 182,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE30/Charlottenburg-Wilmersdorf.csv',
+      1 => 'data/harvest/DE/DE30/Charlottenburg-Wilmersdorf.pdf',
+      2 => 'data/harvest/DE/DE30/Friedrichshain-Kreuzberg.csv',
+      3 => 'data/harvest/DE/DE30/Friedrichshain-Kreuzberg.pdf',
+      4 => 'data/harvest/DE/DE30/Lichtenberg.csv',
+      5 => 'data/harvest/DE/DE30/Lichtenberg.pdf',
+      6 => 'data/harvest/DE/DE30/Marzahn-Hellersdorf.csv',
+      7 => 'data/harvest/DE/DE30/Marzahn-Hellersdorf.pdf',
+      8 => 'data/harvest/DE/DE30/Mitte.csv',
+      9 => 'data/harvest/DE/DE30/Mitte.pdf',
+      10 => 'data/harvest/DE/DE30/Neukoelln.csv',
+      11 => 'data/harvest/DE/DE30/Neukoelln.pdf',
+      12 => 'data/harvest/DE/DE30/Pankow.csv',
+      13 => 'data/harvest/DE/DE30/Pankow.pdf',
+      14 => 'data/harvest/DE/DE30/Reinickendorf.csv',
+      15 => 'data/harvest/DE/DE30/Reinickendorf.pdf',
+      16 => 'data/harvest/DE/DE30/Spandau.csv',
+      17 => 'data/harvest/DE/DE30/Spandau.pdf',
+      18 => 'data/harvest/DE/DE30/Steglitz-Zehlendorf.csv',
+      19 => 'data/harvest/DE/DE30/Steglitz-Zehlendorf.pdf',
+      20 => 'data/harvest/DE/DE30/Tempelhof-Schoeneberg.csv',
+      21 => 'data/harvest/DE/DE30/Tempelhof-Schoeneberg.pdf',
+      22 => 'data/harvest/DE/DE30/Treptow-Koepenick.csv',
+      23 => 'data/harvest/DE/DE30/Treptow-Koepenick.pdf',
+    ),
+    'years' => 
+    array (
+      0 => '2030',
+    ),
   ),
   'http://www.govdata.de/ckan/api/rest/dataset/liste-der-haeufigen-vornamen-2013' => 
   array (
@@ -806,7 +837,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 176,
+    'update' => 182,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE30/charlottenburg-wilmersdorf.csv',
@@ -852,7 +883,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 5,
+    'update' => 1,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE50/Vornamen%202006.csv',
@@ -875,7 +906,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 5,
+    'update' => 1,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE50/Vornamen%202007.csv',
@@ -898,7 +929,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 5,
+    'update' => 1,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE50/Vornamen%202008.csv',
@@ -967,7 +998,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 5,
+    'update' => 1,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE50/Vornamen%202011.csv',
@@ -990,7 +1021,7 @@ $dataHarvestMetadata=array (
     'license' => 'CC BY',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 5,
+    'update' => 1,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE50/Vornamen%202012.csv',
@@ -1011,7 +1042,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Mitte',
     'modified' => '2000-01-01',
-    'update' => 522,
+    'update' => 528,
     'download' => 
     array (
     ),
@@ -1029,7 +1060,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Altona',
     'modified' => '2000-01-01',
-    'update' => 526,
+    'update' => 532,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE6002/altona-2013.csv',
@@ -1060,7 +1091,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Eimsbüttel',
     'modified' => '2000-01-01',
-    'update' => 492,
+    'update' => 498,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE6003/eimsbuettel-2009.csv',
@@ -1093,7 +1124,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Nord',
     'modified' => '2000-01-01',
-    'update' => 519,
+    'update' => 525,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE6004/nord-2012.csv',
@@ -1118,7 +1149,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Wandsbek',
     'modified' => '2000-01-01',
-    'update' => 519,
+    'update' => 525,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE6005/wandsbek-2009-2013.csv',
@@ -1180,7 +1211,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'essen.de',
     'modified' => '2000-01-01',
-    'update' => 599,
+    'update' => 605,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA13/2007.csv',
@@ -1215,7 +1246,7 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 867,
+    'update' => 872,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2009.csv',
@@ -1239,7 +1270,7 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 867,
+    'update' => 872,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2010.csv',
@@ -1263,7 +1294,7 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 646,
+    'update' => 652,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2011.csv',
@@ -1287,7 +1318,7 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 646,
+    'update' => 652,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2012.csv',
@@ -1311,7 +1342,7 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 604,
+    'update' => 610,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2013.3.csv',
@@ -1354,7 +1385,7 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 26,
+    'update' => 32,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA22/828a2534-d75b-42d4-a1b9-0f55ce10ded5',
@@ -1393,7 +1424,7 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 235,
+    'update' => 241,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA23/Vornamen_Koeln_2013.csv',
@@ -1436,7 +1467,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Standesamt der Stadt Münster',
     'modified' => '2000-01-01',
-    'update' => 530,
+    'update' => 536,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA33/2007.csv',
@@ -1479,7 +1510,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Stadt Paderborn',
     'modified' => '2000-01-01',
-    'update' => 523,
+    'update' => 529,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA47/Vornamen2009_Gesamtliste.csv',
@@ -1534,7 +1565,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Stadt Chemnitz, Standesamt',
     'modified' => '2000-01-01',
-    'update' => 526,
+    'update' => 532,
     'download' => 
     array (
       0 => 'data/harvest/DE/DED11/2009.csv',
@@ -1592,7 +1623,7 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 23,
+    'update' => 28,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA51/Vornamen2014.csv',
@@ -1655,7 +1686,7 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'unknown',
     'citation' => '',
-    'update' => 241,
+    'update' => 247,
     'years' => 
     array (
       0 => '2014',
@@ -1686,6 +1717,110 @@ $dataHarvestMetadata=array (
     'years' => 
     array (
       0 => '2013',
+    ),
+  ),
+  'https://www.opengov-muenchen.de/api/3/action/package_show?id=vornamen' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Vornamen 2013 männlich',
+      1 => 'Vornamen 2013 weiblich',
+    ),
+    'url' => 
+    array (
+      0 => 'https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/66f2b9e0-aaba-4311-886b-ee280a578f0b/download/vornamenmaennlich2013.csv',
+      1 => 'https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/e2d2f358-cda8-4edc-8ead-3659cd00c14f/download/vornamenweiblich2013.csv',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2000-01-01',
+    'update' => 203,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE212/vornamenmaennlich2013.csv',
+      1 => 'data/harvest/DE/DE212/vornamenweiblich2013.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2013',
+    ),
+  ),
+  'https://www.offenesdatenportal.de/api/3/action/package_show?id=vornamenstatistik-fur-neugeborene-2014-in-wesel' => 
+  array (
+    'name' => 
+    array (
+      0 => 'CSV-Format',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2014.csv/$file/vornamen2014.csv?openelement',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2000-01-01',
+    'update' => 1,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA1F024048/vornamen2014.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2014',
+    ),
+  ),
+  'https://www.offenesdatenportal.de/api/3/action/package_show?id=vornamenstatistik2004-13' => 
+  array (
+    'name' => 
+    array (
+      0 => 'CSV-Format - 2004',
+      1 => 'CSV-Format - 2005',
+      2 => 'CSV-Format - 2006',
+      3 => 'CSV-Format - 2007',
+      4 => 'CSV-Format - 2008',
+      5 => 'CSV-Format - 2009',
+      6 => 'CSV-Format - 2010',
+      7 => 'CSV-Format - 2011',
+      8 => 'CSV-Format - 2012',
+      9 => 'CSV-Format - 2013',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2004.csv/$file/vornamen2004.csv?openelement',
+      1 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2005.csv/$file/vornamen2005.csvf?openelement',
+      2 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2006.csv/$file/vornamen2006.csv?openelement',
+      3 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2007.csv/$file/vornamen2007.csv?openelement',
+      4 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2008.csv/$file/vornamen2008.csv?openelement',
+      5 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2009.csv/$file/vornamen2009.csv?openelement',
+      6 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2010.csv/$file/vornamen2010.csv?openelement',
+      7 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2011.csv/$file/vornamen2011.csv?openelement',
+      8 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2012.csv/$file/vornamen2012.csv?openelement',
+      9 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2013.csv/$file/vornamen2013.csv?openelement',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2000-01-01',
+    'update' => 1,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA1F024048/vornamen2006.csv',
+      1 => 'data/harvest/DE/DEA1F024048/vornamen2007.csv',
+      2 => 'data/harvest/DE/DEA1F024048/vornamen2008.csv',
+      3 => 'data/harvest/DE/DEA1F024048/vornamen2009.csv',
+      4 => 'data/harvest/DE/DEA1F024048/vornamen2010.csv',
+      5 => 'data/harvest/DE/DEA1F024048/vornamen2011.csv',
+      6 => 'data/harvest/DE/DEA1F024048/vornamen2012.csv',
+      7 => 'data/harvest/DE/DEA1F024048/vornamen2013.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2006',
+      1 => '2007',
+      2 => '2008',
+      3 => '2009',
+      4 => '2010',
+      5 => '2011',
+      6 => '2012',
+      7 => '2013',
     ),
   ),
 );

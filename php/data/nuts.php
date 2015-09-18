@@ -1987,8 +1987,8 @@ $gNuts=array (
 	            		'manNuts' => 'DEA1F',
     			        'manName' => 
 		        	    array (
-        		    	  'en-US' => 'Wesel',
-			              'de-DE' => 'Wesel',
+        		    	  'en-US' => 'Wesel (district)',
+			              'de-DE' => 'Kreis Wesel',
     	        		),
         			    'manRegions' => 
 			            array (
@@ -2006,9 +2006,17 @@ $gNuts=array (
         				  ),
 /*    DEA1F024028	Neukirchen-Vluyn
     DEA1F024032	Rheinberg
-    DEA1F024044	Voerde (Niederrhein), Mittlere kreisangehörige Stadt (36.729)
-    DEA1F024048	Wesel
-    DEA1F024052	Xanten
+    DEA1F024044	Voerde (Niederrhein), Mittlere kreisangehörige Stadt (36.729)*/
+				          array (
+		            		'manNuts' => 'DEA1F024048',
+    				        'manName' => 
+		    	    	    array (
+        			    	  'en-US' => 'Wesel',
+			        	      'de-DE' => 'Wesel',
+    	        			),
+							'manRegions' => array(),
+        				  ),
+/*    DEA1F024052	Xanten
     DEA1F024004	Alpen
     DEA1F024016	Hünxe
     DEA1F024036	Schermbeck
