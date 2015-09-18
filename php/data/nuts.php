@@ -2027,15 +2027,6 @@ $gNuts=array (
        			    'manRegions' => 
 		            array (
 			          array (
-			            'manNuts' => 'DEA21',
-    			        'manName' => 
-        			    array (
-		            	  'en-US' => 'Aachen',
-			              'de-DE' => 'Aachen',
-    		    	    ),
-						'manRegions' => array(),
-		        	  ),
-			          array (
 			            'manNuts' => 'DEA22',
     			        'manName' => 
         			    array (
@@ -2133,6 +2124,23 @@ $gNuts=array (
 			              'de-DE' => 'Rhein-Sieg-Kreis',
     		    	    ),
 						'manRegions' => array(),
+		        	  ),
+			          array (
+			            'manNuts' => 'DEA2D',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Aachen (district)',
+			              'de-DE' => 'Städteregion Aachen',
+    		    	    ),
+						'manRegions' => array(
+		        		  'manNuts' => 'DEA2D002',
+    			          'manName' => 
+        			      array (
+		            	    'en-US' => 'Aachen',
+			                'de-DE' => 'Aachen',
+    		    	      ),
+						  'manRegions' => array(),
+						),
 		        	  ),
 					),
        			  ),
