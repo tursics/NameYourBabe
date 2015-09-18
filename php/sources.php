@@ -4,6 +4,7 @@
 // $gSource
 //--------------------------------------------------------------------------------------------------
 
+include_once( "HarvestYears.php");
 include_once( "data/sources.php");
 
 function gSourceToFile()
@@ -934,7 +935,8 @@ function sourcesShowPageBrowseAll()
 	$txt .= '---------------- ----------- ----------- ------- --------- ----------------------------------------<br>';
 	$txt .= '<br>';
 	$txt .= (count( $MetadataVec) - $skipped) . ' sources (' . count( $MetadataVec) . ' source data sets)<br>';
-
+	$txt .= '<br>';
+	$txt .= '[<a href="do=update&what=sourcemetadata">Update source list</a>]<br>';
 	$txt .= '</div>';
 
 	$txt .= '<br>';
@@ -943,7 +945,6 @@ function sourcesShowPageBrowseAll()
 
 	$txt .= '<a href="do=">Back to main</a><br>';
 	$txt .= '<br>';
-	$txt .= '<a href="do=update&what=sourcemetadata">Update Metadata</a><br>';
 	$txt .= '<a href="do=update&what=sourcedata">Update dirty data</a><br>';
 
 	echo( $txt);
@@ -1089,7 +1090,7 @@ function sourcesShowPageUpdateHarvest( $i)
 			for( $i = 0; $i < 10; ++$i) {
 				$cells += count($vec[ $i]);
 			}
-			if( 0 == $cells) {
+			if( $cells <= 10) {
 				$vec = Array();
 				for( $i = 0; $i < $rowsCount; ++$i) {
 					$vec[] = explode( ",", $rows[ $i]);
@@ -1219,6 +1220,7 @@ function sourcesShowPageItem( $nuts)
 	global $MetadataVec;
 	global $dataHarvestMetadata;
 	global $HarvestMetadata;
+	global $HarvestYears;
 
 	$txt = '';
 	$txt .= '<div class="log">Show source data<br>================<br><br>';
@@ -1302,106 +1304,56 @@ function sourcesShowPageItem( $nuts)
 		}
 	}
 
+	$top = 3;
 	$txt = '';
-	$txt .= '<br>';
-	$txt .= 'unfinished yet<br>';
+	$years = $HarvestYears->getYears( $nuts);
+
+	foreach( $years as $year) {
+		$maleCount = 0;
+		$femaleCount = 0;
+		$maleData = $HarvestYears->getOneYear( $nuts, $year, true);
+		$femaleData = $HarvestYears->getOneYear( $nuts, $year, false);
+
+		$txt .= 'Top '.$top.' from '.nutsGetName( $nutsName)['en-US'].' in '.$year.'<br>';
+		$txt .= '----------------------------------------------------------------------------------------------<br>';
+		foreach( $maleData as $value) {
+			if( intVal( $value['RANKING']) <= $top) {
+				++$maleCount;
+				$txt .= '#'.$value['RANKING'].' <a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)<br>';
+			}
+		}
+		$txt .= '----------------------------------------------------------------------------------------------<br>';
+		foreach( $femaleData as $value) {
+			if( intVal( $value['RANKING']) <= $top) {
+				++$femaleCount;
+				$txt .= '#'.$value['RANKING'].' <a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)<br>';
+			}
+		}
+		$txt .= '----------------------------------------------------------------------------------------------<br>';
+		$txt .= $maleCount . ' of '.count($maleData).' males and '.$femaleCount.' of '.count($femaleData).' females in this year<br>';
+		$txt .= '<br>';
+	}
 	echo( $txt);
+
+/*		if( $isBoy) {
+			$found = isset( $HarvestYears->male[ $nameUFT8]);
+		} else {
+			$found = isset( $HarvestYears->female[ $nameUFT8]);
+		}*/
 
 	$txt = '';
 	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
 	$txt .= '</div>';
 	echo( $txt);
 
 	$txt = '<br>';
-	$txt .= '<hr>';
-	$txt .= '<br>';
-	echo( $txt);
-
-	$txt = '';
-	$txt .= 'Boys:<br>';
-	echo( $txt);
-
-	$top = 3;
-
-	$boys = 0;
-	$allboys = 0;
-	foreach( $gBoys as $value) {
-		$desc = '';
-		$foundName = 0;
-		foreach( $value['ref'] as $refvalue) {
-			$posSource = strpos( $refvalue, '-');
-			$posNum = strpos( $refvalue, '#', $posSource);
-			$posYear = strpos( $refvalue, ',', $posNum);
-
-			$strSource = substr( $refvalue, 0, $posSource);
-			$strNum = substr( $refvalue, $posNum + 1, $posYear - $posNum - 1);
-			$strYear = substr( $refvalue, $posYear + 1);
-
-			if( in_array( intval( $strSource), $idVec)) {
-				$foundName = 1;
-				if( intVal( $strNum) <= $top) {
-					if( strlen( $desc) > 0) {
-						$desc .= ', ';
-					}
-					$desc .= '#' . $strNum . ' in ' . $strYear;
-				}
-			}
-		}
-
-		$allboys += $foundName;
-		if( strlen( $desc) > 0) {
-			++$boys;
-			echo( getNameLink( $value) . ' (' . $desc. ')<br>');
-		}
-	}
-
-	$txt = '';
-	$txt .= $boys . ' boys (from '.$allboys.' boys - ' . count( $gBoys) . ' at all)<br>';
-	$txt .= '<br>';
-	$txt .= 'Girls:<br>';
-	echo( $txt);
-
-	$girls = 0;
-	$allgirls = 0;
-	foreach( $gGirls as $value) {
-		$desc = '';
-		$foundName = 0;
-		foreach( $value['ref'] as $refvalue) {
-			$posSource = strpos( $refvalue, '-');
-			$posNum = strpos( $refvalue, '#', $posSource);
-			$posYear = strpos( $refvalue, ',', $posNum);
-
-			$strSource = substr( $refvalue, 0, $posSource);
-			$strNum = substr( $refvalue, $posNum + 1, $posYear - $posNum - 1);
-			$strYear = substr( $refvalue, $posYear + 1);
-
-			if( in_array( intval( $strSource), $idVec)) {
-				$foundName = 1;
-				if( intVal( $strNum) <= $top) {
-					if( strlen( $desc) > 0) {
-						$desc .= ', ';
-					}
-					$desc .= '#' . $strNum . ' in ' . $strYear;
-				}
-			}
-		}
-
-		$allgirls += $foundName;
-		if( strlen( $desc) > 0) {
-			++$girls;
-			echo( getNameLink( $value) . ' (' . $desc. ')<br>');
-		}
-	}
-
-	$txt = '';
-	$txt .= $girls . ' girls (from '.$allgirls.' girls - ' . count( $gGirls) . ' at all)<br>';
-
 	$txt .= '<br>';
 	$txt .= '<hr>';
 	$txt .= '<br>';
 
 	$txt .= '<a href="do=">Back to main</a><br>';
-	$txt .= '<a href="do=browse&what=sources">Back to Source list</a><br>';
+//	$txt .= '<a href="do=browse&what=sources">Back to Source list</a><br>';
 	$txt .= '<br>';
 	$txt .= '<a href="do=delete&what=sourcedata&id='.$id.'"><span style="color:red;">Delete all statistic data</span></a><br>';
 

@@ -88,7 +88,7 @@ function metadataShowPageUpdate()
 			$diffMod = intval(( $result->modified - $lastMod) /60 /60 /24);
 
 			if( 0 >= $diffMod) {
-				$dataData = '&#10003;';
+				$dataData = '&#10003;'.' Last mod: '.$lastMod;
 				$harvest['update'] = 0;
 			} else {
 				if( 1 == $result->modDays) {
@@ -125,12 +125,13 @@ function metadataShowPageUpdate()
 
 	$txt = count( $MetadataVec). ' meta data items collected<br>';
 
+	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
 	$txt .= '</div>';
 	$txt .= '<br>';
 	$txt .= '<hr>';
 	$txt .= '<br>';
 
-	$txt .= '<a href="do=browse&what=sources">Back to list</a><br>';
 	$txt .= '<a href="do=update&what=sourcedata">Update dirty data</a><br>';
 	echo( $txt);
 }
