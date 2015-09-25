@@ -42,7 +42,7 @@ class HarvestYears
 		for( $i = 0; $i < count( $MetadataVec); ++$i) {
 			if( $nuts == $MetadataVec[$i]['nuts']) {
 				$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
-				return $harvest['years'];
+				return array_unique( $harvest['years']);
 			}
 		}
 		return Array();
