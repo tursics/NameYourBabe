@@ -73,11 +73,15 @@ class HarvestDataParserBase
 		$HarvestNames->load();
 
 		if( $isBoy) {
-			$found = isset( $HarvestNames->male[ $nameUFT8]);
+			$found = in_array($nameUFT8, $HarvestNames->male);
 		} else {
-			$found = isset( $HarvestNames->female[ $nameUFT8]);
+			$found = in_array($nameUFT8, $HarvestNames->female);
 		}
-/*
+
+		if( $found) {
+			return '';
+		}
+
 //		if( false)
 		{
 			if( $name == 'ohne') return $name;
@@ -124,13 +128,13 @@ class HarvestDataParserBase
 
 			$ret .= 'New name <span style="color:';
 			if( $isBoy) {
-				$ret .= 'RoyalBlue';
+				$ret .= 'DeepSkyBlue';
 			} else {
-				$ret .= 'MediumVioletRed';
+				$ret .= 'Coral';
 			}
 			return $ret . '">' . $name . '</span>';
 		}
-*/
+
 		return $ret;
 	}
 } // class HarvestDataParserBase
