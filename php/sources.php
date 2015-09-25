@@ -1053,7 +1053,7 @@ function sourcesShowPageUpdateDownload( $i)
 	$HarvestMetadata->save();
 }
 
-function sourcesShowPageUpdateHarvest( $i)
+function sourcesShowPageUpdateNames( $i)
 {
 	global $HarvestData;
 	global $HarvestMetadata;
@@ -1063,6 +1063,7 @@ function sourcesShowPageUpdateHarvest( $i)
 	$harvest = & $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
 	$nuts = $MetadataVec[$i]['nuts'];
 	$vecDownload = $harvest['download'];
+	$ret = true;
 
 	for( $idx = 0; $idx < count( $vecDownload); ++$idx) {
 		$url = $vecDownload[$idx];
@@ -1116,6 +1117,7 @@ function sourcesShowPageUpdateHarvest( $i)
 
 		if( $result->error) {
 			$txt .= 'Error: ' . $result->errorMsg . '<br>';
+			$ret = false;
 		} else {
 			$dataCount = count( $result->data);
 			for( $it = 0; $it < $dataCount; ++$it) {
@@ -1130,11 +1132,12 @@ function sourcesShowPageUpdateHarvest( $i)
 					if( 0 < count( $harvest['years'])) {
 						$harvest['years'] = array_unique( array_merge( $harvest['years'], $result->years));
 					} else {
-						$harvest['years'] = $result->years;
+						$harvest['years'] = array_unique( $result->years);
 					}
 				}
 			} else {
 				$txt .= $dataCount . ' entries collected but error found. No files saved!<br>';
+				$ret = false;
 			}
 
 /*			$lastMod = strtotime( $harvest['modified']);
@@ -1165,6 +1168,8 @@ function sourcesShowPageUpdateHarvest( $i)
 	}
 
 	$HarvestMetadata->save();
+
+	return $ret;
 }
 
 function sourcesShowPageUpdateId( $id)
@@ -1194,12 +1199,176 @@ function sourcesShowPageUpdateId( $id)
 			echo( $txt);
 
 			sourcesShowPageUpdateDownload( $i);
-			sourcesShowPageUpdateHarvest( $i);
 			break;
 		}
 	}
 
 	$txt = '';
+	$txt .= '<br>';
+	$txt .= 'Next step: [<a href="do=update&what=sourcedatanames&id='.$id.'">Check names</a>]<br>';
+	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
+	$txt .= '</div>';
+
+	echo( $txt);
+}
+
+function sourcesShowPageUpdateNamesId( $id)
+{
+	global $MetadataVec;
+	global $dataHarvestMetadata;
+
+	$error = false;
+
+	$txt = '';
+	$txt .= '<div class="log">Check names<br>===========<br><br>';
+	echo( $txt);
+
+	for( $i = 0; $i < count( $MetadataVec); ++$i) {
+		if( $id == md5($MetadataVec[$i]['meta'])) {
+			$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+
+			$txt = '';
+			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $MetadataVec[$i]['nuts'])['en-US'] . '<br>';
+			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$MetadataVec[$i]['nuts'] . '<br>';
+			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
+			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
+			if( 1 == $harvest['update']) {
+				$txt .= ' day<br>';
+			} else {
+				$txt .= ' days<br>';
+			}
+			$txt .= '<br>';
+			echo( $txt);
+
+			if( !sourcesShowPageUpdateNames( $i)) {
+				$error = true;
+			}
+
+			break;
+		}
+	}
+
+	$txt = '';
+	$txt .= '<br>';
+	if( $error) {
+		$txt .= 'Next step: [Save names]<br>';
+	} else {
+		$txt .= 'Next step: [<a href="do=harvest&what=sourcedatanames&id='.$id.'">Harvest names</a>]<br>';
+	}
+	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
+	$txt .= '</div>';
+
+	echo( $txt);
+}
+
+function sourcesShowPageHarvestNamesId( $id)
+{
+	global $MetadataVec;
+	global $HarvestNames;
+	global $HarvestNuts;
+	global $HarvestYears;
+	global $dataHarvestMetadata;
+
+	$error = false;
+	$nuts = '';
+
+	$txt = '';
+	$txt .= '<div class="log">Harvest names<br>=============<br><br>';
+	echo( $txt);
+
+	for( $i = 0; $i < count( $MetadataVec); ++$i) {
+		if( $id == md5($MetadataVec[$i]['meta'])) {
+			$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+			$nuts = $MetadataVec[$i]['nuts'];
+
+			$txt = '';
+			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $nuts)['en-US'] . '<br>';
+			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$nuts . '<br>';
+			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
+			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
+			if( 1 == $harvest['update']) {
+				$txt .= ' day<br>';
+			} else {
+				$txt .= ' days<br>';
+			}
+			$txt .= '<br>';
+			echo( $txt);
+
+			break;
+		}
+	}
+
+	$years = $HarvestYears->getYears( $nuts);
+	$nutsStr = intEncodeBytes( $HarvestNuts->getId( $nuts), 2);
+
+	$HarvestNames->loadAllStats();
+
+	if( count( $years) > 0) {
+		foreach( $years as $year) {
+			$txt = '';
+			$txt .= 'Save names from year '.$year.'<br>';
+			$txt .= '----------------------------------------------------------------------------------------------<br>';
+			$names = $HarvestYears->getOneYear( $nuts, $year, true);
+			$i = 0;
+			foreach( $names as $value) {
+				if( $i < 6) {
+					$txt .= '<a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a>, ';
+				}
+				$code = $nutsStr . intEncodeBytes( $value['RANKING'], 3) . intEncodeBytes( $year, 2) . 'm';
+				$error = $HarvestNames->harvest( $value['GIVEN_NAME'], $code);
+				if( $error) {
+					echo( $txt);
+					$txt = '';
+					break;
+				}
+				++$i;
+			}
+			if( $error) {
+				echo( $txt);
+				$txt = '';
+				break;
+			}
+			$txt .= '...<br>';
+			$names = $HarvestYears->getOneYear( $nuts, $year, false);
+			$i = 0;
+			foreach( $names as $value) {
+				if( $i < 6) {
+					$txt .= '<a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a>, ';
+				}
+				$code = $nutsStr . intEncodeBytes( $value['RANKING'], 3) . intEncodeBytes( $year, 2) . 'f';
+				$error = $HarvestNames->harvest( $value['GIVEN_NAME'], $code);
+				if( $error) {
+					echo( $txt);
+					$txt = '';
+					break;
+				}
+				++$i;
+			}
+			if( $error) {
+				echo( $txt);
+				$txt = '';
+				break;
+			}
+			$txt .= '...<br>';
+			$txt .= '----------------------------------------------------------------------------------------------<br>';
+			$txt .= '<br>';
+			echo( $txt);
+		}
+	}
+
+	if( !$error) {
+		$HarvestNames->saveAllStats();
+	}
+
+	$txt = '';
+	$txt .= '<br>';
+//	if( $error) {
+		$txt .= 'Next step: [Save data]<br>';
+//	} else {
+//		$txt .= 'Next step: [<a href="do=harvest&what=sourcedatanames&id='.$id.'">Harvest names</a>]<br>';
+//	}
 	$txt .= '<br>';
 	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
 	$txt .= '</div>';
@@ -1241,7 +1410,7 @@ function sourcesShowPageItem( $nuts)
 			$txtTab = '&nbsp;&nbsp;&nbsp;'.$txtTab;
 			$txt .= $txtTab. $names['en-US'] . '<br>';
 		}
-	} while( strlen( $nutsName) > 0);
+	} while( strlen( $nutsName) > 1);
 	$txt .= '<br>';
 	$txt .= '<br>';
 	echo( $txt);
@@ -1293,8 +1462,9 @@ function sourcesShowPageItem( $nuts)
 			}
 
 			$txt .= 'Years:&nbsp;&nbsp;&nbsp;&nbsp;';
-			for( $j = 0; $j < count( $harvest['years']); ++$j) {
-				$txt .= $harvest['years'][$j] . ' ';
+			$years = array_unique( $harvest['years']);
+			for( $j = 0; $j < count( $years); ++$j) {
+				$txt .= $years[$j] . ' ';
 			}
 			$txt .= '<br>';
 
@@ -1308,30 +1478,32 @@ function sourcesShowPageItem( $nuts)
 	$txt = '';
 	$years = $HarvestYears->getYears( $nuts);
 
-	foreach( $years as $year) {
-		$maleCount = 0;
-		$femaleCount = 0;
-		$maleData = $HarvestYears->getOneYear( $nuts, $year, true);
-		$femaleData = $HarvestYears->getOneYear( $nuts, $year, false);
+	if( count( $years) > 0) {
+		foreach( $years as $year) {
+			$maleCount = 0;
+			$femaleCount = 0;
+			$maleData = $HarvestYears->getOneYear( $nuts, $year, true);
+			$femaleData = $HarvestYears->getOneYear( $nuts, $year, false);
 
-		$txt .= 'Top '.$top.' from '.nutsGetName( $nutsName)['en-US'].' in '.$year.'<br>';
-		$txt .= '----------------------------------------------------------------------------------------------<br>';
-		foreach( $maleData as $value) {
-			if( intVal( $value['RANKING']) <= $top) {
-				++$maleCount;
-				$txt .= '#'.$value['RANKING'].' <a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)<br>';
+			$txt .= 'Top '.$top.' from '.nutsGetName( $nutsName)['en-US'].' in '.$year.'<br>';
+			$txt .= '----------------------------------------------------------------------------------------------<br>';
+			foreach( $maleData as $value) {
+				if( intVal( $value['RANKING']) <= $top) {
+					++$maleCount;
+					$txt .= '#'.$value['RANKING'].' <a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)<br>';
+				}
 			}
-		}
-		$txt .= '----------------------------------------------------------------------------------------------<br>';
-		foreach( $femaleData as $value) {
-			if( intVal( $value['RANKING']) <= $top) {
-				++$femaleCount;
-				$txt .= '#'.$value['RANKING'].' <a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)<br>';
+			$txt .= '----------------------------------------------------------------------------------------------<br>';
+			foreach( $femaleData as $value) {
+				if( intVal( $value['RANKING']) <= $top) {
+					++$femaleCount;
+					$txt .= '#'.$value['RANKING'].' <a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)<br>';
+				}
 			}
+			$txt .= '----------------------------------------------------------------------------------------------<br>';
+			$txt .= $maleCount . ' of '.count($maleData).' males and '.$femaleCount.' of '.count($femaleData).' females in this year<br>';
+			$txt .= '<br>';
 		}
-		$txt .= '----------------------------------------------------------------------------------------------<br>';
-		$txt .= $maleCount . ' of '.count($maleData).' males and '.$femaleCount.' of '.count($femaleData).' females in this year<br>';
-		$txt .= '<br>';
 	}
 	echo( $txt);
 

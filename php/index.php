@@ -18,6 +18,8 @@
 	include_once( "HarvestMetadata.php");
 	include_once( "HarvestData.php");
 	include_once( "HarvestNames.php");
+	include_once( "HarvestNuts.php");
+	include_once( "HarvestTools.php");
 
 	include_once( "export.php");
 	include_once( "metadata.php");
@@ -109,9 +111,25 @@ function showPageHome()
 	$txt .= 'Male mem:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . intval( $HarvestNames->maleUsedMemory /1024/1024*10)/10 . ' MByte<br>';
 	$txt .= 'Female mem:&nbsp;&nbsp;&nbsp;' . intval( $HarvestNames->femaleUsedMemory /1024/1024*10)/10 . ' MByte<br>';
 	$txt .= '<br>';
-	$txt .= 'Male count:&nbsp;&nbsp;&nbsp;' . count( $HarvestNames->male) . '<br>';
-	$txt .= 'Female count: ' . count( $HarvestNames->female) . '<br>';
+
+	$names = array_merge( $HarvestNames->male, $HarvestNames->female);
+	$numMales = count( $HarvestNames->male);
+	$numFemales = count( $HarvestNames->female);
+	$numNames = count( $names);
+	$numUniqueMales = count( array_diff( $HarvestNames->male, $HarvestNames->female));
+	$numUniqueFemales = count( array_diff( $HarvestNames->female, $HarvestNames->male));
+	$numUniqueNames = count( array_count_values( $names));
+//	$numUniqueNames = $numUnisex + $numUniqueMales + $numUniqueFemales;
+	$numUnisex = $numNames - $numUniqueNames;
+
+	$txt .= 'Male count:&nbsp;&nbsp;&nbsp;' . $numMales . ' (' . $numUniqueMales . ' unique) names<br>';
+	$txt .= 'Female count: ' . $numFemales . ' (' . $numUniqueFemales . ' unique) names<br>';
+	$txt .= 'Unisex count: ' . $numUnisex . ' names<br>';
+	$txt .= 'Sum:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $numUniqueNames . ' names<br>';
+	$txt .= '<br>';
 	$txt .= 'Source count: ' . count( $MetadataVec) . '<br>';
+	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
 	$txt .= '</div>';
 	echo( $txt);
 
@@ -119,7 +137,6 @@ function showPageHome()
 	$txt .= '<br>';
 	$txt .= '<hr>';
 	$txt .= '<br>';
-	$txt .= '<a href="do=browse&what=sources">Browse sources</a><br>';
 	$txt .= '<a href="do=browse&what=nuts">Browse the world</a><br>';
 	$txt .= '<a href="do=browse&what=names">Browse names</a><br>';
 	$txt .= '<br>';
@@ -845,6 +862,10 @@ function main()
 		metadataShowPageUpdate();
 	} else if( $do == 'update' && $what == 'sourcedata' && $whatId != '') {
 		sourcesShowPageUpdateId( $whatId);
+	} else if( $do == 'update' && $what == 'sourcedatanames' && $whatId != '') {
+		sourcesShowPageUpdateNamesId( $whatId);
+	} else if( $do == 'harvest' && $what == 'sourcedatanames' && $whatId != '') {
+		sourcesShowPageHarvestNamesId( $whatId);
 	} else if( $do == 'update' && $what == 'sourcedata') {
 		showPageUpdateSourcedata();
 	} else if( $do == 'update' && $what == 'namehitlist') {
@@ -860,8 +881,13 @@ function main()
 	} else if( $do == 'delete' && $what == 'sourcedata' && $whatId != '') {
 		showPageDeleteSourcedata( $whatId);
 	} else {
-		echo( '<h1>ERROR</h1>');
-		echo( '<br>Did not understand '.$do.' '.$what.'.');
+		$txt = '';
+		$txt .= '<div class="log">ERROR<br>=====<br><br>';
+		$txt .= 'Did not understand "'.$do.' '.$what.'".<br>';
+		$txt .= '<br>';
+		$txt .= '[<a href="do=">Show admin area</a>]<br>';
+		$txt .= '</div>';
+		echo( $txt);
 	}
 }
 
@@ -873,13 +899,14 @@ function main()
 	echo( "<head>\n");
 	echo( "<title>Name your babe backend</title>\n");
 	echo( "<meta http-equiv='content-type' content='text/html; charset=UTF-8' />\n");
+	echo( "<link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.013/css/hack-extended.min.css'>\n");
 	echo( "<style type='text/css'>\n");
 	echo( "a {color:ForestGreen;}\n");
 	echo( "h1 {border-bottom:1px solid ForestGreen;margin:-1em -1em 1em -1em;background:#444444;padding:1em;font-size:1em;}\n");
 	echo( "hr {border-bottom:1px solid ForestGreen;margin:0 -1em 0 -1em;}\n");
-	echo( ".log {margin:.5em 0 .5em .5em;font-family:monospace;font-size:1em;color:#fff;white-space:nowrap;overflow-x:hidden;}\n");
-	echo( ".log a {color:ForestGreen;text-decoration:none;}\n");
-	echo( ".log a:hover {color:ForestGreen;text-decoration:underline;}\n");
+	echo( ".log {margin:.5em 0 .5em .5em;font-family:Hack,monospace;font-size:.9em;color:#fff;white-space:nowrap;overflow-x:hidden;}\n");
+	echo( ".log a {color:MediumSpringGreen;text-decoration:none;}\n");
+	echo( ".log a:hover {color:MediumSpringGreen;text-decoration:underline;}\n");
 	echo( "</style>\n");
 	echo( "</head>\n");
 
