@@ -63,6 +63,21 @@ class HarvestNuts
 
 		return $dataHarvestNuts[ $nuts];
 	}
+
+	public function getNuts( $id)
+	{
+		global $dataHarvestNuts;
+
+		$this->load();
+
+		foreach( $dataHarvestNuts as $nuts => $value) {
+			if( $value == $id) {
+				return $nuts;
+			}
+		}
+
+		return '';
+	}
 } // class HarvestNuts
 $HarvestNuts = new HarvestNuts();
 
