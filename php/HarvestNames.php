@@ -8,6 +8,7 @@ class HarvestNames
 	public $female = Array();
 	public $maleUsedMemory = 0;
 	public $femaleUsedMemory = 0;
+	public $mappingTable = Array('A'=>'a','B'=>'b','C'=>'c','D'=>'d','E'=>'e','F'=>'f','G'=>'g','H'=>'h','I'=>'i','J'=>'j','K'=>'k','L'=>'l','M'=>'m','N'=>'n','O'=>'o','P'=>'p','Q'=>'q','R'=>'r','S'=>'s','T'=>'t','U'=>'u','V'=>'v','W'=>'w','X'=>'x','Y'=>'y','Z'=>'z','Ä'=>'a','Å'=>'a','Á'=>'a','Ç'=>'c','Ð'=>'d','Đ'=>'d','Ė'=>'e','É'=>'e','È'=>'e','İ'=>'i','Í'=>'i','Ì'=>'i','Ł'=>'l','Ö'=>'o','Ó'=>'o','Ş'=>'s','Š'=>'s','Ü'=>'u','Û'=>'u','Ž'=>'z');
 
 	public function load()
 	{
@@ -124,14 +125,34 @@ class HarvestNames
 		}
 	}
 
+	public function getStats( $firstChar)
+	{
+		global $dataHarvestStatNames;
+
+		if( array_key_exists( $firstChar[0], $this->mappingTable)) {
+			$this->loadStats( $this->mappingTable[ $firstChar[0]]);
+
+			return $dataHarvestStatNames[ $this->mappingTable[ $firstChar[0]]];
+		} else if( array_key_exists( substr( $firstChar, 0, 2), $this->mappingTable)) {
+			$this->loadStats( $this->mappingTable[ substr( $firstChar, 0, 2)]);
+
+			return $dataHarvestStatNames[ $this->mappingTable[ substr( $firstChar, 0, 2)]];
+		}
+
+		echo( 'Error: Unknown first letter in ' . $firstChar . '<br>');
+		return array();
+	}
+
 	public function harvest( $name, $code)
 	{
 		global $dataHarvestStatNames;
 
-		static $char = Array('A'=>'a','B'=>'b','C'=>'c','D'=>'d','E'=>'e','F'=>'f','G'=>'g','H'=>'h','I'=>'i','J'=>'j','K'=>'k','L'=>'l','M'=>'m','N'=>'n','O'=>'o','P'=>'p','Q'=>'q','R'=>'r','S'=>'s','T'=>'t','U'=>'u','V'=>'v','W'=>'w','X'=>'x','Y'=>'y','Z'=>'z');
-
-		if( array_key_exists( $name[0], $char)) {
-			$firstChar = $char[ $name[0]];
+		if( array_key_exists( $name[0], $this->mappingTable)) {
+			$firstChar = $this->mappingTable[ $name[0]];
+			$dataHarvestStatNames[$firstChar][$name] .= $code;
+			return false;
+		} else if( array_key_exists( substr( $name, 0, 2), $this->mappingTable)) {
+			$firstChar = $this->mappingTable[ substr( $name, 0, 2)];
 			$dataHarvestStatNames[$firstChar][$name] .= $code;
 			return false;
 		}
