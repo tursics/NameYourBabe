@@ -30,38 +30,55 @@ class HarvestDataParserBase
 
 	public function saveData( $data, & $fileVec, & $checksumVec, & $yearVec, $nuts)
 	{
+		$filenames = Array();
 		$contents = Array();
+		$fileVec = Array();
+		$checksumVec = Array();
+		$yearVec = Array();
 		$dataCount = count( $data);
-		for( $it = 0; $it < $dataCount; ++$it) {
-			$item = $data[ $it];
-			$dest = $item['year'].($item['male']?'_m':'_f');
-			$contents[$dest][] = $nuts.';'.$item['name'].';'.$item['number'].';'.$item['pos'].';'.($item['male']?'male':'female').';'.$item['year'];
 
-			if( 0 < strlen( $item['error'])) {
+		for( $it = 0; $it < $dataCount; ++$it) {
+			if( 0 < strlen( $data[ $it]['error'])) {
 				return;
 			}
 		}
 
-		$fileVec = Array();
-		$checksumVec = Array();
-		$yearVec = Array();
+		for( $it = 0; $it < $dataCount; ++$it) {
+			$item = $data[ $it];
+			$dest = $item['year'].($item['male']?'_m':'_f');
+			$filenames[$dest] = 0;
+		}
 
-		foreach( $contents as $key => $value) {
-			$path = 'data/harvest/'.substr($nuts, 0, 2).'/'.$nuts.'/'.$nuts.'_'.$key.'.csv';
-			$file = dirname(__FILE__) . '/' . $path;
-			$out = "NUTS;GIVEN_NAME;NUMBER;RANKING;SEX;YEAR\n";
-			$out .= implode( "\n", $value);
-			file_put_contents( $file, $out);
-
-			$fileVec[] = $path;
-			$checksumVec[] = md5( $out);
-			if( !isset( $yearVec[substr( $key, 0, 4)])) {
-				$yearVec[] = substr( $key, 0, 4);
+		foreach( $filenames as $filename => $foo) {
+			$content = Array();
+			for( $it = 0; $it < $dataCount; ++$it) {
+				$item = $data[ $it];
+				$dest = $item['year'].($item['male']?'_m':'_f');
+				if( $dest == $filename) {
+					$content[] = $nuts.';'.$item['name'].';'.$item['number'].';'.$item['pos'].';'.($item['male']?'male':'female').';'.$item['year'];
+				}
 			}
+
+			$this->saveDataToFile( $filename, $content, $fileVec, $checksumVec, $yearVec, $nuts);
 		}
 
 		// check md5!
 		// $fileVec, $checksumVec and $yearVec are overwritten ;-(
+	}
+
+	public function saveDataToFile( $filename, $content, & $fileVec, & $checksumVec, & $yearVec, $nuts)
+	{
+		$path = 'data/harvest/'.substr($nuts, 0, 2).'/'.$nuts.'/'.$nuts.'_'.$filename.'.csv';
+		$file = dirname(__FILE__) . '/' . $path;
+		$out = "NUTS;GIVEN_NAME;NUMBER;RANKING;SEX;YEAR\n";
+		$out .= implode( "\n", $content);
+		file_put_contents( $file, $out);
+
+		$fileVec[] = $path;
+		$checksumVec[] = md5( $out);
+		if( !isset( $yearVec[substr( $filename, 0, 4)])) {
+			$yearVec[] = substr( $filename, 0, 4);
+		}
 	}
 
 	public function convertToUTF8( & $vec)
