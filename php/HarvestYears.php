@@ -39,13 +39,18 @@ class HarvestYears
 		global $dataHarvestMetadata;
 		global $MetadataVec;
 
+		$years = Array();
+
 		for( $i = 0; $i < count( $MetadataVec); ++$i) {
 			if( $nuts == $MetadataVec[$i]['nuts']) {
 				$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
-				return array_unique( $harvest['years']);
+				if( array_key_exists( 'years', $harvest)) {
+					$years = array_unique( array_merge( $harvest['years'], $years));
+				}
 			}
 		}
-		return Array();
+
+		return $years;
 	}
 
 } // class HarvestYears
