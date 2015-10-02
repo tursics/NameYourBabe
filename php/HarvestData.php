@@ -25,7 +25,7 @@ class HarvestDataParserBase
 		}
 	}
 
-	public function saveData( & $data, & $fileVec, & $checksumVec, & $yearVec, $nuts)
+	public function saveData( $data, & $fileVec, & $checksumVec, & $yearVec, $nuts)
 	{
 		$contents = Array();
 		$dataCount = count( $data);
@@ -61,6 +61,16 @@ class HarvestDataParserBase
 		// $fileVec, $checksumVec and $yearVec are overwritten ;-(
 	}
 
+	public function convertToUTF8( & $vec)
+	{
+		// Western (Windows Latin 1) encoding. Use 'ASCII' or 'ISO-8859-1'
+		for( $i = 0; $i < count( $vec); ++$i) {
+			for( $j = 0; $j < count( $vec[$i]); ++$j) {
+				$vec[$i][$j] = mb_convert_encoding( $vec[$i][$j], "UTF-8", "ISO-8859-1");
+			}
+		}
+	}
+
 	public function parseNames( $item, $isBoy)
 	{
 		global $HarvestNames;
@@ -74,8 +84,12 @@ class HarvestDataParserBase
 
 		if( $isBoy) {
 			$found = in_array($nameUFT8, $HarvestNames->male);
+//			$found = array_key_exists($nameUFT8, $HarvestNames->male);
+//			$found = isset( $HarvestNames->male[ $nameUFT8]);
 		} else {
 			$found = in_array($nameUFT8, $HarvestNames->female);
+//			$found = array_key_exists($nameUFT8, $HarvestNames->female);
+//			$found = isset( $HarvestNames->female[ $nameUFT8]);
 		}
 
 		if( $found) {
@@ -177,6 +191,18 @@ class HarvestData
 
 		return $ret;
 	}
+
+	public function getParserClass( $vec, $vecCount)
+	{
+		for( $i = 0; $i < count( $this->parserVec); ++$i) {
+			$parser = new $this->parserVec[$i]();
+			if( $parser->accept( $vec, $vecCount)) {
+				return get_class( $parser);
+			}
+		}
+
+		return 'No parser found';
+	}
 } // class HarvestData
 $HarvestData = new HarvestData();
 
@@ -200,6 +226,14 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 		$colPos = -1;
 		$colCount = -1;
 		$startRow = 0;
+
+		$row = 0;
+		// häufigste
+		if( 6 === strpos( $vec[ $row][0], 'ufigste')) {
+			if( 228 == ord( $vec[ $row][0][5])) {
+				$this->convertToUTF8( $vec);
+			}
+		}
 
 		for( $row = 0; $row < 3; ++$row) {
 			for( $col = 0; $col < count( $vec[ $row]); ++$col) {
@@ -282,6 +316,10 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 						$name = 'Lisa-Marie';
 					} else {
 						$name = ucwords( strtolower( $name));
+					}
+				} else {
+					if( $name == "Lisa-marie") {
+						$name = 'Lisa-Marie';
 					}
 				}
 
@@ -590,6 +628,12 @@ class HarvestDataParserAutiStaScan extends HarvestDataParserBase
 		for( ; $row < $vecCount; ++$row) {
 			if( '' == $vec[ $row][0]) {
 				if( $row > 3) {
+					// Häufigkeit
+					if( 2 === strpos( $vec[ $row + 1][0], 'ufigkeit')) {
+						if( 228 == ord( $vec[ $row + 1][0][1])) {
+							$this->convertToUTF8( $vec);
+						}
+					}
 					break;
 				}
 			} else if( false !== strpos( $vec[ $row][0], 'figkeit der vergebenen Vornamen')) {
