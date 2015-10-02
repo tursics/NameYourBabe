@@ -841,7 +841,7 @@ function sourcesShowPageBrowseAll()
 			$dataUpdate = 'need update';
 			$dataUpdateLink = 'do=update&what=sourcedata&id='.md5($MetadataVec[$i]['meta']);
 		} else if( $harvest['update'] === 0) {
-			$dataUpdate = '&#10003;';
+			$dataUpdate = '&radic;';
 		} else {
 			$dataUpdate = 'ERROR';
 		}
@@ -852,11 +852,11 @@ function sourcesShowPageBrowseAll()
 			if( '' != $dataUpdateLink) {
 				$txtData = str_replace( array( 'no data', 'need update', 'ERROR', '&nbsp;'), array( '', 'U', 'E', ''), $txtData);
 				$txtData .= '<a href="'.$dataUpdateLink.'">U</a>';
-			} else if( '&#10003;' == $dataUpdate) {
+			} else if( '&radic;' == $dataUpdate) {
 				$txtData = str_replace( array( 'no data', 'need update', 'ERROR', '&nbsp;'), array( '', 'U', 'E', ''), $txtData);
 				$txtData .= $dataUpdate;
 			}
-			for( $j = strlen(strip_tags($txtData)); $j < 12; ++$j) $txtData .= '&nbsp;';
+			for( $j = strlen(str_replace(array('&nbsp;','&radic;'),array(' ',' '),strip_tags($txtData))); $j < 12; ++$j) $txtData .= '&nbsp;';
 
 			$txtYear = str_replace( '&nbsp;', ' ', $txtYear);
 			for( $j = 0; $j < strlen( $dataYears); ++$j) {
@@ -887,7 +887,7 @@ function sourcesShowPageBrowseAll()
 			$dataNuts = 'missing';
 		} else {
 			if( nutsExists( $MetadataVec[$i]['nuts'])) {
-				$dataNuts = '&#10003;';
+				$dataNuts = '&radic;';
 				$txtName = nutsGetName( $MetadataVec[$i]['nuts'])['en-US'];
 			} else {
 				$dataNuts = 'missing';
@@ -898,13 +898,13 @@ function sourcesShowPageBrowseAll()
 		if( 0 == count( $harvest['url'])) {
 			$dataCopyright = 'unknown';
 		} else if( isset( $harvest['license']) && isset( $harvest['citation'])) {
-			$dataCopyright = '&#10003;';
+			$dataCopyright = '&radic;';
 		} else if( isset( $harvest['citation']) && isset( $MetadataVec[$i]['citation'])) {
 			$dataCopyright = 'missing';
 		} else if( isset( $harvest['license']) && isset( $MetadataVec[$i]['citation'])) {
-			$dataCopyright = '&#10003;';
+			$dataCopyright = '&radic;';
 		} else if( isset( $MetadataVec[$i]['license']) && isset( $MetadataVec[$i]['citation'])) {
-			$dataCopyright = '&#10003;';
+			$dataCopyright = '&radic;';
 		} else {
 			$dataCopyright = 'missing';
 		}
@@ -936,6 +936,9 @@ function sourcesShowPageBrowseAll()
 	$txt .= '<br>';
 	$txt .= (count( $MetadataVec) - $skipped) . ' sources (' . count( $MetadataVec) . ' source data sets)<br>';
 	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=nuts">Show source regions</a>]<br>';
+	$txt .= '[<a href="do=">Show admin area</a>]<br>';
+	$txt .= '<br>';
 	$txt .= '[<a href="do=update&what=sourcemetadata">Update source list</a>]<br>';
 	$txt .= '</div>';
 
@@ -943,8 +946,6 @@ function sourcesShowPageBrowseAll()
 	$txt .= '<hr>';
 	$txt .= '<br>';
 
-	$txt .= '<a href="do=">Back to main</a><br>';
-	$txt .= '<br>';
 	$txt .= '<a href="do=update&what=sourcedata">Update dirty data</a><br>';
 
 	echo( $txt);
@@ -1111,6 +1112,11 @@ function sourcesShowPageUpdateNames( $i)
 			$txt .= '------------------------------------------------------------------------------<br>';
 			echo( $txt);
 			continue;
+		} else if( '.json' == substr( $url, -5)) {
+			$txt .= 'Ignore JSON files<br>';
+			$txt .= '------------------------------------------------------------------------------<br>';
+			echo( $txt);
+			continue;
 		}
 
 		$result = $HarvestData->parse( $vec, $vecCount, $nuts, $url);
@@ -1123,7 +1129,10 @@ function sourcesShowPageUpdateNames( $i)
 			for( $it = 0; $it < $dataCount; ++$it) {
 				$item = $result->data[ $it];
 				if( '' != $item['error']) {
-					$txt .= $item['error'].' (#' . $item['pos'] . ' '.($item['male']?'male':'female').' in ' . $item['year'] . ')'.'<br>';
+					// I got out of memory errors for Zurich data
+//					$txt .= $item['error'].' (#' . $item['pos'] . ' '.($item['male']?'male':'female').' in ' . $item['year'] . ')'.'<br>';
+					$txt = ' ';
+					echo $item['error'].' (#' . $item['pos'] . ' '.($item['male']?'male':'female').' in ' . $item['year'] . ')'.'<br>';
 				}
 			}
 			if( 0 == strlen( $txt)) {
@@ -1137,6 +1146,7 @@ function sourcesShowPageUpdateNames( $i)
 				}
 			} else {
 				$txt .= $dataCount . ' entries collected but error found. No files saved!<br>';
+				$txt .= 'Used parser: ' . $HarvestData->getParserClass( $vec, $vecCount) . '<br>';
 				$ret = false;
 			}
 
@@ -1144,7 +1154,7 @@ function sourcesShowPageUpdateNames( $i)
 			$diffMod = intval(( $result->modified - $lastMod) /60 /60 /24);
 
 			if( 0 >= $diffMod) {
-				$dataData = '&#10003;'.' Last mod: '.$lastMod;
+				$dataData = '&radic;'.' Last mod: '.$lastMod;
 				$harvest['update'] = 0;
 			} else {
 				if( 1 == $result->modDays) {
@@ -1254,8 +1264,88 @@ function sourcesShowPageUpdateNamesId( $id)
 	if( $error) {
 		$txt .= 'Next step: [Save names]<br>';
 	} else {
-		$txt .= 'Next step: [<a href="do=harvest&what=sourcedatanames&id='.$id.'">Harvest names</a>]<br>';
+		$txt .= 'Next step: [<a href="do=clean&what=sourcedatanames&id='.$id.'">Clean names</a>]<br>';
 	}
+	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
+	$txt .= '</div>';
+
+	echo( $txt);
+}
+
+function sourcesShowPageCleanNamesId( $id)
+{
+	global $MetadataVec;
+	global $HarvestNames;
+	global $HarvestNuts;
+	global $HarvestYears;
+	global $dataHarvestMetadata;
+	global $dataHarvestStatNames;
+
+	$error = false;
+	$nuts = '';
+
+	$txt = '';
+	$txt .= '<div class="log">Clean names<br>=============<br><br>';
+	echo( $txt);
+
+	for( $i = 0; $i < count( $MetadataVec); ++$i) {
+		if( $id == md5($MetadataVec[$i]['meta'])) {
+			$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+			$nuts = $MetadataVec[$i]['nuts'];
+
+			$txt = '';
+			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $nuts)['en-US'] . '<br>';
+			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$nuts . '<br>';
+			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
+			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
+			if( 1 == $harvest['update']) {
+				$txt .= ' day<br>';
+			} else {
+				$txt .= ' days<br>';
+			}
+			$txt .= '<br>';
+			echo( $txt);
+
+			break;
+		}
+	}
+
+	$nutsStr = intEncodeBytes( $HarvestNuts->getId( $nuts), 2);
+
+	$HarvestNames->loadAllStats();
+
+	$txt = '';
+	$txt .= '---------------------------------------------------<br>';
+	echo( $txt);
+
+	foreach( $dataHarvestStatNames as $firstChar => &$names) {
+		$txt = '';
+		$txt .= $firstChar . ' ';
+		foreach( $names as $name => &$str) {
+			if( strlen( $str) >= 8) {
+				for( $count = strlen( $str) - 8; $count >= 0; $count -= 8) {
+					if(( $nutsStr[0] == $str[$count]) && ($nutsStr[1] == $str[$count+1])) {
+						$str = substr_replace( $str, '', $count, 8);
+					}
+				}
+			}
+		}
+		echo( $txt);
+	}
+	$txt = '';
+	$txt .= '<br>---------------------------------------------------<br>';
+	echo( $txt);
+
+	$HarvestNames->saveAllStats();
+
+	$txt = '';
+	$txt .= '<br>';
+//	if( $error) {
+//		$txt .= 'Next step: [Harvest names]<br>';
+//	} else {
+		$txt .= 'Next step: [<a href="do=harvest&what=sourcedatanames&id='.$id.'">Harvest names</a>]<br>';
+//	}
 	$txt .= '<br>';
 	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
 	$txt .= '</div>';
@@ -1301,6 +1391,7 @@ function sourcesShowPageHarvestNamesId( $id)
 	}
 
 	$years = $HarvestYears->getYears( $nuts);
+	rsort( $years);
 	$nutsStr = intEncodeBytes( $HarvestNuts->getId( $nuts), 2);
 
 	$HarvestNames->loadAllStats();
@@ -1364,20 +1455,74 @@ function sourcesShowPageHarvestNamesId( $id)
 
 	$txt = '';
 	$txt .= '<br>';
-//	if( $error) {
+	if( $error) {
 		$txt .= 'Next step: [Save data]<br>';
-//	} else {
-//		$txt .= 'Next step: [<a href="do=harvest&what=sourcedatanames&id='.$id.'">Harvest names</a>]<br>';
-//	}
+	} else {
+		$txt .= 'Next step: [<a href="do=save&what=sourcedatanames&id='.$id.'">Save data</a>]<br>';
+	}
 	$txt .= '<br>';
 	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
 	$txt .= '</div>';
 
-/*	$txt .= '<br>';
-	$txt .= '<hr>';
+	echo( $txt);
+}
+
+function sourcesShowPageSaveNamesId( $id)
+{
+	global $MetadataVec;
+	global $HarvestMetadata;
+	global $HarvestNames;
+	global $HarvestNuts;
+	global $HarvestYears;
+	global $dataHarvestMetadata;
+
+	$error = false;
+	$nuts = '';
+
+	$txt = '';
+	$txt .= '<div class="log">Save names<br>==========<br><br>';
+	echo( $txt);
+
+	for( $i = 0; $i < count( $MetadataVec); ++$i) {
+		if( $id == md5($MetadataVec[$i]['meta'])) {
+			$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+			$nuts = $MetadataVec[$i]['nuts'];
+
+			$txt = '';
+			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $nuts)['en-US'] . '<br>';
+			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$nuts . '<br>';
+			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
+			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
+			if( 1 == $harvest['update']) {
+				$txt .= ' day<br>';
+			} else {
+				$txt .= ' days<br>';
+			}
+			$txt .= '<br>';
+			echo( $txt);
+
+			break;
+		}
+	}
+
+	if( $i < count( $MetadataVec)) {
+		$harvest['modified'] = date( 'Y-m-d');
+		$harvest['update'] = 0;
+		$dataHarvestMetadata[ $MetadataVec[$i]['meta']] = $harvest;
+
+		$HarvestMetadata->save();
+
+		$txt = '';
+		$txt .= '&radic; done<br>';
+		echo( $txt);
+	} else {
+		$error = true;
+	}
+
+	$txt = '';
 	$txt .= '<br>';
-	$txt .= '<a href="do=save&what=sourcedata">Save</a><br>';
-	$txt .= '<a href="do=browse&what=sources">Cancel</a><br>';*/
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
+	$txt .= '</div>';
 
 	echo( $txt);
 }
@@ -1462,9 +1607,14 @@ function sourcesShowPageItem( $nuts)
 			}
 
 			$txt .= 'Years:&nbsp;&nbsp;&nbsp;&nbsp;';
-			$years = array_unique( $harvest['years']);
-			for( $j = 0; $j < count( $years); ++$j) {
-				$txt .= $years[$j] . ' ';
+			if( $harvest['years'] > 0) {
+				$years = array_unique( $harvest['years']);
+				rsort( $years);
+				for( $j = 0; $j < count( $years); ++$j) {
+					$txt .= $years[$j] . ' ';
+				}
+			} else {
+				$txt .= 'none';
 			}
 			$txt .= '<br>';
 
@@ -1479,43 +1629,44 @@ function sourcesShowPageItem( $nuts)
 	$years = $HarvestYears->getYears( $nuts);
 
 	if( count( $years) > 0) {
+		rsort( $years);
+
 		foreach( $years as $year) {
 			$maleCount = 0;
 			$femaleCount = 0;
 			$maleData = $HarvestYears->getOneYear( $nuts, $year, true);
 			$femaleData = $HarvestYears->getOneYear( $nuts, $year, false);
 
-			$txt .= 'Top '.$top.' from '.nutsGetName( $nutsName)['en-US'].' in '.$year.'<br>';
-			$txt .= '----------------------------------------------------------------------------------------------<br>';
+			$txt .= 'Top '.$top.' of '.count($maleData).' males and '.count($femaleData).' females in '.$year.'<br>';
+			$txt .= '&nbsp;&nbsp;';
 			foreach( $maleData as $value) {
 				if( intVal( $value['RANKING']) <= $top) {
+					if( $maleCount > 0) {
+						$txt .= ', ';
+					}
 					++$maleCount;
-					$txt .= '#'.$value['RANKING'].' <a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)<br>';
+					$txt .= '<a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)';
 				}
 			}
-			$txt .= '----------------------------------------------------------------------------------------------<br>';
+			$txt .= '<br>&nbsp;&nbsp;';
 			foreach( $femaleData as $value) {
 				if( intVal( $value['RANKING']) <= $top) {
+					if( $femaleCount > 0) {
+						$txt .= ', ';
+					}
 					++$femaleCount;
-					$txt .= '#'.$value['RANKING'].' <a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)<br>';
+					$txt .= '<a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a> ('.$value['NUMBER'].'x)';
 				}
 			}
-			$txt .= '----------------------------------------------------------------------------------------------<br>';
-			$txt .= $maleCount . ' of '.count($maleData).' males and '.$femaleCount.' of '.count($femaleData).' females in this year<br>';
-			$txt .= '<br>';
+			$txt .= '<br><br>';
 		}
 	}
 	echo( $txt);
 
-/*		if( $isBoy) {
-			$found = isset( $HarvestYears->male[ $nameUFT8]);
-		} else {
-			$found = isset( $HarvestYears->female[ $nameUFT8]);
-		}*/
-
 	$txt = '';
 	$txt .= '<br>';
 	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
+	$txt .= '[<a href="do=">Show admin area</a>]<br>';
 	$txt .= '</div>';
 	echo( $txt);
 
@@ -1524,9 +1675,6 @@ function sourcesShowPageItem( $nuts)
 	$txt .= '<hr>';
 	$txt .= '<br>';
 
-	$txt .= '<a href="do=">Back to main</a><br>';
-//	$txt .= '<a href="do=browse&what=sources">Back to Source list</a><br>';
-	$txt .= '<br>';
 	$txt .= '<a href="do=delete&what=sourcedata&id='.$id.'"><span style="color:red;">Delete all statistic data</span></a><br>';
 
 	echo( $txt);
