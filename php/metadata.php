@@ -88,7 +88,7 @@ function metadataShowPageUpdate()
 			$diffMod = intval(( $result->modified - $lastMod) /60 /60 /24);
 
 			if( 0 >= $diffMod) {
-				$dataData = '&#10003;'.' Last mod: '.$lastMod;
+				$dataData = '&radic;'.' Last mod: '.$lastMod;
 				$harvest['update'] = 0;
 			} else {
 				if( 1 == $result->modDays) {
