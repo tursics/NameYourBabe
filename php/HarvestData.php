@@ -4,6 +4,9 @@
 
 class HarvestDataParserBase
 {
+	public $reverseMales = Array();
+	public $reverseFemales = Array();
+
 	public function accept( $vec, $vecCount)
 	{
 		return false;
@@ -81,15 +84,19 @@ class HarvestDataParserBase
 		$nameUFT8 = $name;
 
 		$HarvestNames->load();
+		if( 0 == count( $this->reverseMales)) {
+			$this->reverseMales = array_flip( $HarvestNames->male);
+		}
+		if( 0 == count( $this->reverseFemales)) {
+			$this->reverseFemales = array_flip( $HarvestNames->female);
+		}
 
 		if( $isBoy) {
-			$found = in_array($nameUFT8, $HarvestNames->male);
-//			$found = array_key_exists($nameUFT8, $HarvestNames->male);
-//			$found = isset( $HarvestNames->male[ $nameUFT8]);
+//			$found = in_array($nameUFT8, $HarvestNames->male);
+			$found = isset( $this->reverseMales[ $nameUFT8]);
 		} else {
-			$found = in_array($nameUFT8, $HarvestNames->female);
-//			$found = array_key_exists($nameUFT8, $HarvestNames->female);
-//			$found = isset( $HarvestNames->female[ $nameUFT8]);
+//			$found = in_array($nameUFT8, $HarvestNames->female);
+			$found = isset( $this->reverseFemales[ $nameUFT8]);
 		}
 
 		if( $found) {
@@ -136,8 +143,12 @@ class HarvestDataParserBase
 		if( !$found) {
 			if( $isBoy) {
 				$HarvestNames->male[] = $name;
+//				unset( $this->reverseMales);
+				$this->reverseMales = array_flip( $HarvestNames->male);
 			} else {
 				$HarvestNames->female[] = $name;
+//				unset( $this->reverseFemales);
+				$this->reverseFemales = array_flip( $HarvestNames->female);
 			}
 
 			$ret .= 'New name <span style="color:';
