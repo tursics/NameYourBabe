@@ -129,16 +129,15 @@ function showPageHome()
 	$txt .= '<br>';
 	$txt .= 'Source count: ' . count( $MetadataVec) . '<br>';
 	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=names">Show names</a>]<br>';
 	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
+	$txt .= '[<a href="do=browse&what=nuts">Show source regions</a>]<br>';
 	$txt .= '</div>';
 	echo( $txt);
 
 	$txt = '';
 	$txt .= '<br>';
 	$txt .= '<hr>';
-	$txt .= '<br>';
-	$txt .= '<a href="do=browse&what=nuts">Browse the world</a><br>';
-	$txt .= '<a href="do=browse&what=names">Browse names</a><br>';
 	$txt .= '<br>';
 	$txt .= '<a href="do=export&what=dataSource.js">Export files</a><br>';
 	echo( $txt);
@@ -483,10 +482,52 @@ function showPageSaveSourcedata()
 
 function showPageBrowseNames()
 {
+	global $HarvestNames;
+	global $dataHarvestStatNames;
+
 	$txt = '';
-	$txt .= '<h1>Names list</h1>';
-	$txt .= '<a href="do=">Back to main</a><br>';
+	$txt .= '<div class="log">Names list<br>==========<br><br>';
+	echo( $txt);
+
+	$txt = '';
+	$txt .= '- -------------------------------------------------------------------------------<br>';
+	$txt .= '<form action="index.php" method="get" accept-charset="UTF-8">';
+	$txt .= '<input type="hidden" name="do" value="name">';
+	$txt .= '&nbsp;&nbsp;<input type="search" name="what" placeholder="Given name">';
+	$txt .= '<input type="submit" value="Search">';
+	$txt .= '</form>';
+	$txt .= '- -------------------------------------------------------------------------------<br>';
+	echo( $txt);
+
+	$HarvestNames->loadAllStats();
+
+	foreach( $dataHarvestStatNames as $firstChar => $names) {
+		$txt = '';
+		$sum = '';
+		$txt .= strtoupper( $firstChar) . ' ';
+		foreach( $names as $name => $str) {
+			if( strlen( $sum) < 80) {
+				$sum .= $name .', ';
+				$txt .= '<a href="do=name&what='.$name.'">'.$name.'</a>, ';
+				if( strlen( $sum) >= 80) {
+					$txt .= '...';
+				}
+			}
+		}
+		$txt .= '<br>';
+		echo( $txt);
+	}
+
+	$txt = '';
+	$txt .= '- -------------------------------------------------------------------------------<br>';
 	$txt .= '<br>';
+	$txt .= '[<a href="do=">Show admin area</a>]<br>';
+	$txt .= '</div>';
+
+	$txt .= '<br>';
+	$txt .= '<hr>';
+	$txt .= '<br>';
+
 	$txt .= '<a href="do=update&what=namehitlist">Update hit lists</a><br>';
 	$txt .= '<br>';
 
@@ -575,34 +616,19 @@ function showPageUpdateNamehitlist()
 
 //--------------------------------------------------------------------------------------------------
 
-function getPageNameRef( $value)
+function getPageNameRef( $items)
 {
-	global $gSource;
+	global $HarvestNuts;
 
 	$txt = '';
 
-	foreach( $value['ref'] as $refvalue) {
-		$posSource = strpos( $refvalue, '-');
-		$posNum = strpos( $refvalue, '#', $posSource);
-		$posYear = strpos( $refvalue, ',', $posNum);
+	foreach( $items as $item) {
+		$nuts = $HarvestNuts->getNuts( $item['nuts']);
+		$nutsStr = nutsGetName( $nuts);
 
-		$strSource = substr( $refvalue, 0, $posSource);
-		$strUrl = substr( $refvalue, $posSource + 1, $posNum - $posSource - 1);
-		$strNum = substr( $refvalue, $posNum + 1, $posYear - $posNum - 1);
-		$strYear = substr( $refvalue, $posYear + 1);
-
-		$line = '&nbsp;&nbsp;#'.$strNum;
-		$line .= ' in '.$strYear;
-
-		foreach( $gSource as $source) {
-			if( $strSource == $source['id']) {
-				$nuts = nutsGetName( $source['manNUTS'][$strUrl]);
-//				$line = '&nbsp;&nbsp;Platz '.$strNum.', beliebteste Vornamen '.$strYear.' in '.$source['de-DE'][$strUrl];
-				$line = '&nbsp;&nbsp;Platz '.$strNum.', beliebteste Vornamen '.$strYear.' in '.$nuts['de-DE'];
-			}
-		}
-
-		$txt .= $line.'<br>';
+		$txt .= '&nbsp;&nbsp;Place ' . $item['ranking'];
+		$txt .= ' of the most popular name in ' . $item['year'];
+		$txt .= ' in <a href="do=browse&what=source&id=' . $nuts . '">' . $nutsStr['en-US'] . '</a><br>';
 	}
 
 	return $txt;
@@ -719,12 +745,66 @@ function getPageNameForm( $name)
 
 function showPageName( $name)
 {
-	global $gBoys;
-	global $gGirls;
+	global $HarvestNames;
 
 	$txt = '';
-	$txt .= '<h1>'.$name.'</h1>';
-	$txt .= '<a href="do=">Back to main</a><br>';
+	$txt .= '<div class="log">'.$name.'<br>==========<br><br>';
+	echo( $txt);
+
+	$names = $HarvestNames->getStats( $name);
+	$male = array();
+	$female = array();
+
+	if( array_key_exists( $name, $names)) {
+		$str = $names[ $name];
+
+		if( strlen( $str) >= 8) {
+			for( $count = strlen( $str) - 8; $count >= 0; $count -= 8) {
+				$item = Array(
+					nuts => intDecode( substr( $str, $count, 2)),
+					ranking => intDecode( substr( $str, $count + 2, 3)),
+					year => intDecode( substr( $str, $count + 5, 2))
+				);
+				if( 'm' == $str[ $count + 7]) {
+					$male[] = $item;
+				} else {
+					$female[] = $item;
+				}
+			}
+		}
+	}
+
+	$txt = '';
+	if(( count( $male) > 0) && (count( $female) > 0)) {
+		$txt .= $name . ' is a male and female first name.<br><br>';
+	} else if( count( $male) > 0) {
+		$txt .= $name . ' is a male first name.<br><br>';
+	} else if( count( $female) > 0) {
+		$txt .= $name . ' is a female first name.<br><br>';
+	} else {
+		$txt .= $name . ' is an unknown first name.<br><br>';
+	}
+	echo( $txt);
+
+	$txt = '';
+	if( count( $male) > 0) {
+		$txt .= 'Male charts:<br>';
+		$txt .= getPageNameRef( $male);
+	}
+	if( count( $female) > 0) {
+		$txt .= 'Female charts:<br>';
+		$txt .= getPageNameRef( $female);
+	}
+	echo( $txt);
+
+	$txt = '';
+	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=names">Show names</a>]<br>';
+	$txt .= '[<a href="do=">Show admin area</a>]<br>';
+	$txt .= '</div>';
+
+	$txt .= '<br>';
+	$txt .= '<hr>';
 	$txt .= '<br>';
 	echo( $txt);
 
@@ -751,12 +831,6 @@ function showPageName( $name)
 		echo( '<br>');
 		echo( 'Ähnliche Namen weiblich:<br>');
 		echo( getPageNameAlt( $gGirls[ $name]));
-		echo( '<br>');
-		echo( 'Hitliste männlich:<br>');
-		echo( getPageNameRef( $gBoys[ $name]));
-		echo( '<br>');
-		echo( 'Hitliste: weiblich<br>');
-		echo( getPageNameRef( $gGirls[ $name]));
 	} else if( isset( $gBoys[ $name])) {
 		echo( $name.' ist ein männlicher Vorname.<br><br>');
 		if( isset( $gBoys[ $name]['text'])) {
@@ -767,9 +841,6 @@ function showPageName( $name)
 		}
 		echo( 'Ähnliche Namen:<br>');
 		echo( getPageNameAlt( $gBoys[ $name]));
-		echo( '<br>');
-		echo( 'Hitliste:<br>');
-		echo( getPageNameRef( $gBoys[ $name]));
 	} else if( isset( $gGirls[ $name])) {
 		echo( $name.' ist ein weiblicher Vorname.<br><br>');
 		if( isset( $gGirls[ $name]['text'])) {
@@ -780,9 +851,6 @@ function showPageName( $name)
 		}
 		echo( 'Ähnliche Namen:<br>');
 		echo( getPageNameAlt( $gGirls[ $name]));
-		echo( '<br>');
-		echo( 'Hitliste:<br>');
-		echo( getPageNameRef( $gGirls[ $name]));
 	}
 }
 
@@ -864,12 +932,16 @@ function main()
 		sourcesShowPageUpdateId( $whatId);
 	} else if( $do == 'update' && $what == 'sourcedatanames' && $whatId != '') {
 		sourcesShowPageUpdateNamesId( $whatId);
+	} else if( $do == 'clean' && $what == 'sourcedatanames' && $whatId != '') {
+		sourcesShowPageCleanNamesId( $whatId);
 	} else if( $do == 'harvest' && $what == 'sourcedatanames' && $whatId != '') {
 		sourcesShowPageHarvestNamesId( $whatId);
 	} else if( $do == 'update' && $what == 'sourcedata') {
 		showPageUpdateSourcedata();
 	} else if( $do == 'update' && $what == 'namehitlist') {
 		showPageUpdateNamehitlist();
+	} else if( $do == 'save' && $what == 'sourcedatanames' && $whatId != '') {
+		sourcesShowPageSaveNamesId( $whatId);
 	} else if( $do == 'save' && $what == 'sourcedata') {
 		showPageSaveSourcedata();
 	} else if( $do == 'save' && $what == 'name') {
@@ -901,17 +973,30 @@ function main()
 	echo( "<meta http-equiv='content-type' content='text/html; charset=UTF-8' />\n");
 	echo( "<link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.013/css/hack-extended.min.css'>\n");
 	echo( "<style type='text/css'>\n");
+	echo( "body {margin:0;padding:0;font-size:18px;font-family:Arial;font-weight:300;background:#333333;color:#cccccc;}\n");
 	echo( "a {color:ForestGreen;}\n");
 	echo( "h1 {border-bottom:1px solid ForestGreen;margin:-1em -1em 1em -1em;background:#444444;padding:1em;font-size:1em;}\n");
 	echo( "hr {border-bottom:1px solid ForestGreen;margin:0 -1em 0 -1em;}\n");
 	echo( ".log {margin:.5em 0 .5em .5em;font-family:Hack,monospace;font-size:.9em;color:#fff;white-space:nowrap;overflow-x:hidden;}\n");
 	echo( ".log a {color:MediumSpringGreen;text-decoration:none;}\n");
 	echo( ".log a:hover {color:MediumSpringGreen;text-decoration:underline;}\n");
+	echo( ".log input {font-family:Hack,monospace;font-size:1em;}\n");
+	echo( ".log input[type=search] {background:none;border:0 none;border-bottom:1px MediumSpringGreen solid;color:white;padding:0;}\n");
+	echo( ".log input[type=submit] {background:none;border:0 none;color:MediumSpringGreen;cursor:pointer;}\n");
+	echo( ".log input[type=submit]:hover {text-decoration:underline;}\n");
 	echo( "</style>\n");
 	echo( "</head>\n");
 
-	echo( "<body style='margin:0;padding:0;font-size:18px;font-family:\"Arial\";font-weight:300;background:#333333;color:#cccccc;'>\n");
-	echo( "<div style='background:ForestGreen;color:white;margin:0;padding:1em;text-align:center;'>Name your babe backend</div>\n");
+	echo( "<body>\n");
+	echo( "<div class='log' style='color:MediumSpringGreen;margin:0 2em 0 2.5em;font-weight:900;font-size:.6em;'>");
+	// http://patorjk.com/software/taag/#p=display&f=Small%20Slant&t=Name%20your%20babe
+	echo( "&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__<br>\n");
+	echo( "&nbsp;&nbsp;/&nbsp;|/&nbsp;/__&nbsp;___&nbsp;_&nbsp;&nbsp;___&nbsp;&nbsp;&nbsp;__&nbsp;_____&nbsp;&nbsp;__&nbsp;______&nbsp;&nbsp;/&nbsp;/&nbsp;&nbsp;___&nbsp;_/&nbsp;/&nbsp;&nbsp;___<br>\n");
+	echo( "&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;_&nbsp;`/&nbsp;&nbsp;'&nbsp;\/&nbsp;-_)&nbsp;/&nbsp;//&nbsp;/&nbsp;_&nbsp;\/&nbsp;//&nbsp;/&nbsp;__/&nbsp;/&nbsp;_&nbsp;\/&nbsp;_&nbsp;`/&nbsp;_&nbsp;\/&nbsp;-_)<br>\n");
+	echo( "/_/|_/\_,_/_/_/_/\__/&nbsp;&nbsp;\_,&nbsp;/\___/\_,_/_/&nbsp;&nbsp;&nbsp;/_.__/\_,_/_.__/\__/<br>\n");
+	echo( "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/___/<br>\n");
+	echo( "</div>\n");
+
 	echo( "<div style='margin:1em;'>\n");
 
 	main();
