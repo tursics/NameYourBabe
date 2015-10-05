@@ -967,6 +967,17 @@ function sourcesShowPageUpdateDownload( $i)
 	$harvest = & $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
 	$harvest['download'] = Array();
 
+	$nuts = $MetadataVec[$i]['nuts'];
+
+	$nutsVec = Array();
+	for( $idx = 0; $idx < count( $harvest['url']); ++$idx) {
+		$nutsVec[] = $nuts;
+
+		if( isset( $MetadataVec[$i]['nutsVec']) && isset( $MetadataVec[$i]['nutsVec'][$idx])) {
+			$nutsVec[ $idx] = $MetadataVec[$i]['nutsVec'][$idx];
+		}
+	}
+
 	for( $idx = 0; $idx < count( $harvest['url']); ++$idx) {
 		$name = $harvest['name'][$idx];
 		$url = $harvest['url'][$idx];
@@ -1002,16 +1013,16 @@ function sourcesShowPageUpdateDownload( $i)
 		if( '' == $path) {
 			$txt .= '[ignore path]';
 		} else {
-			$file = dirname(__FILE__).'/data/harvest/'.substr($MetadataVec[$i]['nuts'], 0, 2);
+			$file = dirname(__FILE__).'/data/harvest/'.substr($nutsVec[ $idx], 0, 2);
 			if( !file_exists( $file)) {
 				mkdir( $file, 0777);
 			}
-			$file .= '/'.$MetadataVec[$i]['nuts'];
+			$file .= '/'.$nutsVec[ $idx];
 			if( !file_exists( $file)) {
 				mkdir( $file, 0777);
 			}
 
-			$path = 'data/harvest/'.substr($MetadataVec[$i]['nuts'], 0, 2).'/'.$MetadataVec[$i]['nuts'].'/'.$path;
+			$path = 'data/harvest/'.substr($nutsVec[ $idx], 0, 2).'/'.$nutsVec[ $idx].'/'.$path;
 			$txt .= $path;
 
 			if( !copy( $url, dirname(__FILE__).'/'.$path)) {
@@ -1029,7 +1040,7 @@ function sourcesShowPageUpdateDownload( $i)
 						$txt .= '<br>'.$number;
 						for( $j = strlen($number); $j < 37; ++$j) $txt .= '&nbsp;';
 
-						$path = 'data/harvest/'.substr($MetadataVec[$i]['nuts'], 0, 2).'/'.$MetadataVec[$i]['nuts'].'/zip_'.substr( $info['name'], strrpos( $info['name'], '/') + 1);
+						$path = 'data/harvest/'.substr($nutsVec[ $idx], 0, 2).'/'.$nutsVec[ $idx].'/zip_'.substr( $info['name'], strrpos( $info['name'], '/') + 1);
 						$txt .= $path;
 
 						$url = 'zip://' . $zip->filename . '#' . $info['name'];
@@ -1065,6 +1076,15 @@ function sourcesShowPageUpdateNames( $i)
 	$nuts = $MetadataVec[$i]['nuts'];
 	$vecDownload = $harvest['download'];
 	$ret = true;
+
+	$nutsVec = Array();
+	for( $idx = 0; $idx < count( $vecDownload); ++$idx) {
+		$nutsVec[] = $nuts;
+
+		if( isset( $MetadataVec[$i]['nutsVec']) && isset( $MetadataVec[$i]['nutsVec'][$idx])) {
+			$nutsVec[ $idx] = $MetadataVec[$i]['nutsVec'][$idx];
+		}
+	}
 
 	for( $idx = 0; $idx < count( $vecDownload); ++$idx) {
 		$url = $vecDownload[$idx];
@@ -1119,7 +1139,7 @@ function sourcesShowPageUpdateNames( $i)
 			continue;
 		}
 
-		$result = $HarvestData->parse( $vec, $vecCount, $nuts, $url);
+		$result = $HarvestData->parse( $vec, $vecCount, $nutsVec[ $idx], $url);
 
 		if( $result->error) {
 			$txt .= 'Error: ' . $result->errorMsg . '<br>';
@@ -1198,6 +1218,13 @@ function sourcesShowPageUpdateId( $id)
 			$txt = '';
 			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $MetadataVec[$i]['nuts'])['en-US'] . '<br>';
 			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$MetadataVec[$i]['nuts'] . '<br>';
+			if( isset( $MetadataVec[$i]['nutsVec'])) {
+				$txt .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				foreach( array_unique( $MetadataVec[$i]['nutsVec']) as $nuts) {
+					$txt .= $nuts.' ';
+				}
+				$txt .= '<br>';
+			}
 			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
 			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
 			if( 1 == $harvest['update']) {
@@ -1241,6 +1268,13 @@ function sourcesShowPageUpdateNamesId( $id)
 			$txt = '';
 			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $MetadataVec[$i]['nuts'])['en-US'] . '<br>';
 			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$MetadataVec[$i]['nuts'] . '<br>';
+			if( isset( $MetadataVec[$i]['nutsVec'])) {
+				$txt .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				foreach( array_unique( $MetadataVec[$i]['nutsVec']) as $nuts) {
+					$txt .= $nuts.' ';
+				}
+				$txt .= '<br>';
+			}
 			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
 			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
 			if( 1 == $harvest['update']) {
@@ -1297,6 +1331,13 @@ function sourcesShowPageCleanNamesId( $id)
 			$txt = '';
 			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $nuts)['en-US'] . '<br>';
 			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$nuts . '<br>';
+			if( isset( $MetadataVec[$i]['nutsVec'])) {
+				$txt .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				foreach( array_unique( $MetadataVec[$i]['nutsVec']) as $nuts_) {
+					$txt .= $nuts_.' ';
+				}
+				$txt .= '<br>';
+			}
 			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
 			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
 			if( 1 == $harvest['update']) {
@@ -1311,7 +1352,14 @@ function sourcesShowPageCleanNamesId( $id)
 		}
 	}
 
-	$nutsStr = intEncodeBytes( $HarvestNuts->getId( $nuts), 2);
+	$nutsStrVec = Array();
+	if( isset( $MetadataVec[$i]['nutsVec'])) {
+		foreach( array_unique( $MetadataVec[$i]['nutsVec']) as $nuts_) {
+			$nutsStrVec[] = intEncodeBytes( $HarvestNuts->getId( $nuts_), 2);
+		}
+	} else {
+		$nutsStrVec[] = intEncodeBytes( $HarvestNuts->getId( $nuts), 2);
+	}
 
 	$HarvestNames->loadAllStats();
 
@@ -1319,22 +1367,25 @@ function sourcesShowPageCleanNamesId( $id)
 	$txt .= '---------------------------------------------------<br>';
 	echo( $txt);
 
-	foreach( $dataHarvestStatNames as $firstChar => &$names) {
-		$txt = '';
-		$txt .= $firstChar . ' ';
-		foreach( $names as $name => &$str) {
-			if( strlen( $str) >= 8) {
-				for( $count = strlen( $str) - 8; $count >= 0; $count -= 8) {
-					if(( $nutsStr[0] == $str[$count]) && ($nutsStr[1] == $str[$count+1])) {
-						$str = substr_replace( $str, '', $count, 8);
+	foreach( $nutsStrVec as $nutsStr) {
+		foreach( $dataHarvestStatNames as $firstChar => &$names) {
+			$txt = '';
+			$txt .= $firstChar . ' ';
+			foreach( $names as $name => &$str) {
+				if( strlen( $str) >= 8) {
+					for( $count = strlen( $str) - 8; $count >= 0; $count -= 8) {
+						if(( $nutsStr[0] == $str[$count]) && ($nutsStr[1] == $str[$count+1])) {
+							$str = substr_replace( $str, '', $count, 8);
+						}
 					}
 				}
 			}
+			echo( $txt);
 		}
-		echo( $txt);
+		echo( '<br>');
 	}
 	$txt = '';
-	$txt .= '<br>---------------------------------------------------<br>';
+	$txt .= '---------------------------------------------------<br>';
 	echo( $txt);
 
 	$HarvestNames->saveAllStats();
@@ -1376,6 +1427,13 @@ function sourcesShowPageHarvestNamesId( $id)
 			$txt = '';
 			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $nuts)['en-US'] . '<br>';
 			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$nuts . '<br>';
+			if( isset( $MetadataVec[$i]['nutsVec'])) {
+				$txt .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				foreach( array_unique( $MetadataVec[$i]['nutsVec']) as $nuts_) {
+					$txt .= $nuts_.' ';
+				}
+				$txt .= '<br>';
+			}
 			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
 			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
 			if( 1 == $harvest['update']) {
@@ -1392,60 +1450,75 @@ function sourcesShowPageHarvestNamesId( $id)
 
 	$years = $HarvestYears->getYears( $nuts);
 	rsort( $years);
-	$nutsStr = intEncodeBytes( $HarvestNuts->getId( $nuts), 2);
+
+	$nutsStrVec = Array();
+	if( isset( $MetadataVec[$i]['nutsVec'])) {
+		foreach( array_unique( $MetadataVec[$i]['nutsVec']) as $nuts_) {
+			$nutsStrVec[ $nuts_ ] = intEncodeBytes( $HarvestNuts->getId( $nuts_), 2);
+		}
+	} else {
+		$nutsStrVec[ $nuts ] = intEncodeBytes( $HarvestNuts->getId( $nuts), 2);
+	}
 
 	$HarvestNames->loadAllStats();
 
 	if( count( $years) > 0) {
-		foreach( $years as $year) {
-			$txt = '';
-			$txt .= 'Save names from year '.$year.'<br>';
-			$txt .= '----------------------------------------------------------------------------------------------<br>';
-			$names = $HarvestYears->getOneYear( $nuts, $year, true);
-			$i = 0;
-			foreach( $names as $value) {
-				if( $i < 6) {
-					$txt .= '<a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a>, ';
-				}
-				$code = $nutsStr . intEncodeBytes( $value['RANKING'], 3) . intEncodeBytes( $year, 2) . 'm';
-				$error = $HarvestNames->harvest( $value['GIVEN_NAME'], $code);
-				if( $error) {
-					echo( $txt);
-					$txt = '';
-					break;
-				}
-				++$i;
-			}
+		foreach( $nutsStrVec as $nuts => $nutsStr) {
 			if( $error) {
 				echo( $txt);
 				$txt = '';
 				break;
 			}
-			$txt .= '...<br>';
-			$names = $HarvestYears->getOneYear( $nuts, $year, false);
-			$i = 0;
-			foreach( $names as $value) {
-				if( $i < 6) {
-					$txt .= '<a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a>, ';
+			foreach( $years as $year) {
+				$txt = '';
+				$txt .= 'Save names from year '.$year.' in '.nutsGetName( $nuts)['en-US'] . '<br>';
+				$txt .= '----------------------------------------------------------------------------------------------<br>';
+				$names = $HarvestYears->getOneYear( $nuts, $year, true);
+				$i = 0;
+				foreach( $names as $value) {
+					if( $i < 6) {
+						$txt .= '<a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a>, ';
+					}
+					$code = $nutsStr . intEncodeBytes( $value['RANKING'], 3) . intEncodeBytes( $year, 2) . 'm';
+					$error = $HarvestNames->harvest( $value['GIVEN_NAME'], $code);
+					if( $error) {
+						echo( $txt);
+						$txt = '';
+						break;
+					}
+					++$i;
 				}
-				$code = $nutsStr . intEncodeBytes( $value['RANKING'], 3) . intEncodeBytes( $year, 2) . 'f';
-				$error = $HarvestNames->harvest( $value['GIVEN_NAME'], $code);
 				if( $error) {
 					echo( $txt);
 					$txt = '';
 					break;
 				}
-				++$i;
-			}
-			if( $error) {
+				$txt .= '...<br>';
+				$names = $HarvestYears->getOneYear( $nuts, $year, false);
+				$i = 0;
+				foreach( $names as $value) {
+					if( $i < 6) {
+						$txt .= '<a href="do=name&what='.$value['GIVEN_NAME'].'">'.$value['GIVEN_NAME'].'</a>, ';
+					}
+					$code = $nutsStr . intEncodeBytes( $value['RANKING'], 3) . intEncodeBytes( $year, 2) . 'f';
+					$error = $HarvestNames->harvest( $value['GIVEN_NAME'], $code);
+					if( $error) {
+						echo( $txt);
+						$txt = '';
+						break;
+					}
+					++$i;
+				}
+				if( $error) {
+					echo( $txt);
+					$txt = '';
+					break;
+				}
+				$txt .= '...<br>';
+				$txt .= '----------------------------------------------------------------------------------------------<br>';
+				$txt .= '<br>';
 				echo( $txt);
-				$txt = '';
-				break;
 			}
-			$txt .= '...<br>';
-			$txt .= '----------------------------------------------------------------------------------------------<br>';
-			$txt .= '<br>';
-			echo( $txt);
 		}
 	}
 
