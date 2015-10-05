@@ -436,6 +436,8 @@ class HarvestDataParserAutiSta extends HarvestDataParserBase
 
 	public function parse( $vec, $vecCount, $nuts, $url)
 	{
+		global $dataHarvestMetadata;
+
 		// AutiSta used in Berlin, Bonn, Chemnitz, Hamburg, Moers, Ulm ...
 		$ret = new HarvestDataResult();
 
@@ -445,6 +447,15 @@ class HarvestDataParserAutiSta extends HarvestDataParserBase
 		$colPos = -1;
 		$colCount = 1;
 		$startRow = 0;
+
+		foreach( $dataHarvestMetadata as $datasetUrl => $harvest) {
+			for( $idx = 0; $idx < count( $harvest['url']); ++$idx) {
+				$download = $harvest['download'][$idx];
+				if( $url == $download) {
+					$url = $harvest['url'][$idx];
+				}
+			}
+		}
 
 		$theYear = 2012; // berlin missing year number in 2012
 		if( false !== strpos( $url, '_0.')) {
