@@ -47,6 +47,8 @@ class HarvestMetadataParserBase
 			$ret->license = 'CC BY';
 		} else if(( 'Creative Commons Namensnennung' == $title) && ('http://creativecommons.org/licenses/by/3.0/de/' == $url)) {
 			$ret->license = 'CC BY 3.0 DE';
+		} else if(( 'Creative Commons CCZero' == $title) && ('http://www.opendefinition.org/licenses/cc-zero' == $url)) {
+			$ret->license = 'CC 0';
 		} else if(( 'Datenlizenz Deutschland - Namensnennung - Version 1.0' == $title) && ('http://www.daten-deutschland.de/bibliothek/Datenlizenz_Deutschland/dl-de-by-1.0' == $url)) {
 			$ret->license = 'DL DE BY 1.0';
 		} else if( 'public' == $title) {
@@ -437,7 +439,7 @@ class HarvestMetadataParserBochum extends HarvestMetadataParserBase
 $HarvestMetadata->addParser('HarvestMetadataParserBochum');
 
 //------------------------------------------------------------------------------
-
+/*
 class HarvestMetadataParserZuerich extends HarvestMetadataParserBase
 {
 	public function accept( $contents, $json)
@@ -475,7 +477,7 @@ class HarvestMetadataParserZuerich extends HarvestMetadataParserBase
 	}
 } // class HarvestMetadataParserZuerich
 $HarvestMetadata->addParser('HarvestMetadataParserZuerich');
-
+*/
 //------------------------------------------------------------------------------
 /*
 class HarvestMetadataParserBerlin extends HarvestMetadataParserBase
