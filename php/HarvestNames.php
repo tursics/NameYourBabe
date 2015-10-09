@@ -73,8 +73,8 @@ class HarvestNames
 			return;
 		}
 
-		if( file_exists( dirname(__FILE__)."/data/harvest/stat/$firstChar.php")) {
-			include_once( "data/harvest/stat/$firstChar.php");
+		if( file_exists( dirname(__FILE__)."/data/harvest/data/$firstChar.php")) {
+			include_once( "data/harvest/data/$firstChar.php");
 		} else {
 			if( !isset( $dataHarvestStatNames)) {
 				$dataHarvestStatNames = Array();
@@ -103,7 +103,7 @@ class HarvestNames
 		if( !file_exists( $file)) {
 			mkdir( $file, 0777);
 		}
-		$file .= '/stat';
+		$file .= '/data';
 		if( !file_exists( $file)) {
 			mkdir( $file, 0777);
 		}
@@ -118,7 +118,7 @@ class HarvestNames
 		if( !file_exists( $file)) {
 			mkdir( $file, 0777);
 		}
-		$file .= '/stat';
+		$file .= '/data';
 		if( !file_exists( $file)) {
 			mkdir( $file, 0777);
 		}
