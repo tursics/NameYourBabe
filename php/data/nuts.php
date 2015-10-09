@@ -10,7 +10,50 @@ $gNuts=array (
     ),
     'manRegions' => 
     array (
-      0 => 
+      array (
+        'manNuts' => 'AA',
+        'manName' => 
+        array (
+          'en-US' => 'Asia',
+          'de-DE' => 'Asien',
+        ),
+        'manRegions' => 
+        array (
+        ),
+      ),
+      array (
+        'manNuts' => 'NA',
+        'manName' => 
+        array (
+          'en-US' => 'North America',
+          'de-DE' => 'Nordamerika',
+        ),
+        'manRegions' => 
+        array (
+          array (
+            'manNuts' => 'CA',
+            'manName' => 
+            array (
+              'en-US' => 'Canada',
+              'de-DE' => 'Kanada',
+            ),
+            'manRegions' => 
+            array (
+            ),
+          ),
+          array (
+            'manNuts' => 'US',
+            'manName' => 
+            array (
+              'en-US' => 'United States of America',
+              'de-DE' => 'Vereinigte Staaten von Amerika',
+            ),
+            'manRegions' => 
+            array (
+            ),
+          ),
+        ),
+      ),
       array (
         'manNuts' => 'EU',
         'manName' => 
@@ -846,6 +889,17 @@ $gNuts=array (
 	        	  ),
     	        ),
 	          ),
+            ),
+          ),
+          array (
+            'manNuts' => 'BE',
+            'manName' => 
+            array (
+              'en-US' => 'Belgium',
+              'de-DE' => 'Belgien',
+            ),
+            'manRegions' => 
+            array (
             ),
           ),
           array (
@@ -1717,10 +1771,40 @@ $gNuts=array (
     	        ),
         	    'manRegions' => 
 	            array (
-/*        DE71 Darmstadt
-            DE711 Darmstadt, Kreisfreie Stadt
-            DE712 Frankfurt am Main, Kreisfreie Stadt
-            DE713 Offenbach am Main, Kreisfreie Stadt
+	          	  array (
+	                'manNuts' => 'DE71',
+    	            'manName' => 
+        	        array (
+            	      'en-US' => 'Darmstadt (region)',
+	                  'de-DE' => 'Regierungsbezirk Darmstadt',
+    	            ),
+        	        'manRegions' => 
+	                array (
+	          	      array (
+	                    'manNuts' => 'DE711',
+    	                'manName' => 
+        	            array (
+            	          'en-US' => 'Darmstadt',
+	                      'de-DE' => 'Darmstadt',
+    	                ),
+        	            'manRegions' => 
+	                    array (
+				        ),
+        	          ),
+	          	      array (
+	                    'manNuts' => 'DE712',
+    	                'manName' => 
+        	            array (
+            	          'en-US' => 'Frankfurt',
+	                      'de-DE' => 'Frankfurt am Main',
+    	                ),
+        	            'manRegions' => 
+	                    array (
+				        ),
+        	          ),
+				    ),
+        	      ),
+/*            DE713 Offenbach am Main, Kreisfreie Stadt
             DE714 Wiesbaden, Kreisfreie Stadt
             DE715 Bergstraße
             DE716 Darmstadt-Dieburg
@@ -1757,11 +1841,49 @@ $gNuts=array (
     	        ),
         	    'manRegions' => 
 	            array (
-/*        DE80 Mecklenburg-Vorpommern
-            DE801 Greifswald, Kreisfreie Stadt
-            DE802 Neubrandenburg, Kreisfreie Stadt
-            DE803 Rostock, Kreisfreie Stadt
-            DE804 Schwerin, Kreisfreie Stadt
+	          	  array (
+	                'manNuts' => 'DE80',
+    	            'manName' => 
+        	        array (
+            	      'en-US' => 'Mecklenburg-Vorpommern',
+	                  'de-DE' => 'Mecklenburg-Vorpommern',
+    	            ),
+        	        'manRegions' => 
+	                array (
+	          	      array (
+	                    'manNuts' => 'DE801',
+    	                'manName' => 
+        	            array (
+            	          'en-US' => 'Greifswald',
+	                      'de-DE' => 'Greifswald',
+    	                ),
+        	            'manRegions' => 
+	                    array (
+				        ),
+        	          ),
+	          	      array (
+	                    'manNuts' => 'DE802',
+    	                'manName' => 
+        	            array (
+            	          'en-US' => 'Neubrandenburg',
+	                      'de-DE' => 'Neubrandenburg',
+    	                ),
+        	            'manRegions' => 
+	                    array (
+				        ),
+        	          ),
+	          	      array (
+	                    'manNuts' => 'DE803',
+    	                'manName' => 
+        	            array (
+            	          'en-US' => 'Rostock',
+	                      'de-DE' => 'Rostock',
+    	                ),
+        	            'manRegions' => 
+	                    array (
+				        ),
+        	          ),
+/*            DE804 Schwerin, Kreisfreie Stadt
             DE805 Stralsund, Kreisfreie Stadt
             DE806 Wismar, Kreisfreie Stadt
             DE807 Bad Doberan
@@ -1776,6 +1898,8 @@ $gNuts=array (
             DE80G Parchim
             DE80H Rügen
             DE80I Uecker-Randow*/
+				    ),
+        	      ),
 				),
         	  ),
 	          array (
@@ -2008,7 +2132,7 @@ $gNuts=array (
     DEA1F024032	Rheinberg
     DEA1F024044	Voerde (Niederrhein), Mittlere kreisangehörige Stadt (36.729)*/
 				          array (
-		            		'manNuts' => 'DEA1F024048',
+		            		'manNuts' => 'DEA1F048',
     				        'manName' => 
 		    	    	    array (
         			    	  'en-US' => 'Wesel',
@@ -2140,14 +2264,17 @@ $gNuts=array (
 		            	  'en-US' => 'Aachen (district)',
 			              'de-DE' => 'Städteregion Aachen',
     		    	    ),
-						'manRegions' => array(
-		        		  'manNuts' => 'DEA2D002',
-    			          'manName' => 
-        			      array (
-		            	    'en-US' => 'Aachen',
-			                'de-DE' => 'Aachen',
-    		    	      ),
-						  'manRegions' => array(),
+						'manRegions' =>
+						array(
+						  array(
+		        		    'manNuts' => 'DEA2D002',
+    			            'manName' => 
+        			        array (
+		            	      'en-US' => 'Aachen',
+			                  'de-DE' => 'Aachen',
+    		    	        ),
+						    'manRegions' => array(),
+						  ),
 						),
 		        	  ),
 					),
@@ -2318,14 +2445,41 @@ $gNuts=array (
    	        		),
        			    'manRegions' => 
 		            array (
-/*            DEA51 Bochum, Kreisfreie Stadt
-            DEA52 Dortmund, Kreisfreie Stadt
+			          array (
+			            'manNuts' => 'DEA51',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Bochum',
+			              'de-DE' => 'Bochum',
+    		    	    ),
+						'manRegions' => array(),
+		        	  ),
+/*            DEA52 Dortmund, Kreisfreie Stadt
             DEA53 Hagen, Kreisfreie Stadt
             DEA54 Hamm, Kreisfreie Stadt
             DEA55 Herne, Kreisfreie Stadt
-            DEA56 Ennepe-Ruhr-Kreis
-            DEA57 Hochsauerlandkreis
-            DEA58 Märkischer Kreis
+            DEA56 Ennepe-Ruhr-Kreis*/
+			          array (
+			            'manNuts' => 'DEA57',
+    			        'manName' => 
+        			    array (
+		            	  'en-US' => 'Hochsauerlandkreis',
+			              'de-DE' => 'Hochsauerlandkreis',
+    		    	    ),
+						'manRegions' =>
+						array(
+			              array (
+			                'manNuts' => 'DEA57004',
+    			            'manName' => 
+        			        array (
+		            	      'en-US' => 'Arnsberg',
+			                  'de-DE' => 'Arnsberg',
+    		    	        ),
+						    'manRegions' => array(),
+		        	      ),
+		        	    ),
+		        	  ),
+/*            DEA58 Märkischer Kreis
             DEA59 Olpe
             DEA5A Siegen-Wittgenstein
             DEA5B Soest
@@ -2639,6 +2793,50 @@ $gNuts=array (
             DEG0P Wartburgkreis*/
 				),
         	  ),
+            ),
+          ),
+          array (
+            'manNuts' => 'FR',
+            'manName' => 
+            array (
+              'en-US' => 'France',
+              'de-DE' => 'Frankreich',
+            ),
+            'manRegions' => 
+            array (
+            ),
+          ),
+          array (
+            'manNuts' => 'IE',
+            'manName' => 
+            array (
+              'en-US' => 'Republic of Ireland',
+              'de-DE' => 'Irland',
+            ),
+            'manRegions' => 
+            array (
+            ),
+          ),
+          array (
+            'manNuts' => 'UK',
+            'manName' => 
+            array (
+              'en-US' => 'United Kingdom',
+              'de-DE' => 'Vereinigtes Königreich',
+            ),
+            'manRegions' => 
+            array (
+            ),
+          ),
+          array (
+            'manNuts' => 'VA',
+            'manName' => 
+            array (
+              'en-US' => 'Vatican City State',
+              'de-DE' => 'Staat Vatikanstadt',
+            ),
+            'manRegions' => 
+            array (
             ),
           ),
         ),
