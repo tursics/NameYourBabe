@@ -21,6 +21,7 @@ function gSourceToFile()
 
 //--------------------------------------------------------------------------------------------------
 
+// used in index.php
 function parseSourcedataURL( $sourceIndex, $urlID, $quite)
 {
 	global $gSource;
@@ -816,6 +817,8 @@ function sourcesShowPageBrowseAll()
 	$txtCopy = '';
 	$txtHref = '';
 	$txtName = '';
+	$firstUpdateLink = '';
+
 	for( $i = 0; $i < count( $MetadataVec); ++$i) {
 		$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
 
@@ -840,6 +843,9 @@ function sourcesShowPageBrowseAll()
 		} else if( $harvest['update'] > 0) {
 			$dataUpdate = 'need update';
 			$dataUpdateLink = 'do=update&what=sourcedata&id='.md5($MetadataVec[$i]['meta']);
+			if( '' == $firstUpdateLink) {
+				$firstUpdateLink = $dataUpdateLink;
+			}
 		} else if( $harvest['update'] === 0) {
 			$dataUpdate = '&radic;';
 		} else {
@@ -939,14 +945,13 @@ function sourcesShowPageBrowseAll()
 	$txt .= '[<a href="do=browse&what=nuts">Show source regions</a>]<br>';
 	$txt .= '[<a href="do=">Show admin area</a>]<br>';
 	$txt .= '<br>';
+	if( '' == $firstUpdateLink) {
+		$txt .= '[Update dirty data]<br>';
+	} else {
+		$txt .= '[<a href="' . $firstUpdateLink . '">Update dirty data</a>]<br>';
+	}
 	$txt .= '[<a href="do=update&what=sourcemetadata">Update source list</a>]<br>';
 	$txt .= '</div>';
-
-	$txt .= '<br>';
-	$txt .= '<hr>';
-	$txt .= '<br>';
-
-	$txt .= '<a href="do=update&what=sourcedata">Update dirty data</a><br>';
 
 	echo( $txt);
 }
@@ -1065,6 +1070,8 @@ function sourcesShowPageUpdateDownload( $i)
 	$HarvestMetadata->save();
 }
 
+//--------------------------------------------------------------------------------------------------
+
 function sourcesShowPageUpdateNames( $i)
 {
 	global $HarvestData;
@@ -1139,10 +1146,11 @@ function sourcesShowPageUpdateNames( $i)
 			continue;
 		}
 
-		$result = $HarvestData->parse( $vec, $vecCount, $nutsVec[ $idx], $url);
+		$result = $HarvestData->parse( $vec, $vecCount, $nutsVec[ $idx], $url, true);
 
 		if( $result->error) {
 			$txt .= 'Error: ' . $result->errorMsg . '<br>';
+			$txt .= 'Used parser: ' . $HarvestData->getParserClass( $vec, $vecCount) . '<br>';
 			$ret = false;
 		} else {
 			$dataCount = count( $result->data);
@@ -1202,6 +1210,8 @@ function sourcesShowPageUpdateNames( $i)
 	return $ret;
 }
 
+//--------------------------------------------------------------------------------------------------
+
 function sourcesShowPageUpdateId( $id)
 {
 	global $MetadataVec;
@@ -1249,6 +1259,8 @@ function sourcesShowPageUpdateId( $id)
 
 	echo( $txt);
 }
+
+//--------------------------------------------------------------------------------------------------
 
 function sourcesShowPageUpdateNamesId( $id)
 {
@@ -1755,6 +1767,7 @@ function sourcesShowPageItem( $nuts)
 
 //--------------------------------------------------------------------------------------------------
 
+// used in index.php
 function showPageDeleteSourcedata( $id)
 {
 	global $gSource;

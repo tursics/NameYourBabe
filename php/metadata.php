@@ -65,12 +65,8 @@ function metadataShowPageUpdate()
 //			continue;
 //		}
 
-		if( false !== strpos( $MetadataVec[$i]['meta'], 'zuerich.ch')) {
-			$contents = 'zuerich.ch';
-		} else {
-			$contents = file_get_contents( $filename);
-//			$contents = utf8_encode( $contents);
-		}
+		$contents = file_get_contents( $filename);
+//		$contents = utf8_encode( $contents);
 		$json = json_decode( $contents, true);
 //		$txt .= var_dump( json_decode( $json));
 
