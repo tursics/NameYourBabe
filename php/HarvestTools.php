@@ -51,4 +51,16 @@ function intDecode( $str)
 
 //------------------------------------------------------------------------------
 
+function convertVecVecToUTF8( & $vec)
+{
+	// Western (Windows Latin 1) encoding. Use 'ASCII' or 'ISO-8859-1'
+	for( $i = 0; $i < count( $vec); ++$i) {
+		for( $j = 0; $j < count( $vec[$i]); ++$j) {
+			$vec[$i][$j] = mb_convert_encoding( $vec[$i][$j], "UTF-8", "ISO-8859-1");
+		}
+	}
+}
+
+//------------------------------------------------------------------------------
+
 ?>
