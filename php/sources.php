@@ -1072,17 +1072,20 @@ function sourcesShowPageUpdateDownload( $i)
 
 //--------------------------------------------------------------------------------------------------
 
-function sourcesShowPageUpdateNames( $i)
+function sourcesShowPageUpdateNames( $i, $kind)
 {
 	global $HarvestData;
 	global $HarvestMetadata;
 	global $MetadataVec;
 	global $dataHarvestMetadata;
 
+	$doUpdate = ($kind == 'update');
+	$doAdd = ($kind == 'add');
+
 	$harvest = & $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
 	$nuts = $MetadataVec[$i]['nuts'];
 	$vecDownload = $harvest['download'];
-	$ret = true;
+	$ret = '';
 
 	$nutsVec = Array();
 	for( $idx = 0; $idx < count( $vecDownload); ++$idx) {
@@ -1099,7 +1102,11 @@ function sourcesShowPageUpdateNames( $i)
 
 		$txt = '';
 		$txt .= '<br>';
-		$txt .= 'Analyse '.filesize( $file).' bytes of '.$url.'<br>';
+		if( $doUpdate) {
+			$txt .= 'Analyse '.filesize( $file).' bytes of '.$url.'<br>';
+		} else {
+			$txt .= 'Add names from '.$url.'<br>';
+		}
 		$txt .= '------------------------------------------------------------------------------<br>';
 		echo( $txt);
 
@@ -1144,16 +1151,29 @@ function sourcesShowPageUpdateNames( $i)
 			$txt .= '------------------------------------------------------------------------------<br>';
 			echo( $txt);
 			continue;
+		} else if( '.xlsx' == substr( $url, -5)) {
+			$txt .= 'Ignore Excel files<br>';
+			$txt .= '------------------------------------------------------------------------------<br>';
+			echo( $txt);
+			continue;
 		}
 
-		$result = $HarvestData->parse( $vec, $vecCount, $nutsVec[ $idx], $url, true);
+		if( $doUpdate) {
+			$result = $HarvestData->parse( $vec, $vecCount, $nutsVec[ $idx], $url, true);
+		} else {
+			$result = $HarvestData->addNames( $vec, $vecCount, $nutsVec[ $idx], $url, true);
+		}
 
 		if( $result->error) {
 			$txt .= 'Error: ' . $result->errorMsg . '<br>';
 			$txt .= 'Used parser: ' . $HarvestData->getParserClass( $vec, $vecCount) . '<br>';
-			$ret = false;
+			if( $result->errorMsg == 'Unknown names found. No files saved!') {
+				$ret = 'name';
+			} else {
+				$ret = $result->errorMsg;
+			}
 		} else {
-			$dataCount = count( $result->data);
+			$dataCount = $result->dataCount;
 			for( $it = 0; $it < $dataCount; ++$it) {
 				$item = $result->data[ $it];
 				if( '' != $item['error']) {
@@ -1164,18 +1184,22 @@ function sourcesShowPageUpdateNames( $i)
 				}
 			}
 			if( 0 == strlen( $txt)) {
-				$txt .= $dataCount . ' entries saved in ' . count( $result->file) . ' files<br>';
-				if( 0 < count( $result->years)) {
-					if( 0 < count( $harvest['years'])) {
-						$harvest['years'] = array_unique( array_merge( $harvest['years'], $result->years));
-					} else {
-						$harvest['years'] = array_unique( $result->years);
+				if( $doUpdate) {
+					$txt .= $dataCount . ' entries saved in ' . count( $result->file) . ' files<br>';
+					if( 0 < count( $result->years)) {
+						if( 0 < count( $harvest['years'])) {
+							$harvest['years'] = array_unique( array_merge( $harvest['years'], $result->years));
+						} else {
+							$harvest['years'] = array_unique( $result->years);
+						}
 					}
+				} else {
+					$txt .= 'New names are saved<br>';
 				}
 			} else {
 				$txt .= $dataCount . ' entries collected but error found. No files saved!<br>';
 				$txt .= 'Used parser: ' . $HarvestData->getParserClass( $vec, $vecCount) . '<br>';
-				$ret = false;
+				$ret = 'error';
 			}
 
 /*			$lastMod = strtotime( $harvest['modified']);
@@ -1205,7 +1229,9 @@ function sourcesShowPageUpdateNames( $i)
 		echo( $txt);
 	}
 
-	$HarvestMetadata->save();
+	if( $doUpdate) {
+		$HarvestMetadata->save();
+	}
 
 	return $ret;
 }
@@ -1267,7 +1293,7 @@ function sourcesShowPageUpdateNamesId( $id)
 	global $MetadataVec;
 	global $dataHarvestMetadata;
 
-	$error = false;
+	$error = '';
 
 	$txt = '';
 	$txt .= '<div class="log">Check names<br>===========<br><br>';
@@ -1297,9 +1323,7 @@ function sourcesShowPageUpdateNamesId( $id)
 			$txt .= '<br>';
 			echo( $txt);
 
-			if( !sourcesShowPageUpdateNames( $i)) {
-				$error = true;
-			}
+			$error = sourcesShowPageUpdateNames( $i, 'update');
 
 			break;
 		}
@@ -1307,7 +1331,10 @@ function sourcesShowPageUpdateNamesId( $id)
 
 	$txt = '';
 	$txt .= '<br>';
-	if( $error) {
+	if( 'name' == $error) {
+		$txt .= 'Next step: [Save names]<br>';
+		$txt .= 'But first: [<a href="do=add&what=sourcedatanames&id='.$id.'">Add new names</a>]<br>';
+	} else if( '' != $error) {
 		$txt .= 'Next step: [Save names]<br>';
 	} else {
 		$txt .= 'Next step: [<a href="do=clean&what=sourcedatanames&id='.$id.'">Clean names</a>]<br>';
@@ -1318,6 +1345,65 @@ function sourcesShowPageUpdateNamesId( $id)
 
 	echo( $txt);
 }
+
+//--------------------------------------------------------------------------------------------------
+
+function sourcesShowPageAddNamesId( $id)
+{
+	global $MetadataVec;
+	global $dataHarvestMetadata;
+
+	$error = '';
+
+	$txt = '';
+	$txt .= '<div class="log">Add new names<br>=============<br><br>';
+	echo( $txt);
+
+	for( $i = 0; $i < count( $MetadataVec); ++$i) {
+		if( $id == md5($MetadataVec[$i]['meta'])) {
+			$harvest = $dataHarvestMetadata[ $MetadataVec[$i]['meta']];
+
+			$txt = '';
+			$txt .= 'Name:&nbsp;&nbsp;&nbsp;&nbsp;'.nutsGetName( $MetadataVec[$i]['nuts'])['en-US'] . '<br>';
+			$txt .= 'NUTS:&nbsp;&nbsp;&nbsp;&nbsp;'.$MetadataVec[$i]['nuts'] . '<br>';
+			if( isset( $MetadataVec[$i]['nutsVec'])) {
+				$txt .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				foreach( array_unique( $MetadataVec[$i]['nutsVec']) as $nuts) {
+					$txt .= $nuts.' ';
+				}
+				$txt .= '<br>';
+			}
+			$txt .= 'Comment: '.$MetadataVec[$i]['name'] . '<br>';
+			$txt .= 'Update:&nbsp;&nbsp;available since ' . $harvest['update'];
+			if( 1 == $harvest['update']) {
+				$txt .= ' day<br>';
+			} else {
+				$txt .= ' days<br>';
+			}
+			$txt .= '<br>';
+			echo( $txt);
+
+			$error = sourcesShowPageUpdateNames( $i, 'add');
+
+			break;
+		}
+	}
+
+	$txt = '';
+	$txt .= '<br>';
+	if( '' != $error) {
+		$txt .= 'Next step: [Check names]<br>';
+	} else {
+		$txt .= 'Next step: [<a href="do=update&what=sourcedatanames&id='.$id.'">Check names</a>]<br>';
+	}
+	$txt .= '<br>';
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
+	$txt .= '</div>';
+
+	echo( $txt);
+}
+
+//--------------------------------------------------------------------------------------------------
 
 function sourcesShowPageCleanNamesId( $id)
 {

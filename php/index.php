@@ -48,9 +48,9 @@ function gMeaningsToFile()
 // $gBoys
 //--------------------------------------------------------------------------------------------------
 
-$gBoysMem = memory_get_peak_usage( false);
+//$gBoysMem = memory_get_peak_usage( false);
 //include_once( "data/boys.php");
-$gBoysMem = memory_get_peak_usage( false) - $gBoysMem;
+//$gBoysMem = memory_get_peak_usage( false) - $gBoysMem;
 
 function gBoysToFile()
 {
@@ -68,9 +68,9 @@ function gBoysToFile()
 // $gGirls
 //--------------------------------------------------------------------------------------------------
 
-$gGirlsMem = memory_get_peak_usage( false);
+//$gGirlsMem = memory_get_peak_usage( false);
 //include_once( "data/girls.php");
-$gGirlsMem = memory_get_peak_usage( false) - $gGirlsMem;
+//$gGirlsMem = memory_get_peak_usage( false) - $gGirlsMem;
 
 function gGirlsToFile()
 {
@@ -143,6 +143,9 @@ function showPageHome()
 	echo( $txt);
 }
 
+//--------------------------------------------------------------------------------------------------
+
+// used in sources.php
 function parseSourcedataVec( $data, $sourceID, $urlID, $quite)
 {
 	$txt = '<br>';
@@ -160,6 +163,8 @@ function parseSourcedataVec( $data, $sourceID, $urlID, $quite)
 		echo( $txt);
 	}
 }
+
+//--------------------------------------------------------------------------------------------------
 
 function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 {
@@ -350,77 +355,7 @@ function parseSourcedataVecItem( $item, $isBoy, $sourceID, $urlID, $quite)
 	return '&nbsp;&nbsp;' . $name . ' | ' . $item['sex'] . ' | #' . $item['pos'] . ' | ' . $item['year'] . ' | ' . $ret;
 }
 
-function showPageUpdateSourcedata()
-{
-	global $gSource;
-
-	$txt = '';
-	$txt .= '<h1>Update dirty data</h1>';
-	$txt .= '<br>';
-	echo( $txt);
-
-	$dirtyCount = 0;
-	for( $i = 0; $i < count( $gSource); ++$i) {
-		if( $gSource[$i]['autoUpdate'] <= 0) {
-			continue;
-		}
-
-		++$dirtyCount;
-
-		$txt = '';
-		$txt .= $gSource[$i]['name'] . '<br>';
-		$txt .= '&nbsp;&nbsp;Update available since ' . $gSource[$i]['autoUpdate'] . ' days.<br>';
-		echo( $txt);
-
-		for( $j = 0; $j < count( $gSource[$i]['autoUrl']); ++$j) {
-//		for( $j = 0; $j < 3; ++$j) {
-			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/katalog/storage')) {
-				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at' . $gSource[$i]['autoUrl'][$j];
-			} else
-			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/at.gv.brz.ogd/storage')) {
-				$gSource[$i]['autoUrl'][$j] = 'http://data.gv.at/katalog/' . substr( $gSource[$i]['autoUrl'][$j], 15);
-			} else
-			if( 0 === strpos( $gSource[$i]['autoUrl'][$j], '/private/')) {
-				$gSource[$i]['autoUrl'][$j] = dirname(__FILE__) . '/data' . $gSource[$i]['autoUrl'][$j];
-			}
-
-			$name = $gSource[$i]['autoName'][$j];
-			if( strlen( $name) == 0) {
-				$name = '[Data]';
-			}
-			if( $name == '') {
-				$name = '[Data]';
-			}
-			$txt = '&nbsp;&nbsp;' . ($j+1) . '. <a href="' . $gSource[$i]['autoUrl'][$j]. '">' . $name . '</a><br>';
-			echo( $txt);
-
-			parseSourcedataURL( $i, $j, false);
-
-			$txt = '<br>';
-			echo( $txt);
-		}
-
-		break;
-	}
-
-	$txt = '';
-
-	if( 0 == $dirtyCount) {
-		$txt .= 'All data are clean.<br>';
-		$txt .= '<br>';
-		$txt .= '<hr>';
-		$txt .= '<br>';
-		$txt .= '<a href="do=browse&what=sources">OK</a><br>';
-	} else {
-		$txt .= '<br>';
-		$txt .= '<hr>';
-		$txt .= '<br>';
-		$txt .= '<a href="do=save&what=sourcedata">Save</a><br>';
-		$txt .= '<a href="do=browse&what=sources">Cancel</a><br>';
-	}
-
-	echo( $txt);
-}
+//--------------------------------------------------------------------------------------------------
 
 function showPageSaveSourcedata()
 {
@@ -534,6 +469,8 @@ function showPageBrowseNames()
 	echo( $txt);
 }
 
+//--------------------------------------------------------------------------------------------------
+
 function getPageUpdateNamehitlist( $value, $top, $yearFrom, $yearTo)
 {
 	global $gSource;
@@ -584,6 +521,8 @@ function getPageUpdateNamehitlist( $value, $top, $yearFrom, $yearTo)
 	return '';
 }
 
+//--------------------------------------------------------------------------------------------------
+
 function showPageUpdateNamehitlist()
 {
 	global $gBoys;
@@ -616,11 +555,26 @@ function showPageUpdateNamehitlist()
 
 //--------------------------------------------------------------------------------------------------
 
+function cmpCharts( $a, $b)
+{
+	if( $a['ranking'] != $b['ranking']) {
+		return ($a['ranking'] < $b['ranking']) ? -1 : 1;
+	}
+	if( $a['year'] != $b['year']) {
+		return ($a['year'] < $b['year']) ? 1 : -1;
+	}
+	return ($a['nuts'] > $b['nuts']) ? -1 : 1;
+}
+
+//--------------------------------------------------------------------------------------------------
+
 function getPageNameRef( $items)
 {
 	global $HarvestNuts;
 
 	$txt = '';
+
+	usort( $items, "cmpCharts");
 
 	foreach( $items as $item) {
 		$nuts = $HarvestNuts->getNuts( $item['nuts']);
@@ -633,6 +587,8 @@ function getPageNameRef( $items)
 
 	return $txt;
 }
+
+//--------------------------------------------------------------------------------------------------
 
 function getPageNameAlt( $value)
 {
@@ -672,6 +628,8 @@ function getPageNameAlt( $value)
 
 	return $txt;
 }
+
+//--------------------------------------------------------------------------------------------------
 
 function getPageNameForm( $name)
 {
@@ -743,12 +701,18 @@ function getPageNameForm( $name)
 	return $txt;
 }
 
+//--------------------------------------------------------------------------------------------------
+
 function showPageName( $name)
 {
 	global $HarvestNames;
 
 	$txt = '';
-	$txt .= '<div class="log">'.$name.'<br>==========<br><br>';
+	$txt .= '<div class="log">'.$name.'<br>';
+	for( $i = 0; $i < mb_strlen( $name); ++$i) {
+		$txt .= '=';
+	}
+	$txt .= '<br><br>';
 	echo( $txt);
 
 	$names = $HarvestNames->getStats( $name);
@@ -854,6 +818,8 @@ function showPageName( $name)
 	}
 }
 
+//--------------------------------------------------------------------------------------------------
+
 function showPageSaveName()
 {
 	$txt = '';
@@ -936,10 +902,10 @@ function main()
 		sourcesShowPageCleanNamesId( $whatId);
 	} else if( $do == 'harvest' && $what == 'sourcedatanames' && $whatId != '') {
 		sourcesShowPageHarvestNamesId( $whatId);
-	} else if( $do == 'update' && $what == 'sourcedata') {
-		showPageUpdateSourcedata();
 	} else if( $do == 'update' && $what == 'namehitlist') {
 		showPageUpdateNamehitlist();
+	} else if( $do == 'add' && $what == 'sourcedatanames' && $whatId != '') {
+		sourcesShowPageAddNamesId( $whatId);
 	} else if( $do == 'save' && $what == 'sourcedatanames' && $whatId != '') {
 		sourcesShowPageSaveNamesId( $whatId);
 	} else if( $do == 'save' && $what == 'sourcedata') {
