@@ -1,6 +1,11 @@
 <?php
 
 //------------------------------------------------------------------------------
+// http://www.bmi.bund.de/SharedDocs/Standardartikel/DE/Themen/MigrationIntegration/ohneMarginalspalte/Familiennamen_des_Kindes_nach.html
+//
+// Aserbaidschan
+// "ogly" (Sohn von) bzw. "kyzy" (Tochter von)
+//------------------------------------------------------------------------------
 
 class HarvestDataParserBase
 {
@@ -12,7 +17,7 @@ class HarvestDataParserBase
 		return false;
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		$ret = new HarvestDataResult();
 		return $ret;
@@ -25,7 +30,20 @@ class HarvestDataParserBase
 		for( $it = 0; $it < $dataCount; ++$it) {
 			$item = & $data[ $it];
 			$isBoy = $item['male'];
+			$item['name'] = normalizer_normalize( $item['name']);
 			$item['error'] = $this->parseNames( $item, $isBoy);
+		}
+	}
+
+	public function parseDataAddNames( & $data)
+	{
+		$dataCount = count( $data);
+
+		for( $it = 0; $it < $dataCount; ++$it) {
+			$item = & $data[ $it];
+			$isBoy = $item['male'];
+			$item['name'] = normalizer_normalize( $item['name']);
+			$this->parseNames( $item, $isBoy);
 		}
 	}
 
@@ -33,7 +51,7 @@ class HarvestDataParserBase
 	{
 		$filenames = Array();
 		$contents = Array();
-		$fileVec = Array();
+//		$fileVec = Array();
 		$checksumVec = Array();
 		$yearVec = Array();
 		$dataCount = count( $data);
@@ -113,39 +131,41 @@ class HarvestDataParserBase
 
 //		if( false)
 		{
-			if( $name == 'ohne') return $name;
-			if( $name == 'noch') return $name;
-			if( $name == 'kein') return $name;
-			if( $name == 'keinen') return $name;
-			if( $name == 'Vorname') return $name;
-			if( $name == 'Vornamen') return $name;
-			if( $name == '(Eigenname)') return $name;
-			if( $name == 'de') return $name;
-			if( $name == 'del') return $name;
-			if( $name == 'don') return $name;
-			if( $name == 'oğlu') return $name;
-			if( $name == '(Vorname') return $name;
-			if( $name == '(Vornamen') return $name;
-			if( $name == 'und') return $name;
-			if( $name == 'Vatersname)') return $name;
-			if( $name == 'A.') return $name;
+			if( $name == 'ohne') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'noch') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'kein') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'keinen') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'Vorname') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'Vornamen') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == '(Eigenname)') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'de') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'del') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'don') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'oğlu') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == '(Vorname') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == '(Vornamen') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'und') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'Vatersname)') return 'New name <span style="color:Gold">'.$name.'</span>';
+			if( $name == 'A.') return 'New name <span style="color:Gold">'.$name.'</span>';
 		}
 		if( $name == '') return '<no name>';
 
 		// lowercase at beginning
 		if( $name != ucwords( strtolower( $item['name']))) {
 			if( false !== strpos( $name, '-')) {
+			} else if( $name == 'LeBron') {
+				// LeBron James
 			} else {
-				return $name;
+				return 'New name <span style="color:Gold">'.$name.'</span>';
 			}
 		}
 		// placeholder
 		if( false !== strpos( $name, 'name')) {
-			return $name;
+			return 'New name <span style="color:Gold">'.$name.'</span>';
 		}
 		// abbreviation
 		if( false !== strpos( $name, '.')) {
-			return $name;
+			return 'New name <span style="color:Gold">'.$name.'</span>';
 		}
 
 		if( !$found) {
@@ -200,6 +220,7 @@ class HarvestDataResult
 	public $error = true;
 	public $errorMsg = 'not parsed';
 	public $data = Array();
+	public $dataCount = 0;
 	public $file = Array();
 	public $checksum = Array();
 	public $years = Array();
@@ -221,7 +242,23 @@ class HarvestData
 		for( $i = 0; $i < count( $this->parserVec); ++$i) {
 			$parser = new $this->parserVec[$i]();
 			if( $parser->accept( $vec, $vecCount)) {
-				return $parser->parse( $vec, $vecCount, $nuts, $url, $echoDataErrors);
+				return $parser->parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, false);
+			}
+		}
+
+		$ret = new HarvestDataResult();
+		$ret->error = true;
+		$ret->errorMsg = 'Unknown data format found';
+
+		return $ret;
+	}
+
+	public function addNames( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	{
+		for( $i = 0; $i < count( $this->parserVec); ++$i) {
+			$parser = new $this->parserVec[$i]();
+			if( $parser->accept( $vec, $vecCount)) {
+				return $parser->parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, true);
 			}
 		}
 
@@ -255,7 +292,7 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 		return ($vecCount > 0) && ($vec[0][0] == 'NUTS2');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Lower Austria, ...
 		$ret = new HarvestDataResult();
@@ -380,6 +417,7 @@ class HarvestDataParserNUTS extends HarvestDataParserBase
 
 		$this->parseData( $ret->data);
 		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		$ret->dataCount += count( $ret->data);
 
 		$ret->error = false;
 		$ret->errorMsg = '';
@@ -412,10 +450,10 @@ class HarvestDataParserNUTSAlt1 extends HarvestDataParserNUTS
 		return ($vecCount > 2) && ($vec[2][1] == 'NUTS2');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Vienna, ...
-		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors);
+		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames);
 	}
 } // class HarvestDataParserNUTSAlt1
 $HarvestData->addParser('HarvestDataParserNUTSAlt1');
@@ -429,10 +467,10 @@ class HarvestDataParserNUTSAlt2 extends HarvestDataParserNUTS
 		return ($vecCount > 0) && ($vec[0][1] == 'NUTS2');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Styria, ...
-		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors);
+		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames);
 	}
 } // class HarvestDataParserNUTSAlt2
 $HarvestData->addParser('HarvestDataParserNUTSAlt2');
@@ -446,7 +484,7 @@ class HarvestDataParserAutiSta extends HarvestDataParserBase
 		return ($vecCount > 0) && /*($vec[0][0] == 'vorname') &&*/ ($vec[0][1] == 'anzahl') && (trim( $vec[0][2]) == 'geschlecht');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		global $dataHarvestMetadata;
 
@@ -503,6 +541,9 @@ class HarvestDataParserAutiSta extends HarvestDataParserBase
 		$oldCount = Array();
 
 		$ret->data = Array();
+		$ret->error = false;
+		$ret->errorMsg = '';
+
 		$yearPos['m'] = 1;
 		$yearPos['w'] = 1;
 		$posCounter['m'] = 1;
@@ -632,11 +673,24 @@ class HarvestDataParserAutiSta extends HarvestDataParserBase
 			}
 		}
 
-		$this->parseData( $ret->data);
-		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		if( $addNames) {
+			global $HarvestNames;
 
-		$ret->error = false;
-		$ret->errorMsg = '';
+			$this->parseDataAddNames( $ret->data);
+			$HarvestNames->save();
+		} else {
+			$this->parseData( $ret->data);
+			if( !$this->echoDataErrors( $ret->data, $echoDataErrors)) {
+				$ret->error = true;
+				$ret->errorMsg = 'Unknown names found. No files saved!';
+			}
+			$ret->dataCount += count( $ret->data);
+
+			if( !$ret->error) {
+				$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+			}
+			$ret->data = Array();
+		}
 
 		return $ret;
 	}
@@ -652,7 +706,7 @@ class HarvestDataParserAutiStaScan extends HarvestDataParserBase
 		return ($vecCount > 1) && (trim( $vec[1][0]) == 'Anzahl der Kinder mit');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// AutiSta used in Bremen, Moers, ...
 		$ret = new HarvestDataResult();
@@ -709,7 +763,7 @@ class HarvestDataParserAutiStaScan extends HarvestDataParserBase
 		}
 
 		if( 1 == count( $vec[ $row])) {
-			return $this->parseFromPDF( $vec, $vecCount, $nuts, $url, $row, $theYear);
+			return $this->parseFromPDF( $vec, $vecCount, $nuts, $url, $row, $theYear, $echoDataErrors, $addNames);
 		}
 
 		if( 'Anzahl' != trim( $vec[ $row][2])) {
@@ -750,6 +804,8 @@ class HarvestDataParserAutiStaScan extends HarvestDataParserBase
 		$colCountFemale = 2;
 
 		$ret->data = Array();
+		$ret->error = false;
+		$ret->errorMsg = '';
 
 		for( ; $row < $vecCount; ++$row) {
 			if( intval( $vec[ $row][ $colPos]) < 1) {
@@ -775,16 +831,29 @@ class HarvestDataParserAutiStaScan extends HarvestDataParserBase
 			}
 		}
 
-		$this->parseData( $ret->data);
-		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		if( $addNames) {
+			global $HarvestNames;
 
-		$ret->error = false;
-		$ret->errorMsg = '';
+			$this->parseDataAddNames( $ret->data);
+			$HarvestNames->save();
+		} else {
+			$this->parseData( $ret->data);
+			if( !$this->echoDataErrors( $ret->data, $echoDataErrors)) {
+				$ret->error = true;
+				$ret->errorMsg = 'Unknown names found. No files saved!';
+			}
+			$ret->dataCount += count( $ret->data);
+
+			if( !$ret->error) {
+				$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+			}
+			$ret->data = Array();
+		}
 
 		return $ret;
 	}
 
-	public function parseFromPDF( $vec, $vecCount, $nuts, $url, $row, $theYear)
+	public function parseFromPDF( $vec, $vecCount, $nuts, $url, $row, $theYear, $echoDataErrors, $addNames)
 	{
 		// Used in Essen, ...
 		$ret = new HarvestDataResult();
@@ -830,6 +899,8 @@ class HarvestDataParserAutiStaScan extends HarvestDataParserBase
 		$colCountFemale = 2;
 
 		$ret->data = Array();
+		$ret->error = false;
+		$ret->errorMsg = '';
 
 		for( ; $row < $vecCount; ++$row) {
 			$current = explode( " ", $vec[ $row][0]);
@@ -915,11 +986,24 @@ class HarvestDataParserAutiStaScan extends HarvestDataParserBase
 			}
 		}
 
-		$this->parseData( $ret->data);
-		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		if( $addNames) {
+			global $HarvestNames;
 
-		$ret->error = false;
-		$ret->errorMsg = '';
+			$this->parseDataAddNames( $ret->data);
+			$HarvestNames->save();
+		} else {
+			$this->parseData( $ret->data);
+			if( !$this->echoDataErrors( $ret->data, $echoDataErrors)) {
+				$ret->error = true;
+				$ret->errorMsg = 'Unknown names found. No files saved!';
+			}
+			$ret->dataCount += count( $ret->data);
+
+			if( !$ret->error) {
+				$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+			}
+			$ret->data = Array();
+		}
 
 		return $ret;
 	}
@@ -935,10 +1019,10 @@ class HarvestDataParserAutiStaScan2 extends HarvestDataParserAutiStaScan
 		return ($vecCount > 1) && ($vec[1][0] == 'Anzahl der  Kinder mit');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Bremen, ...
-		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors);
+		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames);
 	}
 } // class HarvestDataParserAutiStaScan2
 $HarvestData->addParser('HarvestDataParserAutiStaScan2');
@@ -952,10 +1036,10 @@ class HarvestDataParserAutiStaScan3 extends HarvestDataParserAutiStaScan
 		return ($vecCount > 2) && (trim( $vec[2][0]) == 'Anzahl der Kinder mit');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Munich, ...
-		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors);
+		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames);
 	}
 } // class HarvestDataParserAutiStaScan3
 $HarvestData->addParser('HarvestDataParserAutiStaScan3');
@@ -969,10 +1053,10 @@ class HarvestDataParserAutiStaScan4 extends HarvestDataParserAutiStaScan
 		return ($vecCount > 3) && (trim( $vec[3][0]) == 'Anzahl der Kinder mit');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Bochum, ...
-		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors);
+		return parent::parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames);
 	}
 } // class HarvestDataParserAutiStaScan4
 $HarvestData->addParser('HarvestDataParserAutiStaScan4');
@@ -1018,7 +1102,7 @@ class HarvestDataParserZuerich extends HarvestDataParserBase
 		return ($vecCount > 0) && ($vec[0][1] == '"Vorname"') && (trim( $vec[0][2]) == '"Geschlecht"') && (trim( $vec[0][3]) == '"Anzahl"');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Used in Zurich
 		$ret = new HarvestDataResult();
@@ -1059,6 +1143,10 @@ class HarvestDataParserZuerich extends HarvestDataParserBase
 							$ret->errorMsg = 'Unknown names found. No files saved!';
 						}
 
+						$ret->dataCount += count( $ret->data);
+						if( !$ret->error) {
+							$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+						}
 						$ret->data = Array();
 					}
 				}
@@ -1091,12 +1179,13 @@ class HarvestDataParserZuerich extends HarvestDataParserBase
 				$ret->errorMsg = 'Unknown names found. No files saved!';
 			}
 
-			$ret->data = Array();
+			$ret->dataCount += count( $ret->data);
 		}
 
 		if( !$ret->error) {
 			$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
 		}
+		$ret->data = Array();
 
 		return $ret;
 	}
@@ -1135,7 +1224,7 @@ class HarvestDataParserLinz extends HarvestDataParserBase
 		return ($vecCount > 0) && ($vec[0][0] == 'Rang') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Used in Linz
 		$ret = new HarvestDataResult();
@@ -1202,6 +1291,7 @@ class HarvestDataParserLinz extends HarvestDataParserBase
 
 		$this->parseData( $ret->data);
 		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		$ret->dataCount += count( $ret->data);
 
 		$ret->error = false;
 		$ret->errorMsg = '';
@@ -1220,7 +1310,7 @@ class HarvestDataParserVorarlberg extends HarvestDataParserBase
 		return ($vecCount > 0) && ($vec[0][0] == 'Jahr') && ($vec[0][1] == 'Geschlecht') && (trim( $vec[0][2]) == 'Vorname');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Used in Vorarlberg
 		$ret = new HarvestDataResult();
@@ -1269,6 +1359,7 @@ class HarvestDataParserVorarlberg extends HarvestDataParserBase
 
 		$this->parseData( $ret->data);
 		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		$ret->dataCount += count( $ret->data);
 
 		$ret->error = false;
 		$ret->errorMsg = '';
@@ -1287,7 +1378,7 @@ class HarvestDataParserEngerwitzdorf extends HarvestDataParserBase
 		return ($vecCount > 0) && (substr( $vec[0][0], 0, 21) == 'GemeindeEngerwitzdorf');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Used in Engerwitzdorf
 		$ret = new HarvestDataResult();
@@ -1355,6 +1446,7 @@ class HarvestDataParserEngerwitzdorf extends HarvestDataParserBase
 
 		$this->parseData( $ret->data);
 		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		$ret->dataCount += count( $ret->data);
 
 		$ret->error = false;
 		$ret->errorMsg = '';
@@ -1373,7 +1465,7 @@ class HarvestDataParserSalzburg extends HarvestDataParserBase
 		return ($vecCount > 0) && /*($vec[0][0] == 'Rang') &&*/ ($vec[0][1] == 'NUTS') && (trim( $vec[0][2]) == 'Geschlecht') && (trim( $vec[0][3]) == 'Vorname') && (trim( $vec[0][4]) == 'Jahr');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		// Used in Salzburg
 		$ret = new HarvestDataResult();
@@ -1420,6 +1512,7 @@ class HarvestDataParserSalzburg extends HarvestDataParserBase
 
 		$this->parseData( $ret->data);
 		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		$ret->dataCount += count( $ret->data);
 
 		$ret->error = false;
 		$ret->errorMsg = '';
@@ -1438,7 +1531,7 @@ class HarvestDataParserCKANDataset extends HarvestDataParserBase
 		return ($vecCount > 0) && (substr( $vec[0][0], 0, 14) == '<!DOCTYPE html');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
 		global $MetadataVec;
 		global $HarvestMetadata;
@@ -1486,25 +1579,21 @@ $HarvestData->addParser('HarvestDataParserCKANDataset');
 
 //------------------------------------------------------------------------------
 
-class HarvestDataParserMunich extends HarvestDataParserBase
+class HarvestDataParserDoubleColumned extends HarvestDataParserBase
 {
 	public function accept( $vec, $vecCount)
 	{
-		return ($vecCount > 0) && ($vec[0][0] == '"Vorname"') && (trim( $vec[0][1]) == '"Anzahl"');
+		return ($vecCount > 0) && ($vec[0][0] == '"Vorname"') && (trim( $vec[0][1]) == '"Anzahl"')
+		    || ($vecCount > 0) && ($vec[0][0] == 'vorname') && (trim( $vec[0][1]) == 'anzahl');
 	}
 
-	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors)
+	public function parse( $vec, $vecCount, $nuts, $url, $echoDataErrors, $addNames)
 	{
-		// Used in Munich
+		// Used in Munich, Rostock
 		$ret = new HarvestDataResult();
 
-		// Vornamen 2013 männlich        | /vornamenmaennlich2013.csv
-		// Vornamen 2013 weiblich        | /vornamenweiblich2013.csv
-
-		// Beliebteste Vornamen 0-4 Jährige am 01.01.$year  | /Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_$year.csv
-		// Beliebteste Vornamen 5-9 Jährige am 01.01.$year  | /Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_$year.csv
-		// Beliebteste Vornamen des Jahres $year            | /Beliebteste_Vornamen_des_Jahres_$year.csv
-		// Beliebteste Vornamen aller Linzer am 01.01.$year | /Beliebteste_Vornamen_aller_Linzer_am_1_1_$year.csv
+		// Vornamen 2013 männlich: vornamenmaennlich2013.csv
+		// Vornamen 2013 weiblich: vornamenweiblich2013.csv
 
 		$theYear = intval( substr( $url, strlen( $url) - 8, 4));
 		$theMale = true;
@@ -1521,17 +1610,29 @@ class HarvestDataParserMunich extends HarvestDataParserBase
 
 		$vecCount = count( $vec);
 		if( $vecCount < 2) {
-			$ret->errorMsg = 'Unknown Munich format!';
+			$ret->errorMsg = 'Unknown Double Columned format!';
 			return $ret;
 		}
 
 		$ret->data = Array();
+		$ret->error = false;
+		$ret->errorMsg = '';
 
 		for( $row = $startRow + 1; $row < $vecCount; ++$row) {
 			if( count( $vec[ $row]) > 1) {
 				$name = trim( $vec[ $row][ $colName], '"* ');
 
 				if( $name == "Summe") {
+					continue;
+//				} else if( $name == "ogly") {
+//					continue;
+//				} else if( $name == "kyzy") {
+//					continue;
+				} else if( $name == "kysy") {
+					continue;
+				} else if( $name == "und") {
+					continue;
+				} else if( $name == "Vatersname)") {
 					continue;
 				}
 
@@ -1548,11 +1649,23 @@ class HarvestDataParserMunich extends HarvestDataParserBase
 
 		$this->generateDataPos( $ret->data);
 
-		$this->parseData( $ret->data);
-		$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+		if( $addNames) {
+			global $HarvestNames;
 
-		$ret->error = false;
-		$ret->errorMsg = '';
+			$this->parseDataAddNames( $ret->data);
+			$HarvestNames->save();
+		} else {
+			$this->parseData( $ret->data);
+			if( !$this->echoDataErrors( $ret->data, $echoDataErrors)) {
+				$ret->error = true;
+				$ret->errorMsg = 'Unknown names found. No files saved!';
+			}
+			$ret->dataCount += count( $ret->data);
+
+			if( !$ret->error) {
+				$this->saveData( $ret->data, $ret->file, $ret->checksum, $ret->years, $nuts);
+			}
+		}
 
 		return $ret;
 	}
@@ -1579,8 +1692,8 @@ class HarvestDataParserMunich extends HarvestDataParserBase
 			$data[ $row][ 'pos'] = $currentPos;
 		}
 	}
-} // class HarvestDataParserMunich
-$HarvestData->addParser('HarvestDataParserMunich');
+} // class HarvestDataParserDoubleColumned
+$HarvestData->addParser('HarvestDataParserDoubleColumned');
 
 //------------------------------------------------------------------------------
 
