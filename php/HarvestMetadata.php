@@ -684,4 +684,64 @@ $HarvestMetadata->addParser('HarvestMetadataParserMunich');
 
 //------------------------------------------------------------------------------
 
+class HarvestMetadataParserArnsberg extends HarvestMetadataParserBase
+{
+	public function accept( $contents, $json)
+	{
+		return (0 == count( $json)) && (false !== strpos( $contents, 'arnsberg.de'));
+	}
+
+	public function parse( $contents, $json)
+	{
+		$ret = new HarvestMetadataResult();
+		$ret->errorMsg = 'Could not parse metadata of Arnsberg';
+
+		$posContent = strpos( $contents, '<td><a href="/open-data/bevoelkerung/vornamen');
+		$posSidebar = strpos( $contents, '</tr>', $posContent);
+		$strContent = substr( $contents, $posContent, $posSidebar - $posContent);
+
+		$posName = strpos( $strContent, '>', strpos( $strContent, '<a')) + 1;
+
+		if( false === $posName) {
+			return $ret;
+		}
+
+		$strName = substr( $strContent, $posName, strpos( $strContent, '</a>', $posName) - $posName);
+
+		$strLicUrl = 'https://www.govdata.de/dl-de/zero-2-0';
+		$strLicName = 'Datenlizenz Deutschland – Zero – Version 2.0';
+
+		$posModified = strpos( $strContent, '<td>', strpos( $strContent, '<td>', $posName) + 1);
+		$strModified = substr( $strContent, $posModified + 4, strpos( $strContent, '</td>', $posModified) - $posModified);
+
+		$d = substr( $strModified, 0, 2);
+		$m = substr( $strModified, 3, 2);
+		$y = substr( $strModified, 6, 4);
+		$strModified = $y . '-' . $m . '-' . $d;
+
+		$ret->modified = strtotime( $strModified);
+		$ret->modDays = intval(( strtotime( 'now') - $ret->modified) /60 /60 /24);
+		$ret->vecURL = Array();
+		$ret->vecName = Array();
+		$posUrl = 0;
+
+		$posUrl = strpos( $strContent, 'href="', $posUrl) + strlen( 'href="');
+		$strUrl = substr( $strContent, $posUrl, strpos( $strContent, '"', $posUrl) - $posUrl);
+		$strUrl = 'http://www.arnsberg.de' . $strUrl;
+
+		$ret->vecURL[] = $strUrl;
+		$ret->vecName[] = '';
+
+		$this->parseCopyright( $ret, $strLicName, $strLicUrl, '');
+
+		$ret->error = false;
+		$ret->errorMsg = '';
+
+		return $ret;
+	}
+} // class HarvestMetadataParserArnsberg
+$HarvestMetadata->addParser('HarvestMetadataParserArnsberg');
+
+//------------------------------------------------------------------------------
+
 ?>
