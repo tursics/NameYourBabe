@@ -25,8 +25,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT12/noe_name_sex_2011_2013_nuts2.csv',
@@ -34,8 +34,8 @@ $dataHarvestMetadata=array (
     'years' => 
     array (
       0 => '2013',
-      1 => '2012',
-      2 => '2011',
+      2 => '2012',
+      4 => '2011',
     ),
   ),
   'https://www.data.gv.at/katalog/api/3/action/package_show?id=fb3345a6-b82a-4775-8ded-7e1bf1ce905a' => 
@@ -50,8 +50,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT130/b11-givennames-vie.csv',
@@ -59,20 +59,20 @@ $dataHarvestMetadata=array (
     'years' => 
     array (
       0 => '2013',
-      1 => '2012',
-      2 => '2011',
-      3 => '2010',
-      4 => '2009',
-      5 => '2008',
-      6 => '2007',
-      7 => '2006',
-      8 => '2005',
-      9 => '2004',
-      10 => '2003',
-      11 => '2002',
-      12 => '2001',
-      13 => '2000',
-      14 => '1999',
+      2 => '2012',
+      4 => '2011',
+      6 => '2010',
+      8 => '2009',
+      10 => '2008',
+      12 => '2007',
+      14 => '2006',
+      16 => '2005',
+      18 => '2004',
+      20 => '2003',
+      22 => '2002',
+      24 => '2001',
+      26 => '2000',
+      28 => '1999',
     ),
   ),
   'https://www.data.gv.at/katalog/api/3/action/package_show?id=7bc04db0-3718-11e3-aa6e-0800200c9a66' => 
@@ -89,8 +89,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT22/STMK_2013_GIVEN_NAMES.csv',
@@ -98,8 +98,8 @@ $dataHarvestMetadata=array (
     ),
     'years' => 
     array (
-      0 => '2012',
-      1 => '2013',
+      0 => '2013',
+      1 => '2012',
     ),
   ),
   'https://www.data.gv.at/katalog/api/3/action/package_show?id=0f00e9fb-27cd-4c70-b5c8-33a5e79aaffb' => 
@@ -116,10 +116,10 @@ $dataHarvestMetadata=array (
       1 => 'http://data.graz.gv.at//katalog/bevoelkerung/vornamensstatistik/vnalf2011graz.pdf',
       2 => 'http://data.graz.gv.at//katalog/bevoelkerung/vornamensstatistik/vnalf2012graz.pdf',
     ),
-    'license' => 'unknown',
+    'license' => 'CC BY 3.0 AT',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 4,
+    'modified' => '2015-10-12',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT221/vnalf2010graz.pdf',
@@ -127,7 +127,7 @@ $dataHarvestMetadata=array (
       2 => 'data/harvest/AT/AT221/vnalf2012graz.pdf',
     ),
   ),
-  'https://www.data.gv.at/katalog/api/3/action/package_show?id=ooe-B2E18584DC84412F84E746C4E87341D2' => 
+  'https://www.data.gv.at/katalog/api/3/action/package_show?id=b2e18584-dc84-412f-84e7-46c4e87341d2' => 
   array (
     'name' => 
     array (
@@ -137,12 +137,26 @@ $dataHarvestMetadata=array (
     array (
       0 => 'http://data.ooe.gv.at/files/cms/Mediendateien/OGD/ogd_abtStat/OOE_Haeuf_Vornamen.csv',
     ),
-    'license' => 'CC BY 3.0 AT',
+    'license' => 'unknown',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
+      0 => 'data/harvest/AT/AT31/OOE_Haeuf_Vornamen.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2014',
+      2 => '2013',
+      4 => '2012',
+      6 => '2011',
+      8 => '2010',
+      10 => '2009',
+      12 => '2008',
+      14 => '2007',
+      16 => '2006',
+      18 => '2005',
     ),
   ),
   'https://www.data.gv.at/katalog/api/3/action/package_show?id=9861f2a3-d9ed-44e6-a2e5-34ac2b3561dd' => 
@@ -195,67 +209,38 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'unknown',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 4,
+    'modified' => '2015-10-12',
+    'update' => 0,
     'download' => 
     array (
-      0 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2014.csv',
-      1 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2013.csv',
-      2 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2012.csv',
-      3 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2011.csv',
-      4 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2014.csv',
-      5 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2013.csv',
-      6 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2012.csv',
-      7 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2011.csv',
-      8 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_des_Jahres_2013.csv',
-      9 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_des_Jahres_2012.csv',
-      10 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_des_Jahres_2011.csv',
-      11 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_des_Jahres_2010.csv',
-      12 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_aller_Linzer_am_1_1_2014.csv',
-      13 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_aller_Linzer_am_1_1_2013.csv',
-      14 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_aller_Linzer_am_1_1_2012.csv',
-      15 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_aller_Linzer_am_1_1_2011.csv',
+      0 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2015.csv',
+      1 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2014.csv',
+      2 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2013.csv',
+      3 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2012.csv',
+      4 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2011.csv',
+      5 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2015.csv',
+      6 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2014.csv',
+      7 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2013.csv',
+      8 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2012.csv',
+      9 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2011.csv',
+      10 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_des_Jahres_2014.csv',
+      11 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_des_Jahres_2013.csv',
+      12 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_des_Jahres_2012.csv',
+      13 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_des_Jahres_2011.csv',
+      14 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_des_Jahres_2010.csv',
+      15 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_aller_Linzer_am_1_1_2015.csv',
+      16 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_aller_Linzer_am_1_1_2014.csv',
+      17 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_aller_Linzer_am_1_1_2013.csv',
+      18 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_aller_Linzer_am_1_1_2012.csv',
+      19 => 'data/harvest/AT/AT31240101/Beliebteste_Vornamen_aller_Linzer_am_1_1_2011.csv',
     ),
     'years' => 
     array (
-      0 => '1_m',
-      1 => '2_m',
-      2 => '_m',
-      3 => '4_m',
-      4 => '5_m',
-      5 => '6_m',
-      6 => '10_m',
-      7 => '8_m',
-      8 => '9_m',
-      9 => '3_m',
-      10 => '7_m',
-      11 => '2013',
-      12 => '2012',
-      13 => '2011',
-      14 => '2010',
-    ),
-  ),
-  'https://www.data.gv.at/katalog/api/3/action/package_show?id=8f68fe3e-d27b-440c-ba9f-c1ed3e8f987b' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Vornamen-maennlich-2011.txt',
-    ),
-    'url' => 
-    array (
-      0 => 'https://www.data.gv.at/katalog/storage/f/Vornamen-maennlich-2011.txt',
-    ),
-    'license' => 'CC BY 3.0 AT',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
-    'download' => 
-    array (
-      0 => 'data/harvest/AT/AT31241605/Vornamen-maennlich-2011.txt',
-    ),
-    'years' => 
-    array (
-      0 => '2011',
+      0 => '2014',
+      1 => '2013',
+      2 => '2012',
+      3 => '2011',
+      4 => '2010',
     ),
   ),
   'https://www.data.gv.at/katalog/api/3/action/package_show?id=431d3247-42e4-4c0c-8be2-275352c07e57' => 
@@ -270,11 +255,34 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT31241605/Vornamen-weiblich-2011.txt',
+    ),
+    'years' => 
+    array (
+      0 => '2011',
+    ),
+  ),
+  'https://www.data.gv.at/katalog/api/3/action/package_show?id=8f68fe3e-d27b-440c-ba9f-c1ed3e8f987b' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Vornamen-maennlich-2011.txt',
+    ),
+    'url' => 
+    array (
+      0 => 'https://www.data.gv.at/katalog/storage/f/Vornamen-maennlich-2011.txt',
+    ),
+    'license' => 'CC BY 3.0 AT',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/AT/AT31241605/Vornamen-maennlich-2011.txt',
     ),
     'years' => 
     array (
@@ -285,18 +293,18 @@ $dataHarvestMetadata=array (
   array (
     'name' => 
     array (
-      0 => NULL,
-      1 => NULL,
+      0 => 'names-szg',
+      1 => 'names-szg',
     ),
     'url' => 
     array (
       0 => 'http://www.salzburg.gv.at/ogd/e2f18f75-934f-4f39-9722-60e81d173ef5/names-szg.json',
       1 => 'http://www.salzburg.gv.at/ogd/e2f18f75-934f-4f39-9722-60e81d173ef5/names-szg.csv',
     ),
-    'license' => 'unknown',
+    'license' => 'CC BY 3.0 AT',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 4,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT32/names-szg.json',
@@ -305,80 +313,10 @@ $dataHarvestMetadata=array (
     'years' => 
     array (
       0 => '2008',
-      1 => '2009',
-      2 => '2010',
-      3 => '2011',
-      4 => '2012',
-    ),
-  ),
-  'https://www.data.gv.at/katalog/api/3/action/package_show?id=ce4f1d6f-2d98-4736-935c-0cc681412e68' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Ranking_Vornamen_2010.csv',
-    ),
-    'url' => 
-    array (
-      0 => 'https://www.data.gv.at/katalog/storage/f/Ranking_Vornamen_2010.csv',
-    ),
-    'license' => 'CC BY 3.0 AT',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
-    'download' => 
-    array (
-      0 => 'data/harvest/AT/AT32350101/Ranking_Vornamen_2010.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2010',
-    ),
-  ),
-  'https://www.data.gv.at/katalog/api/3/action/package_show?id=1a5c0ea3-432f-45e8-a305-19dd147867c0' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Ranking_Vornamen_2011.csv',
-    ),
-    'url' => 
-    array (
-      0 => 'https://www.data.gv.at/katalog/storage/f/Ranking_Vornamen_2011.csv',
-    ),
-    'license' => 'CC BY 3.0 AT',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
-    'download' => 
-    array (
-      0 => 'data/harvest/AT/AT32350101/Ranking_Vornamen_2011.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2011',
-      1 => '2011',
-    ),
-  ),
-  'https://www.data.gv.at/katalog/api/3/action/package_show?id=988368f6-7bd6-4d6a-bf60-1d07ffa6cfc4' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Ranking_Vornamen_2012.csv',
-    ),
-    'url' => 
-    array (
-      0 => 'https://www.data.gv.at/katalog/storage/f/Ranking_Vornamen_2012-v2.csv',
-    ),
-    'license' => 'CC BY 3.0 AT',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
-    'download' => 
-    array (
-      0 => 'data/harvest/AT/AT32350101/Ranking_Vornamen_2012-v2.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2012',
+      2 => '2009',
+      4 => '2010',
+      6 => '2011',
+      8 => '2012',
     ),
   ),
   'https://www.data.gv.at/katalog/api/3/action/package_show?id=3678ee56-4340-4e9d-bd59-379cb3c69103' => 
@@ -393,8 +331,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT32350101/ranking_vornamen_neu_2013.csv',
@@ -402,14 +340,82 @@ $dataHarvestMetadata=array (
     'years' => 
     array (
       0 => '2013',
-      1 => '2013',
+    ),
+  ),
+  'https://www.data.gv.at/katalog/api/3/action/package_show?id=988368f6-7bd6-4d6a-bf60-1d07ffa6cfc4' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Ranking_Vornamen_2012.csv',
+    ),
+    'url' => 
+    array (
+      0 => 'https://www.data.gv.at/katalog/storage/f/Ranking_Vornamen_2012-v2.csv',
+    ),
+    'license' => 'CC BY 3.0 AT',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/AT/AT32350101/Ranking_Vornamen_2012-v2.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2012',
+    ),
+  ),
+  'https://www.data.gv.at/katalog/api/3/action/package_show?id=1a5c0ea3-432f-45e8-a305-19dd147867c0' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Ranking_Vornamen_2011.csv',
+    ),
+    'url' => 
+    array (
+      0 => 'https://www.data.gv.at/katalog/storage/f/Ranking_Vornamen_2011.csv',
+    ),
+    'license' => 'CC BY 3.0 AT',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/AT/AT32350101/Ranking_Vornamen_2011.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2011',
+    ),
+  ),
+  'https://www.data.gv.at/katalog/api/3/action/package_show?id=ce4f1d6f-2d98-4736-935c-0cc681412e68' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Ranking_Vornamen_2010.csv',
+    ),
+    'url' => 
+    array (
+      0 => 'https://www.data.gv.at/katalog/storage/f/Ranking_Vornamen_2010.csv',
+    ),
+    'license' => 'CC BY 3.0 AT',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/AT/AT32350101/Ranking_Vornamen_2010.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2010',
     ),
   ),
   'https://www.data.gv.at/katalog/api/3/action/package_show?id=806c3e987d4a7fb2ae862f923b45046333d7437f' => 
   array (
     'name' => 
     array (
-      0 => 'Download 2009 - 2013',
+      0 => 'Download 2009 - 2014',
       1 => 'Top 100 Vornamen in Tirol',
     ),
     'url' => 
@@ -419,38 +425,39 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/AT/AT33/top_100_vornamen_seit_2009.csv',
     ),
     'years' => 
     array (
-      0 => '2013',
-      1 => '2012',
-      2 => '2011',
-      3 => '2010',
-      4 => '2009',
+      0 => '2014',
+      2 => '2013',
+      4 => '2012',
+      6 => '2011',
+      8 => '2010',
+      10 => '2009',
     ),
   ),
-  'https://www.data.gv.at/katalog/api/3/action/package_show?id=5505b7af-c252-44c1-ab73-056e16f18763' => 
+  'https://www.data.gv.at/katalog/api/3/action/package_show?id=54fabd55-9f06-42fb-b41c-4831eccc8100' => 
   array (
     'name' => 
     array (
-      0 => 'Vornamenstatistik2005_2011.csv',
+      0 => 'Vornamenstatistik',
     ),
     'url' => 
     array (
-      0 => 'https://www.data.gv.at/katalog/storage/f/Vornamenstatistik2005_2011.csv',
+      0 => 'http://data.vorarlberg.gv.at/Katalog/Bevoelkerung/Vornamen_2005-2013.csv',
     ),
     'license' => 'CC BY 3.0 AT',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 8,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
-      0 => 'data/harvest/AT/AT34/Vornamenstatistik2005_2011.csv',
+      0 => 'data/harvest/AT/AT34/Vornamen_2005-2013.csv',
     ),
     'years' => 
     array (
@@ -461,77 +468,27 @@ $dataHarvestMetadata=array (
       4 => '2009',
       5 => '2010',
       6 => '2011',
-      7 => '2005',
-      8 => '2006',
-      9 => '2007',
-      10 => '2008',
-      11 => '2009',
-      12 => '2010',
-      13 => '2011',
+      7 => '2012',
+      8 => '2013',
     ),
   ),
-  'http://data.stadt-zuerich.ch/content/portal/de/index/ogd/daten/bev_vornamen_baby.html' => 
+  'https://data.stadt-zuerich.ch/api/3/action/package_show?id=bev-vornamen-baby' => 
   array (
     'name' => 
     array (
-      0 => 'Vornamen von Neugeborenen mit Wohnsitz in der Stadt Zürich',
+      0 => 'vornamen_1993-2014.csv',
     ),
     'url' => 
     array (
-      0 => 'http://www.tursics.de/file/vornamen_1993-2013.csv',
+      0 => 'https://data.stadt-zuerich.ch/storage/f/bev_vornamen_baby/vornamen_1993-2014.csv',
     ),
-    'license' => '',
+    'license' => 'CC 0',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 471,
+    'update' => 96,
     'download' => 
     array (
-      0 => 'data/harvest/CH/CH04/vornamen_1993-2013.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2013',
-      1 => '2013',
-      2 => '2012',
-      3 => '2012',
-      4 => '2011',
-      5 => '2011',
-      6 => '2010',
-      7 => '2010',
-      8 => '2009',
-      9 => '2009',
-      10 => '2008',
-      11 => '2008',
-      12 => '2007',
-      13 => '2007',
-      14 => '2006',
-      15 => '2006',
-      16 => '2005',
-      17 => '2005',
-      18 => '2004',
-      19 => '2004',
-      20 => '2003',
-      21 => '2003',
-      22 => '2002',
-      23 => '2002',
-      24 => '2001',
-      25 => '2001',
-      26 => '2000',
-      27 => '2000',
-      28 => '1999',
-      29 => '1999',
-      30 => '1998',
-      31 => '1998',
-      32 => '1997',
-      33 => '1997',
-      34 => '1996',
-      35 => '1996',
-      36 => '1995',
-      37 => '1995',
-      38 => '1994',
-      39 => '1994',
-      40 => '1993',
-      41 => '1993',
+      0 => 'data/harvest/CH/CH04/vornamen_1993-2014.csv',
     ),
   ),
   'http://daten.ulm.de/datenkatalog/iso19139/175' => 
@@ -575,7 +532,7 @@ $dataHarvestMetadata=array (
     'license' => '',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 248,
+    'update' => 272,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE144/Vornamenstatistik_2014.csv',
@@ -613,54 +570,40 @@ $dataHarvestMetadata=array (
     ),
     'years' => 
     array (
-      0 => '2011',
-      1 => '2013',
-      2 => '1998',
-      3 => '1999',
-      4 => '2000',
-      5 => '2001',
-      6 => '2002',
-      7 => '2003',
-      8 => '2004',
-      9 => '2005',
-      10 => '2006',
-      11 => '2007',
-      12 => '2008',
-      13 => '2009',
-      14 => '2010',
-      15 => '2012',
-      16 => '2014',
+      0 => '2013',
+      1 => '2012',
+      2 => '2011',
+      3 => '2010',
+      4 => '2009',
+      5 => '2008',
+      6 => '2007',
+      7 => '2006',
+      8 => '1992',
+      9 => '1982',
+      10 => '1972',
+      11 => '2014',
     ),
   ),
-  '/private/muenchen/metadata.json' => 
+  'https://www.opengov-muenchen.de/api/3/action/package_show?id=vornamen' => 
   array (
     'name' => 
     array (
-      0 => '2011',
-      1 => '2012',
-      2 => '2013',
+      0 => 'Vornamen 2013 männlich',
+      1 => 'Vornamen 2013 weiblich',
     ),
     'url' => 
     array (
-      0 => '/private/muenchen/jt120153.csv',
-      1 => '/private/muenchen/jt130153.csv',
-      2 => '/private/muenchen/jt140153.csv',
+      0 => 'https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/66f2b9e0-aaba-4311-886b-ee280a578f0b/download/vornamenmaennlich2013.csv',
+      1 => 'https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/e2d2f358-cda8-4edc-8ead-3659cd00c14f/download/vornamenweiblich2013.csv',
     ),
-    'license' => 'public',
-    'citation' => '© Statistisches Amt München, 2014',
+    'license' => 'unknown',
+    'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 543,
+    'update' => 227,
     'download' => 
     array (
-      0 => 'data/harvest/DE/DE212/jt120153.csv',
-      1 => 'data/harvest/DE/DE212/jt130153.csv',
-      2 => 'data/harvest/DE/DE212/jt140153.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2011',
-      1 => '2012',
-      2 => '2013',
+      0 => 'data/harvest/DE/DE212/vornamenmaennlich2013.csv',
+      1 => 'data/harvest/DE/DE212/vornamenweiblich2013.csv',
     ),
   ),
   '/private/nuernberg/metadata.json' => 
@@ -676,10 +619,94 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Quelle: Amt für Stadtforschung und Statistik für Nürnberg und Fürth',
     'modified' => '2000-01-01',
-    'update' => 525,
+    'update' => 549,
+  ),
+  'http://www.govdata.de/ckan/api/rest/dataset/liste-der-haeufigen-vornamen-2013' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Vornamen 2013 Charlottenburg-Wilmersdorf (CSV)',
+      1 => 'Vornamen 2013 Charlottenburg-Wilmersdorf (PDF)',
+      2 => 'Vornamen 2013 Friedrichshain-Kreuzberg (CSV)',
+      3 => 'Vornamen 2013 Friedrichshain-Kreuzberg (PDF)',
+      4 => 'Vornamen 2013 Lichtenberg (CSV)',
+      5 => 'Vornamen 2013 Lichtenberg (PDF)',
+      6 => 'Vornamen 2013 Marzahn-Hellersdorf (CSV)',
+      7 => 'Vornamen 2013 Marzahn-Hellersdorf (PDF)',
+      8 => 'Vornamen 2013 Mitte (CSV)',
+      9 => 'Vornamen 2013 Mitte (PDF)',
+      10 => 'Vornamen 2013 Neukölln (CSV)',
+      11 => 'Vornamen 2013 Neukölln (PDF)',
+      12 => 'Vornamen 2013 Pankow (CSV)',
+      13 => 'Vornamen 2013 Pankow (PDF)',
+      14 => 'Vornamen 2013 Reinickendorf (CSV)',
+      15 => 'Vornamen 2013 Reinickendorf (PDF)',
+      16 => 'Vornamen 2013 Spandau (CSV)',
+      17 => 'Vornamen 2013 Spandau (PDF)',
+      18 => 'Vornamen 2013 Steglitz-Zehlendorf (CSV)',
+      19 => 'Vornamen 2013 Steglitz-Zehlendorf (PDF)',
+      20 => 'Vornamen 2013 Tempelhof-Schöneberg (CSV)',
+      21 => 'Vornamen 2013 Tempelhof-Schöneberg (PDF)',
+      22 => 'Vornamen 2013 Treptow-Köpenick (CSV)',
+      23 => 'Vornamen 2013 Treptow-Köpenick (PDF)',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/charlottenburg-wilmersdorf.csv',
+      1 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/charlottenburg-wilmersdorf.pdf',
+      2 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/friedrichshain-kreuzberg.csv',
+      3 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/friedrichshain-kreuzberg.pdf',
+      4 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/lichtenberg.csv',
+      5 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/lichtenberg.pdf',
+      6 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/marzahn-hellersdorf.csv',
+      7 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/marzahn-hellersdorf.pdf',
+      8 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/mitte.csv',
+      9 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/mitte.pdf',
+      10 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/neukoelln.csv',
+      11 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/neukoelln.pdf',
+      12 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/pankow.csv',
+      13 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/pankow.pdf',
+      14 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/reinickendorf.csv',
+      15 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/reinickendorf.pdf',
+      16 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/spandau.csv',
+      17 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/spandau.pdf',
+      18 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/steglitz-zehlendorf.csv',
+      19 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/steglitz-zehlendorf.pdf',
+      20 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/tempelhof-schoeneberg.csv',
+      21 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/tempelhof-schoeneberg.pdf',
+      22 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/treptow-koepenick.csv',
+      23 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/treptow-koepenick.pdf',
+    ),
+    'license' => 'CC BY',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
-      0 => 'data/harvest/DE/DE254/2001bis2013.csv',
+      0 => 'data/harvest/DE/DE304/charlottenburg-wilmersdorf.csv',
+      1 => 'data/harvest/DE/DE304/charlottenburg-wilmersdorf.pdf',
+      2 => 'data/harvest/DE/DE302/friedrichshain-kreuzberg.csv',
+      3 => 'data/harvest/DE/DE302/friedrichshain-kreuzberg.pdf',
+      4 => 'data/harvest/DE/DE30B/lichtenberg.csv',
+      5 => 'data/harvest/DE/DE30B/lichtenberg.pdf',
+      6 => 'data/harvest/DE/DE30A/marzahn-hellersdorf.csv',
+      7 => 'data/harvest/DE/DE30A/marzahn-hellersdorf.pdf',
+      8 => 'data/harvest/DE/DE301/mitte.csv',
+      9 => 'data/harvest/DE/DE301/mitte.pdf',
+      10 => 'data/harvest/DE/DE308/neukoelln.csv',
+      11 => 'data/harvest/DE/DE308/neukoelln.pdf',
+      12 => 'data/harvest/DE/DE303/pankow.csv',
+      13 => 'data/harvest/DE/DE303/pankow.pdf',
+      14 => 'data/harvest/DE/DE30C/reinickendorf.csv',
+      15 => 'data/harvest/DE/DE30C/reinickendorf.pdf',
+      16 => 'data/harvest/DE/DE305/spandau.csv',
+      17 => 'data/harvest/DE/DE305/spandau.pdf',
+      18 => 'data/harvest/DE/DE306/steglitz-zehlendorf.csv',
+      19 => 'data/harvest/DE/DE306/steglitz-zehlendorf.pdf',
+      20 => 'data/harvest/DE/DE307/tempelhof-schoeneberg.csv',
+      21 => 'data/harvest/DE/DE307/tempelhof-schoeneberg.pdf',
+      22 => 'data/harvest/DE/DE309/treptow-koepenick.csv',
+      23 => 'data/harvest/DE/DE309/treptow-koepenick.pdf',
     ),
     'years' => 
     array (
@@ -744,268 +771,132 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'CC BY',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 182,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
-      0 => 'data/harvest/DE/DE30/Charlottenburg-Wilmersdorf.csv',
-      1 => 'data/harvest/DE/DE30/Charlottenburg-Wilmersdorf.pdf',
-      2 => 'data/harvest/DE/DE30/Friedrichshain-Kreuzberg.csv',
-      3 => 'data/harvest/DE/DE30/Friedrichshain-Kreuzberg.pdf',
-      4 => 'data/harvest/DE/DE30/Lichtenberg.csv',
-      5 => 'data/harvest/DE/DE30/Lichtenberg.pdf',
-      6 => 'data/harvest/DE/DE30/Marzahn-Hellersdorf.csv',
-      7 => 'data/harvest/DE/DE30/Marzahn-Hellersdorf.pdf',
-      8 => 'data/harvest/DE/DE30/Mitte.csv',
-      9 => 'data/harvest/DE/DE30/Mitte.pdf',
-      10 => 'data/harvest/DE/DE30/Neukoelln.csv',
-      11 => 'data/harvest/DE/DE30/Neukoelln.pdf',
-      12 => 'data/harvest/DE/DE30/Pankow.csv',
-      13 => 'data/harvest/DE/DE30/Pankow.pdf',
-      14 => 'data/harvest/DE/DE30/Reinickendorf.csv',
-      15 => 'data/harvest/DE/DE30/Reinickendorf.pdf',
-      16 => 'data/harvest/DE/DE30/Spandau.csv',
-      17 => 'data/harvest/DE/DE30/Spandau.pdf',
-      18 => 'data/harvest/DE/DE30/Steglitz-Zehlendorf.csv',
-      19 => 'data/harvest/DE/DE30/Steglitz-Zehlendorf.pdf',
-      20 => 'data/harvest/DE/DE30/Tempelhof-Schoeneberg.csv',
-      21 => 'data/harvest/DE/DE30/Tempelhof-Schoeneberg.pdf',
-      22 => 'data/harvest/DE/DE30/Treptow-Koepenick.csv',
-      23 => 'data/harvest/DE/DE30/Treptow-Koepenick.pdf',
+      0 => 'data/harvest/DE/DE304/Charlottenburg-Wilmersdorf.csv',
+      1 => 'data/harvest/DE/DE304/Charlottenburg-Wilmersdorf.pdf',
+      2 => 'data/harvest/DE/DE302/Friedrichshain-Kreuzberg.csv',
+      3 => 'data/harvest/DE/DE302/Friedrichshain-Kreuzberg.pdf',
+      4 => 'data/harvest/DE/DE30B/Lichtenberg.csv',
+      5 => 'data/harvest/DE/DE30B/Lichtenberg.pdf',
+      6 => 'data/harvest/DE/DE30A/Marzahn-Hellersdorf.csv',
+      7 => 'data/harvest/DE/DE30A/Marzahn-Hellersdorf.pdf',
+      8 => 'data/harvest/DE/DE301/Mitte.csv',
+      9 => 'data/harvest/DE/DE301/Mitte.pdf',
+      10 => 'data/harvest/DE/DE308/Neukoelln.csv',
+      11 => 'data/harvest/DE/DE308/Neukoelln.pdf',
+      12 => 'data/harvest/DE/DE303/Pankow.csv',
+      13 => 'data/harvest/DE/DE303/Pankow.pdf',
+      14 => 'data/harvest/DE/DE30C/Reinickendorf.csv',
+      15 => 'data/harvest/DE/DE30C/Reinickendorf.pdf',
+      16 => 'data/harvest/DE/DE305/Spandau.csv',
+      17 => 'data/harvest/DE/DE305/Spandau.pdf',
+      18 => 'data/harvest/DE/DE306/Steglitz-Zehlendorf.csv',
+      19 => 'data/harvest/DE/DE306/Steglitz-Zehlendorf.pdf',
+      20 => 'data/harvest/DE/DE307/Tempelhof-Schoeneberg.csv',
+      21 => 'data/harvest/DE/DE307/Tempelhof-Schoeneberg.pdf',
+      22 => 'data/harvest/DE/DE309/Treptow-Koepenick.csv',
+      23 => 'data/harvest/DE/DE309/Treptow-Koepenick.pdf',
     ),
     'years' => 
     array (
-      0 => '2030',
+      0 => '2012',
     ),
   ),
-  'http://www.govdata.de/ckan/api/rest/dataset/liste-der-haeufigen-vornamen-2013' => 
+  'https://www.govdata.de/ckan/api/rest/dataset/liste-der-h-ufigen-vornamen-2014' => 
   array (
     'name' => 
     array (
-      0 => 'Vornamen 2013 Charlottenburg-Wilmersdorf (CSV)',
-      1 => 'Vornamen 2013 Charlottenburg-Wilmersdorf (PDF)',
-      2 => 'Vornamen 2013 Friedrichshain-Kreuzberg (CSV)',
-      3 => 'Vornamen 2013 Friedrichshain-Kreuzberg (PDF)',
-      4 => 'Vornamen 2013 Lichtenberg (CSV)',
-      5 => 'Vornamen 2013 Lichtenberg (PDF)',
-      6 => 'Vornamen 2013 Marzahn-Hellersdorf (CSV)',
-      7 => 'Vornamen 2013 Marzahn-Hellersdorf (PDF)',
-      8 => 'Vornamen 2013 Mitte (CSV)',
-      9 => 'Vornamen 2013 Mitte (PDF)',
-      10 => 'Vornamen 2013 Neukölln (CSV)',
-      11 => 'Vornamen 2013 Neukölln (PDF)',
-      12 => 'Vornamen 2013 Pankow (CSV)',
-      13 => 'Vornamen 2013 Pankow (PDF)',
-      14 => 'Vornamen 2013 Reinickendorf (CSV)',
-      15 => 'Vornamen 2013 Reinickendorf (PDF)',
-      16 => 'Vornamen 2013 Spandau (CSV)',
-      17 => 'Vornamen 2013 Spandau (PDF)',
-      18 => 'Vornamen 2013 Steglitz-Zehlendorf (CSV)',
-      19 => 'Vornamen 2013 Steglitz-Zehlendorf (PDF)',
-      20 => 'Vornamen 2013 Tempelhof-Schöneberg (CSV)',
-      21 => 'Vornamen 2013 Tempelhof-Schöneberg (PDF)',
-      22 => 'Vornamen 2013 Treptow-Köpenick (CSV)',
-      23 => 'Vornamen 2013 Treptow-Köpenick (PDF)',
+      0 => 'Vornamen 2014 Charlottenburg-Wilmersdorf (CSV)',
+      1 => 'Vornamen 2014 Charlottenburg-Wilmersdorf (PDF)',
+      2 => 'Vornamen 2014 Friedrichshain-Kreuzberg (CSV)',
+      3 => 'Vornamen 2014 Friedrichshain-Kreuzberg (PDF)',
+      4 => 'Vornamen 2014 Lichtenberg (CSV)',
+      5 => 'Vornamen 2014 Lichtenberg (PDF)',
+      6 => 'Vornamen 2014 Marzahn-Hellersdorf (CSV)',
+      7 => 'Vornamen 2014 Marzahn-Hellersdorf (PDF)',
+      8 => 'Vornamen 2014 Mitte (CSV)',
+      9 => 'Vornamen 2014 Mitte (PDF)',
+      10 => 'Vornamen 2014 Neukölln (CSV)',
+      11 => 'Vornamen 2014 Neukölln (PDF)',
+      12 => 'Vornamen 2014 Pankow (CSV)',
+      13 => 'Vornamen 2014 Pankow (PDF)',
+      14 => 'Vornamen 2014 Reinickendorf (CSV)',
+      15 => 'Vornamen 2014 Reinickendorf (PDF)',
+      16 => 'Vornamen 2014 Spandau (CSV)',
+      17 => 'Vornamen 2014 Spandau (PDF)',
+      18 => 'Vornamen 2014 Steglitz-Zehlendorf (CSV)',
+      19 => 'Vornamen 2014 Steglitz-Zehlendorf (PDF)',
+      20 => 'Vornamen 2014 Tempelhof-Schöneberg (CSV)',
+      21 => 'Vornamen 2014 Tempelhof-Schöneberg (PDF)',
+      22 => 'Vornamen 2014 Treptow-Köpenick (CSV)',
+      23 => 'Vornamen 2014 Treptow-Köpenick (PDF)',
+      24 => 'Vornamen 2014 Standesamt I (CSV)',
+      25 => 'Vornamen 2014 Standesamt I (PDF)',
     ),
     'url' => 
     array (
-      0 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/charlottenburg-wilmersdorf.csv',
-      1 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/charlottenburg-wilmersdorf.pdf',
-      2 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/friedrichshain-kreuzberg.csv',
-      3 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/friedrichshain-kreuzberg.pdf',
-      4 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/lichtenberg.csv',
-      5 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/lichtenberg.pdf',
-      6 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/marzahn-hellersdorf.csv',
-      7 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/marzahn-hellersdorf.pdf',
-      8 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/mitte.csv',
-      9 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/mitte.pdf',
-      10 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/neukoelln.csv',
-      11 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/neukoelln.pdf',
-      12 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/pankow.csv',
-      13 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/pankow.pdf',
-      14 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/reinickendorf.csv',
-      15 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/reinickendorf.pdf',
-      16 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/spandau.csv',
-      17 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/spandau.pdf',
-      18 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/steglitz-zehlendorf.csv',
-      19 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/steglitz-zehlendorf.pdf',
-      20 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/tempelhof-schoeneberg.csv',
-      21 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/tempelhof-schoeneberg.pdf',
-      22 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/treptow-koepenick.csv',
-      23 => 'http://www.berlin.de/daten/liste-der-vornamen-2013/treptow-koepenick.pdf',
+      0 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/charlottenburg-wilmersdorf.csv',
+      1 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/charlottenburg-wilmersdorf.pdf',
+      2 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/friedrichshain-kreuzberg.csv',
+      3 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/friedrichshain-kreuzberg.pdf',
+      4 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/lichtenberg.csv',
+      5 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/lichtenberg.pdf',
+      6 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/marzahn-hellersdorf.csv',
+      7 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/marzahn-hellersdorf.pdf',
+      8 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/mitte.csv',
+      9 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/mitte.pdf',
+      10 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/neukoelln.csv',
+      11 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/neukoelln.pdf',
+      12 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/pankow.csv',
+      13 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/pankow.pdf',
+      14 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/reinickendorf.csv',
+      15 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/reinickendorf.pdf',
+      16 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/spandau.csv',
+      17 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/spandau.pdf',
+      18 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/steglitz-zehlendorf.csv',
+      19 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/steglitz-zehlendorf.pdf',
+      20 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/tempelhof-schoeneberg.csv',
+      21 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/tempelhof-schoeneberg.pdf',
+      22 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/treptow-koepenick.csv',
+      23 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/treptow-koepenick.pdf',
+      24 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/standesamt_i.csv',
+      25 => 'http://www.berlin.de/daten/liste-der-vornamen-2014/standesamt_i.pdf',
     ),
     'license' => 'CC BY',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 182,
+    'update' => 200,
     'download' => 
     array (
-      0 => 'data/harvest/DE/DE30/charlottenburg-wilmersdorf.csv',
-      1 => 'data/harvest/DE/DE30/charlottenburg-wilmersdorf.pdf',
-      2 => 'data/harvest/DE/DE30/friedrichshain-kreuzberg.csv',
-      3 => 'data/harvest/DE/DE30/friedrichshain-kreuzberg.pdf',
-      4 => 'data/harvest/DE/DE30/lichtenberg.csv',
-      5 => 'data/harvest/DE/DE30/lichtenberg.pdf',
-      6 => 'data/harvest/DE/DE30/marzahn-hellersdorf.csv',
-      7 => 'data/harvest/DE/DE30/marzahn-hellersdorf.pdf',
-      8 => 'data/harvest/DE/DE30/mitte.csv',
-      9 => 'data/harvest/DE/DE30/mitte.pdf',
-      10 => 'data/harvest/DE/DE30/neukoelln.csv',
-      11 => 'data/harvest/DE/DE30/neukoelln.pdf',
-      12 => 'data/harvest/DE/DE30/pankow.csv',
-      13 => 'data/harvest/DE/DE30/pankow.pdf',
-      14 => 'data/harvest/DE/DE30/reinickendorf.csv',
-      15 => 'data/harvest/DE/DE30/reinickendorf.pdf',
-      16 => 'data/harvest/DE/DE30/spandau.csv',
-      17 => 'data/harvest/DE/DE30/spandau.pdf',
-      18 => 'data/harvest/DE/DE30/steglitz-zehlendorf.csv',
-      19 => 'data/harvest/DE/DE30/steglitz-zehlendorf.pdf',
-      20 => 'data/harvest/DE/DE30/tempelhof-schoeneberg.csv',
-      21 => 'data/harvest/DE/DE30/tempelhof-schoeneberg.pdf',
-      22 => 'data/harvest/DE/DE30/treptow-koepenick.csv',
-      23 => 'data/harvest/DE/DE30/treptow-koepenick.pdf',
-    ),
-    'years' => 
-    array (
-      0 => '2030',
-    ),
-  ),
-  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9552_de' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2006',
-    ),
-    'url' => 
-    array (
-      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202006.csv',
-    ),
-    'license' => 'CC BY',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 1,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DE50/Vornamen%202006.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2006',
-    ),
-  ),
-  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9559_de' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2007',
-    ),
-    'url' => 
-    array (
-      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202007.csv',
-    ),
-    'license' => 'CC BY',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 1,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DE50/Vornamen%202007.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2007',
-    ),
-  ),
-  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9566_de' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2008',
-    ),
-    'url' => 
-    array (
-      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202008.csv',
-    ),
-    'license' => 'CC BY',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 1,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DE50/Vornamen%202008.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2008',
-    ),
-  ),
-  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9573_de' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2009',
-    ),
-    'url' => 
-    array (
-      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202009.csv',
-    ),
-    'license' => 'CC BY',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 1,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DE50/Vornamen%202009.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2009',
-    ),
-  ),
-  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9580_de' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2010',
-    ),
-    'url' => 
-    array (
-      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202010.csv',
-    ),
-    'license' => 'CC BY',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 1,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DE50/Vornamen%202010.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2010',
-    ),
-  ),
-  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9587_de' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2011',
-    ),
-    'url' => 
-    array (
-      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202011.csv',
-    ),
-    'license' => 'CC BY',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 1,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DE50/Vornamen%202011.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2011',
+      0 => 'data/harvest/DE/DE304/charlottenburg-wilmersdorf.csv',
+      1 => 'data/harvest/DE/DE304/charlottenburg-wilmersdorf.pdf',
+      2 => 'data/harvest/DE/DE302/friedrichshain-kreuzberg.csv',
+      3 => 'data/harvest/DE/DE302/friedrichshain-kreuzberg.pdf',
+      4 => 'data/harvest/DE/DE30B/lichtenberg.csv',
+      5 => 'data/harvest/DE/DE30B/lichtenberg.pdf',
+      6 => 'data/harvest/DE/DE30A/marzahn-hellersdorf.csv',
+      7 => 'data/harvest/DE/DE30A/marzahn-hellersdorf.pdf',
+      8 => 'data/harvest/DE/DE301/mitte.csv',
+      9 => 'data/harvest/DE/DE301/mitte.pdf',
+      10 => 'data/harvest/DE/DE308/neukoelln.csv',
+      11 => 'data/harvest/DE/DE308/neukoelln.pdf',
+      12 => 'data/harvest/DE/DE303/pankow.csv',
+      13 => 'data/harvest/DE/DE303/pankow.pdf',
+      14 => 'data/harvest/DE/DE30C/reinickendorf.csv',
+      15 => 'data/harvest/DE/DE30C/reinickendorf.pdf',
+      16 => 'data/harvest/DE/DE305/spandau.csv',
+      17 => 'data/harvest/DE/DE305/spandau.pdf',
+      18 => 'data/harvest/DE/DE306/steglitz-zehlendorf.csv',
+      19 => 'data/harvest/DE/DE306/steglitz-zehlendorf.pdf',
+      20 => 'data/harvest/DE/DE307/tempelhof-schoeneberg.csv',
+      21 => 'data/harvest/DE/DE307/tempelhof-schoeneberg.pdf',
+      22 => 'data/harvest/DE/DE309/treptow-koepenick.csv',
+      23 => 'data/harvest/DE/DE309/treptow-koepenick.pdf',
+      24 => 'data/harvest/DE/DE30/standesamt_i.csv',
+      25 => 'data/harvest/DE/DE30/standesamt_i.pdf',
     ),
   ),
   'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9594_de' => 
@@ -1020,8 +911,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'CC BY',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 1,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE50/Vornamen%202012.csv',
@@ -1029,6 +920,144 @@ $dataHarvestMetadata=array (
     'years' => 
     array (
       0 => '2012',
+    ),
+  ),
+  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9587_de' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2011',
+    ),
+    'url' => 
+    array (
+      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202011.csv',
+    ),
+    'license' => 'CC BY',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE50/Vornamen%202011.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2011',
+    ),
+  ),
+  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9580_de' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2010',
+    ),
+    'url' => 
+    array (
+      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202010.csv',
+    ),
+    'license' => 'CC BY',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE50/Vornamen%202010.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2010',
+    ),
+  ),
+  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9573_de' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2009',
+    ),
+    'url' => 
+    array (
+      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202009.csv',
+    ),
+    'license' => 'CC BY',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE50/Vornamen%202009.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2009',
+    ),
+  ),
+  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9566_de' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2008',
+    ),
+    'url' => 
+    array (
+      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202008.csv',
+    ),
+    'license' => 'CC BY',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE50/Vornamen%202008.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2008',
+    ),
+  ),
+  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9559_de' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2007',
+    ),
+    'url' => 
+    array (
+      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202007.csv',
+    ),
+    'license' => 'CC BY',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE50/Vornamen%202007.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2007',
+    ),
+  ),
+  'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9552_de' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Datensatz Vornamen (TOP 100 ) in Bremen 2006',
+    ),
+    'url' => 
+    array (
+      0 => 'http://transparenz.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202006.csv',
+    ),
+    'license' => 'CC BY',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE50/Vornamen%202006.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2006',
     ),
   ),
   '/private/hamburg/mitte.json' => 
@@ -1041,8 +1070,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Mitte',
-    'modified' => '2000-01-01',
-    'update' => 528,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
     ),
@@ -1059,15 +1088,11 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Altona',
-    'modified' => '2000-01-01',
-    'update' => 532,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE6002/altona-2013.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2013',
     ),
   ),
   '/private/hamburg/eimsbuettel.json' => 
@@ -1091,7 +1116,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Eimsbüttel',
     'modified' => '2000-01-01',
-    'update' => 498,
+    'update' => 522,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE6003/eimsbuettel-2009.csv',
@@ -1102,10 +1127,10 @@ $dataHarvestMetadata=array (
     ),
     'years' => 
     array (
-      0 => '2012',
-      1 => '2009',
-      2 => '2010',
-      3 => '2011',
+      0 => '2009',
+      1 => '2010',
+      2 => '2011',
+      3 => '2012',
       4 => '2013',
     ),
   ),
@@ -1123,8 +1148,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Nord',
-    'modified' => '2000-01-01',
-    'update' => 525,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE6004/nord-2012.csv',
@@ -1132,8 +1157,8 @@ $dataHarvestMetadata=array (
     ),
     'years' => 
     array (
-      0 => '2013',
-      1 => '2012',
+      0 => '2012',
+      1 => '2013',
     ),
   ),
   '/private/hamburg/wandsbek.json' => 
@@ -1148,8 +1173,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'public',
     'citation' => 'Standesamt Hamburg-Wandsbek',
-    'modified' => '2000-01-01',
-    'update' => 525,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/DE/DE6005/wandsbek-2009-2013.csv',
@@ -1157,7 +1182,6 @@ $dataHarvestMetadata=array (
     'years' => 
     array (
       0 => '2013',
-      1 => '2013',
     ),
   ),
   '/private/hamburg/bergedorf.json' => 
@@ -1186,6 +1210,148 @@ $dataHarvestMetadata=array (
     'modified' => '2000-01-01',
     'update' => 0,
   ),
+  'http://www.offenedaten.frankfurt.de/api/3/action/package_show?id=vornamensstatistik-von-2000-bis-2014' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Vornamensstatistik Mädchen 2000-2015',
+      1 => 'Vornamensstatistik Mädchen 2000-2015',
+      2 => 'Vornamensstatistik Jungen 2000-2015',
+      3 => 'Vornamensstatistik Jungen 2000-2015',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.offenedaten.frankfurt.de/dataset/ed59f0c7-af58-4db5-b060-a869c8df6af2/resource/327d9994-f23d-4867-a042-cc0b4382adb2/download/vornamensstatistikmaedchen20002015.xls',
+      1 => 'http://www.offenedaten.frankfurt.de/dataset/ed59f0c7-af58-4db5-b060-a869c8df6af2/resource/61adbea1-6b8a-4370-84b3-f89ba25227d8/download/vornamensstatistikmaedchen20002015.pdf',
+      2 => 'http://www.offenedaten.frankfurt.de/dataset/ed59f0c7-af58-4db5-b060-a869c8df6af2/resource/6352016e-d590-4750-ba54-c4ca99760504/download/vornamensstatistikjungen20002015.xls',
+      3 => 'http://www.offenedaten.frankfurt.de/dataset/ed59f0c7-af58-4db5-b060-a869c8df6af2/resource/aaf0f4cc-c65f-44ec-bf94-0a69926badee/download/vornamensstatistikjungen20002015.pdf',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2000-01-01',
+    'update' => 1,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE712/vornamensstatistikmaedchen20002015.xls',
+      1 => 'data/harvest/DE/DE712/vornamensstatistikmaedchen20002015.pdf',
+      2 => 'data/harvest/DE/DE712/vornamensstatistikjungen20002015.xls',
+      3 => 'data/harvest/DE/DE712/vornamensstatistikjungen20002015.pdf',
+    ),
+  ),
+  'http://www.opendata-hro.de/de/api/3/action/package_show?id=vornamen_von_neugeborenen_2014' => 
+  array (
+    'name' => 
+    array (
+      0 => 'männlich 2014',
+      1 => 'männlich 2014',
+      2 => 'männlich 2014',
+      3 => 'weiblich 2014',
+      4 => 'weiblich 2014',
+      5 => 'weiblich 2014',
+    ),
+    'url' => 
+    array (
+      0 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2014/maennlich_2014.csv',
+      1 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2014/maennlich_2014.xlsx',
+      2 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2014/maennlich_2014.json',
+      3 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2014/weiblich_2014.csv',
+      4 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2014/weiblich_2014.xlsx',
+      5 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2014/weiblich_2014.json',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-12',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE803/maennlich_2014.csv',
+      1 => 'data/harvest/DE/DE803/maennlich_2014.xlsx',
+      2 => 'data/harvest/DE/DE803/maennlich_2014.json',
+      3 => 'data/harvest/DE/DE803/weiblich_2014.csv',
+      4 => 'data/harvest/DE/DE803/weiblich_2014.xlsx',
+      5 => 'data/harvest/DE/DE803/weiblich_2014.json',
+    ),
+    'years' => 
+    array (
+      0 => '2014',
+    ),
+  ),
+  'http://www.opendata-hro.de/de/api/3/action/package_show?id=vornamen_von_neugeborenen_2013' => 
+  array (
+    'name' => 
+    array (
+      0 => 'männlich 2013',
+      1 => 'männlich 2013',
+      2 => 'männlich 2013',
+      3 => 'weiblich 2013',
+      4 => 'weiblich 2013',
+      5 => 'weiblich 2013',
+    ),
+    'url' => 
+    array (
+      0 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2013/maennlich_2013.csv',
+      1 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2013/maennlich_2013.xlsx',
+      2 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2013/maennlich_2013.json',
+      3 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2013/weiblich_2013.csv',
+      4 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2013/weiblich_2013.xlsx',
+      5 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2013/weiblich_2013.json',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-12',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE803/maennlich_2013.csv',
+      1 => 'data/harvest/DE/DE803/maennlich_2013.xlsx',
+      2 => 'data/harvest/DE/DE803/maennlich_2013.json',
+      3 => 'data/harvest/DE/DE803/weiblich_2013.csv',
+      4 => 'data/harvest/DE/DE803/weiblich_2013.xlsx',
+      5 => 'data/harvest/DE/DE803/weiblich_2013.json',
+    ),
+    'years' => 
+    array (
+      0 => '2013',
+    ),
+  ),
+  'http://www.opendata-hro.de/de/api/3/action/package_show?id=vornamen_von_neugeborenen_2012' => 
+  array (
+    'name' => 
+    array (
+      0 => 'männlich 2012',
+      1 => 'männlich 2012',
+      2 => 'männlich 2012',
+      3 => 'weiblich 2012',
+      4 => 'weiblich 2012',
+      5 => 'weiblich 2012',
+    ),
+    'url' => 
+    array (
+      0 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2012/maennlich_2012.csv',
+      1 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2012/maennlich_2012.xlsx',
+      2 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2012/maennlich_2012.json',
+      3 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2012/weiblich_2012.csv',
+      4 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2012/weiblich_2012.xlsx',
+      5 => 'https://geo.sv.rostock.de/download/opendata/vornamen_von_neugeborenen_2012/weiblich_2012.json',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-12',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DE803/maennlich_2012.csv',
+      1 => 'data/harvest/DE/DE803/maennlich_2012.xlsx',
+      2 => 'data/harvest/DE/DE803/maennlich_2012.json',
+      3 => 'data/harvest/DE/DE803/weiblich_2012.csv',
+      4 => 'data/harvest/DE/DE803/weiblich_2012.xlsx',
+      5 => 'data/harvest/DE/DE803/weiblich_2012.json',
+    ),
+    'years' => 
+    array (
+      0 => '2012',
+    ),
+  ),
   '/private/essen/metadata.json' => 
   array (
     'name' => 
@@ -1211,7 +1377,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'essen.de',
     'modified' => '2000-01-01',
-    'update' => 605,
+    'update' => 629,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA13/2007.csv',
@@ -1222,114 +1388,44 @@ $dataHarvestMetadata=array (
       5 => 'data/harvest/DE/DEA13/2012.csv',
       6 => 'data/harvest/DE/DEA13/2013.csv',
     ),
-    'years' => 
-    array (
-      0 => '2007',
-      1 => '2008',
-      2 => '2009',
-      3 => '2010',
-      4 => '2011',
-      5 => '2012',
-      6 => '2013',
-    ),
   ),
-  'http://www.moers.de/C1257221003C7526/html/7277D86C3481E8F9C1257B5C002F8D98?opendocument' => 
+  'https://geo.muelheim-ruhr.de/open-data/vornamen/10035' => 
   array (
     'name' => 
     array (
-      0 => 'Moers - Beliebte Vornamen für Neugeborene 2009',
     ),
     'url' => 
     array (
-      0 => 'http://www.moers.de/c125722e0057acf2/files/beliebtevornamen2009.csv/$file/beliebtevornamen2009.csv?openelement',
     ),
-    'license' => 'unknown',
+    'license' => '',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 872,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2009.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2009',
-      1 => '2009',
-    ),
+    'update' => -1,
   ),
-  'http://www.moers.de/C1257221003C7526/html/716FF266F9373073C1257B5C0030523F?opendocument' => 
+  'https://www.moers.de/de/rathaus/vornamenstatistik-fuer-neugeborene-2014/' => 
   array (
     'name' => 
     array (
-      0 => 'Moers - Beliebte Vornamen für Neugeborene 2010',
+      0 => 'Moers - Vornamenstatistik für Neugeborene 2014',
     ),
     'url' => 
     array (
-      0 => 'http://www.moers.de/c125722e0057acf2/files/beliebtevornamen2010.csv/$file/beliebtevornamen2010.csv?openelement',
+      0 => 'http://www.moers.de/c125722e0057acf2/files/vornamen14.csv/$file/vornamen14.csv?openelement',
     ),
     'license' => 'unknown',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 872,
+    'modified' => '2015-10-12',
+    'update' => 0,
     'download' => 
     array (
-      0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2010.csv',
+      0 => 'data/harvest/DE/DEA1F024/vornamen14.csv',
     ),
     'years' => 
     array (
-      0 => '2010',
-      1 => '2010',
+      0 => '2014',
     ),
   ),
-  'http://www.moers.de/C1257221003C7526/html/7D17DBDF5B33CAFDC1257B5C0030622A?opendocument' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Moers - Beliebte Vornamen für Neugeborene 2011',
-    ),
-    'url' => 
-    array (
-      0 => 'http://www.moers.de/c125722e0057acf2/files/beliebtevornamen2011.csv/$file/beliebtevornamen2011.csv?openelement',
-    ),
-    'license' => 'unknown',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 652,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2011.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2011',
-      1 => '2011',
-    ),
-  ),
-  'http://www.moers.de/C1257221003C7526/html/4FB51B7FFFBC72C3C1257B5C00307499?opendocument' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Moers - Beliebte Vornamen für Neugeborene 2012',
-    ),
-    'url' => 
-    array (
-      0 => 'http://www.moers.de/c125722e0057acf2/files/beliebtevornamen2012.csv/$file/beliebtevornamen2012.csv?openelement',
-    ),
-    'license' => 'unknown',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 652,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2012.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2012',
-      1 => '2012',
-    ),
-  ),
-  'http://www.moers.de/C1257221003C7526/html/17821D658E239C2EC1257C36003D0934?opendocument' => 
+  'https://www.moers.de/de/rathaus/beliebte-vornamen-fuer-neugeborene-2013/' => 
   array (
     'name' => 
     array (
@@ -1341,8 +1437,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'unknown',
     'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 610,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2013.3.csv',
@@ -1350,6 +1446,180 @@ $dataHarvestMetadata=array (
     'years' => 
     array (
       0 => '2013',
+    ),
+  ),
+  'https://www.moers.de/de/rathaus/beliebte-vornamen-fuer-neugeborene-2012/' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Moers - Beliebte Vornamen für Neugeborene 2012',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.moers.de/c125722e0057acf2/files/beliebtevornamen2012.csv/$file/beliebtevornamen2012.csv?openelement',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2012.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2012',
+    ),
+  ),
+  'https://www.moers.de/de/rathaus/beliebte-vornamen-fuer-neugeborene-2011/' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Moers - Beliebte Vornamen für Neugeborene 2011',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.moers.de/c125722e0057acf2/files/beliebtevornamen2011.csv/$file/beliebtevornamen2011.csv?openelement',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2011.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2011',
+    ),
+  ),
+  'https://www.moers.de/de/rathaus/beliebte-vornamen-fuer-neugeborene-2010/' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Moers - Beliebte Vornamen für Neugeborene 2010',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.moers.de/c125722e0057acf2/files/beliebtevornamen2010.csv/$file/beliebtevornamen2010.csv?openelement',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2010.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2010',
+    ),
+  ),
+  'https://www.moers.de/de/rathaus/beliebte-vornamen-fuer-neugeborene-2009/' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Moers - Beliebte Vornamen für Neugeborene 2009',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.moers.de/c125722e0057acf2/files/beliebtevornamen2009.csv/$file/beliebtevornamen2009.csv?openelement',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-09',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA1F024/beliebtevornamen2009.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2009',
+    ),
+  ),
+  'https://www.offenesdatenportal.de/api/3/action/package_show?id=vornamenstatistik-fur-neugeborene-2014-in-wesel' => 
+  array (
+    'name' => 
+    array (
+      0 => 'CSV-Format',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2014.csv/$file/vornamen2014.csv?openelement',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-12',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA1F048/vornamen2014.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2014',
+    ),
+  ),
+  'https://www.offenesdatenportal.de/api/3/action/package_show?id=vornamenstatistik2004-13' => 
+  array (
+    'name' => 
+    array (
+      0 => 'CSV-Format - 2004',
+      1 => 'CSV-Format - 2005',
+      2 => 'CSV-Format - 2006',
+      3 => 'CSV-Format - 2007',
+      4 => 'CSV-Format - 2008',
+      5 => 'CSV-Format - 2009',
+      6 => 'CSV-Format - 2010',
+      7 => 'CSV-Format - 2011',
+      8 => 'CSV-Format - 2012',
+      9 => 'CSV-Format - 2013',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2004.csv/$file/vornamen2004.csv?openelement',
+      1 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2005.csv/$file/vornamen2005.csv?openelement',
+      2 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2006.csv/$file/vornamen2006.csv?openelement',
+      3 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2007.csv/$file/vornamen2007.csv?openelement',
+      4 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2008.csv/$file/vornamen2008.csv?openelement',
+      5 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2009.csv/$file/vornamen2009.csv?openelement',
+      6 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2010.csv/$file/vornamen2010.csv?openelement',
+      7 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2011.csv/$file/vornamen2011.csv?openelement',
+      8 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2012.csv/$file/vornamen2012.csv?openelement',
+      9 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2013.csv/$file/vornamen2013.csv?openelement',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-12',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA1F048/vornamen2004.csv',
+      1 => 'data/harvest/DE/DEA1F048/vornamen2005.csv',
+      2 => 'data/harvest/DE/DEA1F048/vornamen2006.csv',
+      3 => 'data/harvest/DE/DEA1F048/vornamen2007.csv',
+      4 => 'data/harvest/DE/DEA1F048/vornamen2008.csv',
+      5 => 'data/harvest/DE/DEA1F048/vornamen2009.csv',
+      6 => 'data/harvest/DE/DEA1F048/vornamen2010.csv',
+      7 => 'data/harvest/DE/DEA1F048/vornamen2011.csv',
+      8 => 'data/harvest/DE/DEA1F048/vornamen2012.csv',
+      9 => 'data/harvest/DE/DEA1F048/vornamen2013.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2004',
+      1 => '2005',
+      2 => '2006',
+      3 => '2007',
+      4 => '2008',
+      5 => '2009',
+      6 => '2010',
+      7 => '2011',
+      8 => '2012',
+      9 => '2013',
     ),
   ),
   'http://opendata.bonn.de/api/3/action/package_show?id=155c1d26-e839-461f-b774-45c2ad45f0f0' => 
@@ -1385,22 +1655,20 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 32,
+    'update' => 56,
     'download' => 
     array (
-      0 => 'data/harvest/DE/DEA22/828a2534-d75b-42d4-a1b9-0f55ce10ded5',
-      1 => 'data/harvest/DE/DEA22/9f2da38f-f94c-4999-8bc3-178ec4ddcac1',
-      2 => 'data/harvest/DE/DEA22/006d0d38-881c-4eb5-b807-80af28e9cdfb',
-      3 => 'data/harvest/DE/DEA22/b13dda3f-8545-4cfd-812f-5b52e8979372',
-      4 => 'data/harvest/DE/DEA22/32924c9d-8b44-465c-a215-24ebbbcf782a',
-    ),
-    'years' => 
-    array (
-      0 => '2012',
-      1 => '2013',
-      2 => '2010',
-      3 => '2014',
-      4 => '2011',
+      0 => 'data/harvest/DE/DEA22/47a890f7-4b59-43ae-a158-cd7f1905dd5c',
+      1 => 'data/harvest/DE/DEA22/c44f4f98-7313-4572-8b5a-5fd4e2aae468',
+      2 => 'data/harvest/DE/DEA22/79db2b5a-9ddc-49c0-ba7d-1d1086f9b5e5',
+      3 => 'data/harvest/DE/DEA22/b8175a2f-9f0c-41d3-8a3f-291f6ea5f559',
+      4 => 'data/harvest/DE/DEA22/621db992-fbd8-45f6-a96c-b3f5186fe6d2',
+      5 => 'data/harvest/DE/DEA22/9a4bb462-0075-42f2-bb6c-e808dde6f23d',
+      6 => 'data/harvest/DE/DEA22/828a2534-d75b-42d4-a1b9-0f55ce10ded5',
+      7 => 'data/harvest/DE/DEA22/9f2da38f-f94c-4999-8bc3-178ec4ddcac1',
+      8 => 'data/harvest/DE/DEA22/006d0d38-881c-4eb5-b807-80af28e9cdfb',
+      9 => 'data/harvest/DE/DEA22/b13dda3f-8545-4cfd-812f-5b52e8979372',
+      10 => 'data/harvest/DE/DEA22/32924c9d-8b44-465c-a215-24ebbbcf782a',
     ),
   ),
   'http://offenedaten-koeln.de/api/3/action/package_show?id=63d138aa-8297-438a-ad36-3916bd37c60b' => 
@@ -1424,7 +1692,7 @@ $dataHarvestMetadata=array (
     'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => 241,
+    'update' => 264,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA23/Vornamen_Koeln_2013.csv',
@@ -1435,11 +1703,32 @@ $dataHarvestMetadata=array (
     ),
     'years' => 
     array (
-      0 => '2014',
-      1 => '2013',
-      2 => '2012',
-      3 => '2011',
-      4 => '2010',
+      0 => '2013',
+      1 => '2012',
+      2 => '2011',
+      3 => '2010',
+    ),
+  ),
+  'http://offenedaten.aachen.de/api/3/action/package_show?id=vornamen-2014' => 
+  array (
+    'name' => 
+    array (
+      0 => 'Vornamen 2014',
+      1 => 'Vornamen 2013',
+    ),
+    'url' => 
+    array (
+      0 => 'http://offenedaten.aachen.de/dataset/aab1ab6e-c766-4d49-ac6d-7a225d348dd5/resource/a2adf909-1f54-4dbb-ad68-2ce428ad0b3d/download/pfb11400itmanagementopendataaachenvornamen2014.csv',
+      1 => 'http://offenedaten.aachen.de/dataset/aab1ab6e-c766-4d49-ac6d-7a225d348dd5/resource/fabcf517-b7ce-4dd7-b840-ae8403a6f4b2/download/pfb11400itmanagementopendataaachenvornamen2013.csv',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2000-01-01',
+    'update' => 271,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA2D002/pfb11400itmanagementopendataaachenvornamen2014.csv',
+      1 => 'data/harvest/DE/DEA2D002/pfb11400itmanagementopendataaachenvornamen2013.csv',
     ),
   ),
   '/private/muenster/metadata.json' => 
@@ -1466,8 +1755,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'public',
     'citation' => 'Standesamt der Stadt Münster',
-    'modified' => '2000-01-01',
-    'update' => 536,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA33/2007.csv',
@@ -1510,7 +1799,7 @@ $dataHarvestMetadata=array (
     'license' => 'public',
     'citation' => 'Stadt Paderborn',
     'modified' => '2000-01-01',
-    'update' => 529,
+    'update' => 553,
     'download' => 
     array (
       0 => 'data/harvest/DE/DEA47/Vornamen2009_Gesamtliste.csv',
@@ -1521,27 +1810,59 @@ $dataHarvestMetadata=array (
     ),
     'years' => 
     array (
-      0 => '2009',
-      1 => '2010',
-      2 => '2011',
-      3 => '2012',
+      0 => '2011',
+      1 => '2012',
+      2 => '2009',
+      3 => '2010',
       4 => '2013',
     ),
   ),
-  '/private/delmenhorst/metadata.json' => 
+  'http://www.bochum.de/opendata/datensaetze/jugend-familie-soziales/nav/75F9RD294BOLD' => 
   array (
     'name' => 
     array (
+      0 => 'Vornamen-Statistik 1971 bis 1980: ',
+      1 => 'Vornamen-Statistik 1961 bis 1970:',
+      2 => 'Vornamen-Statistik 1951 bis 1960:',
     ),
     'url' => 
     array (
+      0 => 'http://www.bochum.de/C12571A3001D56CE/vwContentByKey/W29MBC3D851BOCMDE/$FILE/Vornamen1971bis1980.csv',
+      1 => 'http://www.bochum.de/C12571A3001D56CE/vwContentByKey/W29MBC3D851BOCMDE/$FILE/Vornamen1961bis1970.csv',
+      2 => 'http://www.bochum.de/C12571A3001D56CE/vwContentByKey/W29MBC3D851BOCMDE/$FILE/Vornamen1951bis1960.csv',
     ),
-    'license' => '',
+    'license' => 'unknown',
     'citation' => '',
     'modified' => '2000-01-01',
-    'update' => -1,
+    'update' => 52,
     'download' => 
     array (
+      0 => 'data/harvest/DE/DEA51/Vornamen1971bis1980.csv',
+      1 => 'data/harvest/DE/DEA51/Vornamen1961bis1970.csv',
+      2 => 'data/harvest/DE/DEA51/Vornamen1951bis1960.csv',
+    ),
+  ),
+  'http://www.arnsberg.de/open-data/bevoelkerung/index.php' => 
+  array (
+    'name' => 
+    array (
+      0 => '',
+    ),
+    'url' => 
+    array (
+      0 => 'http://www.arnsberg.de/open-data/bevoelkerung/vornamenstatistik-2014.csv',
+    ),
+    'license' => 'unknown',
+    'citation' => '',
+    'modified' => '2015-10-12',
+    'update' => 0,
+    'download' => 
+    array (
+      0 => 'data/harvest/DE/DEA57004/vornamenstatistik-2014.csv',
+    ),
+    'years' => 
+    array (
+      0 => '2014',
     ),
   ),
   '/private/chemnitz/metadata.json' => 
@@ -1564,8 +1885,8 @@ $dataHarvestMetadata=array (
     ),
     'license' => 'public',
     'citation' => 'Stadt Chemnitz, Standesamt',
-    'modified' => '2000-01-01',
-    'update' => 532,
+    'modified' => '2015-10-09',
+    'update' => 0,
     'download' => 
     array (
       0 => 'data/harvest/DE/DED11/2009.csv',
@@ -1576,251 +1897,11 @@ $dataHarvestMetadata=array (
     ),
     'years' => 
     array (
-      0 => '2013',
-      1 => '2009',
-      2 => '2010',
-      3 => '2011',
-      4 => '2012',
-    ),
-  ),
-  'http://www.offenedaten.moers.de/C1257221003C7526/html/D7AB28A163F86824C1257DC60047A1F0?OpenDocument' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Moers - Vornamenstatistik für Neugeborene 2014',
-    ),
-    'url' => 
-    array (
-      0 => 'http://www.moers.de/c125722e0057acf2/files/vornamen14.csv/$file/vornamen14.csv?openelement',
-    ),
-    'license' => 'unknown',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => -1,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DEA1F024/vornamen14.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2014',
-    ),
-  ),
-  'http://www.bochum.de/opendata/datensaetze/jugend-familie-soziales/nav/75F9RD294BOLD' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Vornamen-Statistik 1971 bis 1980: ',
-      1 => 'Vornamen-Statistik 1961 bis 1970:',
-      2 => 'Vornamen-Statistik 1951 bis 1960:',
-    ),
-    'url' => 
-    array (
-      0 => 'http://www.bochum.de/C12571A3001D56CE/vwContentByKey/W29MBC3D851BOCMDE/$FILE/Vornamen1971bis1980.csv',
-      1 => 'http://www.bochum.de/C12571A3001D56CE/vwContentByKey/W29MBC3D851BOCMDE/$FILE/Vornamen1961bis1970.csv',
-      2 => 'http://www.bochum.de/C12571A3001D56CE/vwContentByKey/W29MBC3D851BOCMDE/$FILE/Vornamen1951bis1960.csv',
-    ),
-    'license' => 'unknown',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 28,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DEA51/Vornamen2014.csv',
-      1 => 'data/harvest/DE/DEA51/Vornamen2013.csv',
-      2 => 'data/harvest/DE/DEA51/Vornamen2012.csv',
-      3 => 'data/harvest/DE/DEA51/Vornamen2011.csv',
-      4 => 'data/harvest/DE/DEA51/Vornamen2010.csv',
-      5 => 'data/harvest/DE/DEA51/Vornamen2009.csv',
-      6 => 'data/harvest/DE/DEA51/Vornamen2008.csv',
-      7 => 'data/harvest/DE/DEA51/Vornamen2007.csv',
-      8 => 'data/harvest/DE/DEA51/Vornamen2006.csv',
-      9 => 'data/harvest/DE/DEA51/Vornamen2005.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2014',
-      1 => '2013',
-      2 => '2012',
-      3 => '2011',
-      4 => '2010',
-      5 => '2009',
-      6 => '2008',
-      7 => '2007',
-      8 => '2006',
-      9 => '2005',
-    ),
-  ),
-  'http://offenedaten.aachen.de/dataset/vornamen-2014' => 
-  array (
-    'name' => 
-    array (
-    ),
-    'url' => 
-    array (
-    ),
-    'license' => '',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => -1,
-    'download' => 
-    array (
-    ),
-  ),
-  'http://offenedaten.aachen.de/api/3/action/package_show?id=vornamen-2014' => 
-  array (
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DEA2D002/pfb11400itmanagementopendataaachenvornamen2014.csv',
-      1 => 'data/harvest/DE/DEA2D002/pfb11400itmanagementopendataaachenvornamen2013.csv',
-    ),
-    'name' => 
-    array (
-      0 => 'Vornamen 2014',
-      1 => 'Vornamen 2013',
-    ),
-    'url' => 
-    array (
-      0 => 'http://offenedaten.aachen.de/dataset/aab1ab6e-c766-4d49-ac6d-7a225d348dd5/resource/a2adf909-1f54-4dbb-ad68-2ce428ad0b3d/download/pfb11400itmanagementopendataaachenvornamen2014.csv',
-      1 => 'http://offenedaten.aachen.de/dataset/aab1ab6e-c766-4d49-ac6d-7a225d348dd5/resource/fabcf517-b7ce-4dd7-b840-ae8403a6f4b2/download/pfb11400itmanagementopendataaachenvornamen2013.csv',
-    ),
-    'license' => 'unknown',
-    'citation' => '',
-    'update' => 247,
-    'years' => 
-    array (
-      0 => '2014',
-      1 => '2013',
-    ),
-  ),
-  'https://www.opengov-muenchen.de/api/rest/dataset/vornamen' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Vornamen 2013 männlich',
-      1 => 'Vornamen 2013 weiblich',
-    ),
-    'url' => 
-    array (
-      0 => 'https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/66f2b9e0-aaba-4311-886b-ee280a578f0b/download/vornamenmaennlich2013.csv',
-      1 => 'https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/e2d2f358-cda8-4edc-8ead-3659cd00c14f/download/vornamenweiblich2013.csv',
-    ),
-    'license' => 'unknown',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 197,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DE212/vornamenmaennlich2013.csv',
-      1 => 'data/harvest/DE/DE212/vornamenweiblich2013.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2013',
-    ),
-  ),
-  'https://www.opengov-muenchen.de/api/3/action/package_show?id=vornamen' => 
-  array (
-    'name' => 
-    array (
-      0 => 'Vornamen 2013 männlich',
-      1 => 'Vornamen 2013 weiblich',
-    ),
-    'url' => 
-    array (
-      0 => 'https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/66f2b9e0-aaba-4311-886b-ee280a578f0b/download/vornamenmaennlich2013.csv',
-      1 => 'https://www.opengov-muenchen.de/dataset/6acc34a9-762e-4e7f-83b0-250654478134/resource/e2d2f358-cda8-4edc-8ead-3659cd00c14f/download/vornamenweiblich2013.csv',
-    ),
-    'license' => 'unknown',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 203,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DE212/vornamenmaennlich2013.csv',
-      1 => 'data/harvest/DE/DE212/vornamenweiblich2013.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2013',
-    ),
-  ),
-  'https://www.offenesdatenportal.de/api/3/action/package_show?id=vornamenstatistik-fur-neugeborene-2014-in-wesel' => 
-  array (
-    'name' => 
-    array (
-      0 => 'CSV-Format',
-    ),
-    'url' => 
-    array (
-      0 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2014.csv/$file/vornamen2014.csv?openelement',
-    ),
-    'license' => 'unknown',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 1,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DEA1F024048/vornamen2014.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2014',
-    ),
-  ),
-  'https://www.offenesdatenportal.de/api/3/action/package_show?id=vornamenstatistik2004-13' => 
-  array (
-    'name' => 
-    array (
-      0 => 'CSV-Format - 2004',
-      1 => 'CSV-Format - 2005',
-      2 => 'CSV-Format - 2006',
-      3 => 'CSV-Format - 2007',
-      4 => 'CSV-Format - 2008',
-      5 => 'CSV-Format - 2009',
-      6 => 'CSV-Format - 2010',
-      7 => 'CSV-Format - 2011',
-      8 => 'CSV-Format - 2012',
-      9 => 'CSV-Format - 2013',
-    ),
-    'url' => 
-    array (
-      0 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2004.csv/$file/vornamen2004.csv?openelement',
-      1 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2005.csv/$file/vornamen2005.csvf?openelement',
-      2 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2006.csv/$file/vornamen2006.csv?openelement',
-      3 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2007.csv/$file/vornamen2007.csv?openelement',
-      4 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2008.csv/$file/vornamen2008.csv?openelement',
-      5 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2009.csv/$file/vornamen2009.csv?openelement',
-      6 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2010.csv/$file/vornamen2010.csv?openelement',
-      7 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2011.csv/$file/vornamen2011.csv?openelement',
-      8 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2012.csv/$file/vornamen2012.csv?openelement',
-      9 => 'http://www.wesel.de/c1257e3500269489/files/vornamen2013.csv/$file/vornamen2013.csv?openelement',
-    ),
-    'license' => 'unknown',
-    'citation' => '',
-    'modified' => '2000-01-01',
-    'update' => 1,
-    'download' => 
-    array (
-      0 => 'data/harvest/DE/DEA1F024048/vornamen2006.csv',
-      1 => 'data/harvest/DE/DEA1F024048/vornamen2007.csv',
-      2 => 'data/harvest/DE/DEA1F024048/vornamen2008.csv',
-      3 => 'data/harvest/DE/DEA1F024048/vornamen2009.csv',
-      4 => 'data/harvest/DE/DEA1F024048/vornamen2010.csv',
-      5 => 'data/harvest/DE/DEA1F024048/vornamen2011.csv',
-      6 => 'data/harvest/DE/DEA1F024048/vornamen2012.csv',
-      7 => 'data/harvest/DE/DEA1F024048/vornamen2013.csv',
-    ),
-    'years' => 
-    array (
-      0 => '2006',
-      1 => '2007',
-      2 => '2008',
-      3 => '2009',
-      4 => '2010',
-      5 => '2011',
-      6 => '2012',
-      7 => '2013',
+      0 => '2009',
+      1 => '2010',
+      2 => '2011',
+      3 => '2012',
+      4 => '2013',
     ),
   ),
 );

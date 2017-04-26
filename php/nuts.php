@@ -75,15 +75,16 @@ function nutsShowPageBrowse()
 	global $gNuts;
 
 	$txt = '';
-	$txt .= '<h1>Show the world</h1>';
+	$txt .= '<div class="log">Source regions<br>=============<br><br>';
 	echo( $txt);
 
 	echo( nutsShowPageBrowseSubTree( $gNuts, 0));
 
-	$txt = '<br>';
-	$txt .= '<hr>';
+	$txt = '';
 	$txt .= '<br>';
-	$txt .= '<a href="do=">Back to main</a><br>';
+	$txt .= '[<a href="do=browse&what=sources">Show source list</a>]<br>';
+	$txt .= '[<a href="do=">Show admin area</a>]<br>';
+	$txt .= '</div>';
 	echo( $txt);
 }
 

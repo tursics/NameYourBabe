@@ -22,13 +22,13 @@ $gSource=array (
       0 => 'Lower Austria',
     ),
     'url' => 'data.noe.gv.at',
-    'meta' => 'http://www.data.gv.at/katalog/api/rest/dataset/land-noe_vornamen-in-niederosterreich',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=0770d1e6-8c28-4c82-ad3f-5c9e63a8888d',
     'modified' => '2013-11-09',
     'id' => 0,
-    'autoUpdate' => 0,
+    'autoUpdate' => 8,
     'autoUrl' => 
     array (
-      0 => 'http://open-data.noe.gv.at/RU2/noe_name_sex_2011_2012_nuts2.csv',
+      0 => 'http://open-data.noe.gv.at/RU2/noe_name_sex_2011_2013_nuts2.csv',
     ),
     'autoName' => 
     array (
@@ -38,9 +38,10 @@ $gSource=array (
     array (
       0 => 'AT12',
     ),
-    'autoModified' => '2014-07-18',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Niederösterreich - data.noe.gv.at',
+    'autoCitation' => '',
   ),
   2 => 
   array (
@@ -55,10 +56,10 @@ $gSource=array (
       0 => 'Vienna',
     ),
     'url' => 'data.wien.gv.at',
-    'meta' => 'http://www.data.gv.at/katalog/api/rest/dataset/top-100-vornamen-in-wien-zeitreihe',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=fb3345a6-b82a-4775-8ded-7e1bf1ce905a',
     'modified' => '2013-10-11',
     'id' => 1,
-    'autoUpdate' => 0,
+    'autoUpdate' => 104,
     'autoUrl' => 
     array (
       0 => 'http://www.wien.gv.at/statistik/ogd/b11-givennames-vie.csv',
@@ -71,9 +72,10 @@ $gSource=array (
     array (
       0 => 'AT130',
     ),
-    'autoModified' => '2014-03-26',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Stadt Wien – data.wien.gv.at',
+    'autoCitation' => '',
   ),
   3 => 
   array (
@@ -96,35 +98,30 @@ $gSource=array (
   5 => 
   array (
     'nuts' => 'AT22',
-    'name' => '[2012-2012] Steiermark',
-    'de-DE' => 
-    array (
-      0 => 'Steiermark',
-    ),
-    'en-US' => 
-    array (
-      0 => 'Styria',
-    ),
+    'name' => '[2012-2013] Steiermark',
     'url' => 'http://data.gv.at/datensatz/?id=7bc04db0-3718-11e3-aa6e-0800200c9a66',
-    'meta' => 'http://data.gv.at/katalog/api/rest/dataset/land-stmk_vornamenderlebendgeborenenindersteiermark',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=7bc04db0-3718-11e3-aa6e-0800200c9a66',
     'modified' => '2013-11-02',
     'id' => 26,
-    'autoUpdate' => 0,
+    'autoUpdate' => 4,
     'autoUrl' => 
     array (
-      0 => 'http://service.stmk.gv.at/ogd/OGD_Data_ABT07/statistik/STMK_2012_GIVEN_NAMES.csv',
+      0 => 'http://service.stmk.gv.at/ogd/OGD_Data_ABT07/statistik/STMK_2013_GIVEN_NAMES.csv',
+      1 => 'http://service.stmk.gv.at/ogd/OGD_Data_ABT07/statistik/STMK_2012_GIVEN_NAMES.csv',
     ),
     'autoName' => 
     array (
-      0 => 'Data_2012',
+      0 => 'Data_2013',
+      1 => 'Data_2012',
     ),
     'manNUTS' => 
     array (
       0 => 'AT22',
+      1 => 'AT22',
     ),
-    'autoModified' => '2014-06-07',
+    'autoModified' => '2014-08-25',
     'autoLicense' => 'CC BY 3.0 AT',
-    'autoCitation' => 'Datenquelle: CC-BY-3.0-AT: Land Steiermark - data.steiermark.gv.at',
+    'autoCitation' => '',
   ),
   6 => 
   array (
@@ -139,10 +136,10 @@ $gSource=array (
       0 => 'Graz',
     ),
     'url' => 'http://data.gv.at/datensatz/?id=0f00e9fb-27cd-4c70-b5c8-33a5e79aaffb',
-    'meta' => 'http://data.gv.at/katalog/api/rest/dataset/ogdgraz_vornamensstatistik',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=0f00e9fb-27cd-4c70-b5c8-33a5e79aaffb',
     'modified' => '2013-11-03',
     'id' => 24,
-    'autoUpdate' => 0,
+    'autoUpdate' => 36,
     'autoUrl' => 
     array (
       0 => 'http://data.graz.gv.at//katalog/bevoelkerung/vornamensstatistik/vnalf2010graz.pdf',
@@ -161,9 +158,10 @@ $gSource=array (
       1 => 'AT221',
       2 => 'AT221',
     ),
-    'autoModified' => '2013-11-14',
+    'autoModified' => '2014-09-02',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Stadt Graz - data.graz.gv.at',
+    'autoCitation' => '',
   ),
   7 => 
   array (
@@ -178,7 +176,7 @@ $gSource=array (
       0 => 'Upper Austria',
     ),
     'url' => 'http://data.gv.at/datensatz/?id=ooe-B2E18584DC84412F84E746C4E87341D2',
-    'meta' => 'http://data.gv.at/katalog/api/rest/dataset/land-ooe_bevolkerung-vornamen',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=ooe-B2E18584DC84412F84E746C4E87341D2',
     'modified' => '2013-11-02',
     'id' => 22,
     'autoUpdate' => 0,
@@ -194,7 +192,7 @@ $gSource=array (
     array (
       0 => 'AT31',
     ),
-    'autoModified' => '2014-07-18',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Oberösterreich - data.ooe.gv.at',
   ),
@@ -225,39 +223,47 @@ $gSource=array (
       7 => '###Linz###',
     ),
     'url' => 'http://www.data.gv.at/datensatz/?id=dcdeea6d-9626-47e5-a5bb-fa679e244d79',
-    'meta' => 'http://www.data.gv.at/katalog/api/rest/dataset/ogdlinz_beliebteste-vornamen-in-linz',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=9861f2a3-d9ed-44e6-a2e5-34ac2b3561dd',
     'modified' => '2013-10-18',
     'id' => 2,
-    'autoUpdate' => 0,
+    'autoUpdate' => 8,
     'autoUrl' => 
     array (
-      0 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2013.csv',
-      1 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2012.csv',
-      2 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2011.csv',
-      3 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2013.csv',
-      4 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2012.csv',
-      5 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2011.csv',
-      6 => 'http://data.linz.gv.at/katalog/population/vornamen/2012/Beliebteste_Vornamen_des_Jahres_2012.csv',
-      7 => 'http://data.linz.gv.at/katalog/population/vornamen/2011/Beliebteste_Vornamen_des_Jahres_2011.csv',
-      8 => 'http://data.linz.gv.at/katalog/population/vornamen/2010/Beliebteste_Vornamen_des_Jahres_2010.csv',
-      9 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2013.csv',
-      10 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2012.csv',
-      11 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2011.csv',
+      0 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2014.csv',
+      1 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2013.csv',
+      2 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2012.csv',
+      3 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2011.csv',
+      4 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2014.csv',
+      5 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2013.csv',
+      6 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2012.csv',
+      7 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2011.csv',
+      8 => 'http://data.linz.gv.at/katalog/population/vornamen/2013/Beliebteste_Vornamen_des_Jahres_2013.csv',
+      9 => 'http://data.linz.gv.at/katalog/population/vornamen/2012/Beliebteste_Vornamen_des_Jahres_2012.csv',
+      10 => 'http://data.linz.gv.at/katalog/population/vornamen/2011/Beliebteste_Vornamen_des_Jahres_2011.csv',
+      11 => 'http://data.linz.gv.at/katalog/population/vornamen/2010/Beliebteste_Vornamen_des_Jahres_2010.csv',
+      12 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2014.csv',
+      13 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2013.csv',
+      14 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2012.csv',
+      15 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2011.csv',
     ),
     'autoName' => 
     array (
-      0 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2013',
-      1 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2012',
-      2 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2011',
-      3 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2013',
-      4 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2012',
-      5 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2011',
-      6 => 'Beliebteste Vornamen des Jahres 2012',
-      7 => 'Beliebteste Vornamen des Jahres 2011',
-      8 => 'Beliebteste Vornamen des Jahres 2010',
-      9 => 'Beliebteste Vornamen aller Linzer am 01.01.2013',
-      10 => 'Beliebteste Vornamen aller Linzer am 01.01.2012',
-      11 => 'Beliebteste Vornamen aller Linzer am 01.01.2011',
+      0 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2014',
+      1 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2013',
+      2 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2012',
+      3 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2011',
+      4 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2014',
+      5 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2013',
+      6 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2012',
+      7 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2011',
+      8 => 'Beliebteste Vornamen des Jahres 2013',
+      9 => 'Beliebteste Vornamen des Jahres 2012',
+      10 => 'Beliebteste Vornamen des Jahres 2011',
+      11 => 'Beliebteste Vornamen des Jahres 2010',
+      12 => 'Beliebteste Vornamen aller Linzer am 01.01.2014',
+      13 => 'Beliebteste Vornamen aller Linzer am 01.01.2013',
+      14 => 'Beliebteste Vornamen aller Linzer am 01.01.2012',
+      15 => 'Beliebteste Vornamen aller Linzer am 01.01.2011',
     ),
     'manNUTS' => 
     array (
@@ -274,9 +280,9 @@ $gSource=array (
       10 => 'AT31240101',
       11 => 'AT31240101',
     ),
-    'autoModified' => '2013-11-20',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
-    'autoCitation' => 'Datenquelle: CC-BY-3.0: Stadt Linz - data.linz.gv.at',
+    'autoCitation' => '',
   ),
   9 => 
   array (
@@ -292,13 +298,13 @@ $gSource=array (
       0 => 'Engerwitzdorf',
     ),
     'url' => 'http://www.data.gv.at/datensatz/?id=8f68fe3e-d27b-440c-ba9f-c1ed3e8f987b',
-    'meta' => 'http://www.data.gv.at/katalog/api/rest/dataset/vornamen-m-nnlich-engerwitzdorf',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=8f68fe3e-d27b-440c-ba9f-c1ed3e8f987b',
     'modified' => '2013-05-17',
     'id' => 3,
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => 'http://data.gv.at/katalog/storage/f/Vornamen-maennlich-2011.txt',
+      0 => 'http://katalog/storage/f/Vornamen-maennlich-2011.txt',
     ),
     'autoName' => 
     array (
@@ -308,7 +314,7 @@ $gSource=array (
     array (
       0 => 'AT31241605',
     ),
-    'autoModified' => '2013-11-21',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: CC-BY-3.0: Gemeinde Engerwitzdorf - data.engerwitzdorf.gv.at',
   ),
@@ -326,13 +332,13 @@ $gSource=array (
       0 => 'Engerwitzdorf',
     ),
     'url' => 'http://www.data.gv.at/datensatz/?id=431d3247-42e4-4c0c-8be2-275352c07e57',
-    'meta' => 'http://www.data.gv.at/katalog/api/rest/dataset/vornamen-weiblich-engerwitzdorf',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=431d3247-42e4-4c0c-8be2-275352c07e57',
     'modified' => '2013-05-17',
     'id' => 4,
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => 'http://data.gv.at/katalog/storage/f/Vornamen-weiblich-2011.txt',
+      0 => 'http://katalog/storage/f/Vornamen-weiblich-2011.txt',
     ),
     'autoName' => 
     array (
@@ -342,7 +348,7 @@ $gSource=array (
     array (
       0 => 'AT31241605',
     ),
-    'autoModified' => '2013-11-21',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: CC-BY-3.0: Gemeinde Engerwitzdorf - data.engerwitzdorf.gv.at',
   ),
@@ -359,24 +365,27 @@ $gSource=array (
   array (
     'nuts' => 'AT32',
     'name' => 'Die 60 häufigsten Vornamen im Land Salzburg - Zeitreihe',
-    'meta' => '/private/salzburg/metadata.json',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=e2f18f75-934f-4f39-9722-60e81d173ef5',
     'id' => 31,
     'manNUTS' => 
     array (
       0 => 'AT32',
     ),
-    'autoUpdate' => 0,
+    'autoUpdate' => 8,
     'autoUrl' => 
     array (
-      0 => 'http://www.salzburg.gv.at/ogd/e2f18f75-934f-4f39-9722-60e81d173ef5/names-szg.csv',
+      0 => 'http://www.salzburg.gv.at/ogd/e2f18f75-934f-4f39-9722-60e81d173ef5/names-szg.json',
+      1 => 'http://www.salzburg.gv.at/ogd/e2f18f75-934f-4f39-9722-60e81d173ef5/names-szg.csv',
     ),
     'autoName' => 
     array (
-      0 => 'Die 60 häufigsten Vornamen im Land Salzburg - Zeitreihe',
+      0 => NULL,
+      1 => NULL,
     ),
     'autoLicense' => 'CC BY 3.0 AT',
     'autoModified' => '2014-06-25',
     'manCitation' => 'Datenquelle: Land Salzburg - data.salzburg.gv.at',
+    'autoCitation' => '',
   ),
   13 => 
   array (
@@ -392,13 +401,13 @@ $gSource=array (
       0 => 'Salzburg',
     ),
     'url' => 'http://www.data.gv.at/datensatz/?id=988368f6-7bd6-4d6a-bf60-1d07ffa6cfc4',
-    'meta' => 'http://www.data.gv.at/katalog/api/rest/dataset/beliebteste-vornamen-in-der-stadt-salzburg-2012',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=988368f6-7bd6-4d6a-bf60-1d07ffa6cfc4',
     'modified' => '2013-10-11',
     'id' => 23,
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => 'http://data.gv.at/katalog/storage/f/Ranking_Vornamen_2012-v2.csv',
+      0 => 'http://at.gv.brz.ogd/storage/f/Ranking_Vornamen_2012-v2.csv',
     ),
     'autoName' => 
     array (
@@ -408,7 +417,7 @@ $gSource=array (
     array (
       0 => 'AT32350101',
     ),
-    'autoModified' => '2013-11-21',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Stadt Salzburg - data.stadt-salzburg.at',
   ),
@@ -426,7 +435,7 @@ $gSource=array (
       0 => 'Salzburg',
     ),
     'url' => 'http://data.gv.at/datensatz/?id=ce4f1d6f-2d98-4736-935c-0cc681412e68',
-    'meta' => 'http://data.gv.at/katalog/api/rest/dataset/beliebteste-vornamen-in-der-stadt-salzburg-2010',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=ce4f1d6f-2d98-4736-935c-0cc681412e68',
     'modified' => '2013-11-09',
     'id' => 32,
     'autoUpdate' => 0,
@@ -442,7 +451,7 @@ $gSource=array (
     array (
       0 => 'AT32350101',
     ),
-    'autoModified' => '2013-11-21',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Stadt Salzburg - data.stadt-salzburg.at',
   ),
@@ -460,7 +469,7 @@ $gSource=array (
       0 => 'Salzburg',
     ),
     'url' => 'http://data.gv.at/datensatz/?id=1a5c0ea3-432f-45e8-a305-19dd147867c0',
-    'meta' => 'http://data.gv.at/katalog/api/rest/dataset/beliebteste-vornamen-in-der-stadt-salzburg-2011',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=1a5c0ea3-432f-45e8-a305-19dd147867c0',
     'modified' => '2013-11-09',
     'id' => 33,
     'autoUpdate' => 0,
@@ -476,7 +485,7 @@ $gSource=array (
     array (
       0 => 'AT32350101',
     ),
-    'autoModified' => '2013-11-21',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Stadt Salzburg - data.stadt-salzburg.at',
   ),
@@ -493,18 +502,18 @@ $gSource=array (
       0 => 'Tyrol',
     ),
     'url' => 'http://www.data.gv.at/datensatz/?id=806c3e987d4a7fb2ae862f923b45046333d7437f',
-    'meta' => 'http://www.data.gv.at/katalog/api/rest/dataset/land-tirol_top100vornamenintirol',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=806c3e987d4a7fb2ae862f923b45046333d7437f',
     'modified' => '2013-10-10',
     'id' => 21,
-    'autoUpdate' => 0,
+    'autoUpdate' => 34,
     'autoUrl' => 
     array (
-      0 => 'http://gis.tirol.gv.at/ogd/bevoelkerung/top_100_vornamen_seit_2009.csv',
+      0 => 'https://gis.tirol.gv.at/ogd/bevoelkerung/top_100_vornamen_seit_2009.csv',
       1 => 'https://www.tirol.gv.at/data/datenkatalog/bevoelkerung/top-100-vornamen-in-tirol/',
     ),
     'autoName' => 
     array (
-      0 => 'Download 2009 - 2012',
+      0 => 'Download 2009 - 2013',
       1 => 'Top 100 Vornamen in Tirol',
     ),
     'manNUTS' => 
@@ -512,9 +521,10 @@ $gSource=array (
       0 => 'AT33',
       1 => 'AT33',
     ),
-    'autoModified' => '2014-06-07',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Tirol - data.tirol.gv.at',
+    'autoCitation' => '',
   ),
   17 => 
   array (
@@ -538,13 +548,13 @@ $gSource=array (
       0 => 'Vorarlberg',
     ),
     'url' => 'http://data.gv.at/datensatz/?id=5505b7af-c252-44c1-ab73-056e16f18763',
-    'meta' => 'http://data.gv.at/katalog/api/rest/dataset/vornamen-in-vorarlberg',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=5505b7af-c252-44c1-ab73-056e16f18763',
     'modified' => '2013-10-10',
     'id' => 5,
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => 'http://data.gv.at/katalog/storage/f/Vornamenstatistik2005_2011.csv',
+      0 => 'http://at.gv.brz.ogd/storage/f/Vornamenstatistik2005_2011.csv',
     ),
     'autoName' => 
     array (
@@ -554,7 +564,7 @@ $gSource=array (
     array (
       0 => 'AT34',
     ),
-    'autoModified' => '2013-11-21',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Land Vorarlberg – data.vorarlberg.gv.at',
   ),
@@ -645,7 +655,7 @@ $gSource=array (
   ),
   25 => 
   array (
-    'nuts' => '',
+    'nuts' => 'IE',
     'name' => 'Irish Babies\' Names',
     'de-DE' => 
     array (
@@ -653,7 +663,7 @@ $gSource=array (
     'en-US' => 
     array (
     ),
-    'url' => 'http://www.publicdata.eu/dataset/irish-babies-names',
+    'url' => 'http://data.gov.ie/dataset/statcentral-166',
     'id' => 12,
     'autoUpdate' => -1,
   ),
@@ -839,7 +849,7 @@ $gSource=array (
     array (
       0 => 'Zürich',
     ),
-    'meta' => 'http://data.stadt-zuerich.ch/content/portal/de/index/ogd/daten/vornamen_baby.html',
+    'meta' => 'http://data.stadt-zuerich.ch/content/portal/de/index/ogd/daten/bev_vornamen_baby.html',
     'id' => 20,
     'autoUpdate' => 0,
     'autoUrl' => 
@@ -967,7 +977,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9552_de',
     'id' => 35,
-    'autoUpdate' => 0,
+    'autoUpdate' => 1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202006.csv',
@@ -981,8 +991,9 @@ $gSource=array (
       0 => 'DE50',
     ),
     'autoModified' => '2013-11-28',
-    'autoLicense' => 'CC BY 3.0 DE',
+    'autoLicense' => 'CC BY',
     'manCitation' => 'Datenquelle: Freie Hansestadt Bremen – daten.bremen.de',
+    'autoCitation' => '',
   ),
   36 => 
   array (
@@ -999,7 +1010,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9559_de',
     'id' => 36,
-    'autoUpdate' => 0,
+    'autoUpdate' => 1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202007.csv',
@@ -1013,8 +1024,9 @@ $gSource=array (
       0 => 'DE50',
     ),
     'autoModified' => '2013-11-28',
-    'autoLicense' => 'CC BY 3.0 DE',
+    'autoLicense' => 'CC BY',
     'manCitation' => 'Datenquelle: Freie Hansestadt Bremen – daten.bremen.de',
+    'autoCitation' => '',
   ),
   37 => 
   array (
@@ -1031,7 +1043,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9566_de',
     'id' => 37,
-    'autoUpdate' => 0,
+    'autoUpdate' => 1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202008.csv',
@@ -1045,8 +1057,9 @@ $gSource=array (
       0 => 'DE50',
     ),
     'autoModified' => '2013-11-28',
-    'autoLicense' => 'CC BY 3.0 DE',
+    'autoLicense' => 'CC BY',
     'manCitation' => 'Datenquelle: Freie Hansestadt Bremen – daten.bremen.de',
+    'autoCitation' => '',
   ),
   38 => 
   array (
@@ -1063,7 +1076,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9573_de',
     'id' => 38,
-    'autoUpdate' => 0,
+    'autoUpdate' => 1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202009.csv',
@@ -1077,8 +1090,9 @@ $gSource=array (
       0 => 'DE50',
     ),
     'autoModified' => '2013-11-28',
-    'autoLicense' => 'CC BY 3.0 DE',
+    'autoLicense' => 'CC BY',
     'manCitation' => 'Datenquelle: Freie Hansestadt Bremen – daten.bremen.de',
+    'autoCitation' => '',
   ),
   39 => 
   array (
@@ -1095,7 +1109,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9580_de',
     'id' => 39,
-    'autoUpdate' => 0,
+    'autoUpdate' => 1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202010.csv',
@@ -1109,8 +1123,9 @@ $gSource=array (
       0 => 'DE50',
     ),
     'autoModified' => '2013-11-28',
-    'autoLicense' => 'CC BY 3.0 DE',
+    'autoLicense' => 'CC BY',
     'manCitation' => 'Datenquelle: Freie Hansestadt Bremen – daten.bremen.de',
+    'autoCitation' => '',
   ),
   40 => 
   array (
@@ -1127,7 +1142,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9587_de',
     'id' => 40,
-    'autoUpdate' => 0,
+    'autoUpdate' => 1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202011.csv',
@@ -1141,8 +1156,9 @@ $gSource=array (
       0 => 'DE50',
     ),
     'autoModified' => '2013-11-28',
-    'autoLicense' => 'CC BY 3.0 DE',
+    'autoLicense' => 'CC BY',
     'manCitation' => 'Datenquelle: Freie Hansestadt Bremen – daten.bremen.de',
+    'autoCitation' => '',
   ),
   41 => 
   array (
@@ -1159,7 +1175,7 @@ $gSource=array (
     ),
     'meta' => 'http://www.govdata.de/ckan/api/rest/dataset/bremen248_c_9594_de',
     'id' => 41,
-    'autoUpdate' => 0,
+    'autoUpdate' => 1,
     'autoUrl' => 
     array (
       0 => 'http://daten.bremen.de/sixcms/media.php/bremen02.a.13.de/download/Vornamen%202012.csv',
@@ -1173,8 +1189,9 @@ $gSource=array (
       0 => 'DE50',
     ),
     'autoModified' => '2013-11-28',
-    'autoLicense' => 'CC BY 3.0 DE',
+    'autoLicense' => 'CC BY',
     'manCitation' => 'Datenquelle: Freie Hansestadt Bremen – daten.bremen.de',
+    'autoCitation' => '',
   ),
   42 => 
   array (
@@ -1218,7 +1235,8 @@ $gSource=array (
     'en-US' => 
     array (
     ),
-    'meta' => 'http://www.ssa.gov/oact/babynames/background.html',
+    'meta' => 'https://www.google.de/intl/de/about/',
+    'url' => 'http://www.ssa.gov/oact/babynames/background.html',
     'id' => 43,
     'autoUpdate' => -1,
   ),
@@ -1236,7 +1254,7 @@ $gSource=array (
       0 => 'Salzburg',
     ),
     'url' => 'http://data.gv.at/datensatz/?id=3678ee56-4340-4e9d-bd59-379cb3c69103',
-    'meta' => 'http://data.gv.at/katalog/api/rest/dataset/beliebteste-vornamen-in-der-stadt-salzburg-2013',
+    'meta' => 'https://www.data.gv.at/katalog/api/3/action/package_show?id=3678ee56-4340-4e9d-bd59-379cb3c69103',
     'id' => 44,
     'autoUpdate' => 0,
     'manNUTS' => 
@@ -1245,13 +1263,13 @@ $gSource=array (
     ),
     'autoUrl' => 
     array (
-      0 => 'http://data.gv.at/katalog/storage/f/ranking_vornamen_neu_2013.csv',
+      0 => 'http://at.gv.brz.ogd/storage/f/ranking_vornamen_neu_2013.csv',
     ),
     'autoName' => 
     array (
       0 => 'ranking_vornamen_2013.csv',
     ),
-    'autoModified' => '2014-02-13',
+    'autoModified' => '2014-08-18',
     'autoLicense' => 'CC BY 3.0 AT',
     'manCitation' => 'Datenquelle: Stadt Salzburg - data.stadt-salzburg.at',
   ),
@@ -1488,7 +1506,7 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/data/private/hamburg/altona-2013.csv',
+      0 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/hamburg/altona-2013.csv',
     ),
     'autoName' => 
     array (
@@ -1529,11 +1547,11 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/data/private/hamburg/eimsbuettel-2009.csv',
-      1 => '/data/private/hamburg/eimsbuettel-2010.csv',
-      2 => '/data/private/hamburg/eimsbuettel-2011.csv',
-      3 => '/data/private/hamburg/eimsbuettel-2012.csv',
-      4 => '/data/private/hamburg/eimsbuettel-2013.csv',
+      0 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/hamburg/eimsbuettel-2009.csv',
+      1 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/hamburg/eimsbuettel-2010.csv',
+      2 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/hamburg/eimsbuettel-2011.csv',
+      3 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/hamburg/eimsbuettel-2012.csv',
+      4 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/hamburg/eimsbuettel-2013.csv',
     ),
     'autoName' => 
     array (
@@ -1597,8 +1615,8 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/data/private/hamburg/nord-2012.csv',
-      1 => '/data/private/hamburg/nord-2013.csv',
+      0 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/hamburg/nord-2012.csv',
+      1 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/hamburg/nord-2013.csv',
     ),
     'autoName' => 
     array (
@@ -1623,7 +1641,7 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/data/private/hamburg/wandsbek-2009-2013.csv',
+      0 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/hamburg/wandsbek-2009-2013.csv',
     ),
     'autoName' => 
     array (
@@ -1652,13 +1670,13 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/data/private/essen/2007.csv',
-      1 => '/data/private/essen/2008.csv',
-      2 => '/data/private/essen/2009.csv',
-      3 => '/data/private/essen/2010.csv',
-      4 => '/data/private/essen/2011.csv',
-      5 => '/data/private/essen/2012.csv',
-      6 => '/data/private/essen/2013.csv',
+      0 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/essen/2007.csv',
+      1 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/essen/2008.csv',
+      2 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/essen/2009.csv',
+      3 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/essen/2010.csv',
+      4 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/essen/2011.csv',
+      5 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/essen/2012.csv',
+      6 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/essen/2013.csv',
     ),
     'autoName' => 
     array (
@@ -1689,9 +1707,9 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/data/private/muenchen/jt120153.csv',
-      1 => '/data/private/muenchen/jt130153.csv',
-      2 => '/data/private/muenchen/jt140153.csv',
+      0 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenchen/jt120153.csv',
+      1 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenchen/jt130153.csv',
+      2 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenchen/jt140153.csv',
     ),
     'autoName' => 
     array (
@@ -1722,13 +1740,13 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/data/private/muenster/2007.csv',
-      1 => '/data/private/muenster/2008.csv',
-      2 => '/data/private/muenster/2009.csv',
-      3 => '/data/private/muenster/2010.csv',
-      4 => '/data/private/muenster/2011.csv',
-      5 => '/data/private/muenster/2012.csv',
-      6 => '/data/private/muenster/2013.csv',
+      0 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenster/2007.csv',
+      1 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenster/2008.csv',
+      2 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenster/2009.csv',
+      3 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenster/2010.csv',
+      4 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenster/2011.csv',
+      5 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenster/2012.csv',
+      6 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/muenster/2013.csv',
     ),
     'autoName' => 
     array (
@@ -1757,7 +1775,7 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/data/private/nuernberg/2001bis2013.csv',
+      0 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/nuernberg/2001bis2013.csv',
     ),
     'autoName' => 
     array (
@@ -1784,11 +1802,11 @@ $gSource=array (
     'autoUpdate' => 0,
     'autoUrl' => 
     array (
-      0 => '/data/private/paderborn/Vornamen2009_Gesamtliste.csv',
-      1 => '/data/private/paderborn/Vornamen2010_Gesamtliste.csv',
-      2 => '/data/private/paderborn/Vornamen2011_Gesamtliste.csv',
-      3 => '/data/private/paderborn/Vornamen2012_Gesamtliste.csv',
-      4 => '/data/private/paderborn/Vornamen2013_Gesamtliste.csv',
+      0 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/paderborn/Vornamen2009_Gesamtliste.csv',
+      1 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/paderborn/Vornamen2010_Gesamtliste.csv',
+      2 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/paderborn/Vornamen2011_Gesamtliste.csv',
+      3 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/paderborn/Vornamen2012_Gesamtliste.csv',
+      4 => '/homepages/38/d294228310/htdocs/www.tursics.de/inc-v5/page-nameyourbabe/data/private/paderborn/Vornamen2013_Gesamtliste.csv',
     ),
     'autoName' => 
     array (
@@ -1807,7 +1825,7 @@ $gSource=array (
     'nuts' => 'DEA22',
     'name' => '[2012-2013] Vornamen von Neugeborenen, Bonn',
     'id' => 63,
-    'meta' => 'http://opendata.bonn.de/node/813/json',
+    'meta' => 'http://opendata.bonn.de/api/3/action/package_show?id=155c1d26-e839-461f-b774-45c2ad45f0f0',
     'manNUTS' => 
     array (
       0 => 'DEA22',
@@ -1833,7 +1851,7 @@ $gSource=array (
     'nuts' => 'DEA23',
     'name' => '[2010-2013] Vornamen, Köln',
     'id' => 64,
-    'meta' => 'http://offenedaten-koeln.de/node/593/json',
+    'meta' => 'http://offenedaten-koeln.de/api/3/action/package_show?id=63d138aa-8297-438a-ad36-3916bd37c60b',
     'manNUTS' => 
     array (
       0 => 'DEA23',
@@ -2055,6 +2073,67 @@ $gSource=array (
     'name' => 'Prénoms inscrits annuellement à l\'état civil de la ville de Strasbourg',
     'id' => 92,
     'url' => 'http://www.data.gouv.fr/fr/dataset/prenoms-inscrits-annuellement-a-l-etat-civil-de-la-ville-de-strasbourg-nd',
+  ),
+  93 => 
+  array (
+    'nuts' => 'DEA51',
+    'name' => 'Vornamen-Statistiken, Bochum',
+    'id' => 93,
+    'url' => 'http://www.bochum.de/opendata/datensaetze/jugend-familie-soziales/nav/75F9RD294BOLD',
+  ),
+  94 => 
+  array (
+    'nuts' => 'DEBKGDL20000E023',
+    'name' => 'Delmenhorst',
+    'id' => 94,
+    'meta' => '/private/delmenhorst/metadata.json',
+    'autoUpdate' => -1,
+  ),
+  95 => 
+  array (
+    'autoModified' => '2001-01-01',
+  ),
+  '' => 
+  array (
+    'autoUrl' => 
+    array (
+      0 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2014.csv',
+      1 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2013.csv',
+      2 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2012.csv',
+      3 => 'http://data.linz.gv.at/katalog/population/vornamen/0_4/Beliebteste_Vornamen_0-4_Jaehrige_am_1_1_2011.csv',
+      4 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2014.csv',
+      5 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2013.csv',
+      6 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2012.csv',
+      7 => 'http://data.linz.gv.at/katalog/population/vornamen/5_9/Beliebteste_Vornamen_5-9_Jaehrige_am_1_1_2011.csv',
+      8 => 'http://data.linz.gv.at/katalog/population/vornamen/2013/Beliebteste_Vornamen_des_Jahres_2013.csv',
+      9 => 'http://data.linz.gv.at/katalog/population/vornamen/2012/Beliebteste_Vornamen_des_Jahres_2012.csv',
+      10 => 'http://data.linz.gv.at/katalog/population/vornamen/2011/Beliebteste_Vornamen_des_Jahres_2011.csv',
+      11 => 'http://data.linz.gv.at/katalog/population/vornamen/2010/Beliebteste_Vornamen_des_Jahres_2010.csv',
+      12 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2014.csv',
+      13 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2013.csv',
+      14 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2012.csv',
+      15 => 'http://data.linz.gv.at/katalog/population/vornamen/alle_linz/Beliebteste_Vornamen_aller_Linzer_am_1_1_2011.csv',
+    ),
+    'autoName' => 
+    array (
+      0 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2014',
+      1 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2013',
+      2 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2012',
+      3 => 'Beliebteste Vornamen 0-4 Jährige am 01.01.2011',
+      4 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2014',
+      5 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2013',
+      6 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2012',
+      7 => 'Beliebteste Vornamen 5-9 Jährige am 01.01.2011',
+      8 => 'Beliebteste Vornamen des Jahres 2013',
+      9 => 'Beliebteste Vornamen des Jahres 2012',
+      10 => 'Beliebteste Vornamen des Jahres 2011',
+      11 => 'Beliebteste Vornamen des Jahres 2010',
+      12 => 'Beliebteste Vornamen aller Linzer am 01.01.2014',
+      13 => 'Beliebteste Vornamen aller Linzer am 01.01.2013',
+      14 => 'Beliebteste Vornamen aller Linzer am 01.01.2012',
+      15 => 'Beliebteste Vornamen aller Linzer am 01.01.2011',
+    ),
+    'autoLicense' => 'CC BY 3.0 AT',
   ),
 );
 ?>

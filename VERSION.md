@@ -6,6 +6,59 @@ Current version and update messages in English and German.
 Version 3.5 ()
 ------------------------
 
+tbd.
+Mannheim
+Innsbruck
+Klagenfurt
+Freiburg
+Frankfurt
+Bielefeld
+Bad Kissingen
+Simmerath
+Kassel
+Dissen am Teutoburger Wald
+Göttingen
+Wolfsburg
+Duisburg
+Frankenthal (Pfalz)
+Schwerte
+Starnberg
+Flensburg
+Leverkusen
+Neubrandenburg
+Siegen
+Euskirchen
+München
+Gelsenkirchen
+Bremerhaven
+Essen 2014
+Aachen
+Stendal
+Hannover
+Zwickau
+Aschersleben
+Schwetzingen
+Minden
+Osnabrück
+Gütersloh
+Pirna
+Rostock
+Wangen im Allgäu
+Ibbenbüren
+Passau
+Saarbrücken
+Rendsburg
+Bad Kreuznach
+Dortmund
+Falkensee
+Haltern am See
+Hameln
+Coesfeld
+Hamm
+Rostock
+
+Phonegap plugin: Insomnia (prevent screen sleep) https://build.phonegap.com/plugins/842
+
 Version 3.4 (2015-04-01)
 ------------------------
 - Security update
